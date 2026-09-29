@@ -36,25 +36,46 @@ format:
 
 ## Rückblick Sitzung 1
 
+::: columns
+::: {.column width="56%"}
 - Safety ≠ Security – beides beeinflusst Resilienz.
 - Vier technische Prinzipien: Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität.
 - Resilienz = nicht Unverwundbarkeit, sondern Erholungsfähigkeit.
+:::
+::: {.column width="40%"}
+![](assets/knete.jpg){fig-alt="Dose mit Springknete als Bild für Elastizität"}
+:::
+:::
 
 ## Warum Resilienz messen?
 
+::: columns
+::: {.column width="56%"}
 - Management braucht Kennzahlen.
 - Vergleichbarkeit zwischen Systemen und Organisationen.
 - Steuerung und Priorisierung von Investitionen.
 - Frühwarnindikatoren für Krisenfähigkeit.
 - Nachweisfähigkeit in regulierten Domänen (KRITIS, Finanzaufsicht).
+:::
+::: {.column width="40%"}
+![](assets/alert.jpg){fig-alt="Warnschild Alert Condition Red"}
+:::
+:::
 
 ## Resilienz als Systemfunktion
 
+::: columns
+::: {.column width="56%"}
 - Systemleistung über Zeit → „Degradationskurve“
 - Zwei Schlüsselgrößen: **Tiefe des Ausfalls (Δ)** und **Wiederherstellungszeit (tR)**
 - Ziel: Minimierung von Δ und tR
 
 Resilienz zeigt sich nicht im Normalbetrieb, sondern in der Auslenkung. Die Kurve misst das Ergebnis, nicht den Weg.
+:::
+::: {.column width="40%"}
+![](assets/degradationskurve.png){fig-alt="Degradations- und Wiederherstellungskurve"}
+:::
+:::
 
 ## Grafische Darstellung von RTO und RPO
 
@@ -73,10 +94,17 @@ RTO und RPO sind Planungsziele, MTTR und MTBF beobachtete Messwerte.
 
 ## Ziel vs. Messwert
 
+::: columns
+::: {.column width="56%"}
 - **RTO / RPO:** normative bzw. vertragliche Anforderung – „Wie lange dürfen wir offline sein? Wie alt dürfen die Daten sein?“
 - **MTTR / MTBF:** beobachtete Realwelt-Performance.
 - MTBF misst Zuverlässigkeit, nicht Resilienz – ist aber entscheidend für die Risikoexposition.
 - Normen fordern Angemessenheit, nicht absolute Minimierung.
+:::
+::: {.column width="40%"}
+![](assets/ausfallrate-temperatur.png){fig-alt="Balkendiagramm: Ausfallrate verdoppelt sich je 10 °C Temperaturanstieg"}
+:::
+:::
 
 ## Modelle aus Frameworks
 
@@ -106,6 +134,8 @@ ENISA ergänzt sektorale Perspektiven für KRITIS: Bedrohungsmodelle, Abhängigk
 
 ## Resilienzreife (Maturity)
 
+::: columns
+::: {.column width="56%"}
 Fünf-Stufen-Modell:
 
 1. Ad hoc
@@ -115,6 +145,11 @@ Fünf-Stufen-Modell:
 5. Optimized
 
 Reifegrad = Fähigkeit *vor* dem Ereignis, nicht Performance danach.
+:::
+::: {.column width="40%"}
+![](assets/maturity-leiter.png){fig-alt="Person steigt eine Leiter der Reifegrade 1 bis 5 hinauf"}
+:::
+:::
 
 ::: notes
 Die Stufenbezeichnungen unterscheiden sich zwischen Folien und Skripten. Der BSI-Standard 200-4 selbst kennt Reaktiv-, Aufbau- und Standard-BCMS. Vereinheitlichung prüfen.
@@ -130,6 +165,8 @@ Die Stufenbezeichnungen unterscheiden sich zwischen Folien und Skripten. Der BSI
 
 ## Fallbeispiel Cloud-Ausfall
 
+::: columns
+::: {.column width="56%"}
 **Szenario:** AWS-Ausfall – mehrere Regionen betroffen.
 
 **Analyse:** RTO = 3 h, RPO = 30 min.
@@ -137,6 +174,11 @@ Die Stufenbezeichnungen unterscheiden sich zwischen Folien und Skripten. Der BSI
 **Lernen:** Geo-Redundanz und Failover-Strategien verkürzen RTO und RPO.
 
 Architektur, nicht Plattform, entscheidet über Resilienz.
+:::
+::: {.column width="40%"}
+![](assets/kosten-wiederherstellung.png){fig-alt="Diagramm: Kosten der Unterbrechung steigen, Wiederherstellungskosten sinken mit der Dauer"}
+:::
+:::
 
 ## Weitere Fälle aus dem Skript
 

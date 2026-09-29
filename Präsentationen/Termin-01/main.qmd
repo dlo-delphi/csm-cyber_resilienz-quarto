@@ -24,6 +24,8 @@ format:
 
 ## About …
 
+::: columns
+::: {.column width="56%"}
 **Prof. Dr. Dirk Loomans**, Diplom-Physiker
 
 - Studium Physik mit Informatik, Universität Bayreuth; Promotion in theoretischer Polymerphysik, Universität Freiburg i. Br.
@@ -32,6 +34,11 @@ format:
 - Lehre: Projektmanagement, Cyber-Resilienz, IT-Security, Web Development
 - Forschung: KI und Cyber, Cyber in Sustainability
 - Fun Fact: Hobbybrauer und Fastnachts-Aficionado
+:::
+::: {.column width="40%"}
+![](assets/portrait-loomans.jpg){fig-alt="Porträt Prof. Dr. Dirk Loomans"}
+:::
+:::
 
 ## Zugang zum Kurs in OLAT
 
@@ -82,9 +89,16 @@ Server-Ausfälle beim Zocken als Einstieg. Ausfälle sind normal, Erholungsfähi
 
 ## Was bedeutet Resilienz?
 
+::: columns
+::: {.column width="56%"}
 - Resilienz = Widerstands- und Anpassungsfähigkeit bei Störungen.
 - Herkunft: Physik, Psychologie, Systemtheorie – heute technische und organisatorische Systeme.
 - In der IT: Systeme bleiben trotz Störungen funktionsfähig oder erholen sich schnell.
+:::
+::: {.column width="40%"}
+![](assets/cyber-resilience-lifecycle.jpg){fig-alt="Kreislauf Anticipate, Withstand, Recover, Evolve"}
+:::
+:::
 
 ::: notes
 Resilienz definieren, Herkunft erwähnen, Alltagsbeispiele abfragen.
@@ -92,11 +106,18 @@ Resilienz definieren, Herkunft erwähnen, Alltagsbeispiele abfragen.
 
 ## Safety vs. Security – der Unterschied
 
+::: columns
+::: {.column width="56%"}
 **Safety:** Schutz vor unbeabsichtigten Fehlern und Unfällen – Hardwaredefekt, Stromausfall, Brand.
 
 **Security:** Schutz vor absichtlichen Angriffen – Ransomware, Social Engineering, Hacking.
 
 Beide beeinflussen die Resilienz eines Systems.
+:::
+::: {.column width="40%"}
+![](assets/safety-vs-security.jpg){fig-alt="Illustration: links Arbeitsschutz (Safety), rechts Wachmann mit Kamera (Security)"}
+:::
+:::
 
 ::: notes
 Safety vs. Security sammeln. Resilienz wird von beidem beeinflusst.
@@ -104,17 +125,31 @@ Safety vs. Security sammeln. Resilienz wird von beidem beeinflusst.
 
 ## Resilienz verbindet beides
 
+::: columns
+::: {.column width="56%"}
 Ziel: nicht Unverwundbarkeit, sondern Reaktions- und Wiederherstellungsfähigkeit.
 
 **Safety + Security + Adaptivität = Resilienz**
 
 Fokus: robust designen, Störungen erkennen, reagieren, wiederherstellen.
+:::
+::: {.column width="40%"}
+![](assets/safety-security-adaptivitaet.jpg){fig-alt="Skizze: Safety plus Security plus Adaptivität ergibt Resilienz"}
+:::
+:::
 
 ## Physikalische Perspektive (Analogie)
 
+::: columns
+::: {.column width="56%"}
 - Pendel / Schwingkreis: Störung → Auslenkung → Rückkehr zur Balance.
 - Elastizität vs. Fragilität: Gummi vs. Glas.
 - Übertragung auf IT-Systeme und Organisationen: Monitoring, Alerting und Autoscaling wirken wie Regelkreise.
+:::
+::: {.column width="40%"}
+![](assets/pendel.png){fig-alt="Strichzeichnung eines schwingenden Pendels"}
+:::
+:::
 
 ::: notes
 Physik-Analogie (Pendel/Schwingkreis). Fragil vs. resilient.
@@ -122,10 +157,17 @@ Physik-Analogie (Pendel/Schwingkreis). Fragil vs. resilient.
 
 ## Technische Resilienzprinzipien
 
+::: columns
+::: {.column width="56%"}
 - **Redundanz** – mehrere Wege und Komponenten
 - **Diversität** – heterogene Komponenten reduzieren Kaskadenfehler
 - **Wiederherstellbarkeit** – Backups, DR-Prozesse, Automatisierung
 - **Adaptivität** – Skalierung, Umschalten, Lernen
+:::
+::: {.column width="40%"}
+![](../../assets/vier-prinzipien.png){fig-alt="Vier Kacheln: Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität"}
+:::
+:::
 
 ::: notes
 Vier Prinzipien mit Cloud-/Netzwerk-Bezug erläutern.
@@ -143,11 +185,18 @@ Mini-Case-Diskussion. Priorisierung und Abhängigkeiten betonen.
 
 ## Warum Prävention nicht reicht
 
+::: columns
+::: {.column width="56%"}
 - Zero-Days, Lieferketten, menschliche Fehler
 - 100 % Prävention gibt es nicht.
 - **Resilienz ist die letzte Verteidigungslinie.**
 
 „Sicherheit schützt – Resilienz überlebt.“
+:::
+::: {.column width="40%"}
+![](assets/prevent-prepare-respond-recover.png){fig-alt="Vier Felder: Prevent, Prepare, Respond, Recover"}
+:::
+:::
 
 ::: notes
 Warum 100 % Prävention nicht existiert. Merksatz und NIST-Gedanke: Detect – Respond – Recover ergänzen die Prävention.

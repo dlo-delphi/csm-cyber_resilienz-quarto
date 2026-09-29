@@ -13,3 +13,8 @@ $link-color: #175b84;
 .reveal table th { color: #183449; border-bottom: 2px solid #9c343a; }
 .reveal .progress { color: #9c343a; }
 .reveal .slide-number { background: transparent; color: #555; }
+.reveal .columns { align-items: center; }
+.reveal .column img { max-height: 540px; width: auto; max-width: 100%; object-fit: contain; }
+.reveal .column p:has(> img) { text-align: center; }
+.reveal section:has(> p ~ p) > p > img, .reveal section:has(> ul ~ p) > p > img { max-height: 330px; width: auto; display: block; margin: .3em auto 0; }
+.reveal section > p:has(> img) { text-align: center; }

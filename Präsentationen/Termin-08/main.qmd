@@ -50,11 +50,18 @@ format:
 
 ## Was ist Zero Trust?
 
+::: columns
+::: {.column width="56%"}
 - „Never trust — always verify“
 - Identität statt Netzwerkstandort
 - Assume Breach
 
 Der Perimeter existiert nicht mehr – Cloud, Homeoffice, SaaS und gestohlene Credentials haben ihn aufgelöst. Jeder Zugriff wird explizit, kontextabhängig und fortlaufend autorisiert.
+:::
+::: {.column width="40%"}
+![](assets/zero-trust-burg.jpg){fig-alt="Comic: Ritter vor der Burg prüft die Identität am Tor"}
+:::
+:::
 
 ## Säulen des Zero Trust
 
@@ -66,15 +73,24 @@ Der Perimeter existiert nicht mehr – Cloud, Homeoffice, SaaS und gestohlene Cr
 
 ## Warum Zero Trust resilient macht
 
+::: columns
+::: {.column width="44%"}
 - begrenzt Angriffsfläche
 - verhindert Eskalation
 - reduziert Kompromittierungsfolgen
 - unterstützt schnelle Recovery
 
 Zero Trust reduziert nicht die Wahrscheinlichkeit eines Angriffs, sondern die maximale Schadenswirkung. Zero Trust ist kein Produkt, sondern ein Architekturprinzip.
+:::
+::: {.column width="54%"}
+![](../../assets/zero-trust-vergleich.png){fig-alt="Perimeter mit vertrautem Innenraum gegenüber Zero Trust mit Prüfpunkt je Ressource"}
+:::
+:::
 
 ## Microsegmentation
 
+::: columns
+::: {.column width="56%"}
 **Definition**
 
 - Sicherheitszonen auf Workload-Ebene
@@ -82,26 +98,47 @@ Zero Trust reduziert nicht die Wahrscheinlichkeit eines Angriffs, sondern die ma
 - Software-defined statt physisch
 
 Umsetzung netzwerk-, host- oder identitätsbasiert. Leitfrage: Wer muss wirklich miteinander kommunizieren?
+:::
+::: {.column width="40%"}
+![](assets/microsegmentation-comic.jpg){fig-alt="Comic: Held hält Angreifer in abgeschotteten Segmenten fest"}
+:::
+:::
 
 ## Warum Microsegmentation?
 
+::: columns
+::: {.column width="44%"}
 - stoppt laterale Bewegung
 - klare Kommunikationspfade
 - Angriffe bleiben lokal
 - Forensik wird einfacher
 
 Allow-List statt Block-List, Datenflussanalyse vor Enforcement, iterative Einführung. „Technologie segmentiert Systeme – aber nur Organisationen segmentieren Risiko.“
+:::
+::: {.column width="54%"}
+![](../../assets/microseg-zellen.png){fig-alt="Flaches Netz komplett betroffen gegenüber segmentiertem Netz mit nur einer betroffenen Zelle"}
+:::
+:::
 
 ## Cloud Resilience
 
+::: columns
+::: {.column width="56%"}
 **Shared Responsibility Model**
 
 - Cloud-Anbieter ≠ Datensicherung
 - Kunde verantwortet IAM, Konfiguration & Backups
 - Resilienz muss bewusst gebaut werden
+:::
+::: {.column width="40%"}
+![](../../assets/shared-responsibility.png){fig-alt="Shared Responsibility: Daten, IAM, Konfiguration und Backups beim Kunden, Infrastruktur beim Anbieter"}
+:::
+:::
 
 ## Cloud-Resilienzmaßnahmen
 
+::: columns
+::: {.column width="56%"}
 - Multi-AZ / Multi-Region
 - stateless Services
 - Auto-Scaling & Load Balancing
@@ -109,6 +146,11 @@ Allow-List statt Block-List, Datenflussanalyse vor Enforcement, iterative Einfü
 - Backups trotz Cloud, Observability, Chaos Engineering
 
 „Cloud-Resilienz kommt aus Design — nicht aus einem Anbieterlogo.“
+:::
+::: {.column width="40%"}
+![](assets/cloud-resilience.jpg){fig-alt="Comic: Wolken mit Schirm und Rettungsboot"}
+:::
+:::
 
 ## Network Design & Resilience
 
@@ -122,12 +164,21 @@ Allow-List statt Block-List, Datenflussanalyse vor Enforcement, iterative Einfü
 
 ## Resiliente Design Patterns
 
+::: columns
+::: {.column width="56%"}
 - Leaf-Spine statt klassischer Stern
 - SD-WAN zur Dezentralisierung
 - redundante Pfade & Carrier-Unabhängigkeit
+:::
+::: {.column width="40%"}
+![](assets/leaf-spine.png){fig-alt="Vergleich Leaf-Spine-Architektur und klassische Drei-Schichten-Architektur"}
+:::
+:::
 
 ## Integration
 
+::: columns
+::: {.column width="56%"}
 **Zusammenspiel der Maßnahmen**
 
 - Zero Trust = Schadensbegrenzung
@@ -136,6 +187,11 @@ Allow-List statt Block-List, Datenflussanalyse vor Enforcement, iterative Einfü
 - Network Design = stabile Grundlage
 
 Reihenfolge: Netzwerkstabilität → Identität → Microsegmentation → Cloud-Resilienz → Zero Trust operationalisieren.
+:::
+::: {.column width="40%"}
+![](../../assets/integration-schichten.png){fig-alt="Vier Schichten: Zero Trust, Microsegmentation, Cloud Resilience, Network Design"}
+:::
+:::
 
 ## Übung: GameNova GmbH
 

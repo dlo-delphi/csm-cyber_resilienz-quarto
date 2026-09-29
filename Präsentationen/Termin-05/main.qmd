@@ -63,7 +63,7 @@ Definition nach ISO 22316: „Die Fähigkeit einer Organisation, Störungen vorh
 Bezug: ISO 22316 · ISO/IEC 27035 · BSI 200-4
 :::
 ::: {.column width="44%"}
-![](../../assets/resilienzzyklus.png){fig-alt="Kreislauf Detection, Response, Recovery, Adapt."}
+![](assets/resilience-lifecycle-framework.jpg){fig-alt="Kreislauf Anticipate, Assess, Respond, Adapt mit Figuren"}
 :::
 :::
 
@@ -81,19 +81,33 @@ Kernprinzip: „Wer entscheidet was, wann und warum?“
 
 ## Entscheidungslogik in Krisen
 
+::: columns
+::: {.column width="56%"}
 - Rollen statt Personen – die Organisation bleibt handlungsfähig, wenn Einzelne fehlen.
 - Der Linienweg ist zu langsam: Entscheidungskompetenz auf Zeit (Incident Command System).
 - Command priorisiert · Operations handelt · Support dokumentiert und kommuniziert.
 - Unity of Command · Span of Control (5–7) · Delegation · Nachvollziehbarkeit · Training.
+:::
+::: {.column width="40%"}
+![](../../assets/incident-command.png){fig-alt="Incident Command: Command über Operations und Support"}
+:::
+:::
 
 ## Kommunikation unter Stress
 
+::: columns
+::: {.column width="56%"}
 **Krisenkommunikation ist Teil der Resilienzarchitektur.**
 
 - Viele Vorfallsbehandlungen scheitern an Informationsfehlern, nicht an Technik.
 - Prinzipien: **Clear · Concise · Confirmed · Coordinated**
 - „Eine Info ist nur so gut wie ihre Bestätigung.“
 - Kommunikationskanäle müssen vorher definiert und getestet sein.
+:::
+::: {.column width="40%"}
+![](../../assets/cccc.png){fig-alt="Vier Kacheln: Clear, Concise, Confirmed, Coordinated"}
+:::
+:::
 
 ## Exkurs: Kommunikation nach Schulz von Thun
 
@@ -108,6 +122,8 @@ Jede Botschaft hat vier Ebenen. Beispiel im IT-Incident – Admin sagt: „Der S
 
 ## Kommunikationsübung: Vier Seiten einer Nachricht
 
+::: columns
+::: {.column width="56%"}
 3er-Gruppen, 10 Minuten. Analysiert die Aussage aus einer Incident-Situation:
 
 **„Warum habt ihr das Backup noch nicht eingespielt?“**
@@ -116,6 +132,11 @@ Jede Botschaft hat vier Ebenen. Beispiel im IT-Incident – Admin sagt: „Der S
 - Wie könnte dieselbe Aussage resilienter formuliert werden?
 - Welche Missverständnisse entstehen, wenn nur eine Ebene gehört wird?
 - Welche Kommunikationsregeln helfen, in Stresslagen klar zu bleiben?
+:::
+::: {.column width="40%"}
+![](assets/vier-ohren.jpg){fig-alt="Vier-Ohren-Modell nach Schulz von Thun"}
+:::
+:::
 
 ## Incident-Response-Prozess
 

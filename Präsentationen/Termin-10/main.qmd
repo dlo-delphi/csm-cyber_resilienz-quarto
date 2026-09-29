@@ -63,15 +63,29 @@ format:
 
 ## Übergang: Resilienz & Zeit
 
+::: columns
+::: {.column width="56%"}
 - Resilienz misst sich über Zeit.
 - Annahme bisher: Die Vergangenheit bleibt stabil; Entscheidungen wirken nur nach vorn.
 - **Neue Frage: Was, wenn die Vergangenheit unsicher wird?**
+:::
+::: {.column width="40%"}
+![](assets/zeit-vertrauen.png){fig-alt="Diagramm: Vertrauen in Daten sinkt rückwirkend nach einem Kryptobruch"}
+:::
+:::
 
 ## Einstieg Quantencomputing
 
+::: columns
+::: {.column width="44%"}
 - Quantencomputer sind keine schnelleren PCs.
 - Sie bedrohen gezielt asymmetrische Kryptografie (RSA, ECC), digitale Signaturen und langfristige Vertraulichkeit.
 - Angriffsszenario: **„Harvest now, decrypt later“**
+:::
+::: {.column width="54%"}
+![](../../assets/harvest-now.png){fig-alt="Zeitstrahl: heute abgegriffen, gespeichert, am Q-Day entschlüsselt"}
+:::
+:::
 
 ## Quantencomputing als Resilienzproblem
 
@@ -84,11 +98,18 @@ format:
 
 ## Crypto Agility als Resilienzfähigkeit
 
+::: columns
+::: {.column width="56%"}
 **Anpassungsfähigkeit statt Algorithmus-Fetisch**
 
 - Kryptografie ist kein statischer Zustand.
 - Resiliente Systeme können Algorithmen austauschen, Schlüssel erneuern, Vertrauensketten migrieren.
 - Ziel: Schaden begrenzen, nicht Unverwundbarkeit.
+:::
+::: {.column width="40%"}
+![](../../assets/crypto-agility.png){fig-alt="Krypto-Schnittstelle tauscht RSA/ECC gegen Post-Quantum-Verfahren"}
+:::
+:::
 
 ## Grenzen technischer Resilienz (Quanten)
 
@@ -140,11 +161,18 @@ format:
 
 ## Geschwindigkeit vs. Kontrolle
 
+::: columns
+::: {.column width="56%"}
 - Menschliche Entscheidungen: langsam, reflektiert
 - Autonome Entscheidungen: schnell, aber kontextarm
 - In Krisen: Geschwindigkeit rettet Systeme – Fehlentscheidungen skalieren sofort.
 
 Wann ist menschliches Zögern Teil der Resilienz?
+:::
+::: {.column width="40%"}
+![](assets/resilienz-paradoxon.png){fig-alt="Diagramm: Reaktionsgeschwindigkeit steigt, Transparenz sinkt mit wachsender Autonomie"}
+:::
+:::
 
 ## Lernen als Risiko
 
@@ -237,10 +265,17 @@ Resilienz kann Ungleichheit verstärken.
 
 ## Resilienz der Zukunft: alles zusammen gedacht
 
+::: columns
+::: {.column width="56%"}
 - Quantencomputing verändert Zeit & Vertrauen.
 - Autonome Systeme verändern Entscheidung & Kontrolle.
 - Gesellschaft & Ethik verändern Legitimität & Akzeptanz.
 - Resilienz entsteht im Spannungsfeld aller drei.
+:::
+::: {.column width="40%"}
+![](assets/zukunft-dreieck.png){fig-alt="Dreieck aus Zeit und Vertrauen, Entscheidung und Autonomie, Legitimität und Akzeptanz"}
+:::
+:::
 
 ## Neue Resilienzfragen
 

@@ -118,13 +118,22 @@ Safety darf durch Security nicht gefährdet werden. OT-Resilienz = Schutz ohne B
 
 ## Fallbeispiel – Resilienz gegen Daten-Poisoning
 
+::: columns
+::: {.column width="56%"}
 - Wie kann ein Angreifer Trainingsdaten manipulieren?
 - Maßnahmen: Datenvalidierung, robuste Algorithmen, regelmäßige Audits
 
 OT-Beispiel: Manipulierte Vibrationsdaten → KI erkennt keinen Lagerschaden → Totalausfall.
+:::
+::: {.column width="40%"}
+![](assets/daten-poisoning.png){fig-alt="Illustration: vergiftete Trainingsdaten verändern das Modell"}
+:::
+:::
 
 ## Wallet DoS – Schutz vor finanziellen API-Angriffen
 
+::: columns
+::: {.column width="56%"}
 **Was ist Wallet DoS?** Ein Angriff, bei dem durch übermäßige API-Nutzung Credits oder Guthaben eines Dienstanbieters aufgebraucht werden.
 
 **Risiko:** nicht nur technischer, sondern auch finanzieller Schaden für den Betreiber.
@@ -134,9 +143,16 @@ OT-Beispiel: Manipulierte Vibrationsdaten → KI erkennt keinen Lagerschaden →
 - mandantenspezifische API-Schlüssel
 - Rate Limits und Monitoring pro Mandant
 - separate Budgets pro Mandant
+:::
+::: {.column width="40%"}
+![](../../assets/wallet-dos.png){fig-alt="Viele Anfragen an eine KI-API leeren das Guthaben; Gegenmaßnahmen je Mandant"}
+:::
+:::
 
 ## Zusammenfassung: Reifegrad der KI-Governance
 
+::: columns
+::: {.column width="56%"}
 1. Ad-hoc-Governance
 2. Grundlegende Strukturen und Prozesse etablieren
 3. Über die Grundlagen hinausgehen
@@ -144,15 +160,27 @@ OT-Beispiel: Manipulierte Vibrationsdaten → KI erkennt keinen Lagerschaden →
 5. Eingebettete und einflussreiche Governance
 
 „Resilienz ist die neue Vertrauenswährung der KI-Welt.“
+:::
+::: {.column width="40%"}
+![](assets/ki-governance-reife.png){fig-alt="Fünf Stufen der KI-Governance-Reife"}
+:::
+:::
 
 ## Übung: Gandalf AI
 
+::: columns
+::: {.column width="56%"}
 [gandalf.lakera.ai](https://gandalf.lakera.ai)
 
 Entlockt dem Modell über mehrere Level ein geschütztes Passwort.
 
 - Welche Abwehrmechanismen erkennt ihr?
 - Was bedeutet das für Prompt-Poisoning und die Resilienz von KI-Anwendungen?
+:::
+::: {.column width="40%"}
+![](assets/gandalf.jpg){fig-alt="Zauberlehrling mit leuchtendem Stab"}
+:::
+:::
 
 ## Ausblick auf Sitzung 10
 

@@ -33,22 +33,38 @@ format:
 
 ## Rückblick & Anschluss
 
+::: columns
+::: {.column width="56%"}
 - Letzte Sitzung: Resilienz entsteht im Design.
 - Vier Prinzipien → Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität.
 - Heute: bedrohungsgetriebener Blick.
 - Ziel: Mapping von Attacken auf Resilienzmechanismen.
+:::
+::: {.column width="40%"}
+![](assets/schloss-binaer.jpg){fig-alt="Aufgebrochenes Schloss vor Binärcode"}
+:::
+:::
 
 ## Warum Bedrohungs-Mapping essenziell ist
 
+::: columns
+::: {.column width="56%"}
 - Resilienz = Widerstand + Wiederherstellung gegen konkrete Ereignisse.
 - Ohne Threat-Bezug → Maßnahmen im Leeren.
 - Mapping ermöglicht Priorisierung & Budgetfokus.
 - Grundlage für Risk-based Resilience Engineering.
 
 Resilienz ist relational: Ein System ist resilient *gegen etwas*.
+:::
+::: {.column width="40%"}
+![](assets/threat-venn.png){fig-alt="Venn-Diagramm aus Anfälligkeit, Zugänglichkeit und Fähigkeit des Angreifers"}
+:::
+:::
 
 ## Bedrohung 1: Ransomware
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Verschlüsselung / Sabotage von Primärsystemen und Backups
 
 **Resilienzstrategien (nicht Prävention!)**
@@ -59,9 +75,16 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - Recovery-Tests statt Papierpläne
 
 **Zielgröße:** RTO ↓ / RPO ↓ trotz kompromittierter Produktion
+:::
+::: {.column width="40%"}
+![](assets/ransomware.png){fig-alt="Ablauf Ransomware: Verschlüsselung, Lösegeld in Bitcoin, Schlüssel"}
+:::
+:::
 
 ## Bedrohung 2: DDoS / Lastangriffe
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Service wird durch Überlast unbenutzbar, obwohl technisch intakt
 
 **Resilienzstrategien**
@@ -72,9 +95,16 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - API-Quota / Circuit Breaker
 
 **Ziel:** Dienst bleibt nutzbar — nicht perfekt, aber funktional
+:::
+::: {.column width="40%"}
+![](assets/ddos.png){fig-alt="Angreifer steuert viele Rechner gegen einen Server"}
+:::
+:::
 
 ## Bedrohung 3: Cloud-Provider-Ausfall / Region Down
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Redundanz auf Anbieter-Level bricht weg
 
 **Resilienzstrategien**
@@ -85,9 +115,16 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - Lokaler Fallback für Mindestfunktion
 
 **Lehrsatz:** Provider ≠ Resilienz — Architektur entscheidet
+:::
+::: {.column width="40%"}
+![](assets/cloud-regionen.png){fig-alt="Architektur mit mehreren Cloud-Regionen und Failover"}
+:::
+:::
 
 ## Bedrohung 4: Identity-Ausfall (IdP als SPOF)
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Systeme technisch verfügbar — aber nicht benutzbar (Lockout)
 
 **Resilienzstrategien**
@@ -98,9 +135,16 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - Minimierung globaler Koppelstellen
 
 **Kernaussage:** Identity ist oft der versteckte Single Point of Failure
+:::
+::: {.column width="40%"}
+![](assets/identity-saml.png){fig-alt="Anmeldefluss über einen zentralen Identity Provider mit SAML"}
+:::
+:::
 
 ## Bedrohung 5: Human Failure / Fehlkonfiguration
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Fehler propagieren systemisch (IaC, CI/CD, Admin-Fehler)
 
 **Resilienzstrategien**
@@ -111,9 +155,16 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - Auditierbarkeit & Post-Mortem-Kultur
 
 **Prinzipbezug:** Diversität & Wiederherstellbarkeit > Prävention
+:::
+::: {.column width="40%"}
+![](assets/human-failure-types.png){fig-alt="Baumdiagramm der Fehlerarten: Errors und Violations"}
+:::
+:::
 
 ## Bedrohung 6: Supply-Chain-Angriff
 
+::: columns
+::: {.column width="56%"}
 **Wirkprinzip:** Kompromittierung kommt über Dritte in die eigene Umgebung (SolarWinds, Kaseya)
 
 **Resilienzstrategien**
@@ -124,6 +175,11 @@ Resilienz ist relational: Ein System ist resilient *gegen etwas*.
 - Recovery unabhängig vom kompromittierten Dependency-State
 
 **Lehrsatz:** Resilienz ist hier das Sicherheitsnetz nach dem Vertrauensbruch
+:::
+::: {.column width="40%"}
+![](assets/supply-chain.png){fig-alt="Angreifer kompromittiert Softwarelieferanten und damit mehrere Kunden"}
+:::
+:::
 
 ## Framework-Abgleich: Threat → Resilience Capability
 
@@ -140,9 +196,16 @@ Die Bedrohung entscheidet nicht über das Tool, sondern über das Prinzip.
 
 ## Was das Mapping zeigt
 
+::: columns
+::: {.column width="56%"}
 - Verschiedene Bedrohungen adressieren dasselbe Prinzip (Ransomware und Human Failure → Recovery).
 - Dasselbe Prinzip wirkt gegen verschiedene Bedrohungen (Diversität gegen Identity-Ausfall und Supply Chain).
 - Nicht die Bedrohung wird kontrolliert, sondern die Fähigkeit, ihren Effekt zu absorbieren.
+:::
+::: {.column width="40%"}
+![](../../assets/threat-mapping.png){fig-alt="Linien von sechs Bedrohungen zu vier Resilienzprinzipien"}
+:::
+:::
 
 ## Übung (Gruppenarbeit)
 

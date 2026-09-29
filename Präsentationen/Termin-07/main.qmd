@@ -41,24 +41,40 @@ format:
 
 ## Zielsetzung der Sitzung 7
 
+::: columns
+::: {.column width="56%"}
 - Backup-Grundlagen verstehen
 - DR-Strategien & RPO/RTO
 - Notfalltests & Chaos Engineering
 - Technische Resilienz als Zusammenspiel
 
 Leitfrage: Wie stellen wir sicher, dass wir Systeme und Daten auch unter Worst-Case-Bedingungen zuverlässig wiederherstellen können?
+:::
+::: {.column width="40%"}
+![](assets/dr-hund.jpg){fig-alt="Comic-Hund plant Disaster Recovery: Prepare for the worst"}
+:::
+:::
 
 ## Warum Backups unverzichtbar sind
 
+::: columns
+::: {.column width="56%"}
 - Ransomware – greift gezielt Backup-Repositories, Snapshots und Backup-Admins an
 - Insider-Angriffe
 - Hardware-Ausfälle
 - Menschliche Fehler
 
 Backups sind die letzte Verteidigungslinie – sie müssen **manipulationssicher, isoliert und wiederherstellbar** sein.
+:::
+::: {.column width="40%"}
+![](assets/immutable-backup.png){fig-alt="Schild Immutable Backup gegen Ransomware, Löschung, Fehler und Bugs"}
+:::
+:::
 
 ## Backup vs. Archiv vs. Redundanz
 
+::: columns
+::: {.column width="56%"}
 - **Backup = Wiederherstellung** vergangener Zustände
 - **Archiv = Langzeit**-Aufbewahrung und Compliance (WORM)
 - **Redundanz = Hochverfügbarkeit** im laufenden Betrieb
@@ -66,9 +82,16 @@ Backups sind die letzte Verteidigungslinie – sie müssen **manipulationssicher
 Redundanz löst keine logischen Probleme – sie spiegelt Fehler oft nur schneller.
 
 „Wir haben RAID, also haben wir Backups.“ · „Snapshots sind doch Backups.“ – beides falsch.
+:::
+::: {.column width="40%"}
+![](assets/backup-vs-archiv.png){fig-alt="Gegenüberstellung Backup und Archivierung"}
+:::
+:::
 
 ## 3-2-1-1-0-Regel
 
+::: columns
+::: {.column width="56%"}
 - **3** Kopien
 - **2** Medientypen
 - **1** Offsite
@@ -76,84 +99,159 @@ Redundanz löst keine logischen Probleme – sie spiegelt Fehler oft nur schnell
 - **+0** fehlerfreier Restore
 
 Ein Backup ist nur dann ein Backup, wenn der Restore erfolgreich getestet wurde.
+:::
+::: {.column width="40%"}
+![](assets/3-2-1-1-0.png){fig-alt="Grafik der 3-2-1-1-0-Regel"}
+:::
+:::
 
 ## Backup-Typen
 
+::: columns
+::: {.column width="56%"}
 - **Vollbackup** – vollständig, schneller Restore, hoher Speicherbedarf
 - **Inkrementell** – Änderungen seit dem letzten Backup; schnell, aber Restore braucht die ganze Kette
 - **Differenziell** – Änderungen seit dem letzten Vollbackup; wächst mit der Zeit
 - **Snapshots ≠ Backups** – hängen am Storage und sind bei dessen Schaden mitbetroffen
 
 Robuste Strategien kombinieren risikobasiert.
+:::
+::: {.column width="40%"}
+![](assets/backup-typen.png){fig-alt="Zeitstrahl von Voll-, differenziellen und inkrementellen Backups"}
+:::
+:::
 
 ## Backup-Architekturen
 
+::: columns
+::: {.column width="56%"}
 - **On-Prem** – volle Kontrolle, geringe Latenz; physische Risiken treffen alles zugleich
 - **Cloud** – geografische Verteilung, einfache Offsite-Kopie; Anbieterabhängigkeit, Egress-Kosten, Shared Responsibility
 - **Hybrid** – schneller lokaler Restore plus Cloud-Offsite; höhere Komplexität
 
 Die Architektur passt zum Risiko – nicht umgekehrt.
+:::
+::: {.column width="40%"}
+![](assets/hybrid-backup.png){fig-alt="Hybrid-Backup: lokaler Speicher und Cloud-Speicher"}
+:::
+:::
 
 ## Air-Gapped & Immutable Backups
 
+::: columns
+::: {.column width="56%"}
 - **Air-Gap:** physisch (Tape) oder logisch (zeitgesteuerter, kontrollierter Zugang) getrennt
 - **Immutable:** unveränderbar (WORM), auch für kompromittierte Administratoren
 
 Schützt gegen Löschaktionen, Ransomware und kompromittierte Admin-Konten.
+:::
+::: {.column width="40%"}
+![](assets/tape.jpg){fig-alt="Bandlaufwerk als physisch getrenntes Backup-Medium"}
+:::
+:::
 
 ## Zero-Trust-Backup
 
+::: columns
+::: {.column width="56%"}
 - MFA
 - Segmentierung
 - keine God-Admins – getrennte Administratorrollen, Least Privilege
 - Backup-Server nicht im selben AD wie die Produktion
+:::
+::: {.column width="40%"}
+![](assets/admin-beutel.jpg){fig-alt="Turnbeutel mit Aufdruck Thank God for being an Admin"}
+:::
+:::
 
 ## Was ist DR?
 
+::: columns
+::: {.column width="56%"}
 - **DR = Wiederherstellung** kompletter Systeme nach einem schweren Ereignis
 - **BCM = Fortführung** der Geschäftsprozesse
 
 DR ist der technische Motor von Business Continuity. Robustes BCM braucht funktionierendes DR.
+:::
+::: {.column width="40%"}
+![](assets/bcm-vs-dr.jpg){fig-alt="Gegenüberstellung BCM und DR"}
+:::
+:::
 
 ## RPO & RTO
 
+::: columns
+::: {.column width="56%"}
 - **RPO: Datenverlust** – RPO 0 (keine Verluste), 15 min, 24 h
 - **RTO: Wiederanlaufzeit** – RTO 0 (Active/Active), 4 h, 48 h
 
 Beide bestimmen gemeinsam DR-Strategie, Kosten und Architekturkomplexität.
+:::
+::: {.column width="40%"}
+![](assets/rpo-rto.png){fig-alt="Zeitachse: RPO vor dem Ausfall, RTO bis zur Wiederherstellung"}
+:::
+:::
 
 ## DR-Strategien
 
+::: columns
+::: {.column width="56%"}
 - Cold / Warm / Hot Standby
 - Active/Passive
 - Active/Active
 - Multi-Cloud-DR
 
 Je kürzer RTO und RPO, desto höher Kosten und Komplexität.
+:::
+::: {.column width="40%"}
+![](assets/cold-warm-hot.png){fig-alt="Cold, Warm und Hot Site im Vergleich"}
+:::
+:::
 
 ## Typische DR-Fehler
 
+::: columns
+::: {.column width="56%"}
 - Restore funktioniert nicht
 - Dokumentation fehlt oder ist veraltet
 - Abhängigkeiten unbekannt – AD, DNS und IAM vor Applikationen, Storage vor VMs
 - Unrealistische RTO/RPO (RTO 1 h bei täglichem Backup?)
 - DR-Umgebung weicht von der Produktion ab
+:::
+::: {.column width="40%"}
+![](assets/dr-fehler-comic.jpg){fig-alt="Comic-Panels: kein Backup-Test, fehlende Dokumentation, komplexe Prozesse, ignorierte Abhängigkeiten"}
+:::
+:::
 
 ## Notfalltests
 
+::: columns
+::: {.column width="56%"}
 - **Tabletop** – Szenarien diskutieren, keine Systeme verändern
 - **Dry Run** – einzelne Schritte, Restore einzelner Datenbanken oder VMs
 - **Full Failover** – reale Umschaltung, RTO und RPO messen
 
 Mindesterwartung: monatlicher Restore-Test, vierteljährlicher Tabletop, jährlicher Full Failover.
+:::
+::: {.column width="40%"}
+![](assets/testplan.png){fig-alt="Mehrjahresplan: Übungen mit wachsender Komplexität"}
+:::
+:::
 
 ## Chaos Engineering
 
+::: columns
+::: {.column width="56%"}
 - Fehler bewusst erzeugen: Systeme abschalten, Netzpfade unterbrechen, Storage-Ausfall simulieren
 - Netflix Simian Army, Azure Chaos Studio, AWS Fault Injection Service
 - Ziel: Schwachstellen unter realitätsnahen Bedingungen finden
 
 Tests ohne Auswertung sind Übungen ohne Lerneffekt.
+:::
+::: {.column width="40%"}
+![](assets/simian-army.jpg){fig-alt="Netflix Simian Army: Chaos Monkey, Latency Monkey und weitere"}
+:::
+:::
 
 ## Übung: „Plan the Worst Day“
 

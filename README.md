@@ -94,9 +94,9 @@ Musterlösung. Die Trennung erfolgt auf Dateiebene.
 ## Bewusst nicht übernommen
 
 - Die Folien des Gastvortrags (KPMG, Termin 9) sind Material des Referenten.
-- Stock- und Illustrationsbilder der Originalfolien (Campusfotos, Symbolbilder).
-  Inhaltliche Grafiken wurden als eigene Abbildungen neu gezeichnet oder als
-  Tabellen umgesetzt.
+- Campusfotos, Vorlesungsübersicht als Bild, QR-Code und Buchcover aus den
+  Originalfolien. Die inhaltlichen Bilder der Originalfolien sind wieder
+  eingesetzt (siehe PRAESENTATIONSSTATUS.md).
 - Das OLAT-Zugangskennwort des Vorsemesters.
 
 Die Originaldateien liegen weiterhin in der Seafile-Bibliothek unter

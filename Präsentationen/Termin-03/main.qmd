@@ -44,12 +44,19 @@ format:
 
 ## Vier zentrale technische Resilienzprinzipien
 
+::: columns
+::: {.column width="56%"}
 1. **Redundanz** — keine einzelnen Bruchpunkte
 2. **Diversität** — keine gemeinsamen Fehlerquellen
 3. **Wiederherstellbarkeit** — geübte, getestete Rückkehrfähigkeit
 4. **Adaptivität** — Systeme reagieren dynamisch statt statisch
 
 Messgrößen machen Resilienz sichtbar – Prinzipien erzeugen sie im Design.
+:::
+::: {.column width="40%"}
+![](../../assets/vier-prinzipien.png){fig-alt="Vier Kacheln: Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität"}
+:::
+:::
 
 ## Redundanz: On-Prem vs. Cloud
 
@@ -72,14 +79,23 @@ Messgrößen machen Resilienz sichtbar – Prinzipien erzeugen sie im Design.
 
 ## Grenzen der Redundanz
 
+::: columns
+::: {.column width="56%"}
 - Zwei USVs im gleichen Brandabschnitt sind Redundanz ohne Isolation.
 - Cloud macht Redundanz kaufbar (OpEx statt CapEx) – aber nicht automatisch vorhanden.
 - Kein Schutz gegen logische Fehler, Ransomware, gemeinsame Abhängigkeiten (zentrales AD) und ungetestete Umschaltung.
 
 Redundanz ohne getestete Umschaltung ist nur eine strukturelle Reserve.
+:::
+::: {.column width="40%"}
+![](../../assets/redundanz-isolation.png){fig-alt="Zwei USVs im selben Brandabschnitt gegenüber zwei USVs in getrennten Abschnitten"}
+:::
+:::
 
 ## Diversität: Schutz vor Kaskadenfehlern
 
+::: columns
+::: {.column width="56%"}
 **Warum Diversität?**
 
 - Vermeidet Common-Mode-Failure
@@ -91,24 +107,43 @@ Redundanz ohne getestete Umschaltung ist nur eine strukturelle Reserve.
 - Multi-Vendor-Firewall-Stack
 - Verschiedene PKI/HSM-Implementierungen
 - Hybrid-Backup statt Single-Cloud-Retention
+:::
+::: {.column width="40%"}
+![](assets/multi-vendor-firewall.png){fig-alt="Netzdiagramm mit zwei hintereinander geschalteten Firewalls verschiedener Hersteller"}
+:::
+:::
 
 ## Wiederherstellbarkeit (Recovery ≠ Backup)
 
+::: columns
+::: {.column width="56%"}
 - DR-Tests > DR-Pläne
 - Automatisierte Wiederherstellung (IaC, Snapshots, Runbooks)
 - RTO/RPO sinnvoll, nicht maximal
 - **Backup ohne Restore-Test = Illusion**
 
 Ein Backup ist ein Zustand, Recovery ein Prozess mit Zeit- und Qualitätszielen.
+:::
+::: {.column width="40%"}
+![](assets/backup-cartoon.png){fig-alt="Cartoon: Wir haben alles gesichert – nur nicht, wie man es wiederherstellt"}
+:::
+:::
 
 ## Adaptivität: Dynamische Resilienz statt starrer Stabilität
 
+::: columns
+::: {.column width="56%"}
 - Auto-Scaling statt fester Kapazität
 - Graceful Degradation (nicht alles oder nichts)
 - Feature Flags / Canary Releases
 - Chaos Engineering als Testmethode
 
 Adaptivität ist ein Multiplikator, kein Ersatz für Redundanz und Diversität.
+:::
+::: {.column width="40%"}
+![](assets/chaos-monkey.jpg){fig-alt="Affe zwischen Serverracks als Symbol für Chaos Engineering"}
+:::
+:::
 
 ## Hybridvergleich: Was ändert sich wirklich?
 
@@ -123,12 +158,19 @@ Hybrid erhöht den Suchraum der Fragilität – und den Werkzeugkasten der Resil
 
 ## Hybrid-SPOFs
 
+::: columns
+::: {.column width="56%"}
 - Identity-Systeme (AD/IdP) als globaler Fail-Knopf
 - Netzwerk-Transit (VPN/SD-WAN) als Engpass
 - Zentrale Orchestrierung, CI/CD als Single Control Layer
 - Echtzeit-Datenkopplung mit engen Synchronisationszwängen
 
 Funktional verteilt, aber steuerungstechnisch monolithisch = fragil.
+:::
+::: {.column width="40%"}
+![](../../assets/hybrid-spof.png){fig-alt="On-Prem- und Cloud-Systeme hängen an gemeinsamen Kopplungspunkten IdP, VPN und CI/CD"}
+:::
+:::
 
 ## Häufige Resilienz-Irrtümer in der Praxis
 

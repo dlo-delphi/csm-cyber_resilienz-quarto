@@ -2,6 +2,8 @@
 
 Alle 11 Termine unterstützen HTML und PowerPoint mit der HSM-Vorlage. Die Termine 1–10 sind vollständig aus den Foliensätzen des WS 2025/26 übertragen; sehr knappe Folien (vor allem Termin 7) wurden mit Kernaussagen aus dem jeweiligen Skript ergänzt. Wiederkehrende Standardfolien (Vorlesungsübersicht als Bild, Campusfotos, Abschlussfolie) sind durch eine Semesterübersicht in Termin 1 und eine Materialfolie am Ende ersetzt. Termin 11 enthält den Prüfungsrahmen, keine neue Klausur.
 
+**Bilder:** 53 Bilder aus den Original-Foliensätzen stehen wieder an ihren Stellen (`Präsentationen/Termin-NN/assets/`). Dazu kommen 13 neu gezeichnete Diagramme für Folien ohne Grafik (`assets/diagramme_folien.py`, neu erzeugen mit `python assets/diagramme_folien.py`). Nicht wieder eingesetzt: Campusfotos, Vorlesungsübersicht als Bild, QR-Code (Termin 8), Buchcover (Termin 10).
+
 | Termin | Titel | Folien (`##`) | Quelle im Archiv |
 |---|---|---|---|
 | 1 | Grundlagen der Resilienz | 16 | `01_Grundlagen der Resilienz.pptx` |
