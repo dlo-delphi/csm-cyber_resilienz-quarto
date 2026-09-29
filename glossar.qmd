@@ -1,8 +1,20 @@
 ---
 title: "Glossar"
+author: "Prof. Dr. Dirk Loomans"
+format:
+  html: default
+  docx:
+    reference-doc: vorlagen/skript-vorlage.docx
+  typst:
+    template-partials:
+      - vorlagen/page.typ
 ---
 
+::: {.content-visible when-format="html"}
 [Zur Übersicht](index.html)
+:::
+
+{{< include termine/_vorbemerkung.md >}}
 
 Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Glossar aus dem Skript zu Sitzung 9 zusammen. Die Angabe in Klammern verweist auf den Termin, in dem der Begriff eingeführt oder vertieft wird. Für die Klausur genügt es nicht, Begriffe zu definieren; sie müssen in Zusammenhänge eingeordnet werden.
 

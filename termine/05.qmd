@@ -2,7 +2,11 @@
 title: "Termin 5 – Resilienz als Organisationsfähigkeit"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-05/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

@@ -2,7 +2,11 @@
 title: "Termin 11 – Klausur"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-11/_output/main.html) · [Glossar](../glossar.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Prüfungsrahmen
 

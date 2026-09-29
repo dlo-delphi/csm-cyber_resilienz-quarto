@@ -3,7 +3,11 @@ title: "Termin 8 – Technische Resilienz II"
 subtitle: "Zero Trust, Microsegmentation, Cloud Resilience und Network Design"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-08/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

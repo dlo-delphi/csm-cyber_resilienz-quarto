@@ -13,6 +13,9 @@ Stand: 29. September 2026. Quarto 1.10.18 unter Linux (Cloud-Umgebung).
 
 **Hinweis:** In der Renderumgebung war fonts.googleapis.com nicht erreichbar. Die Schrift „Source Sans Pro“ des Themes ist deshalb nicht eingebettet; die Seiten fallen auf eine Systemschrift zurück. Ein erneutes Rendern mit Internetzugang (`render-praesentationen.ps1 -Alle`, `quarto render`, `quarto render dozenten`) behebt das.
 
+- Skriptformate: 11 Terminkapitel und Glossar zusätzlich als PDF (Typst) und Word (Referenzvorlage) erfolgreich gerendert. Stichproben (Termine 5, 9, Glossar) als Bild kontrolliert: Logo, Fußzeile, Seitenzahlen, Tabellen und Abbildungen korrekt. Die Word-Ausgabe wurde mit LibreOffice geprüft, nicht mit Microsoft Word.
+- Das Logo stammt aus den Original-Skripten (350 × 144 Pixel). Für den Druck empfiehlt sich bei Gelegenheit eine höher aufgelöste Fassung unter `vorlagen/hsm-wirtschaft-logo.png`.
+
 ## Inhaltliche Vollständigkeit
 
 - Für jeden Termin 1–10 wurden Foliensatz und Skript vollständig gelesen und übertragen; Termin 1 aus der PPTX einschließlich Sprechernotizen.

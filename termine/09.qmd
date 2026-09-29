@@ -2,7 +2,11 @@
 title: "Termin 9 – Sonderthemen: OT-Resilienz und KI-Resilienz"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-09/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

@@ -2,7 +2,11 @@
 title: "Termin 1 – Grundlagen der Resilienz: Safety & Security"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-01/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

@@ -3,7 +3,11 @@ title: "Termin 10 – Resilienz der Zukunft"
 subtitle: "Wenn Technik entscheidet, Systeme lernen und Verantwortung diffus wird"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-10/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

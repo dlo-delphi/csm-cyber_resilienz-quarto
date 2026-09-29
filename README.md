@@ -42,6 +42,27 @@ Linux/macOS:
 ```
 
 Einzelne Kapitel in der Vorschau: `quarto preview termine/05.qmd`.
+
+## Skripte als PDF und Word
+
+`quarto render` erzeugt jedes Terminkapitel und das Glossar zusätzlich als
+PDF und als Word-Datei (`_output/termine/01.pdf`, `01.docx` …,
+`_output/glossar.pdf`, `glossar.docx`). Die HTML-Seiten verlinken beide unter
+„Andere Formate“. Layout wie bei den bisherigen Skripten: Logo „Wirtschaft –
+Hochschule Mainz“ oben rechts, Fußzeile mit blauer Linie, Autor, Titel und
+Seitenzahl, Vorbemerkung zu Beginn. Die Navigationszeile der Webseite
+erscheint nur in HTML.
+
+- **PDF** entsteht über Typst, das in Quarto enthalten ist; LaTeX wird nicht
+  benötigt. Seitenlayout, Logo und Fußzeile: `vorlagen/page.typ`.
+  Schrift Calibri (Ersatz: Carlito, DejaVu Sans).
+- **Word** nutzt `vorlagen/skript-vorlage.docx` als Referenzvorlage. Kopf- und
+  Fußzeile sowie Formatvorlagen lassen sich direkt in Word ändern; alternativ
+  `python vorlagen/erzeuge_word_vorlage.py` (python-docx) neu ausführen.
+- Formate der Terminkapitel stehen in `termine/_metadata.yml`, die
+  Vorbemerkung in `termine/_vorbemerkung.md`.
+- Nur ein Format rendern: `quarto render termine/05.qmd --to typst` bzw.
+  `--to docx`.
 Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
 
 ## Struktur
@@ -57,6 +78,7 @@ Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
   für RevealJS und PowerPoint; `shared/` enthält Theme, Lua-Filter und
   HSM-Referenzvorlage.
 - `assets/`: gemeinsame Abbildungen und das Skript, das sie erzeugt.
+- `vorlagen/`: HSM-Logo, Typst-Seitenlayout und Word-Referenzvorlage für die Skripte.
 - `dozenten/`: Dozentenregie (Sprechernotizen, didaktische Hinweise) und die
   Musterlösung der Probeklausur.
 - `literatur.bib`: bibliografische Datensätze.

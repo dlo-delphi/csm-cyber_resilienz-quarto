@@ -3,7 +3,11 @@ title: "Termin 3 – Resilienz-Architekturen"
 subtitle: "Redundanz · Diversität · Wiederherstellbarkeit · Adaptivität"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-03/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

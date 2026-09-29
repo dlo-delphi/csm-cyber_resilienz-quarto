@@ -2,7 +2,11 @@
 title: "Termin 6 – Organisatorische Resilienz II: Rollen und Verantwortlichkeiten"
 ---
 
+::: {.content-visible when-format="html"}
 [Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-06/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+:::
+
+{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 

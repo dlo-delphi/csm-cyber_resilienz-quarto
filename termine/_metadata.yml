@@ -1,0 +1,12 @@
+author: "Prof. Dr. Dirk Loomans"
+format:
+  html: default
+  docx:
+    reference-doc: ../vorlagen/skript-vorlage.docx
+    toc: false
+    number-sections: false
+  typst:
+    template-partials:
+      - ../vorlagen/page.typ
+    toc: false
+    fig-align: center
