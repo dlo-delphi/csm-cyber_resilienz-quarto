@@ -63,6 +63,7 @@ erscheint nur in HTML.
   Vorbemerkung in `termine/_vorbemerkung.md`.
 - Nur ein Format rendern: `quarto render termine/05.qmd --to typst` bzw.
   `--to docx`.
+
 Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
 
 ## Struktur
