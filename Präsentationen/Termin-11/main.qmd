@@ -1,0 +1,60 @@
+---
+title: "Klausur – Grundlagen der Resilienz"
+subtitle: "Cyber Security Management · Termin 11"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Ablauf
+
+- Bearbeitungszeit: **90 Minuten**
+- Hilfsmittel: **keine**
+- Gesamtpunktzahl: **20 Punkte**
+- Antworten kurz, präzise und strukturiert in Stichpunkten
+- Pro Frage genügen 1–3 fachlich korrekte Aspekte
+
+## Aufgabenbereiche
+
+Die Klausur folgt dem Aufbau der Probeklausur.
+
+| Teil | Bereich | Termine |
+|---|---|---|
+| A | Resilienz-Grundlagen & Begriffe | 1–2 |
+| B | Safety vs. Security | 1, 9 |
+| C | Organisation & Prozesse | 5–6 |
+| D | Technische Resilienzmaßnahmen I | 7 |
+| E | Technische Resilienzmaßnahmen II | 8 |
+| F | OT-Resilienz | 9 |
+| G | KI & moderne Risiken | 9–10 |
+
+## Hinweise
+
+- Begriffe nicht nur definieren, sondern einordnen und begründen.
+- Bei Abwägungen den Zielkonflikt benennen (Safety, Security, Verfügbarkeit, Wirtschaftlichkeit).
+
+Viel Erfolg!
+
+::: notes
+Organisatorische Hinweise an die lokale Prüfungsordnung anpassen. Die Musterlösung der Probeklausur liegt im Dozentenprojekt.
+:::
+
+## Material
+
+[Kapitel zum Termin](../../../termine/11.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

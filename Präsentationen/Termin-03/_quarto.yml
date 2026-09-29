@@ -1,0 +1,8 @@
+project:
+  type: default
+  output-dir: _output
+  render:
+    - main.qmd
+lang: de
+execute:
+  enabled: false

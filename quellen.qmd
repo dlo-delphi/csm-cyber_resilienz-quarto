@@ -1,0 +1,55 @@
+---
+title: "Quellen, Normen und Hinweise zur Aktualität"
+---
+
+[Zur Übersicht](index.html)
+
+# Herkunft der Inhalte
+
+Alle Kapitel und Foliensätze beruhen auf den Unterlagen der Lehrveranstaltung aus dem Wintersemester 2025/26: zehn Foliensätze, neun Vorlesungsskripte, zwei Glossare, das Übungsblatt zu Sitzung 8 und die Probeklausur. Hinzu kommt der Artikelentwurf „KI Resilienz – Bekannte Prinzipien in einem neuen Umfeld“ [@loomans2025kiresilienz]. Die Fallbeispiele (Ransomware in einer Verwaltung, AWS-Regionsausfall, GameNova GmbH, Hochschul-Rechenzentrum, Versorgungsunternehmen 2035) sind didaktische Szenarien aus diesen Unterlagen.
+
+Die Folien des Gastvortrags zu Product & Production Security (OT) im Termin 9 sind Material des Referenten. Sie werden hier nicht wiedergegeben; die Inhalte zu OT stammen aus dem Skript zu Sitzung 9.
+
+Die Skripte verstehen sich als Vorlesungsbegleitung ohne akademischen Anspruch. Die Normverweise dienen der fachlichen Orientierung. Sie sind keine Auslegung des jeweiligen Normtexts und keine Konformitätsaussage. Die Normtexte selbst sind nicht Bestandteil dieses Projekts.
+
+# Normen und Rahmenwerke
+
+| Referenz | Verwendung in der Lehrveranstaltung | Termine |
+|---|---|---|
+| NIST SP 800-160 Vol. 2 [@nist800160v2r1] | Cyber Resilience Engineering; Resilienz als Fähigkeit unter Störung | 1–4 |
+| ISO/IEC 27031 [@iso27031] | IKT-Bereitschaft für Business Continuity; Tests statt Dokumentation | 1–4 |
+| BSI-Standard 200-4 [@bsi2004] | Business Continuity Management; Stufen- und Reifegradlogik, Übungen | 1–7, 9 |
+| ENISA-Leitfäden | Sektorale Resilienz, DDoS, Supply Chain, Incident Management, ICS | 1–6, 9 |
+| ISO 22316 [@iso22316] | Organisationale Resilienz | 5–6 |
+| ISO/IEC 27035 [@iso27035] | Incident-Management-Prozess | 5–6 |
+| NIST SP 800-61 [@nist80061r2; @nist80061r3] | Incident Handling, Rollen und Kommunikation | 5–6 |
+| ISO 22301 [@iso22301], ISO 22320 [@iso22320] | BCMS und Krisenmanagement | 5–6 |
+| ISO/IEC 27001 [@iso27001] | ISMS, Rollen und Verantwortlichkeiten | 5–6, 9 |
+| NIS-2-Richtlinie [@nis2], DSGVO [@dsgvo] | Verantwortung der Leitung, Meldepflichten | 5–6 |
+| NIST SP 800-34 [@nist80034r1] | Notfallplanung und Tests | 7 |
+| NIST SP 800-207 [@nist800207] | Zero Trust Architecture | 8 |
+| IEC 62443 [@iec62443] | OT-Security, Zonen und Conduits, Security Levels | 9 |
+| NIST CSF [@nistcsf2], NIST SP 800-82 [@nist80082r3] | Strukturierung von OT-Resilienz | 9 |
+| ISO/IEC 27019 [@iso27019] | Energiespezifische OT-Sicherheit | 9 |
+
+# Fachliteratur
+
+- Resilience Engineering mit den Fähigkeiten *anticipate, monitor, respond, learn* [@hollnagel2006resilience].
+- Psychologische Sicherheit in Teams [@edmondson1999].
+- Vier Seiten einer Nachricht [@schulzvonthun1981].
+- Lernende Organisation [@senge1990].
+
+# Hinweise zur Aktualität
+
+Die folgenden Punkte wurden beim Überführen der Unterlagen festgestellt. Sie betreffen Angaben, die sich seit der Erstellung geändert haben oder gegen den Originaltext geprüft werden sollten. Die Kapitel übernehmen die Archivinhalte und verweisen an den betroffenen Stellen hierher.
+
+1. **NIST SP 800-160 Vol. 2.** Die Unterlagen nennen als Kernelemente „Resist, Recover, Re-Constitute, Adapt“ (Folien) bzw. „resist, detect, respond, recover, re-constitute, adapt“ (Skript 2). Die aktuelle Revision 1 (2021) definiert Cyber-Resilienz als Fähigkeit, widrige Bedingungen zu *antizipieren, ihnen standzuhalten, sich davon zu erholen und sich anzupassen* und benennt entsprechend die Ziele *Anticipate, Withstand, Recover, Adapt* [@nist800160v2r1]. Die Begriffe sollten vor der nächsten Klausur vereinheitlicht werden.
+2. **ISO/IEC 27031.** Seit 2025 liegt eine neue Ausgabe mit dem Titel „Cybersecurity – Information and communication technology readiness for business continuity“ vor [@iso27031].
+3. **BSI-Standard 200-4.** Die finale Fassung (Mai 2023) unterscheidet drei Stufen: Reaktiv-BCMS, Aufbau-BCMS und Standard-BCMS. Die fünfstufigen Reifegradskalen in den Unterlagen tragen je nach Sitzung unterschiedliche Bezeichnungen (etwa „Ad hoc – Repeatable – Defined – Managed – Optimized“ auf den Folien zu Sitzung 2, „Ad hoc – Initialisiert – Etabliert – Qualifiziert – Exzellent“ und „Ad hoc – Definiert – Etabliert – Gesteuert – Optimiert“ im Skript 2, „Ad hoc – Initialisiert – Etabliert – Gemanagt – Optimiert“ im Skript 5). Sie sollten als allgemeines Reifegradmodell gekennzeichnet und vereinheitlicht werden.
+4. **NIS-2-Richtlinie.** Die Unterlagen nennen „EU 2023/2555“ bzw. „NIS-2 Richtlinie (2023)“. Korrekt ist Richtlinie (EU) 2022/2555 vom 14. Dezember 2022 [@nis2]. In den Kapiteln ist die Nummer berichtigt.
+5. **BSI-Gesetz.** Die deutsche NIS-2-Umsetzung (NIS2UmsuCG) ist am 6. Dezember 2025 in Kraft getreten und hat das BSIG neu gefasst. Verweise auf § 8b BSIG (alt) sind damit überholt; die Paragraphenangaben im Skript 6 sollten gegen die Neufassung geprüft werden.
+6. **NIST SP 800-61.** Revision 2 (2012) wurde im April 2025 durch Revision 3 ersetzt, die Incident Response am NIST CSF 2.0 ausrichtet [@nist80061r3].
+7. **NIST Cybersecurity Framework.** Das Skript zu Sitzung 9 nennt fünf Kernfunktionen. Die Version 2.0 (2024) ergänzt „Govern“ als sechste Funktion [@nistcsf2].
+8. **NIST SP 800-82.** Das Skript nennt den Titel „Guide to Industrial Control Systems Security“. Die aktuelle Revision 3 (2023) heißt „Guide to Operational Technology (OT) Security“ [@nist80082r3].
+9. **ISO/IEC 27035.** Die Folien nennen sechs Phasen einschließlich Containment und Eradication. Der Normteil 27035-1 gliedert den Prozess gröber (u. a. Planen und Vorbereiten, Erkennen und Melden, Bewerten und Entscheiden, Reagieren, Lessons Learned) [@iso27035]. Die feinere Gliederung entspricht eher NIST SP 800-61 Rev. 2.
+10. **Weitere Quellenangaben ohne Prüfung.** Die Skripte nennen einen ENISA „Good Practice Guide for Incident Management (2021)“, eine „SANS Incident Response Survey (2024)“ und die „ENISA Threat Landscape (2024)“. Titel und Jahr sollten vor einer Zitation in Prüfungsunterlagen überprüft werden.

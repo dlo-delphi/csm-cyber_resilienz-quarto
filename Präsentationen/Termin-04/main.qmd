@@ -1,0 +1,169 @@
+---
+title: "Cyber-Bedrohungen und Resilienzstrategien"
+subtitle: "Cyber Security Management · Termin 4"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Agenda
+
+- Rückblick & Anschluss
+- Warum Bedrohungs-Mapping essenziell ist
+- Bedrohung 1–6: Ransomware, DDoS, Cloud-Ausfall, Identity-Ausfall, Human Failure, Supply Chain
+- Framework-Abgleich: Threat → Resilience Capability
+- Übung (Gruppenarbeit)
+- Zusammenfassung & Ausblick
+
+## Rückblick & Anschluss
+
+- Letzte Sitzung: Resilienz entsteht im Design.
+- Vier Prinzipien → Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität.
+- Heute: bedrohungsgetriebener Blick.
+- Ziel: Mapping von Attacken auf Resilienzmechanismen.
+
+## Warum Bedrohungs-Mapping essenziell ist
+
+- Resilienz = Widerstand + Wiederherstellung gegen konkrete Ereignisse.
+- Ohne Threat-Bezug → Maßnahmen im Leeren.
+- Mapping ermöglicht Priorisierung & Budgetfokus.
+- Grundlage für Risk-based Resilience Engineering.
+
+Resilienz ist relational: Ein System ist resilient *gegen etwas*.
+
+## Bedrohung 1: Ransomware
+
+**Wirkprinzip:** Verschlüsselung / Sabotage von Primärsystemen und Backups
+
+**Resilienzstrategien (nicht Prävention!)**
+
+- Immutable / Offline-Backups
+- Netzwerk- und Domain-Segmentierung
+- Gold-Image / Clean-Room-Recovery
+- Recovery-Tests statt Papierpläne
+
+**Zielgröße:** RTO ↓ / RPO ↓ trotz kompromittierter Produktion
+
+## Bedrohung 2: DDoS / Lastangriffe
+
+**Wirkprinzip:** Service wird durch Überlast unbenutzbar, obwohl technisch intakt
+
+**Resilienzstrategien**
+
+- Anycast-CDN / Traffic-Scrubbing
+- Auto-Scaling & Rate-Limiting
+- Graceful Degradation (nicht alles oder nichts)
+- API-Quota / Circuit Breaker
+
+**Ziel:** Dienst bleibt nutzbar — nicht perfekt, aber funktional
+
+## Bedrohung 3: Cloud-Provider-Ausfall / Region Down
+
+**Wirkprinzip:** Redundanz auf Anbieter-Level bricht weg
+
+**Resilienzstrategien**
+
+- Multi-AZ-Deployment
+- Cross-Region-Failover
+- Multi-Cloud für kritische Workloads
+- Lokaler Fallback für Mindestfunktion
+
+**Lehrsatz:** Provider ≠ Resilienz — Architektur entscheidet
+
+## Bedrohung 4: Identity-Ausfall (IdP als SPOF)
+
+**Wirkprinzip:** Systeme technisch verfügbar — aber nicht benutzbar (Lockout)
+
+**Resilienzstrategien**
+
+- Break-Glass-Accounts (lokal & offline)
+- Zweiter unabhängiger IdP / Fallback-Authentisierung
+- Notfallzugang ohne Cloud-Abhängigkeit
+- Minimierung globaler Koppelstellen
+
+**Kernaussage:** Identity ist oft der versteckte Single Point of Failure
+
+## Bedrohung 5: Human Failure / Fehlkonfiguration
+
+**Wirkprinzip:** Fehler propagieren systemisch (IaC, CI/CD, Admin-Fehler)
+
+**Resilienzstrategien**
+
+- Vier-Augen- / SoD-Kontrollen
+- Staging / Canary Deployment / Feature Flags
+- Rollback- / Snapshot-Fähigkeit
+- Auditierbarkeit & Post-Mortem-Kultur
+
+**Prinzipbezug:** Diversität & Wiederherstellbarkeit > Prävention
+
+## Bedrohung 6: Supply-Chain-Angriff
+
+**Wirkprinzip:** Kompromittierung kommt über Dritte in die eigene Umgebung (SolarWinds, Kaseya)
+
+**Resilienzstrategien**
+
+- Lieferantendiversität / Source of Truth trennen
+- Zero Trust for Dependencies
+- Offline-Verifikation / kein Auto-Push bei kritischen Komponenten
+- Recovery unabhängig vom kompromittierten Dependency-State
+
+**Lehrsatz:** Resilienz ist hier das Sicherheitsnetz nach dem Vertrauensbruch
+
+## Framework-Abgleich: Threat → Resilience Capability
+
+Die Bedrohung entscheidet nicht über das Tool, sondern über das Prinzip.
+
+| Bedrohung | Resilienzprinzip | Normativer Bezug |
+|---|---|---|
+| Ransomware | Recovery / Diversität (immutable, offline) | ISO/IEC 27031 · BSI 200-4 |
+| DDoS | Adaptivität (Autoscale, Graceful Degradation) | ENISA DDoS Guidance |
+| Cloud-Ausfall | Redundanz (Multi-AZ/Region) | NIST SP 800-160 Vol. 2 |
+| Identity-Ausfall | Diversität / Break-Glass | NIST CSF · Zero Trust |
+| Human Failure | Wiederherstellbarkeit / SoD | BSI 200-4 · IT-Grundschutz |
+| Supply Chain | Diversität / Zero Trust | ENISA Supply Chain Guidance |
+
+## Was das Mapping zeigt
+
+- Verschiedene Bedrohungen adressieren dasselbe Prinzip (Ransomware und Human Failure → Recovery).
+- Dasselbe Prinzip wirkt gegen verschiedene Bedrohungen (Diversität gegen Identity-Ausfall und Supply Chain).
+- Nicht die Bedrohung wird kontrolliert, sondern die Fähigkeit, ihren Effekt zu absorbieren.
+
+## Übung (Gruppenarbeit)
+
+Wählt eine Bedrohung (Ransomware, DDoS, Cloud-Ausfall, Identity-Ausfall, Human Failure, Supply Chain). 15–20 Minuten:
+
+1. Wirkmechanismus beschreiben (1–2 Sätze)
+2. Mindestens zwei Resilienzprinzipien zuordnen
+3. Jeweils eine konkrete technische Maßnahme nennen
+4. Fazit: Wodurch wird das System praktisch resilient?
+
+Output: eine Folie pro Gruppe, max. sechs Bulletpoints. Bewertet wird die Schärfe der Zuordnung.
+
+## Zusammenfassung & Ausblick
+
+- Resilienz bewertet sich immer gegen eine Bedrohung.
+- Threat-→-Capability-Mapping schafft Architekturdisziplin.
+- Dieselben vier Prinzipien greifen über Bedrohungsklassen hinweg.
+- Hybrid erhöht sowohl Angriffsfläche als auch Gegenstrategieraum.
+
+**Nächste Sitzung (5):** Resilienz als Organisationsfähigkeit — Rollen, Prozesse, Übungen, Governance
+
+## Material
+
+[Kapitel zum Termin](../../../termine/04.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

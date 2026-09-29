@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Segoe UI", Arial, sans-serif;
+$presentation-font-size-root: 30px;
+$presentation-heading-color: #183449;
+$body-color: #202020;
+$body-bg: #ffffff;
+$link-color: #175b84;
+/*-- scss:rules --*/
+.reveal h1 { font-size: 1.65em; }
+.reveal h2 { font-size: 1.2em; border-bottom: 3px solid #9c343a; padding-bottom: .25em; margin-bottom: .65em; }
+.reveal p, .reveal li { line-height: 1.3; }
+.reveal table { font-size: .83em; }
+.reveal table th { color: #183449; border-bottom: 2px solid #9c343a; }
+.reveal .progress { color: #9c343a; }
+.reveal .slide-number { background: transparent; color: #555; }

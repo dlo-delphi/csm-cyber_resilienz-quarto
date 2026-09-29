@@ -1,0 +1,35 @@
+---
+title: "Probeklausur – Musterlösung"
+subtitle: "Nur für Lehrende"
+---
+
+Nicht mit der studentischen HTML-Ausgabe verteilen. Die Lösung stammt unverändert aus der Probeklausur WS 2025/26 („Musterlösung (kompakt)“). Pro Frage genügen 1–3 fachlich korrekte Aspekte; je Frage ein Punkt.
+
+| Nr. | Frage (Kurzform) | Erwartete Aspekte |
+|---|---|---|
+| 1 | Resilienz im IT-/Cyber-Kontext | Fähigkeit, Störungen zu überstehen; Anpassung und schneller Wiederanlauf |
+| 2 | Resilienz vs. klassische IT-Sicherheit | Fokus auf Wiederherstellung statt Verhinderung; Akzeptanz von Ausfällen |
+| 3 | Management- statt reines IT-Thema | betrifft Organisation, Prozesse, Entscheidungen; Management priorisiert Ressourcen und Risiken |
+| 4 | Safety vs. Security | Safety: Schutz vor unbeabsichtigten Fehlern; Security: Schutz vor absichtlichen Angriffen |
+| 5 | Kollision Security – Safety | Patch/Neustart gefährdet laufenden Prozess; Security-Änderung beeinflusst Safety-System |
+| 6 | Scheitern an Organisation | unklare Zuständigkeiten; fehlende Abstimmung zwischen Bereichen |
+| 7 | Rolle der Kommunikation | Vermeidung von Fehlentscheidungen; Koordination zwischen Rollen |
+| 8 | Klare Rollen (CISO, SOC, CERT) | klare Entscheidungswege; schnelle Reaktion im Incident |
+| 9 | Backups allein nicht ausreichend | kein getesteter Wiederanlauf; Backups evtl. veraltet oder unvollständig |
+| 10 | Backup, DR, Notfalltests | Backup: Datensicherung; DR: Wiederherstellung von Systemen; Tests: Überprüfung der Wirksamkeit |
+| 11 | Notfalltests unverzichtbar | Pläne funktionieren nur, wenn geübt; Schwachstellen werden sichtbar |
+| 12 | Zero Trust | kein implizites Vertrauen; jeder Zugriff wird geprüft |
+| 13 | Microsegmentation | Begrenzung der Angriffsbewegung; Schutz kritischer Systeme |
+| 14 | Herausforderung Cloud-Resilienz | Abhängigkeit vom Anbieter; Verfügbarkeit und Konnektivität |
+| 15 | OT- vs. IT-Resilienz | physische Auswirkungen; Safety und Echtzeit entscheidend |
+| 16 | Ungeplanter Shutdown in OT | Gefahr für Anlagen und Menschen; Prozesse müssen kontrolliert auslaufen |
+| 17 | Segmentierung (Purdue) in OT | Trennung kritischer Ebenen; Verhinderung lateraler Angriffe |
+| 18 | Chance und Risiko KI | Chance: Anomalieerkennung; Risiko: Fehlentscheidungen |
+| 19 | Data Poisoning | Manipulation von Trainingsdaten; KI trifft falsche Entscheidungen |
+| 20 | Human-in-the-Loop | Mensch behält Entscheidungsgewalt; KI ersetzt keine Verantwortung |
+
+# Weitere Lösungshinweise aus den Unterlagen
+
+**Übung „Vier Seiten einer Nachricht“ (Termin 5).** Beispielhafte Auswertung aus dem Skript für „Warum habt ihr das Backup noch nicht eingespielt?“: Sachinhalt – das Backup wurde noch nicht eingespielt; Selbstoffenbarung – ich bin gestresst und unter Druck; Beziehung – ich zweifle an eurer Kompetenz; Appell – handelt jetzt sofort. Alternative Formulierung: „Wie ist der Stand beim Backup-Restore? Können wir gemeinsam priorisieren?“
+
+**Übungsblatt GameNova (Termin 8).** Die Unterlagen enthalten keine Musterlösung. Die Punkteverteilung (20/20/25/20/15) ist im Terminkapitel dokumentiert. Das Skript zu Sitzung 8 liefert die Bewertungsbasis, etwa die empfohlene Implementierungsreihenfolge (Netzwerkstabilität, Identität, Microsegmentation, Cloud-Resilienz, Zero Trust) und die Aussage „Cloud-Speicherredundanz ersetzt kein Backup“.

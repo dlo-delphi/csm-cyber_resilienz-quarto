@@ -1,0 +1,176 @@
+---
+title: "Resilienz-Architekturen"
+subtitle: "Cyber Security Management · Termin 3"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Agenda
+
+- Rückblick letzte Woche
+- Vier zentrale technische Resilienzprinzipien
+- Redundanz: On-Prem vs. Cloud
+- Diversität: Schutz vor Kaskadenfehlern
+- Wiederherstellbarkeit · Adaptivität
+- Hybridvergleich: Was ändert sich wirklich?
+- Häufige Resilienz-Irrtümer in der Praxis
+- Fallbeispiel (Hybrid-Störung)
+- Übung: SPOFs identifizieren & zuordnen
+- Zusammenfassung & Ausblick
+
+## Rückblick Sitzung 2
+
+- Resilienz ist messbar (RTO, RPO, MTTR).
+- Normative Orientierung (NIST · ISO/IEC 27031 · BSI 200-4).
+- Hybridwelten erhöhen Komplexität.
+- **Messung allein reicht nicht → Resilienz muss im Design entstehen.**
+
+## Vier zentrale technische Resilienzprinzipien
+
+1. **Redundanz** — keine einzelnen Bruchpunkte
+2. **Diversität** — keine gemeinsamen Fehlerquellen
+3. **Wiederherstellbarkeit** — geübte, getestete Rückkehrfähigkeit
+4. **Adaptivität** — Systeme reagieren dynamisch statt statisch
+
+Messgrößen machen Resilienz sichtbar – Prinzipien erzeugen sie im Design.
+
+## Redundanz: On-Prem vs. Cloud
+
+::: columns
+::: {.column width="48%"}
+**On-Prem**
+
+- Dual Power / USV / redundante Core-Switches
+- Active/Passive Cluster (z. B. SQL AlwaysOn)
+- Zweites RZ (Cold/Warm/Hot Standby)
+:::
+::: {.column width="48%"}
+**Cloud**
+
+- Multi-AZ-Deployment
+- Auto-Scaling + Load Balancing
+- Cross-Region-Failover
+:::
+:::
+
+## Grenzen der Redundanz
+
+- Zwei USVs im gleichen Brandabschnitt sind Redundanz ohne Isolation.
+- Cloud macht Redundanz kaufbar (OpEx statt CapEx) – aber nicht automatisch vorhanden.
+- Kein Schutz gegen logische Fehler, Ransomware, gemeinsame Abhängigkeiten (zentrales AD) und ungetestete Umschaltung.
+
+Redundanz ohne getestete Umschaltung ist nur eine strukturelle Reserve.
+
+## Diversität: Schutz vor Kaskadenfehlern
+
+**Warum Diversität?**
+
+- Vermeidet Common-Mode-Failure
+- Reduziert Lieferkettenabhängigkeit
+- Bricht Komplexitätskopplungen
+
+**Beispiele**
+
+- Multi-Vendor-Firewall-Stack
+- Verschiedene PKI/HSM-Implementierungen
+- Hybrid-Backup statt Single-Cloud-Retention
+
+## Wiederherstellbarkeit (Recovery ≠ Backup)
+
+- DR-Tests > DR-Pläne
+- Automatisierte Wiederherstellung (IaC, Snapshots, Runbooks)
+- RTO/RPO sinnvoll, nicht maximal
+- **Backup ohne Restore-Test = Illusion**
+
+Ein Backup ist ein Zustand, Recovery ein Prozess mit Zeit- und Qualitätszielen.
+
+## Adaptivität: Dynamische Resilienz statt starrer Stabilität
+
+- Auto-Scaling statt fester Kapazität
+- Graceful Degradation (nicht alles oder nichts)
+- Feature Flags / Canary Releases
+- Chaos Engineering als Testmethode
+
+Adaptivität ist ein Multiplikator, kein Ersatz für Redundanz und Diversität.
+
+## Hybridvergleich: Was ändert sich wirklich?
+
+Hybrid erhöht den Suchraum der Fragilität – und den Werkzeugkasten der Resilienz.
+
+| Kriterium | On-Prem | Cloud |
+|---|---|---|
+| Redundanz | Hardware-Duplikation | Region/AZ-Abstraktion |
+| Diversität | manuell geplant | per Provider oder Multi-Cloud |
+| Recovery | Runbooks + Menschen | IaC + Automatisierung |
+| Adaptivität | begrenzt | nativ (Scaling, Traffic-Shift) |
+
+## Hybrid-SPOFs
+
+- Identity-Systeme (AD/IdP) als globaler Fail-Knopf
+- Netzwerk-Transit (VPN/SD-WAN) als Engpass
+- Zentrale Orchestrierung, CI/CD als Single Control Layer
+- Echtzeit-Datenkopplung mit engen Synchronisationszwängen
+
+Funktional verteilt, aber steuerungstechnisch monolithisch = fragil.
+
+## Häufige Resilienz-Irrtümer in der Praxis
+
+- „Wir sind in der Cloud, also sicher.“
+- „Backup = Resilienz.“
+- „Cluster = Disaster Recovery.“
+- „Nie getestet, aber dokumentiert.“
+- „Single-Cloud ≠ Multi-Region verstanden.“
+
+## Fallbeispiel (Hybrid-Störung)
+
+**Szenario:** ERP läuft On-Prem · Reporting & Analytics laufen in der Cloud
+
+**Vorfall:** AD-Domain-Controller On-Prem durch Ransomware kompromittiert
+
+**Folgen:** Cloud-Analytics weiterhin technisch verfügbar – aber kein Login möglich
+
+- Was bleibt funktional und warum?
+- Wo sitzt der eigentliche SPOF?
+- Welche Maßnahme hätte die Resilienz verbessert?
+
+## Übung: SPOFs identifizieren & zuordnen
+
+Gruppen, 15–20 Minuten. Wählt ein reales IT-System (Mail, Banking-App, Cloud-Drive, Smart Home).
+
+1. Identifiziert mindestens drei Single Points of Failure.
+2. Ordnet jeden SPOF einem Prinzip zu (Redundanz / Diversität / Recovery / Adaptivität).
+3. Gebt pro SPOF eine realistische Resilienzmaßnahme an.
+
+Abgabe: eine Folie oder ein 5-Punkte-Statement pro Gruppe.
+
+## Zusammenfassung & Ausblick
+
+**Merksätze**
+
+- Resilienz entsteht im Design, nicht im Incident.
+- Redundanz + Diversität + Recovery + Adaptivität = technischer Kern.
+- Hybrid erhöht Chancen und Risiken.
+- Fähigkeit > Dokumentation.
+
+**Ausblick Sitzung 4:** Bedrohungen & Resilienzstrategien – Mapping von Angriffen auf Widerstands- und Recovery-Muster.
+
+## Material
+
+[Kapitel zum Termin](../../../termine/03.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

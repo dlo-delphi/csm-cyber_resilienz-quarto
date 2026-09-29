@@ -1,0 +1,60 @@
+---
+title: "Dozentenregie"
+subtitle: "Sprechernotizen und didaktische Hinweise aus den Unterlagen WS 2025/26"
+---
+
+Nur für Lehrende. Die Hinweise stammen aus den Sprechernotizen des Foliensatzes zu Termin 1 und aus den didaktischen Abschnitten der Skripte. Sie wurden nicht ergänzt.
+
+# Termin 1 – Grundlagen
+
+Sprechernotizen des Foliensatzes, in Folienreihenfolge:
+
+| Folie | Notiz |
+|---|---|
+| Warum Resilienz wichtig ist | Server-Ausfälle beim Zocken als Einstieg. Ausfälle sind normal, Erholungsfähigkeit zählt. Überleitung zur Definition. |
+| Was bedeutet Resilienz? | Resilienz definieren, Herkunft erwähnen, Alltagsbeispiele abfragen. |
+| Safety vs. Security | Safety vs. Security sammeln. Resilienz wird von beidem beeinflusst. |
+| Resilienz verbindet beides | Physik-Analogie (Pendel/Schwingkreis). Fragil vs. resilient. |
+| Physikalische Perspektive | Vier Prinzipien mit Cloud-/Netzwerk-Bezug erläutern. |
+| Technische Resilienzprinzipien | Mini-Case-Diskussion. Priorisierung und Abhängigkeiten betonen. |
+| Safety & Security in Cyber-Systemen | Warum 100 % Prävention nicht existiert. Merksatz und NIST-Gedanke. |
+| Warum Prävention nicht reicht | Management-Verantwortung, Standards anreißen, Ausblick auf spätere Sitzungen. |
+| Relevanz für CSM | Zwei reale Fälle diskutieren. Lösungen fokussieren auf Recovery und Kommunikation. |
+| Praxisbeispiele | Aufgabenstellung klar, Gruppen bilden, Zeitrahmen nennen. |
+| Übung | Kernaussagen wiederholen, Hausaufgabe, Teaser auf Sitzung 2. |
+
+Die Notizen sind im Original jeweils der Folie *vor* dem genannten Inhalt zugeordnet; im Quarto-Foliensatz stehen sie als Sprechernotizen bei der Folie, die sie inhaltlich betreffen.
+
+Der Foliensatz enthielt das OLAT-Zugangskennwort des Vorsemesters. Es wurde entfernt; das aktuelle Kennwort vor der Veranstaltung auf der Folie „Zugang zum Kurs in OLAT“ eintragen.
+
+# Termin 2 – Modelle und Messbarkeit
+
+Die Übung zielt laut Skript nicht auf perfekte Fakten, sondern darauf, das Denken in Resilienzmetriken zu trainieren und den Unterschied zwischen „gefühlt sicher“ und „nachweislich resilient“ erfahrbar zu machen.
+
+# Termin 4 – Bedrohungen
+
+Die Mapping-Übung ist ausdrücklich keine kreative Brainstorming-Aufgabe, sondern eine präzise Zuordnungsaufgabe. Bewertungskriterium: Schärfe der Zuordnung, nicht Menge der Maßnahmen.
+
+# Termin 5 – Organisationsfähigkeit
+
+Die Phasenmatrix des Ransomware-Verlaufs (Detection, Response, Communication, Recovery, Adapt mit typischen Fehlern) eignet sich laut Skript für die Reflexion im Plenum. Abschließende Meta-Frage: „Was hat in unserer Reaktion funktioniert – und was nicht?“ Damit wird die Übung selbst Teil des Resilienzzyklus.
+
+# Termin 6 – Rollen
+
+Die Rollenübung eignet sich als Brückenelement zwischen Technik und Organisation. Studierende erleben, dass Resilienz ein menschlich-organisationales Zusammenspiel ist. Varianten lassen sich später wieder aufnehmen, etwa mit KPIs. Die Leitfragen 1–30 des Skripts sind Klausurbasis, 31–40 vertiefende Transferfragen für mündliche Prüfungen, Hausarbeiten oder Präsentationen.
+
+# Termin 7 – Technische Resilienz I
+
+„Plan the Worst Day“ ist für 90 Minuten in drei Teilen à 30 Minuten angelegt und verbindet Analyse, Design, Abstimmung und Präsentation.
+
+# Termin 9 – Sonderthemen
+
+Gastvortrag: Thomas Gronenwald, Partner, Head of Product & Production Security, KPMG. Im WS 2025/26 am 05.12.2025. Auf den Vorlesungsfolien steht die Schreibweise „Groenenwald“; der Foliensatz des Referenten verwendet „Gronenwald“. Die Vortragsfolien sind nicht Teil dieses Projekts.
+
+Lernziele der Fallstudien laut Skript: typische OT-Incident-Symptome erkennen, IT- und OT-Perspektiven unterscheiden, **Resilienz vor Forensik priorisieren**, Safety- und Security-Aspekte gemeinsam bewerten. Das Rollenspiel CISO vs. Produktionsleitung zielt auf Resilienzdenken statt Maximal-Security und auf tragfähige Kompromisse.
+
+# Termin 10 – Resilienz der Zukunft
+
+Moderation des Plenums entlang der Leitfragen: Wo widersprechen sich die Entscheidungen der Gruppen? Welche Konflikte waren nicht auflösbar? Wo kollidieren technische und gesellschaftliche Resilienz? Welche Entscheidungen fühlen sich legitim an, welche nicht? Optionaler Impuls: „Welche dieser Entscheidungen würdet ihr öffentlich vertreten wollen – und welche nicht?“
+
+Schlussgedanke der Lehrveranstaltung: „Resilienz ist keine Eigenschaft von Systemen. Sie ist eine Fähigkeit von Menschen, Organisationen und Gesellschaften.“

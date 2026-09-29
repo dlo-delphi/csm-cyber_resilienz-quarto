@@ -1,0 +1,168 @@
+---
+title: "Sonderthemen zu Resilienz: OT und KI"
+subtitle: "Cyber Security Management · Termin 9"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Agenda
+
+- Rückblick
+- Gastvortrag Thomas Gronenwald (KPMG): Product & Production Security (OT)
+- OT-Resilienz im Überblick
+- KI-Resilienz
+  - Bedrohungen für KI-Systeme
+  - Prinzipien der KI-Resilienz
+  - Resilienz gegen Daten-Poisoning
+  - Wallet DoS – Schutz vor finanziellen API-Angriffen
+- Übung Gandalf AI
+- Ausblick
+
+## Gastvortrag
+
+**Thomas Gronenwald**, Partner, Head of Product & Production Security, KPMG
+
+War Stories aus der Praxis: Product & Production Security (OT)
+
+::: notes
+Die Folien des Referenten sind nicht Teil dieses Projekts und werden separat bereitgestellt. Auf den Archivfolien stand die Schreibweise „Groenenwald“.
+:::
+
+## Was ist OT?
+
+- Operational Technology steuert physische Prozesse: Produktion, Energie, Wasser, Verkehr, Medizintechnik, Gebäudetechnik.
+- IT verarbeitet Daten – OT bewegt Roboter, öffnet Ventile, schaltet Signale.
+- IT/OT-Konvergenz: früher getrennte Netze sind heute über Fernwartung, IIoT und Cloud vernetzt.
+
+## IT vs. OT
+
+Ein Sicherheitsupdate, das eine Maschine sekundenlang stoppt, kann gefährlicher sein als eine bekannte Schwachstelle.
+
+| | IT | OT |
+|---|---|---|
+| Prioritäten | Confidentiality – Integrity – Availability | Safety – Availability – Integrity – Confidentiality |
+| Lebensdauer | 3–5 Jahre | 10–30 Jahre |
+| Wartungsfenster | häufig | selten |
+| Philosophie | „Patch early“ | „Change as little as possible“ |
+| Echtzeit | Verzögerung tolerierbar | Millisekunden zählen |
+
+## Safety – Security – Resilience
+
+- **Safety:** Schutz von Menschen und Umwelt vor Fehlfunktionen
+- **Security:** Schutz vor Cyberangriffen und Manipulation
+- **Resilience:** Weiterarbeiten oder schnelle Erholung
+
+Safety darf durch Security nicht gefährdet werden. OT-Resilienz = Schutz ohne Beeinträchtigung des physischen Betriebs.
+
+## Das Purdue-Modell (ISA-95)
+
+![](../../assets/purdue-modell.png){fig-alt="Purdue-Modell mit Ebenen 0 bis 5 und markiertem IT/OT-Übergang zwischen Level 4 und Level 3."}
+
+## Bedrohungen in OT
+
+- Ransomware in der IT macht OT unbedienbar (HMIs, Engineering-Workstations, MES)
+- Supply Chain: manipulierte Firmware, infizierte Wartungslaptops (Stuxnet)
+- Fernwartungszugänge mit Standardpasswörtern
+- Manipulation von Steuerlogik und Safety-Systemen (Triton/Trisis)
+- IT→OT-Pfad: Colonial Pipeline 2021 – Angriff in der IT, OT vorsorglich gestoppt
+
+## OT-Resilienzmaßnahmen
+
+- Segmentierung nach Zonen & Conduits (IEC 62443)
+- Jump Hosts, MFA, zeitlich begrenzte Wartungsfenster statt Dauer-VPN
+- Passives OT-Monitoring, Integritätsprüfung von PLC-Programmen
+- Patchen nach Test und Risikoabwägung, kompensierende Maßnahmen
+- Offline-Backups von PLC-, SCADA-, HMI- und Safety-Konfigurationen
+- Wiederanlauf planen: Cold, Warm, Hot Start – Wiedereinschalten ist riskanter als Abschalten
+
+## KI-Resilienz – bekannte Prinzipien in einem neuen Umfeld
+
+- Warum Resilienz auch für KI wichtig ist: KI schafft neue Abhängigkeiten; ein Neustart behebt manipulierte Daten nicht.
+- Herausforderungen: Daten- und Prompt-Poisoning, Verfügbarkeit, Bias
+- Ziel der Einheit: verstehen, wie wir KI-Systeme resilienter machen können
+
+## Bedrohungen für KI-Systeme
+
+- **Daten-Poisoning:** Manipulation der Trainingsdaten
+- **Prompt-Poisoning:** Beeinflussung von Eingabeaufforderungen bei generativen Modellen
+- **Bias und Fairness-Probleme:** verzerrte Ergebnisse durch einseitige Daten
+- **Verfügbarkeitsangriffe:** DDoS auf KI-basierte Dienste
+- **Model Drift:** schleichende Veränderung der Datenmuster
+- **Wallet DoS**
+
+## Prinzipien der KI-Resilienz
+
+- **Verifikation und Validierung:** stetige Überprüfung der Trainingsdaten und Modelle
+- **Redundanz und Diversität:** unterschiedliche Modelle und Datenquellen
+- **Transparenz:** nachvollziehbare Entscheidungswege
+- **Adversarial Testing:** gezielte Angriffe simulieren
+- **Kontinuierliches Monitoring:** Ausgaben beobachten, Anomalien und Verzerrungen früh erkennen
+- **Bias-Reduktion** · **Human in the Loop** · **Recovery** auf definierte Modellzustände
+
+## Fallbeispiel – Resilienz gegen Daten-Poisoning
+
+- Wie kann ein Angreifer Trainingsdaten manipulieren?
+- Maßnahmen: Datenvalidierung, robuste Algorithmen, regelmäßige Audits
+
+OT-Beispiel: Manipulierte Vibrationsdaten → KI erkennt keinen Lagerschaden → Totalausfall.
+
+## Wallet DoS – Schutz vor finanziellen API-Angriffen
+
+**Was ist Wallet DoS?** Ein Angriff, bei dem durch übermäßige API-Nutzung Credits oder Guthaben eines Dienstanbieters aufgebraucht werden.
+
+**Risiko:** nicht nur technischer, sondern auch finanzieller Schaden für den Betreiber.
+
+**Gegenmaßnahmen**
+
+- mandantenspezifische API-Schlüssel
+- Rate Limits und Monitoring pro Mandant
+- separate Budgets pro Mandant
+
+## Zusammenfassung: Reifegrad der KI-Governance
+
+1. Ad-hoc-Governance
+2. Grundlegende Strukturen und Prozesse etablieren
+3. Über die Grundlagen hinausgehen
+4. Erweitern und reifen
+5. Eingebettete und einflussreiche Governance
+
+„Resilienz ist die neue Vertrauenswährung der KI-Welt.“
+
+## Übung: Gandalf AI
+
+[gandalf.lakera.ai](https://gandalf.lakera.ai)
+
+Entlockt dem Modell über mehrere Level ein geschütztes Passwort.
+
+- Welche Abwehrmechanismen erkennt ihr?
+- Was bedeutet das für Prompt-Poisoning und die Resilienz von KI-Anwendungen?
+
+## Ausblick auf Sitzung 10
+
+**Resilienz der Zukunft**
+
+- Quantencomputing – wenn Vertrauen rückwirkend bricht
+- Autonome Systeme – wenn Systeme selbst reagieren
+- Gesellschaft & Ethik – wenn niemand allein verantwortlich ist
+- Übung: Resilienz im Jahr 2035
+
+## Material
+
+[Kapitel zum Termin](../../../termine/09.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

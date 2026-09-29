@@ -1,0 +1,83 @@
+---
+title: "Termin 11 – Klausur"
+---
+
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-11/_output/main.html) · [Glossar](../glossar.html)
+
+# Prüfungsrahmen
+
+| Merkmal | Festlegung laut Probeklausur |
+|---|---|
+| Modul | Grundlagen der Resilienz (modulübergreifend) |
+| Studiengang | Cyber Security Management (B.Sc.), 1. Semester |
+| Bearbeitungszeit | 90 Minuten |
+| Hilfsmittel | keine |
+| Punkte | 20 (ein Punkt je Frage) |
+| Antwortform | kurz, präzise, strukturiert in Stichpunkten; pro Frage genügen 1–3 fachlich korrekte Aspekte |
+
+Verbindliche Angaben zu Termin, Raum und Notenschlüssel werden gemäß der Prüfungsordnung bekannt gegeben.
+
+# Aufgabenbereiche
+
+| Teil | Bereich | Termine |
+|---|---|---|
+| A | Resilienz-Grundlagen und Begriffe | 1–2 |
+| B | Safety vs. Security | 1, 9 |
+| C | Organisation und Prozesse | 5–6 |
+| D | Technische Resilienzmaßnahmen I | 7 |
+| E | Technische Resilienzmaßnahmen II | 8 |
+| F | OT-Resilienz | 9 |
+| G | KI und moderne Risiken | 9–10 |
+
+Die Terminkapitel enthalten jeweils prüfungsrelevante Leitfragen. Für die Klausur ist nicht das Aufzählen entscheidend, sondern die Begründung und Einordnung.
+
+# Probeklausur
+
+**Teil A – Resilienz-Grundlagen und Begriffe**
+
+1. Was versteht man unter Resilienz im Kontext von IT- und Cyber-Systemen?
+2. Nennen Sie zwei Unterschiede zwischen Resilienz und klassischer IT-Sicherheit.
+3. Warum ist Resilienz ein Management- und kein reines IT-Thema?
+
+**Teil B – Safety vs. Security**
+
+4. Erläutern Sie den Unterschied zwischen Safety und Security.
+5. Nennen Sie ein Beispiel, bei dem Security-Maßnahmen mit Safety-Zielen kollidieren können.
+
+**Teil C – Organisation und Prozesse**
+
+6. Warum scheitern viele Cyber-Resilienzmaßnahmen nicht an Technik, sondern an Organisation?
+7. Welche Rolle spielt Kommunikation in Krisen- und Notfallsituationen?
+8. Warum sind klare Rollen und Verantwortlichkeiten (z. B. CISO, SOC, CERT) für Resilienz entscheidend?
+
+**Teil D – Technische Resilienzmaßnahmen I**
+
+9. Warum sind Backups allein keine ausreichende Resilienzmaßnahme?
+10. Worin unterscheiden sich Backup, Disaster Recovery und Notfalltests?
+11. Warum sind regelmäßige Notfalltests für Resilienz unverzichtbar?
+
+**Teil E – Technische Resilienzmaßnahmen II**
+
+12. Was bedeutet das Zero-Trust-Prinzip?
+13. Warum ist Microsegmentation eine zentrale Maßnahme für Cyber-Resilienz?
+14. Nennen Sie eine typische Herausforderung bei Cloud-Resilienz.
+
+**Teil F – OT-Resilienz**
+
+15. Was unterscheidet OT-Resilienz grundlegend von IT-Resilienz?
+16. Warum kann ein ungeplanter Shutdown in OT-Umgebungen gefährlich sein?
+17. Warum ist Netzwerksegmentierung (z. B. Purdue-Modell) für OT besonders wichtig?
+
+**Teil G – KI und moderne Risiken**
+
+18. Nennen Sie eine Chance und ein Risiko beim Einsatz von KI im Sicherheitskontext.
+19. Was versteht man unter Data Poisoning, und warum ist es für KI-Resilienz kritisch?
+20. Warum ist das Prinzip Human-in-the-Loop ein zentrales Resilienzprinzip?
+
+Die kompakte Musterlösung liegt im Dozentenprojekt (`dozenten/loesungen.qmd`) und wird bei Bedarf gesondert freigegeben.
+
+# Vorbereitung
+
+- Glossar durcharbeiten und Begriffe in Zusammenhänge einordnen.
+- Leitfragen der Termine 1–10 schriftlich in Stichpunkten beantworten.
+- Übungsszenarien (Ransomware am Montagmorgen, Phishing mit Admin-Credentials, GameNova, Plan the Worst Day) noch einmal durchdenken: Wer entscheidet was, welches Prinzip wirkt gegen welche Bedrohung?

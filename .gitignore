@@ -1,0 +1,10 @@
+.quarto/
+**/.quarto/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+/.quarto/
+**/*.quarto_ipynb

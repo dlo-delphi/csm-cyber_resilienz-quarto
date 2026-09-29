@@ -1,0 +1,288 @@
+---
+title: "Resilienz der Zukunft"
+subtitle: "Wenn Technik entscheidet, Systeme lernen und Verantwortung diffus wird · Termin 10"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Resilienz der Zukunft
+
+**Quanten, Autonomie und Verantwortung unter Unsicherheit**
+
+- Resilienz endet nicht bei Technik.
+- Zukünftige Systeme verändern Zeit, Kontrolle und Verantwortung.
+- Diese Sitzung blickt bewusst über heutige Annahmen hinaus.
+
+## Rückblick: Unser Resilienzverständnis bisher
+
+- Resilienz ≠ Vermeidung von Störungen
+- Resilienz = Reagieren · Wiederherstellen · Anpassen
+- Zusammenspiel aus
+  - Technik (Architekturen, Backups, DR)
+  - Organisation (Rollen, Prozesse, Kommunikation)
+  - Mensch (Entscheidung, Verantwortung, Lernen)
+
+## Die implizite Annahme
+
+**Der Mensch ist die letzte Entscheidungsinstanz.**
+
+- Entscheidungen sind erklärbar.
+- Verantwortung ist zuordenbar.
+- Kontrolle ist zumindest theoretisch möglich.
+
+## Bruchlinie: Was sich gerade verändert
+
+- Kryptografie kann rückwirkend brechen.
+- Systeme entscheiden schneller als Menschen.
+- Entscheidungen werden ausgelagert – an Modelle, Plattformen, Algorithmen.
+- Verantwortung verteilt sich über Lieferketten.
+
+## Struktur der Sitzung
+
+1. Quantencomputing – wenn Vertrauen rückwirkend bricht
+2. Autonome Systeme – wenn Systeme selbst reagieren
+3. Gesellschaft & Ethik – wenn niemand allein verantwortlich ist
+4. Zusammenführung – was bedeutet das für Cyber-Resilienz?
+
+## Übergang: Resilienz & Zeit
+
+- Resilienz misst sich über Zeit.
+- Annahme bisher: Die Vergangenheit bleibt stabil; Entscheidungen wirken nur nach vorn.
+- **Neue Frage: Was, wenn die Vergangenheit unsicher wird?**
+
+## Einstieg Quantencomputing
+
+- Quantencomputer sind keine schnelleren PCs.
+- Sie bedrohen gezielt asymmetrische Kryptografie (RSA, ECC), digitale Signaturen und langfristige Vertraulichkeit.
+- Angriffsszenario: **„Harvest now, decrypt later“**
+
+## Quantencomputing als Resilienzproblem
+
+**Kein Security-, sondern ein Resilienzthema**
+
+- Schaden entsteht zeitverzögert.
+- Betroffen: Archive, Backups, Identitäten, Vertrauensketten.
+- Klassische Prävention greift zu kurz.
+- Vertrauensverlust lässt sich nicht durch Wiederanlauf reparieren.
+
+## Crypto Agility als Resilienzfähigkeit
+
+**Anpassungsfähigkeit statt Algorithmus-Fetisch**
+
+- Kryptografie ist kein statischer Zustand.
+- Resiliente Systeme können Algorithmen austauschen, Schlüssel erneuern, Vertrauensketten migrieren.
+- Ziel: Schaden begrenzen, nicht Unverwundbarkeit.
+
+## Grenzen technischer Resilienz (Quanten)
+
+- Langzeitarchive können nicht „einfach neu signiert“ werden.
+- Vertrauensbeziehungen wirken organisationsübergreifend.
+- Migration erzeugt neue Risiken: Inkompatibilität, Betriebsunterbrechungen, Fehlkonfiguration.
+
+## Zwischenfazit Quantencomputing
+
+- Resilienz betrifft Vergangenheit, Gegenwart und Zukunft.
+- Vertrauen wird zeitabhängig.
+- Zentrale Fähigkeit: vorausschauende Anpassung.
+
+„Resilienz bedeutet künftig, mit unsicherer Vergangenheit zu leben.“
+
+## Übergang: Von Zeit zu Entscheidung
+
+- Bisher: Mensch entscheidet, System führt aus.
+- Neu: Systeme reagieren selbstständig.
+- Resilienz wird schneller – aber weniger transparent.
+
+## Was sind autonome Systeme?
+
+- Selbstüberwachende Systeme
+- Automatisierte Incident Response
+- Self-healing Infrastructure
+- KI-gestützte Entscheidungen ohne menschliche Freigabe
+
+## Das Resilienz-Paradoxon autonomer Systeme
+
+::: columns
+::: {.column width="48%"}
+**Autonome Systeme erhöhen**
+
+- Reaktionsgeschwindigkeit
+- Skalierbarkeit
+- Konsistenz
+:::
+::: {.column width="48%"}
+**Gleichzeitig sinken**
+
+- Transparenz
+- Nachvollziehbarkeit
+- menschliche Kontrolle
+:::
+:::
+
+**Autonomie erhöht operative Resilienz … und senkt epistemische Resilienz.**
+
+## Geschwindigkeit vs. Kontrolle
+
+- Menschliche Entscheidungen: langsam, reflektiert
+- Autonome Entscheidungen: schnell, aber kontextarm
+- In Krisen: Geschwindigkeit rettet Systeme – Fehlentscheidungen skalieren sofort.
+
+Wann ist menschliches Zögern Teil der Resilienz?
+
+## Lernen als Risiko
+
+- ML-Systeme passen ihr Verhalten an – auf Basis von Trainingsdaten, Feedback, impliziten Zielen.
+- Risiken: Overfitting auf Krisen, falsche Korrelationen, unerwünschte Optimierung.
+
+## Adaptivität ≠ Kontrollverlust
+
+**Autonomie braucht Leitplanken**
+
+- Klare Grenzen für autonome Entscheidungen
+- Menschliche Eingriffspunkte („Human Override“)
+- Transparenz & Logging
+- Vorab definierte „No-Go“-Zonen
+
+## Verantwortung im autonomen Betrieb
+
+**Wer trägt Verantwortung, wenn niemand entscheidet?**
+
+- Entscheidung ≠ Verantwortung
+- Verantwortung verteilt sich über Entwickler, Betreiber, Management und Anbieter.
+- Klassische Rollenkonzepte geraten an Grenzen.
+
+## Zwischenfazit Autonome Systeme
+
+- Mehr Geschwindigkeit ≠ bessere Resilienz.
+- Transparenz wird zum kritischen Gut.
+- Resilienz braucht Technik, Governance und Ethik.
+
+„Ein System, das sich selbst heilt, muss sich auch selbst erklären können.“
+
+## Resilienz ist kein rein technisches Ziel
+
+- Resiliente Systeme entscheiden über Versorgung, Teilhabe und Sicherheit.
+- Technische Entscheidungen haben soziale Effekte.
+- Resilienz ist immer normativ (wertbehaftet).
+
+## Wer profitiert von Resilienz?
+
+::: columns
+::: {.column width="48%"}
+**Große Organisationen**
+
+- mehr Redundanz
+- mehr Ressourcen
+:::
+::: {.column width="48%"}
+**Kleine Akteure**
+
+- höhere Abhängigkeiten
+- geringere Ausweichmöglichkeiten
+:::
+:::
+
+Resilienz kann Ungleichheit verstärken.
+
+## Automatisierte Entscheidungen & Legitimität
+
+- Autonome Systeme priorisieren Services, Nutzer, Regionen.
+- Kriterien sind oft technisch sinnvoll, aber gesellschaftlich intransparent.
+- Problem: fehlende Legitimation.
+
+## Verantwortung ohne Verantwortliche
+
+**Das Verantwortungsdiffusions-Problem**
+
+- Cloud · KI-Modelle · Lieferketten · Open Source
+- → Verantwortung verteilt sich.
+- → Haftung, Erklärung, Kontrolle werden unscharf.
+
+## Ethik als Resilienz-Leitplanke
+
+**Ethik ist keine Bremse, sondern Orientierung.**
+
+- Was darf ein System? Was soll es nicht?
+- Besonders relevant bei autonomen Entscheidungen, Ressourcenknappheit und Krisenpriorisierung.
+
+## Resilienz vs. Freiheit
+
+- Mehr Resilienz bedeutet oft mehr Überwachung, mehr Kontrolle, weniger Autonomie für Individuen.
+- Zielkonflikt: Schutz vs. Freiheit – technisch nicht auflösbar.
+
+## Zwischenfazit Gesellschaft & Ethik
+
+- Technisch robuste Systeme können sozial scheitern.
+- Akzeptanz entsteht durch Transparenz, Fairness, Verantwortlichkeit.
+- Resilienz ohne Legitimität ist instabil.
+
+„Ein resilientes System, dem niemand vertraut, ist nicht resilient.“
+
+## Resilienz der Zukunft: alles zusammen gedacht
+
+- Quantencomputing verändert Zeit & Vertrauen.
+- Autonome Systeme verändern Entscheidung & Kontrolle.
+- Gesellschaft & Ethik verändern Legitimität & Akzeptanz.
+- Resilienz entsteht im Spannungsfeld aller drei.
+
+## Neue Resilienzfragen
+
+- Wie viel Autonomie verträgt ein System?
+- Wo muss der Mensch zwingend entscheiden?
+- Wie erklären wir maschinelle Entscheidungen?
+- Wie lange muss Vertrauen halten?
+- Wer trägt Verantwortung im Grenzfall?
+
+## Neue Resilienzfähigkeiten
+
+- Crypto Agility (nicht nur Post-Quantum)
+- Governance für Autonomie
+- Erklärbarkeit & Transparenz
+- Ethische Leitplanken
+- Gesellschaftliche Einbettung
+
+## Resilienz als Führungsaufgabe
+
+- Entscheidungen sind strategisch.
+- Auswirkungen sind gesellschaftlich.
+- Verantwortung liegt bei Führung & Governance.
+- **IT liefert Fähigkeiten – nicht Werte.**
+
+## Übung: Resilienz im Jahr 2035
+
+Europaweites Versorgungsunternehmen: autonome IT/OT-Steuerung, KI-gestützte Incident Response, teilweise Post-Quantum-Kryptografie.
+
+**Montagmorgen:** Unstimmigkeiten in historischen Signaturen eines Archivs · auffällige Reaktionen autonomer Schutzsysteme · regionale Diensteinschränkungen zur „Stabilisierung“ – ein Angriff ist nicht eindeutig nachweisbar.
+
+Rollen: A Technik/Security · B Management · C Staat/Aufsicht · D Gesellschaft/Kunden · E Ethik/Recht
+
+Aufgaben: Resilienzverständnis · kritische Entscheidung der nächsten 30 Minuten · Grenzen der Autonomie · Verantwortung & Kommunikation. Es geht um Begründbarkeit, nicht um Konsens.
+
+## Abschlussstatement
+
+Die größte Herausforderung zukünftiger Resilienz ist nicht Technik –
+
+**sondern Verantwortung unter Unsicherheit.**
+
+„Resilienz ist keine Eigenschaft von Systemen. Sie ist eine Fähigkeit von Menschen, Organisationen und Gesellschaften.“
+
+## Material
+
+[Kapitel zum Termin](../../../termine/10.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

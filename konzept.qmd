@@ -1,0 +1,90 @@
+---
+title: "Aufbau und Semesterplan"
+---
+
+[Zur Übersicht](index.html)
+
+# Leitgedanke
+
+Resilienz bezeichnet die Fähigkeit eines Systems, trotz interner oder externer Störungen funktionsfähig zu bleiben, die Funktionsfähigkeit rasch wiederherzustellen und sich im Zeitverlauf anzupassen. Die Lehrveranstaltung ergänzt die klassische Prävention um Erkennen, Reagieren und Wiederherstellen. Der rote Faden lautet:
+
+> Nicht Unverwundbarkeit ist das Ziel, sondern Reaktions- und Wiederherstellungsfähigkeit.
+
+Resilienz wird dabei durchgehend aus drei Perspektiven betrachtet: **Technik** (Architekturen, Backups, Disaster Recovery), **Organisation** (Rollen, Prozesse, Kommunikation) und **Mensch** (Entscheidung, Verantwortung, Lernen).
+
+# Rahmen
+
+| Merkmal | Festlegung aus den Unterlagen WS 2025/26 |
+|---|---|
+| Studiengang | Cyber Security Management (B.Sc.), 1. Semester |
+| Modul | Grundlagen der Resilienz |
+| Lehrform | Vorlesung mit Gruppenübungen in jedem Termin |
+| Begleitmaterial | Foliensatz und Vorlesungsskript je Termin, Glossar, Übungsblatt (Termin 8) |
+| Prüfung | Klausur, 90 Minuten, ohne Hilfsmittel, 20 Punkte (Probeklausur) |
+| Kursplattform | OLAT; das Zugangskennwort wird in der ersten Veranstaltung bekannt gegeben |
+
+Die Skripte verstehen sich ausdrücklich als Vorlesungsbegleitung ohne akademischen Anspruch. Sie sind jedoch für die Klausurvorbereitung gedacht und enthalten zu fast allen Terminen prüfungsrelevante Leitfragen. Diese Leitfragen stehen in den Terminkapiteln.
+
+# Semesterplan
+
+Die Termine folgen den tatsächlich gehaltenen Sitzungen des Wintersemesters 2025/26. Konkrete Kalenderdaten werden für das jeweilige Semester ergänzt.
+
+| Termin | Thema | Inhalte und Methoden |
+|---|---|---|
+| [1](termine/01.html) | Grundlagen der Resilienz: Safety & Security | Begriff, Herkunft, Safety vs. Security, vier technische Prinzipien, physikalische Analogie; Übung „Safety oder Security?“ |
+| [2](termine/02.html) | Modelle und Messbarkeit | Degradationskurve, RTO, RPO, MTTR, MTBF, Frameworks, Reifegrade; Übung „Resilienz bewerten“ |
+| [3](termine/03.html) | Resilienz-Architekturen | Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität, Hybrid-SPOFs; Übung SPOF-Analyse |
+| [4](termine/04.html) | Cyber-Bedrohungen und Resilienzstrategien | Sechs Bedrohungsklassen, Threat-to-Resilience-Mapping, normative Verankerung; Mapping-Übung |
+| [5](termine/05.html) | Resilienz als Organisationsfähigkeit | ISO 22316, Resilienzzyklus, Krisenkommunikation, Schulz von Thun, Incident Response, Übungskultur, Governance; Ransomware-Übung |
+| [6](termine/06.html) | Rollen und Verantwortlichkeiten | CISO, SOC, CERT, DPO, BCM, IT Operations, Management; Eskalation, Meldepflichten, Konfliktlinien; Rollenmapping |
+| [7](termine/07.html) | Technische Resilienz I | Backup vs. Archiv vs. Redundanz, 3-2-1-1-0, Backup-Typen und -Architekturen, Disaster Recovery, Notfalltests; „Plan the Worst Day“ |
+| [8](termine/08.html) | Technische Resilienz II | Zero Trust, Microsegmentation, Cloud Resilience, Network Resilience, Zusammenspiel; Übungsblatt GameNova |
+| [9](termine/09.html) | Sonderthemen OT & KI | Gastvortrag OT-Security, IT/OT-Unterschiede, Purdue-Modell, OT-Maßnahmen, KI-Resilienz, Wallet DoS; Übung Gandalf |
+| [10](termine/10.html) | Resilienz der Zukunft | Quantencomputing und Crypto Agility, autonome Systeme, Gesellschaft und Ethik; Rollenspiel „Resilienz im Jahr 2035“ |
+| [11](termine/11.html) | Klausur | 90 Minuten, Aufgabenbereiche A–G gemäß Probeklausur |
+
+## Abweichungen von der ursprünglichen Planung
+
+Die Vorlesungsübersicht auf den Folien sah für Termin 9 „Frameworks und Standards der Cyber-Resilienz“, für Termin 10 „Safety & Security in vernetzten Systemen“ und für Termin 11 „Resilienz der Zukunft“ vor. Gehalten wurden stattdessen die Sonderthemen OT und KI mit Gastvortrag (Termin 9) sowie die Abschlussvorlesung „Resilienz der Zukunft“ (Termin 10). Die Frameworks (NIST, ISO/IEC 27031, BSI 200-4, ENISA) sind in den Terminen 1–6 fortlaufend eingebunden; eine OT-spezifische Normübersicht folgt in Termin 9. Die Ausblicksfolien in diesem Projekt verweisen deshalb auf die tatsächlich folgende Sitzung. Die ursprünglich vorgesehenen Termine „Abschluss & Anwendung“ und „Puffer- oder Wiederholungstermin“ entfallen zugunsten des Klausurtermins.
+
+# Lernarchitektur
+
+| Block | Termine | Leitfrage |
+|---|---|---|
+| Verstehen und messen | 1–2 | Was ist Resilienz, und wie wird sie sichtbar? |
+| Gestalten und begründen | 3–4 | Wie entsteht Resilienz im Design, und gegen welche Bedrohung wirkt sie? |
+| Organisieren | 5–6 | Wie bleibt eine Organisation unter Stress entscheidungs- und handlungsfähig? |
+| Technisch umsetzen | 7–8 | Wie wird Wiederherstellung gesichert und Schaden architektonisch begrenzt? |
+| Übertragen und vorausdenken | 9–10 | Was ändert sich in OT, mit KI und unter künftigen Bedingungen? |
+| Nachweisen | 11 | Klausur |
+
+Die Termine bauen aufeinander auf: Die vier technischen Prinzipien aus Termin 1 werden in Termin 3 zur Architekturlehre, in Termin 4 zum Antwortraum gegen Bedrohungen und in den Terminen 7–9 zu konkreten Maßnahmen. Der Resilienzzyklus aus Termin 5 kehrt im Incident Handling (Termin 6), in den Notfalltests (Termin 7) und im OT-Wiederanlauf (Termin 9) wieder.
+
+# Arbeitsweise
+
+Jeder Termin enthält eine Gruppenübung. Die Unterlagen nennen folgende Formate und Zeiten:
+
+| Termin | Übung | Format und Zeit laut Unterlagen |
+|---|---|---|
+| 1 | Safety oder Security? | Gruppen, 5-Minuten-Kurzpräsentation pro Gruppe |
+| 2 | Resilienz bewerten | Gruppen, 20–30 Minuten; 1–2 Folien oder Kurzstatement |
+| 3 | SPOFs identifizieren & zuordnen | Gruppen, 15–30 Minuten; 1 Folie oder 5-Punkte-Statement |
+| 4 | Threat-to-Resilience-Mapping | Gruppen, 15–20 Minuten; 1 Folie, max. 6 Punkte, 2–3 Minuten Präsentation |
+| 5 | Vier Seiten einer Nachricht; Ransomware am Montagmorgen | 3er-Gruppen, 10 Minuten; Gruppen, 15–20 Minuten |
+| 6 | Wer macht was im Incident? | 4–5 Personen, 20 Minuten Gruppenarbeit und 15 Minuten Plenum |
+| 7 | Plan the Worst Day | Gruppen, 90 Minuten in drei Teilen |
+| 8 | Übungsblatt GameNova | 60–90 Minuten, 100 Punkte, Hilfsmittel erlaubt |
+| 9 | Gandalf AI; Fallstudien OT | Einzel- oder Partnerarbeit; Fallstudien aus dem Skript |
+| 10 | Resilienz im Jahr 2035 | Rollenspiel, 90 Minuten mit Plenum |
+
+Bewertungsmaßstab der Übungen ist nach den Unterlagen die Schärfe der Zuordnung und die Begründung, nicht die Menge der genannten Maßnahmen.
+
+# Wiederkehrende Kernaussagen
+
+- „Sicherheit schützt – Resilienz überlebt.“ Prävention ist notwendig, aber nicht hinreichend.
+- Resilienz zeigt sich nicht im Normalbetrieb, sondern in der Auslenkung.
+- Resilienz entsteht im Design, nicht im Incident.
+- Resilienz ist relational: Sie besteht immer gegenüber einer konkreten Störung.
+- Backup ohne Restore-Test ist eine Hypothese, kein Nachweis.
+- Technik schafft Potenzial – Organisation aktiviert es.
+- Die größte Herausforderung zukünftiger Resilienz ist nicht Technik, sondern Verantwortung unter Unsicherheit.

@@ -1,0 +1,35 @@
+---
+title: "Einführung in die Cyber-Resilienz"
+subtitle: "Grundlagen der Resilienz · Cyber Security Management (B.Sc.) · 1. Semester · Hochschule Mainz"
+author: "Prof. Dr. Dirk Loomans"
+---
+
+# Sicherheit schützt – Resilienz überlebt
+
+IT-Systeme sind nie vollkommen sicher. Angriffe, Ausfälle und Fehlbedienungen sind unvermeidlich. Entscheidend ist, wie schnell eine Organisation sich erholt und weiterarbeitet. Die Lehrveranstaltung führt in zehn Terminen von den Begriffen über Messgrößen, Architekturprinzipien und Bedrohungsbilder zur organisatorischen und technischen Umsetzung. Anschließend werden OT- und KI-Resilienz sowie die Zukunftsfragen des Fachs behandelt. Termin 11 ist die Klausur.
+
+Grundlage sind die Vorlesungsfolien, Skripte, Glossare, das Übungsblatt und die Probeklausur aus dem Wintersemester 2025/26. Dieses Projekt überführt sie in eine gemeinsame, editierbare Quarto-Struktur. Die Inhalte wurden nicht didaktisch neu konzipiert. Wo Angaben aus dem Archiv gegen aktuelle Quellen geprüft werden sollten, steht ein kurzer Hinweis im Kapitel und unter [Quellen](quellen.html#hinweise-zur-aktualität).
+
+## Einstieg
+
+- [Aufbau und Semesterplan](konzept.html)
+- [Glossar](glossar.html)
+- [Quellen, Normen und Hinweise zur Aktualität](quellen.html)
+
+## Die Termine
+
+| Termin | Thema | Folien |
+|---|---|---|
+| [1](termine/01.html) | Grundlagen der Resilienz: Safety & Security | [Folien](Präsentationen/Termin-01/_output/main.html) |
+| [2](termine/02.html) | Modelle und Messbarkeit der Resilienz | [Folien](Präsentationen/Termin-02/_output/main.html) |
+| [3](termine/03.html) | Resilienz-Architekturen: Redundanz, Diversität, Wiederherstellbarkeit, Adaptivität | [Folien](Präsentationen/Termin-03/_output/main.html) |
+| [4](termine/04.html) | Cyber-Bedrohungen und Resilienzstrategien | [Folien](Präsentationen/Termin-04/_output/main.html) |
+| [5](termine/05.html) | Resilienz als Organisationsfähigkeit | [Folien](Präsentationen/Termin-05/_output/main.html) |
+| [6](termine/06.html) | Organisatorische Resilienz II: Rollen und Verantwortlichkeiten | [Folien](Präsentationen/Termin-06/_output/main.html) |
+| [7](termine/07.html) | Technische Resilienz I: Backup, Disaster Recovery, Notfalltests | [Folien](Präsentationen/Termin-07/_output/main.html) |
+| [8](termine/08.html) | Technische Resilienz II: Zero Trust, Microsegmentation, Cloud und Netz | [Folien](Präsentationen/Termin-08/_output/main.html) |
+| [9](termine/09.html) | Sonderthemen: OT-Resilienz und KI-Resilienz | [Folien](Präsentationen/Termin-09/_output/main.html) |
+| [10](termine/10.html) | Resilienz der Zukunft | [Folien](Präsentationen/Termin-10/_output/main.html) |
+| [11](termine/11.html) | Klausur | [Folien](Präsentationen/Termin-11/_output/main.html) |
+
+Die Dateien sind offline lesbar. Die gerenderte Ausgabe beginnt bei `_output/index.html`. Bearbeitung und erneutes Rendern beschreibt die README.

@@ -1,0 +1,204 @@
+---
+title: "Grundlagen der Resilienz"
+subtitle: "Cyber Security Management · Termin 1"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## About …
+
+**Prof. Dr. Dirk Loomans**, Diplom-Physiker
+
+- Studium Physik mit Informatik, Universität Bayreuth; Promotion in theoretischer Polymerphysik, Universität Freiburg i. Br.
+- Partner Cyber Security and Resilience bei KPMG
+- Hochschule Mainz, Fachbereich Wirtschaft: Wirtschaftsinformatik, insbesondere Cyber Security und Softwareentwicklung (WiSe 2011/12 – SoSe 2015 und seit SoSe 2025)
+- Lehre: Projektmanagement, Cyber-Resilienz, IT-Security, Web Development
+- Forschung: KI und Cyber, Cyber in Sustainability
+- Fun Fact: Hobbybrauer und Fastnachts-Aficionado
+
+## Zugang zum Kurs in OLAT
+
+Kursunterlagen, Skripte und Ankündigungen liegen in OLAT.
+
+Zugangskennwort: wird in der Veranstaltung bekannt gegeben.
+
+::: notes
+Aktuelles Kennwort vor der Veranstaltung eintragen. Das Kennwort des Vorsemesters wurde aus dem Foliensatz entfernt.
+:::
+
+## Semesterüberblick
+
+1. **Grundlagen der Resilienz: Safety & Security** ← heute
+2. Modelle und Messbarkeit
+3. Resilienz-Architekturen
+4. Cyber-Bedrohungen und Resilienzstrategien
+5. Resilienz als Organisationsfähigkeit
+6. Rollen und Verantwortlichkeiten
+7. Technische Resilienz I: Backup, DR, Notfalltests
+8. Technische Resilienz II: Zero Trust, Microsegmentation, Cloud, Netz
+9. Sonderthemen OT und KI · 10. Resilienz der Zukunft · 11. Klausur
+
+## Agenda
+
+- Einleitung & Lernziele
+- Grundlagen der Resilienz
+- Safety vs. Security
+- Technische Resilienzprinzipien
+- Physikalisch-systemische Perspektive
+- Praktische Beispiele & Fallstudien
+- Übung und Reflexionsfragen
+- Zusammenfassung & Ausblick
+
+## Warum Resilienz wichtig ist
+
+IT-Systeme sind nie vollkommen sicher.
+
+Angriffe, Ausfälle und Fehlbedienungen sind unvermeidlich.
+
+**Entscheidend ist: Wie schnell können wir uns erholen und weiterarbeiten?**
+
+Diskussionsfrage: Wie lange darf euer Lieblingsspiel down sein?
+
+::: notes
+Server-Ausfälle beim Zocken als Einstieg. Ausfälle sind normal, Erholungsfähigkeit zählt. Überleitung zur Definition.
+:::
+
+## Was bedeutet Resilienz?
+
+- Resilienz = Widerstands- und Anpassungsfähigkeit bei Störungen.
+- Herkunft: Physik, Psychologie, Systemtheorie – heute technische und organisatorische Systeme.
+- In der IT: Systeme bleiben trotz Störungen funktionsfähig oder erholen sich schnell.
+
+::: notes
+Resilienz definieren, Herkunft erwähnen, Alltagsbeispiele abfragen.
+:::
+
+## Safety vs. Security – der Unterschied
+
+**Safety:** Schutz vor unbeabsichtigten Fehlern und Unfällen – Hardwaredefekt, Stromausfall, Brand.
+
+**Security:** Schutz vor absichtlichen Angriffen – Ransomware, Social Engineering, Hacking.
+
+Beide beeinflussen die Resilienz eines Systems.
+
+::: notes
+Safety vs. Security sammeln. Resilienz wird von beidem beeinflusst.
+:::
+
+## Resilienz verbindet beides
+
+Ziel: nicht Unverwundbarkeit, sondern Reaktions- und Wiederherstellungsfähigkeit.
+
+**Safety + Security + Adaptivität = Resilienz**
+
+Fokus: robust designen, Störungen erkennen, reagieren, wiederherstellen.
+
+## Physikalische Perspektive (Analogie)
+
+- Pendel / Schwingkreis: Störung → Auslenkung → Rückkehr zur Balance.
+- Elastizität vs. Fragilität: Gummi vs. Glas.
+- Übertragung auf IT-Systeme und Organisationen: Monitoring, Alerting und Autoscaling wirken wie Regelkreise.
+
+::: notes
+Physik-Analogie (Pendel/Schwingkreis). Fragil vs. resilient.
+:::
+
+## Technische Resilienzprinzipien
+
+- **Redundanz** – mehrere Wege und Komponenten
+- **Diversität** – heterogene Komponenten reduzieren Kaskadenfehler
+- **Wiederherstellbarkeit** – Backups, DR-Prozesse, Automatisierung
+- **Adaptivität** – Skalierung, Umschalten, Lernen
+
+::: notes
+Vier Prinzipien mit Cloud-/Netzwerk-Bezug erläutern.
+:::
+
+## Safety & Security in Cyber-Systemen
+
+- Beispiele: Smart Home, autonome Fahrzeuge, Cloud-Gaming
+- Risikoanalyse: Wo kippt Safety in Security und umgekehrt?
+- Priorisierung kritischer Funktionen
+
+::: notes
+Mini-Case-Diskussion. Priorisierung und Abhängigkeiten betonen.
+:::
+
+## Warum Prävention nicht reicht
+
+- Zero-Days, Lieferketten, menschliche Fehler
+- 100 % Prävention gibt es nicht.
+- **Resilienz ist die letzte Verteidigungslinie.**
+
+„Sicherheit schützt – Resilienz überlebt.“
+
+::: notes
+Warum 100 % Prävention nicht existiert. Merksatz und NIST-Gedanke: Detect – Respond – Recover ergänzen die Prävention.
+:::
+
+## Relevanz für Cyber Security Management
+
+- Resilienz ist ein Management- und Architekturthema.
+- Einbettung in Standards und Frameworks: NIST, ISO/IEC 27031, BSI 200-4, ENISA.
+- Verbindung zu Incident Response, BCM und IT Service Continuity Management.
+
+::: notes
+Management-Verantwortung, Standards anreißen, Ausblick auf spätere Sitzungen.
+:::
+
+## Praxisbeispiele (Diskussion)
+
+**Ransomware in der Verwaltung** – Recovery und Kommunikation sind entscheidend: offline verifizierte Backups, priorisierter Wiederanlauf nach BCM-Plan.
+
+**DDoS auf einen Online-Service** – Skalierung und Traffic-Filterung: CDN, WAF, elastische Kapazität, transparente Statuskommunikation.
+
+**Frage:** Welche Maßnahmen beschleunigen die Wiederherstellung?
+
+::: notes
+Zwei reale Fälle diskutieren. Lösungen fokussieren auf Recovery und Kommunikation.
+:::
+
+## Übung: Safety oder Security?
+
+Gruppenaufgabe mit Szenarien: Cloud-Gaming, Krankenhaus-IT, Smart Home, Auto, Banking-App.
+
+1. Risiken identifizieren
+2. Safety vs. Security zuordnen
+3. Resilienzmaßnahmen vorschlagen
+
+5-Minuten-Kurzpräsentation pro Gruppe.
+
+::: notes
+Aufgabenstellung klar, Gruppen bilden, Zeitrahmen nennen.
+:::
+
+## Ausblick & Hausaufgabe
+
+**Zusammenfassung:** Safety ≠ Security – Resilienz integriert beides.
+
+**Nächste Sitzung:** Modelle und Messbarkeit der Resilienz.
+
+**Hausaufgabe:** Ein Beispiel recherchieren, das sich nach einer Störung besonders schnell erholte.
+
+[Kapitel zum Termin](../../../termine/01.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)
+
+::: notes
+Kernaussagen wiederholen, Hausaufgabe, Teaser auf Sitzung 2.
+:::

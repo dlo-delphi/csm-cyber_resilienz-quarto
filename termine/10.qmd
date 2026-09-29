@@ -1,0 +1,128 @@
+---
+title: "Termin 10 – Resilienz der Zukunft"
+subtitle: "Wenn Technik entscheidet, Systeme lernen und Verantwortung diffus wird"
+---
+
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-10/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+
+# Leitfrage
+
+> Was bedeutet Resilienz, wenn die Vergangenheit unsicher wird, Systeme schneller entscheiden als Menschen und niemand allein verantwortlich ist?
+
+# Lernziele
+
+Nach diesem Termin können Studierende
+
+- verstehen, warum zukünftige Resilienzprobleme nicht primär technischer Natur sind,
+- erklären, weshalb Quantencomputing ein Resilienz- und kein reines Security-Thema ist,
+- Chancen und Risiken autonomer Systeme im Kontext von Resilienz einordnen,
+- erkennen, dass Resilienz gesellschaftlich wirksam und normativ geprägt ist,
+- zentrale Spannungsfelder zukünftiger Resilienzentscheidungen benennen.
+
+# Fachinhalte
+
+## Rückblick und implizite Annahme
+
+Resilienz ≠ Vermeidung von Störungen. Resilienz = Reagieren · Wiederherstellen · Anpassen – im Zusammenspiel aus Technik (Architekturen, Backups, DR), Organisation (Rollen, Prozesse, Kommunikation) und Mensch (Entscheidung, Verantwortung, Lernen).
+
+Dahinter steht eine meist unausgesprochene Annahme: **Der Mensch ist die letzte Entscheidungsinstanz.** Entscheidungen sind erklärbar, Verantwortung ist zuordenbar, Kontrolle ist zumindest theoretisch möglich. Diese Annahme gerät ins Wanken: Kryptografie kann rückwirkend brechen, Systeme entscheiden schneller als Menschen, Entscheidungen werden an Modelle und Plattformen ausgelagert, Verantwortung verteilt sich über Lieferketten.
+
+## Block 1: Resilienz und Zeit – Quantencomputing
+
+Klassische Modelle behandeln Störungen als zeitlich abgegrenzte Ereignisse: Ursache und Wirkung liegen nah beieinander, die Vergangenheit gilt als stabil, Schutzmaßnahmen wirken nach vorn. Kryptografie gilt als zeitlich robuster Vertrauensanker.
+
+Quantencomputer sind keine schnelleren PCs. Relevant sind nicht physikalische Details, sondern die Gefährdung von asymmetrischer Kryptografie (RSA, ECC), digitalen Signaturen und langfristiger Vertraulichkeit. Angriffsszenario **„Harvest now, decrypt later“**: Daten werden heute abgegriffen und später entschlüsselt.
+
+**Quantencomputing ist ein Resilienzproblem**, weil der Schaden zeitverzögert entsteht und Archive, Backups, Identitäten und Vertrauensketten betrifft. Der Vertrauensverlust – Daten gelten nicht mehr als authentisch, Signaturen verlieren Beweiskraft – ist oft nicht reversibel und lässt sich nicht durch Wiederanlauf reparieren.
+
+**Crypto Agility** ist die Antwort: Anpassungsfähigkeit statt Algorithmus-Fetisch. Resiliente Systeme können Algorithmen austauschen, Schlüssel erneuern und Vertrauensketten migrieren – mit langfristiger Governance statt punktueller Umstellung. Grenzen: Langzeitarchive lassen sich nicht einfach neu signieren, Vertrauensbeziehungen wirken organisationsübergreifend, und Migration erzeugt neue Risiken (Inkompatibilität, Unterbrechungen, Fehlkonfiguration).
+
+> „Resilienz bedeutet künftig, mit unsicherer Vergangenheit zu leben.“
+
+## Block 2: Resilienz und Entscheidung – autonome Systeme
+
+Automatisierung (Monitoring, Failover, Load Balancing) folgt definierten Regeln. Autonome Systeme gehen darüber hinaus: selbstüberwachende Systeme, automatisierte Incident Response, Self-healing Infrastructure, KI-gestützte Entscheidungen ohne menschliche Freigabe.
+
+**Das Resilienz-Paradoxon:** Autonome Systeme erhöhen Reaktionsgeschwindigkeit, Skalierbarkeit und Konsistenz. Zugleich sinken Transparenz, Nachvollziehbarkeit und menschliche Kontrolle. **Autonomie erhöht operative Resilienz – und senkt epistemische Resilienz.**
+
+Der zentrale Zielkonflikt verschiebt sich von *Verfügbarkeit vs. Sicherheit* zu *Geschwindigkeit vs. Kontrolle*. In Krisen rettet Geschwindigkeit Systeme, aber Fehlentscheidungen skalieren sofort. Wo ist bewusste Verzögerung ein Schutzmechanismus? Wann ist menschliches Zögern Teil der Resilienz?
+
+**Lernen als Risiko:** Lernende Systeme können sich an vergangene Krisen überanpassen, falsche Korrelationen verstärken oder auf implizite Ziele optimieren, die menschlichen Werten widersprechen.
+
+**Leitplanken:** klare Grenzen für autonome Entscheidungen, menschliche Eingriffspunkte („Human Override“), Transparenz und Logging, vorab definierte No-Go-Zonen, Eskalations- und Abschaltmechanismen. Verantwortung verteilt sich über Entwickler, Betreiber, Management und Anbieter – bleibt aber menschlich.
+
+> „Ein System, das sich selbst heilt, muss sich auch selbst erklären können.“
+
+## Block 3: Resilienz, Gesellschaft und Ethik
+
+- **Resilienz ist gesellschaftlich wirksam:** Resiliente Systeme entscheiden über Versorgung, Teilhabe und Sicherheit.
+- **Resilienz ist nicht wertneutral:** Schon die Wiederanlaufreihenfolge ist normativ. Wer wird bevorzugt versorgt? Welche Dienste gelten als kritisch? Welche Risiken werden für wen akzeptiert?
+- **Resilienz ist ungleich verteilt:** Große Organisationen haben mehr Redundanz und Ressourcen; kleine Akteure mehr Abhängigkeiten. Resilienz kann Ungleichheit verstärken.
+- **Legitimität automatisierter Entscheidungen:** Systeme priorisieren Services, Nutzer, Regionen nach technisch sinnvollen, gesellschaftlich intransparenten Kriterien.
+- **Verantwortung ohne Verantwortliche:** Cloud, KI-Modelle, Lieferketten und Open Source verteilen Verantwortung; Haftung, Erklärung und Kontrolle werden unscharf.
+- **Ethik als Leitplanke:** Was darf ein System, was soll es nicht – besonders bei autonomen Entscheidungen, Ressourcenknappheit und Krisenpriorisierung.
+- **Resilienz vs. Freiheit:** Mehr Resilienz bedeutet oft mehr Überwachung, mehr Kontrolle, weniger individuelle Autonomie. Dieser Zielkonflikt lässt sich nicht technisch auflösen.
+
+> „Ein resilientes System, dem niemand vertraut, ist nicht resilient.“
+
+## Zusammenführung
+
+Zukünftige Resilienz entsteht im Spannungsfeld dreier Dimensionen, die nicht unabhängig optimiert werden können: **Zeit und Vertrauen** (Quantencomputing), **Entscheidung und Autonomie** (autonome Systeme), **Gesellschaft und Ethik** (Legitimität, Verantwortung, Akzeptanz).
+
+Neue Resilienzfragen: Wie viel Autonomie verträgt ein System? Wo muss der Mensch zwingend entscheiden? Wie erklären wir maschinelle Entscheidungen? Wie lange muss Vertrauen halten? Wer trägt Verantwortung im Grenzfall?
+
+Neue Resilienzfähigkeiten: Crypto Agility (nicht nur Post-Quantum), Governance für Autonomie, Erklärbarkeit und Transparenz, ethische Leitplanken, gesellschaftliche Einbettung.
+
+Resilienz ist keine IT-Disziplin mehr: Entscheidungen sind strategisch, Auswirkungen gesellschaftlich, Verantwortung liegt bei Führung und Governance. **IT liefert Fähigkeiten – nicht Werte.**
+
+> Die größte Herausforderung zukünftiger Resilienz ist nicht Technik – sondern Verantwortung unter Unsicherheit.
+
+# Übung: Resilienz im Jahr 2035
+
+90 Minuten einschließlich Diskussion. Ziel ist nicht Konsens, sondern reflektierte Entscheidungsfähigkeit unter Unsicherheit.
+
+**Kontext:** Ein europaweit tätiges Versorgungsunternehmen betreibt kritische digitale und physische Infrastrukturen: stark digitalisierte Prozesse, weitgehend autonome IT- und OT-Steuerung, KI-gestützte Incident Response, teilweise migrierte Post-Quantum-Kryptografie, hohe regulatorische Anforderungen.
+
+**Ereignis (früher Montagmorgen):** Unstimmigkeiten in historischen Signaturen eines zentralen Datenarchivs; auffällige automatische Reaktionen autonomer Schutzsysteme; regionale Einschränkungen digitaler Dienste zur „Stabilisierung des Gesamtsystems“. Ein technischer Angriff ist nicht eindeutig nachweisbar.
+
+| Rolle | Fokus | Sorge |
+|---|---|---|
+| A Technik / Security | Systemstabilität, Integrität, Wiederherstellbarkeit | Eskalation technischer Schäden, Kontrollverlust autonomer Systeme |
+| B Management | Versorgungssicherheit, Haftung, wirtschaftliche Stabilität | Reputationsverlust, regulatorische Konsequenzen |
+| C Staat / Aufsicht | Schutz kritischer Infrastrukturen, öffentliche Ordnung | gesellschaftliche Auswirkungen, politische Verantwortung |
+| D Gesellschaft / Kundenvertretung | Fairness, Transparenz, Teilhabe | Diskriminierung, Intransparenz, Vertrauensverlust |
+| E Ethik / Recht | Legitimität, Verantwortlichkeit, Grundrechte | automatisierte Entscheidungen ohne Widerspruchsmöglichkeit |
+
+**Gruppenphase (45–60 Minuten):**
+
+1. *Resilienzverständnis:* Was bedeutet Resilienz aus eurer Sicht? Was muss unbedingt geschützt werden?
+2. *Kritische Entscheidungen:* Welche Entscheidung ist in den nächsten 30 Minuten entscheidend? Wo darf ein autonomes System entscheiden, wo muss ein Mensch eingreifen?
+3. *Grenzen der Autonomie:* Wo sollten autonome Systeme gestoppt oder eingeschränkt werden? Welche Leitplanken sind unverzichtbar?
+4. *Verantwortung und Kommunikation:* Wer trägt Verantwortung? Was wird intern und extern wie kommuniziert?
+
+**Ergebnisdarstellung (max. 5 Minuten je Gruppe):** zentrale Entscheidung, Begründung aus der Rollenperspektive, erkannte Zielkonflikte, bewusst akzeptierte Risiken. Es geht um Begründbarkeit, nicht um Konsens.
+
+**Plenum (ca. 30 Minuten):** Wo widersprechen sich die Entscheidungen? Welche Konflikte waren nicht auflösbar? Wo kollidieren technische und gesellschaftliche Resilienz? Welche Entscheidungen würdet ihr öffentlich vertreten wollen?
+
+**Reflexion:** Was hat die Übung am Resilienzverständnis verändert? Welche Annahmen aus früheren Sitzungen wurden infrage gestellt? Resilienz zeigt sich nicht im reibungslosen Betrieb, sondern im Umgang mit Zielkonflikten unter Unsicherheit.
+
+# Prüfungsrelevante Leitfragen
+
+Das Skript enthält für diese Sitzung keine eigene Leitfragenliste. Aus den Lernzielen ergeben sich:
+
+- Warum ist Quantencomputing ein Resilienz- und kein reines Security-Thema? Was bedeutet „Harvest now, decrypt later“?
+- Was ist Crypto Agility, und wo liegen ihre Grenzen?
+- Erläutern Sie das Resilienz-Paradoxon autonomer Systeme.
+- Welche Leitplanken brauchen autonome Systeme?
+- Warum ist Resilienz nicht wertneutral? Nennen Sie ein Beispiel.
+- Warum ist Human-in-the-Loop ein zentrales Resilienzprinzip? (Probeklausur, Frage 20)
+
+# Abschluss der Lehrveranstaltung
+
+> „Resilienz ist keine Eigenschaft von Systemen. Sie ist eine Fähigkeit von Menschen, Organisationen und Gesellschaften.“
+
+**Nächster Termin:** Klausur.
+
+# Material aus dem Archiv
+
+`Abschlussvorlesung/10_Abschlussvorlesung.pdf` und `Skript Sitzung 10 Resilienz der Zukunft.pdf` (mit Übungsskript).

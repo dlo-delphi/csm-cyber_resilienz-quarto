@@ -1,0 +1,168 @@
+---
+title: "Technische Resilienz II: Zero Trust, Microsegmentation, Cloud Resilience & Network Design"
+subtitle: "Cyber Security Management · Termin 8"
+author: "Prof. Dr. Dirk Loomans"
+institute: "Hochschule Mainz · dirk.loomans@hs-mainz.de"
+lang: de
+filters:
+  - at: pre-quarto
+    path: ../shared/pptx-compatible.lua
+format:
+  revealjs:
+    theme: [default, ../shared/revealjs-theme.scss]
+    slide-number: true
+    width: 1280
+    height: 720
+    center: false
+    transition: fade
+    hash: true
+    embed-resources: true
+  pptx:
+    reference-doc: ../shared/hsm-wirtschaft-reference.pptx
+    slide-level: 2
+---
+
+## Agenda
+
+- Rückblick · Lernziele
+- Zero Trust
+- Microsegmentation
+- Cloud Resilience
+- Network Design
+- Integration
+- Übung (Gruppenarbeit)
+- Zusammenfassung & Ausblick
+
+## Rückblick & Einstieg
+
+**Von Wiederherstellung zu Widerstandsfähigkeit**
+
+- Resilienz ≠ nur Backups
+- Architektur als Schutzmechanismus
+- Fokus heute: präventive technische Resilienz – Schaden begrenzen, bevor er entsteht
+
+## Lernziele der Sitzung
+
+- Zero Trust verstehen & anwenden
+- Laterale Bewegungen verhindern
+- Cloud-Strukturen resilient gestalten
+- Netzarchitektur als Resilienzinstrument nutzen
+
+## Was ist Zero Trust?
+
+- „Never trust — always verify“
+- Identität statt Netzwerkstandort
+- Assume Breach
+
+Der Perimeter existiert nicht mehr – Cloud, Homeoffice, SaaS und gestohlene Credentials haben ihn aufgelöst. Jeder Zugriff wird explizit, kontextabhängig und fortlaufend autorisiert.
+
+## Säulen des Zero Trust
+
+- Least Privilege
+- MFA & starke Identitäten
+- Continuous Authentication & Authorization
+- Geräte- und Workload-Vertrauen (Patchstand, Integrität, Zertifikate)
+- Datenflusskontrolle & Telemetrie
+
+## Warum Zero Trust resilient macht
+
+- begrenzt Angriffsfläche
+- verhindert Eskalation
+- reduziert Kompromittierungsfolgen
+- unterstützt schnelle Recovery
+
+Zero Trust reduziert nicht die Wahrscheinlichkeit eines Angriffs, sondern die maximale Schadenswirkung. Zero Trust ist kein Produkt, sondern ein Architekturprinzip.
+
+## Microsegmentation
+
+**Definition**
+
+- Sicherheitszonen auf Workload-Ebene
+- nicht nur VLANs oder Firewalls
+- Software-defined statt physisch
+
+Umsetzung netzwerk-, host- oder identitätsbasiert. Leitfrage: Wer muss wirklich miteinander kommunizieren?
+
+## Warum Microsegmentation?
+
+- stoppt laterale Bewegung
+- klare Kommunikationspfade
+- Angriffe bleiben lokal
+- Forensik wird einfacher
+
+Allow-List statt Block-List, Datenflussanalyse vor Enforcement, iterative Einführung. „Technologie segmentiert Systeme – aber nur Organisationen segmentieren Risiko.“
+
+## Cloud Resilience
+
+**Shared Responsibility Model**
+
+- Cloud-Anbieter ≠ Datensicherung
+- Kunde verantwortet IAM, Konfiguration & Backups
+- Resilienz muss bewusst gebaut werden
+
+## Cloud-Resilienzmaßnahmen
+
+- Multi-AZ / Multi-Region
+- stateless Services
+- Auto-Scaling & Load Balancing
+- Immutable Infrastructure (IaC, Golden Images)
+- Backups trotz Cloud, Observability, Chaos Engineering
+
+„Cloud-Resilienz kommt aus Design — nicht aus einem Anbieterlogo.“
+
+## Network Design & Resilience
+
+**Netzwerke als Resilienzfaktor**
+
+- Single Points of Failure vermeiden – Redundanz nur mit Unabhängigkeit (zwei Carrier, zwei Stromphasen)
+- DNS, Routing, IAM → kritisch
+- Telemetrie & Monitoring als Pflicht
+
+„Stabilität ohne Störung beweist nur Glück, nicht Resilienz.“
+
+## Resiliente Design Patterns
+
+- Leaf-Spine statt klassischer Stern
+- SD-WAN zur Dezentralisierung
+- redundante Pfade & Carrier-Unabhängigkeit
+
+## Integration
+
+**Zusammenspiel der Maßnahmen**
+
+- Zero Trust = Schadensbegrenzung
+- Microsegmentation = Bewegungskontrolle
+- Cloud Resilience = skalierbare Wiederherstellung
+- Network Design = stabile Grundlage
+
+Reihenfolge: Netzwerkstabilität → Identität → Microsegmentation → Cloud-Resilienz → Zero Trust operationalisieren.
+
+## Übung: GameNova GmbH
+
+Hybride Multiplayer-Plattform: Authentifizierung in AWS, Matchmaking im eigenen RZ, Managed-SQL-Datenbank, CDN-Frontend, Adminzugriff per VPN.
+
+Vorfälle: gestohlene Admin-Credentials · Ransomware im Entwicklernetz · zwei Stunden Ausfall durch Routerdefekt · offener Storage-Bucket mit Telemetrie.
+
+1. Zero Trust (20 P.) · 2. Microsegmentation (20 P.) · 3. Cloud Resilience (25 P.) · 4. Network Resilience (20 P.) · 5. Integration & Priorisierung (15 P.)
+
+60–90 Minuten, Hilfsmittel erlaubt. Siehe Übungsblatt im Terminkapitel.
+
+## Zusammenfassung
+
+- Resilienz ist Architektur, nicht Backup.
+- Vertrauen wird nicht vorausgesetzt.
+- Angriffswege werden begrenzt.
+- Architektur entscheidet über Krisenfähigkeit.
+
+## Ausblick auf Sitzung 9
+
+**Sonderthemen zu Resilienz**
+
+- Gastvortrag aus der Praxis: Product & Production Security (OT)
+- OT-Resilienz: Purdue-Modell, Safety – Security – Resilience
+- KI-Resilienz: Bedrohungen, Prinzipien, Wallet DoS
+- Übung Gandalf AI
+
+## Material
+
+[Kapitel zum Termin](../../../termine/08.html) · [Glossar](../../../glossar.html) · [Quellen](../../../quellen.html)

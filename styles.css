@@ -1,0 +1,7 @@
+body { color:#202020; } main.content { max-width:1050px; }
+h1,h2,h3 {color:#183449;} h1 {border-bottom:3px solid #9c343a;padding-bottom:.35em;}
+table {font-size:.92rem;} th {background:#dce6ef;} td,th {padding:.6rem!important;vertical-align:top;}
+blockquote {border-left:4px solid #9c343a;padding-left:1rem;color:#183449;}
+a {color:#175b84;} .subtitle {color:#555;}
+@media print {body{font-size:10pt;} h2,h3 {break-after:avoid;} tr {break-inside:avoid;}}
+
