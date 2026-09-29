@@ -3,10 +3,8 @@ title: "Termin 1 – Grundlagen der Resilienz: Safety & Security"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-01/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-01/_output/main.html) · [Skript](../skripte/Skript-01.html) ([PDF](../skripte/Skript-01.pdf), [Word](../skripte/Skript-01.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -108,5 +106,7 @@ Gruppenaufgabe mit Szenarien: Cloud-Gaming, Krankenhaus-IT, Smart Home, autonome
 **Ausblick Termin 2:** Modelle und Metriken der Resilienz (RTO, RPO, MTTR, MTBF).
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 1](../skripte/Skript-01.html), auch als [PDF](../skripte/Skript-01.pdf) und [Word-Datei](../skripte/Skript-01.docx).
 
 `01 Grundlagen/01_Grundlagen der Resilienz.pptx` (Foliensatz mit Sprechernotizen) und `Skript_Sitzung1_Grundlagen_der_Resilienz.pdf`.

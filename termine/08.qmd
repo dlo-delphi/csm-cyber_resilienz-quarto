@@ -4,10 +4,8 @@ subtitle: "Zero Trust, Microsegmentation, Cloud Resilience und Network Design"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-08/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-08/_output/main.html) · [Skript](../skripte/Skript-08.html) ([PDF](../skripte/Skript-08.pdf), [Word](../skripte/Skript-08.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -152,5 +150,7 @@ Bearbeitungszeit 60–90 Minuten; Folien, Skript und Online-Recherche erlaubt; S
 **Ausblick Termin 9:** Sonderthemen – OT-Resilienz mit Gastvortrag aus der Praxis und KI-Resilienz.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 8](../skripte/Skript-08.html), auch als [PDF](../skripte/Skript-08.pdf) und [Word-Datei](../skripte/Skript-08.docx).
 
 `08 Technische Resilienz II/08_Technische Resilienz II.pdf`, `08 Skript Technische Resilienz.pdf` und `08 Ubungsblatt.pdf`.

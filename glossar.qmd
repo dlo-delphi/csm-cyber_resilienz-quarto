@@ -4,8 +4,12 @@ author: "Prof. Dr. Dirk Loomans"
 format:
   html: default
   docx:
+    from: markdown-smart
     reference-doc: vorlagen/skript-vorlage.docx
   typst:
+    from: markdown-smart
+    filters:
+      - vorlagen/typst-anfuehrungszeichen.lua
     template-partials:
       - vorlagen/page.typ
 ---

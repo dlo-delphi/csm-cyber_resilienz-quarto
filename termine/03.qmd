@@ -4,10 +4,8 @@ subtitle: "Redundanz · Diversität · Wiederherstellbarkeit · Adaptivität"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-03/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-03/_output/main.html) · [Skript](../skripte/Skript-03.html) ([PDF](../skripte/Skript-03.pdf), [Word](../skripte/Skript-03.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -140,5 +138,7 @@ Ergebnis: eine Folie oder ein 5-Punkte-Statement pro Gruppe. Resilienz beginnt n
 **Ausblick Termin 4:** Bedrohungen und Resilienzstrategien – Mapping von Angriffen auf Widerstands- und Recovery-Muster.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 3](../skripte/Skript-03.html), auch als [PDF](../skripte/Skript-03.pdf) und [Word-Datei](../skripte/Skript-03.docx).
 
 `03 Resilienz Architekturen/03_Resilienz-Architekturen.pdf`, `Grundlagen der Resilienz 3.pdf` (Skript) und `Glossar Resilienz.pdf`.

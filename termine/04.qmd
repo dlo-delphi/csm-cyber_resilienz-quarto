@@ -3,10 +3,8 @@ title: "Termin 4 – Cyber-Bedrohungen und Resilienzstrategien"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-04/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-04/_output/main.html) · [Skript](../skripte/Skript-04.html) ([PDF](../skripte/Skript-04.pdf), [Word](../skripte/Skript-04.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -141,5 +139,7 @@ Das [Glossar](../glossar.html) enthält die Begriffe der Sitzungen 1–4 mit Rü
 **Ausblick Termin 5:** Resilienz als Organisationsfähigkeit – Rollen, Prozesse, Übungen, Governance.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 4](../skripte/Skript-04.html), auch als [PDF](../skripte/Skript-04.pdf) und [Word-Datei](../skripte/Skript-04.docx).
 
 `04 Cyber-Bedrohungen und Resilienzstrategien/04_Cyber Bedrohungen und Resilienz Strategien.pdf`, `Skript Sitzung 4 Grundlagen der Resilienz.pdf` und `Glossar Resilienz 4.0.pdf`.

@@ -5,7 +5,7 @@ Stand: 29. September 2026. Quarto 1.10.18 unter Linux (Cloud-Umgebung).
 ## Renderfähigkeit
 
 - 11 Foliensätze erfolgreich als RevealJS-HTML und als PowerPoint (HSM-Referenzvorlage) gerendert.
-- Hauptprojekt erfolgreich gerendert: 15 HTML-Dokumente (Start, Konzept, Glossar, Quellen, 11 Terminkapitel), Foliensätze als Ressourcen übernommen.
+- Hauptprojekt erfolgreich gerendert: 25 HTML-Dokumente (Start, Konzept, Glossar, Quellen, 11 Terminkapitel, 10 Skripte), Foliensätze als Ressourcen übernommen.
 - Dozentenprojekt erfolgreich gerendert: 2 HTML-Dokumente (Regie, Lösungen).
 - Alle 198 Folien der HTML-Fassung automatisiert bei 1280 × 720 geprüft: kein Inhalt ragt über den Folienrand.
 - PowerPoint-Stichproben (Termine 2, 6, 9) über LibreOffice als Bild kontrolliert: Tabellen im Layout „Content with Caption“, Abbildungen und Zweispalter korrekt.
@@ -13,8 +13,17 @@ Stand: 29. September 2026. Quarto 1.10.18 unter Linux (Cloud-Umgebung).
 
 **Hinweis:** In der Renderumgebung war fonts.googleapis.com nicht erreichbar. Die Schrift „Source Sans Pro“ des Themes ist deshalb nicht eingebettet; die Seiten fallen auf eine Systemschrift zurück. Ein erneutes Rendern mit Internetzugang (`render-praesentationen.ps1 -Alle`, `quarto render`, `quarto render dozenten`) behebt das.
 
-- Skriptformate: 11 Terminkapitel und Glossar zusätzlich als PDF (Typst) und Word (Referenzvorlage) erfolgreich gerendert. Stichproben (Termine 5, 9, Glossar) als Bild kontrolliert: Logo, Fußzeile, Seitenzahlen, Tabellen und Abbildungen korrekt. Die Word-Ausgabe wurde mit LibreOffice geprüft, nicht mit Microsoft Word.
+- Skriptformate: Die 10 Skripte und das Glossar zusätzlich als PDF (Typst) und Word (Referenzvorlage) erfolgreich gerendert; die Terminkapitel sind seit der Einführung der Skripte nur noch HTML. Skript 6 als PDF und als Word (über LibreOffice) seitenweise als Bild kontrolliert: Logo, Fußzeile, Seitenzahlen, Tabellen, Diagramm-Codeblöcke und Hinweiskästen korrekt. Deutsche Anführungszeichen in allen PDFs automatisiert geprüft (kein „…„ mehr). Die Word-Ausgabe wurde mit LibreOffice geprüft, nicht mit Microsoft Word.
 - Das Logo stammt aus den Original-Skripten (350 × 144 Pixel). Für den Druck empfiehlt sich bei Gelegenheit eine höher aufgelöste Fassung unter `vorlagen/hsm-wirtschaft-logo.png`.
+
+## Skripte (Langfassung)
+
+- Quelle: die zehn Original-PDFs der Skripte, extrahiert mit pymupdf4llm; Worttrennungen am Zeilenende mit `pdftotext -layout` abgeglichen.
+- Entfernt: Titelblatt (ersetzt durch Titel und Vorbemerkung des Projekts), Kopf- und Fußzeilen, Seitenzahlen, Bildbeschriftungsreste, Emojis.
+- Repariert: zerrissene Absätze, Listen und Tabellen (u. a. Skript 4 Mapping-Tabelle, Skript 5 Reifegrad- und Kennzahlentabellen, Skript 6 Meldepflicht-Tabelle 8.4, Skript 7 DR vs. BCM, Skript 8 Tabelle 6.1), Pfeildiagramme in Skript 6 (4.5, 6.2, 8.2) als Codeblöcke, Tippfehler (z. B. „hilffreich“, „Securiy“, „Lok-In“, „Kapplungspunkte“, „getestetet“).
+- Inhaltlich geändert: nur die Nummer der NIS-2-Richtlinie in Skript 6 (EU 2022/2555). Alle übrigen Normangaben stehen wie im Original; 13 Kästen „Hinweis zur Aktualität“ in den Skripten 1, 2, 4, 5, 6 und 9 verweisen auf die Quellenseite.
+- Wortzahl je Skript mit der Textfassung des PDFs verglichen; die Abweichungen erklären sich durch entfernte Titelblätter, Fußzeilen und die ergänzten Hinweiskästen.
+- Offen: In Skript 6 (7.6) fehlt im Original das schließende Anführungszeichen eines Zitats; nicht ergänzt.
 
 ## Inhaltliche Vollständigkeit
 

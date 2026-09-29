@@ -4,10 +4,8 @@ subtitle: "Backup-Strategien, Disaster Recovery und Notfalltests"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-07/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-07/_output/main.html) · [Skript](../skripte/Skript-07.html) ([PDF](../skripte/Skript-07.pdf), [Word](../skripte/Skript-07.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -165,5 +163,7 @@ Sie sind das neu zusammengestellte Resilienzteam des Rechenzentrums der Hochschu
 **Ausblick Termin 8:** Zero Trust, Microsegmentation, Cloud Resilience und Network Design.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 7](../skripte/Skript-07.html), auch als [PDF](../skripte/Skript-07.pdf) und [Word-Datei](../skripte/Skript-07.docx).
 
 `07 Technische Resilienz I/07_Technische Resilienz I.pdf` und `Skript Sitzung 7 Technische Resilienz I.pdf` (mit Übungsanleitung).

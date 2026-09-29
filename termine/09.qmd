@@ -3,10 +3,8 @@ title: "Termin 9 – Sonderthemen: OT-Resilienz und KI-Resilienz"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-09/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-09/_output/main.html) · [Skript](../skripte/Skript-09.html) ([PDF](../skripte/Skript-09.pdf), [Word](../skripte/Skript-09.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -198,5 +196,7 @@ Das NIST CSF 2.0 hat sechs statt fünf Kernfunktionen; NIST SP 800-82 trägt sei
 :::
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 9](../skripte/Skript-09.html), auch als [PDF](../skripte/Skript-09.pdf) und [Word-Datei](../skripte/Skript-09.docx).
 
 `09 Sonderthemen/09_Sonderthemen.pdf`, `Skript 09 Sonderthemen OT und KI.pdf`, `KPMG_Klardenker_AI_Resilience_DRAFT HSM.pdf` (Artikelentwurf) und die Gastvortragsfolien (nicht übernommen).

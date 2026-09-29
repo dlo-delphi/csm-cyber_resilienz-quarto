@@ -32,4 +32,21 @@ Grundlage sind die Vorlesungsfolien, Skripte, Glossare, das Übungsblatt und die
 | [10](termine/10.html) | Resilienz der Zukunft | [Folien](Präsentationen/Termin-10/_output/main.html) |
 | [11](termine/11.html) | Klausur | [Folien](Präsentationen/Termin-11/_output/main.html) |
 
+## Skripte
+
+Die Terminseiten oben fassen jede Sitzung kompakt zusammen. Die vollständigen Vorlesungsskripte aus dem Wintersemester 2025/26 stehen hier zum Nachlesen und zur Klausurvorbereitung, jeweils als Webseite, PDF und Word-Datei. Der Text ist übernommen; korrigiert wurden nur Tippfehler und Umbruchfehler, ergänzt nur markierte Hinweise zur Aktualität.
+
+| Sitzung | Skript | Download |
+|---|---|---|
+| 1 | [Grundlagen der Resilienz: Safety & Security](skripte/Skript-01.html) | [PDF](skripte/Skript-01.pdf) · [Word](skripte/Skript-01.docx) |
+| 2 | [Modelle und Messbarkeit der Resilienz](skripte/Skript-02.html) | [PDF](skripte/Skript-02.pdf) · [Word](skripte/Skript-02.docx) |
+| 3 | [Technische Grundlagen: Redundanz · Diversität · Wiederherstellbarkeit · Adaptivität](skripte/Skript-03.html) | [PDF](skripte/Skript-03.pdf) · [Word](skripte/Skript-03.docx) |
+| 4 | [Cyber-Bedrohungen & Resilienzstrategien](skripte/Skript-04.html) | [PDF](skripte/Skript-04.pdf) · [Word](skripte/Skript-04.docx) |
+| 5 | [Resilienz als Organisationsfähigkeit](skripte/Skript-05.html) | [PDF](skripte/Skript-05.pdf) · [Word](skripte/Skript-05.docx) |
+| 6 | [Organisatorische Resilienz II: Rollen und Verantwortlichkeiten](skripte/Skript-06.html) | [PDF](skripte/Skript-06.pdf) · [Word](skripte/Skript-06.docx) |
+| 7 | [Technische Resilienz I](skripte/Skript-07.html) | [PDF](skripte/Skript-07.pdf) · [Word](skripte/Skript-07.docx) |
+| 8 | [Technische Resilienz II](skripte/Skript-08.html) | [PDF](skripte/Skript-08.pdf) · [Word](skripte/Skript-08.docx) |
+| 9 | [Sonderthemen OT & KI](skripte/Skript-09.html) | [PDF](skripte/Skript-09.pdf) · [Word](skripte/Skript-09.docx) |
+| 10 | [Zukunft der Resilienz](skripte/Skript-10.html) | [PDF](skripte/Skript-10.pdf) · [Word](skripte/Skript-10.docx) |
+
 Die Dateien sind offline lesbar. Die gerenderte Ausgabe beginnt bei `_output/index.html`. Bearbeitung und erneutes Rendern beschreibt die README.

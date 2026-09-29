@@ -1,0 +1,21 @@
+author: "Prof. Dr. Dirk Loomans"
+# Die Skripte enthalten bereits typografische deutsche Anführungszeichen („…“).
+# Ohne "-smart" würde Pandoc das schließende “ als englisches Anführungszeichen deuten.
+format:
+  html:
+    from: markdown-smart
+    # PDF und Word sind in der Navigationszeile oben verlinkt.
+    format-links: false
+  docx:
+    from: markdown-smart
+    reference-doc: ../vorlagen/skript-vorlage.docx
+    toc: false
+    number-sections: false
+  typst:
+    from: markdown-smart
+    filters:
+      - ../vorlagen/typst-anfuehrungszeichen.lua
+    template-partials:
+      - ../vorlagen/page.typ
+    toc: false
+    fig-align: center

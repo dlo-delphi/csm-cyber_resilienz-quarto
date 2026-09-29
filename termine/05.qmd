@@ -3,10 +3,8 @@ title: "Termin 5 – Resilienz als Organisationsfähigkeit"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-05/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-05/_output/main.html) · [Skript](../skripte/Skript-05.html) ([PDF](../skripte/Skript-05.pdf), [Word](../skripte/Skript-05.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -210,5 +208,7 @@ Typische Lessons Learned: Playbooks sind Gold wert, wenn sie aktuell und trainie
 **Ausblick Termin 6:** Rollen und Verantwortlichkeiten in der Cyber-Organisation – CISO, SOC, CERT und weitere Schlüsselrollen.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 5](../skripte/Skript-05.html), auch als [PDF](../skripte/Skript-05.pdf) und [Word-Datei](../skripte/Skript-05.docx).
 
 `05 Resilienz als Organisationsfähigkeit/05_Resilienz als Organisationsfahigkeit.pdf` und `Skript Sitzung 5 Resiliente Organisationsentwicklung.pdf`.

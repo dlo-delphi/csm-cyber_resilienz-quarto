@@ -43,15 +43,16 @@ Linux/macOS:
 
 Einzelne Kapitel in der Vorschau: `quarto preview termine/05.qmd`.
 
+## Zwei Ebenen: Terminseiten und Skripte
+
+- **Terminseiten** (`termine/01.qmd` … `11.qmd`): kompakte Lernseiten je Sitzung (Leitfrage, Lernziele, Fachinhalte, Übung, Leitfragen). Nur HTML.
+- **Skripte** (`skripte/01.qmd` … `10.qmd`): der vollständige Text der Vorlesungsskripte aus dem WS 2025/26. Korrigiert sind nur Tipp- und Umbruchfehler; Aktualitätshinweise stehen in markierten Kästen („Hinweis zur Aktualität“). Die Startseite listet die Skripte, jede Terminseite verlinkt ihr Skript.
+
+Inhalte der Skripte ändern Sie direkt in `skripte/NN.qmd`, die kompakte Fassung in `termine/NN.qmd`. Beide Ebenen sind unabhängig voneinander.
+
 ## Skripte als PDF und Word
 
-`quarto render` erzeugt jedes Terminkapitel und das Glossar zusätzlich als
-PDF und als Word-Datei (`_output/termine/01.pdf`, `01.docx` …,
-`_output/glossar.pdf`, `glossar.docx`). Die HTML-Seiten verlinken beide unter
-„Andere Formate“. Layout wie bei den bisherigen Skripten: Logo „Wirtschaft –
-Hochschule Mainz“ oben rechts, Fußzeile mit blauer Linie, Autor, Titel und
-Seitenzahl, Vorbemerkung zu Beginn. Die Navigationszeile der Webseite
-erscheint nur in HTML.
+`quarto render` erzeugt jedes Skript und das Glossar zusätzlich als PDF und als Word-Datei (`_output/skripte/Skript-01.pdf`, `Skript-01.docx` …, `_output/glossar.pdf`, `glossar.docx`). Die Navigationszeile der Skriptseiten verlinkt beide. Layout wie bei den bisherigen Skripten: Logo „Wirtschaft – Hochschule Mainz“ oben rechts, Fußzeile mit blauer Linie, Autor, Titel und Seitenzahl, Vorbemerkung zu Beginn. Die Navigationszeile der Webseite erscheint nur in HTML.
 
 - **PDF** entsteht über Typst, das in Quarto enthalten ist; LaTeX wird nicht
   benötigt. Seitenlayout, Logo und Fußzeile: `vorlagen/page.typ`.
@@ -59,9 +60,12 @@ erscheint nur in HTML.
 - **Word** nutzt `vorlagen/skript-vorlage.docx` als Referenzvorlage. Kopf- und
   Fußzeile sowie Formatvorlagen lassen sich direkt in Word ändern; alternativ
   `python vorlagen/erzeuge_word_vorlage.py` (python-docx) neu ausführen.
-- Formate der Terminkapitel stehen in `termine/_metadata.yml`, die
-  Vorbemerkung in `termine/_vorbemerkung.md`.
-- Nur ein Format rendern: `quarto render termine/05.qmd --to typst` bzw.
+- Formate der Skripte stehen in `skripte/_metadata.yml`, die Vorbemerkung in
+  `skripte/_vorbemerkung.md`. Die Skripte werden mit `markdown-smart` gelesen,
+  weil sie bereits typografische deutsche Anführungszeichen enthalten; der
+  Filter `vorlagen/typst-anfuehrungszeichen.lua` sorgt dafür, dass das
+  schließende Anführungszeichen auch im PDF richtig erscheint.
+- Nur ein Format rendern: `quarto render skripte/05.qmd --to typst` bzw.
   `--to docx`.
 
 Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
@@ -75,6 +79,7 @@ Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
 - `quellen.qmd`: Normen, Literatur und **Hinweise zur Aktualität**.
 - `termine/01.qmd` bis `11.qmd`: Leitfrage, Lernziele, Fachinhalte aus dem
   Skript, normativer Bezug, Übung, prüfungsrelevante Leitfragen, Material.
+- `skripte/01.qmd` bis `10.qmd`: vollständige Vorlesungsskripte (HTML, PDF, Word).
 - `Präsentationen/Termin-01` bis `Termin-11`: je ein Foliensatz `main.qmd`
   für RevealJS und PowerPoint; `shared/` enthält Theme, Lua-Filter und
   HSM-Referenzvorlage.
@@ -88,7 +93,7 @@ Details zum PowerPoint-Export stehen in [POWERPOINT.md](POWERPOINT.md).
 ## Verteilung
 
 An Studierende ausschließlich den Ordner `_output` aus dem Hauptprojekt
-verteilen. Er enthält Kapitel und Folien, aber keine Dozentenregie und keine
+verteilen. Er enthält Terminseiten, Skripte und Folien, aber keine Dozentenregie und keine
 Musterlösung. Die Trennung erfolgt auf Dateiebene.
 
 ## Bewusst nicht übernommen

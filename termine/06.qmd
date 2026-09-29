@@ -3,10 +3,8 @@ title: "Termin 6 – Organisatorische Resilienz II: Rollen und Verantwortlichkei
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-06/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-06/_output/main.html) · [Skript](../skripte/Skript-06.html) ([PDF](../skripte/Skript-06.pdf), [Word](../skripte/Skript-06.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -202,5 +200,7 @@ Die Leitfragen 1–30 des Skripts bilden die Klausurbasis, 31–40 dienen der Ve
 **Ausblick Termin 7:** Technische Resilienzmaßnahmen I – Backup, Disaster Recovery und Notfalltests.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 6](../skripte/Skript-06.html), auch als [PDF](../skripte/Skript-06.pdf) und [Word-Datei](../skripte/Skript-06.docx).
 
 `06 Org. Resilienz II - Rollen und Verantwortlichkeiten/06_Resilienz II Rollen und Verantwortlichkeiten.pdf` und `Skript Sitzung 6 Organisatorische Resilienz Rollen und Verantwortlichkeiten.pdf`.

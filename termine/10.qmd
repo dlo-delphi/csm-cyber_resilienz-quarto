@@ -4,10 +4,8 @@ subtitle: "Wenn Technik entscheidet, Systeme lernen und Verantwortung diffus wir
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-10/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-10/_output/main.html) · [Skript](../skripte/Skript-10.html) ([PDF](../skripte/Skript-10.pdf), [Word](../skripte/Skript-10.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -128,5 +126,7 @@ Das Skript enthält für diese Sitzung keine eigene Leitfragenliste. Aus den Ler
 **Nächster Termin:** Klausur.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 10](../skripte/Skript-10.html), auch als [PDF](../skripte/Skript-10.pdf) und [Word-Datei](../skripte/Skript-10.docx).
 
 `Abschlussvorlesung/10_Abschlussvorlesung.pdf` und `Skript Sitzung 10 Resilienz der Zukunft.pdf` (mit Übungsskript).

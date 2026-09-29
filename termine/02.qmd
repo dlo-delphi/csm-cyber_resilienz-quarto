@@ -3,10 +3,8 @@ title: "Termin 2 – Modelle und Messbarkeit der Resilienz"
 ---
 
 ::: {.content-visible when-format="html"}
-[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-02/_output/main.html) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
+[Semesterübersicht](../index.html) · [Folien](../Präsentationen/Termin-02/_output/main.html) · [Skript](../skripte/Skript-02.html) ([PDF](../skripte/Skript-02.pdf), [Word](../skripte/Skript-02.docx)) · [Glossar](../glossar.html) · [Quellen](../quellen.html)
 :::
-
-{{< include _vorbemerkung.md >}}
 
 # Leitfrage
 
@@ -135,5 +133,7 @@ Ergebnis: 1–2 Folien oder ein strukturiertes Kurzstatement mit höchstens fün
 **Ausblick Termin 3:** Redundanz, Diversität, Wiederherstellbarkeit und Adaptivität in hybrid verteilten Systemen – die Brücke von der Messung zur Architektur.
 
 # Material aus dem Archiv
+
+Das vollständige Vorlesungsskript zu dieser Sitzung steht unter [Skript 2](../skripte/Skript-02.html), auch als [PDF](../skripte/Skript-02.pdf) und [Word-Datei](../skripte/Skript-02.docx).
 
 `02 Modelle und Messbarkeit/02_Modelle und Messbarkeit der Resilienz.pdf` und `Grundlagen der Resilienz 2.pdf` (Skript).
