@@ -28,15 +28,15 @@ format:
 ::: {.column width="56%"}
 **Prof. Dr. Dirk Loomans**, Diplom-Physiker
 
-- Studium Physik mit Informatik, Universität Bayreuth; Promotion in theoretischer Polymerphysik, Universität Freiburg i. Br.
-- ehem. Partner Cyber Security and Resilience bei KPMG
+- Studium Physik und Informatik (Bayreuth),  Promotion in theoretischer Polymerphysik (Freiburg).
+- ehem. Partner Cyber Security and Resilience bei KPMG, CEO Loomans & Matz, CISO Infineon
 - Hochschule Mainz, Fachbereich Wirtschaft: Wirtschaftsinformatik, insbesondere Cyber Security und Softwareentwicklung (WiSe 2011/12 – SoSe 2015 und seit SoSe 2025)
 - Lehre: Projektmanagement, Cyber-Resilienz, IT-Security, Digital Business
 - Forschung: KI und Cyber, Digitale Souveränität
 - Fun Fact: Hobbybrauer und Fastnachts-Aficionado
 :::
 ::: {.column width="40%"}
-![](assets/Foto_HS_Mainz_Nadine_Tannreuther_L1760840_Dirk_Loomans.JPG){fig-alt="Porträt Prof. Dr. Dirk Loomans"}
+![](assets/DIrk%20Loomans%20neu.jpg){fig-alt="Porträt Prof. Dr. Dirk Loomans"}
 :::
 :::
 
@@ -64,6 +64,8 @@ Aktuelles Kennwort vor der Veranstaltung eintragen. Das Kennwort des Vorsemester
 
 ## Agenda
 
+::: columns
+::: {.column width="56%"}
 - Einleitung & Lernziele
 - Grundlagen der Resilienz
 - Safety vs. Security
@@ -72,6 +74,11 @@ Aktuelles Kennwort vor der Veranstaltung eintragen. Das Kennwort des Vorsemester
 - Praktische Beispiele & Fallstudien
 - Übung und Reflexionsfragen
 - Zusammenfassung & Ausblick
+:::
+::: {.column width="40%"}
+![Flaschenlager Kupferberg, Mainz](assets/500000-flaschen.jpg){fig-alt="50000 Flaschen"}
+:::
+:::
 
 ## Warum Resilienz wichtig ist
 
