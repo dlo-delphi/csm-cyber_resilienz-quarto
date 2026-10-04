@@ -29,14 +29,14 @@ format:
 **Prof. Dr. Dirk Loomans**, Diplom-Physiker
 
 - Studium Physik mit Informatik, Universität Bayreuth; Promotion in theoretischer Polymerphysik, Universität Freiburg i. Br.
-- Partner Cyber Security and Resilience bei KPMG
+- ehem. Partner Cyber Security and Resilience bei KPMG
 - Hochschule Mainz, Fachbereich Wirtschaft: Wirtschaftsinformatik, insbesondere Cyber Security und Softwareentwicklung (WiSe 2011/12 – SoSe 2015 und seit SoSe 2025)
-- Lehre: Projektmanagement, Cyber-Resilienz, IT-Security, Web Development
-- Forschung: KI und Cyber, Cyber in Sustainability
+- Lehre: Projektmanagement, Cyber-Resilienz, IT-Security, Digital Business
+- Forschung: KI und Cyber, Digitale Souveränität
 - Fun Fact: Hobbybrauer und Fastnachts-Aficionado
 :::
 ::: {.column width="40%"}
-![](assets/portrait-loomans.jpg){fig-alt="Porträt Prof. Dr. Dirk Loomans"}
+![](assets/Foto_HS_Mainz_Nadine_Tannreuther_L1760840_Dirk_Loomans.JPG){fig-alt="Porträt Prof. Dr. Dirk Loomans"}
 :::
 :::
 
@@ -44,7 +44,7 @@ format:
 
 Kursunterlagen, Skripte und Ankündigungen liegen in OLAT.
 
-Zugangskennwort: wird in der Veranstaltung bekannt gegeben.
+Zugangskennwort: CSMWS26ECR
 
 ::: notes
 Aktuelles Kennwort vor der Veranstaltung eintragen. Das Kennwort des Vorsemesters wurde aus dem Foliensatz entfernt.
