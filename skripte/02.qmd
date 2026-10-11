@@ -64,6 +64,8 @@ Die charakteristischen Messgrößen ergeben sich direkt aus dieser Kurve:
 
 - **Zieldauer (RTO)** — Innerhalb welcher Zeit _muss_ der Dienst wiederhergestellt sein?
 
+![Schematische Degradations- und Wiederherstellungskurve mit RPO, RTO und Ausfalltiefe Δ](../assets/resilienzkurve.png){fig-alt="Kurve des Servicelevels über die Zeit: Normalbetrieb, Einbruch nach einer Störung, degradierter Zustand, Wiederanstieg und Rückkehr zum Zielzustand. Markiert sind RPO vor der Störung, RTO bis zum akzeptablen Servicelevel und die Ausfalltiefe." width="90%"}
+
 Diese Größen sind in Normen institutionalisiert (vgl. ISO/IEC 27031; BSI-200-4) und werden als Grundlage für Zielvereinbarungen und Architekturentscheidungen verwendet. Die amerikanische Cyber-Resilience-Norm _NIST SP 800-160 Vol. 2_ betont, dass Resilience Engineering primär die **Gestalt der Kurve unter Störung** adressiert, nicht den störungsfreien Idealzustand. Mit anderen Worten: **Resilienz zeigt sich nicht im Normalbetrieb, sondern in der Auslenkung.**
 
 Der Vorteil dieses funktionalen Ansatzes liegt darin, dass er **technische, organisatorische und menschliche Maßnahmen vergleichbar macht**: Ob eine Wiederherstellung durch Backup, durch Umschaltung, durch Redundanz oder durch manuelle Notfallprozesse erfolgt – die Kurve misst das Ergebnis, nicht den Weg.
@@ -108,6 +110,19 @@ In der Praxis ist Resilienz _kein_ Maximum-Minimierungsproblem, sondern eine **O
 - Δ (Ausfalltiefe) und tR (Wiederherstellungszeit) beeinflussen die operative Wirksamkeit.
 
 NIST SP 800-160 Vol. 2 argumentiert in diesem Kontext, dass Resilience Engineering messbare Eigenschaften _unvollkommener Systeme_ adressiert — nicht die Abwesenheit von Fehlern, sondern den Umgang damit.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Verfügbarkeit"}
+MTBF und MTTR lassen sich zur **Verfügbarkeit** verbinden: A = MTBF ÷ (MTBF + MTTR). Mit MTBF = 30 Tage und MTTR = 45 min ergibt sich A ≈ 99,9 %.
+
+| Verfügbarkeit | Ausfall pro Jahr |
+|---|---|
+| 99 % | ca. 3,7 Tage |
+| 99,9 % | ca. 8,8 Stunden |
+| 99,99 % | ca. 53 Minuten |
+| 99,999 % | ca. 5 Minuten |
+
+Es gibt zwei Hebel: seltener ausfallen (MTBF erhöhen) oder schneller zurückkommen (MTTR senken). Resilienz setzt vor allem am zweiten Hebel an. Die Verfügbarkeit sagt allerdings nichts über Datenverlust (RPO) und Ausfalltiefe (Δ) aus: Dieselbe Verfügbarkeit kann aus einem langen oder aus vielen kurzen Ausfällen entstehen.
+:::
 
 # 4. Resilienzmodelle in Frameworks (NIST · ISO/IEC 27031 · BSI-200-4 · ENISA)
 
@@ -171,6 +186,10 @@ Damit liefert der BSI-Standard einen **Bewertungsrahmen für Organisationen**, n
 Die finale Fassung des BSI-Standards 200-4 (Mai 2023) unterscheidet drei Stufen: Reaktiv-BCMS, Aufbau-BCMS und Standard-BCMS [@bsi2004]. Die hier gezeigte fünfstufige Skala ist als allgemeines Reifegradmodell zu verstehen, nicht als Stufenmodell des Standards. Siehe [Quellen, Hinweis 3](../quellen.html#hinweise-zur-aktualität).
 :::
 
+::: {.callout-note title="Hinweis zur Aktualität: zwei Skalen in diesem Skript"}
+Dieses Skript nennt zwei fünfstufige Skalen: hier *Ad hoc – Initialisiert – Etabliert – Qualifiziert – Exzellent*, in Abschnitt 5.2 *Ad hoc – Definiert – Etabliert – Gesteuert – Optimiert*. Beide beschreiben dieselbe Entwicklungslogik. Folien und Lernseite verwenden einheitlich die Bezeichnungen aus Abschnitt 5.2.
+:::
+
 ## 4.4 ENISA — sektorale Resilienz & europäischer Kontext
 
 ENISA-Publikationen adressieren insbesondere KRITIS-Sektoren (Energie, Gesundheit, Finanzmarkt, Transport) mit Best-Practice-Modellen für:
@@ -225,6 +244,8 @@ Reifegradfragen lassen sich direkt mit Metriken koppeln. Beispiele:
 
 Ein hoher Reifegrad ohne gemessene Recovery ist **Papiersicherheit**; gemessene MTTR ohne organisatorischen Rahmen ist **Zufallssicherheit**. Resilienz verlangt **beides**.
 
+![Reifegrad und gemessene Recovery: Papiersicherheit, Zufallssicherheit und nachweisliche Resilienz](../Präsentationen/Termin-02/assets/reifegrad-metrik-matrix.png){fig-alt="Vier-Felder-Matrix: Reifegrad gegen gemessene Recovery mit den Feldern Fragil, Papiersicherheit, Zufallssicherheit und Nachweislich resilient" width="70%"}
+
 # 6. Fallbeispiele und Analyse realer Degradationsverläufe
 
 Die abstrakte Resilienzkurve gewinnt an Wert, wenn sie an realen Ereignissen überprüft wird. Reale IT-Störungen zeigen typische Muster von Degradation und Recovery, aus denen sich Resilienzfähigkeit rückwärts „ablesen“ lässt.
@@ -256,6 +277,18 @@ Die abstrakte Resilienzkurve gewinnt an Wert, wenn sie an realen Ereignissen üb
 - **Analyse:** Kein binärer Ausfall, sondern „Graceful Degradation“ → Erhöhung der Resilienz-Wahrnehmung
 
    - → Beispiel für **Adaptivität statt Hard-Fail**
+
+![Dieselbe Störung, drei Architekturen: Hard-Fail, Failover und Graceful Degradation](../Präsentationen/Termin-02/assets/gleiche-stoerung-drei-kurven.png){fig-alt="Drei Kurven nach derselben Störung: Hard-Fail mit langem Totalausfall, Failover mit kurzem Einbruch, Graceful Degradation mit flachem Einbruch" width="80%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: dokumentierte Vorfälle"}
+**AWS us-east-1 (7. Dezember 2021):** Eine automatisierte Skalierung überlastete das interne AWS-Netz. Es war rund 7 Stunden gestört, einzelne Dienste bis zu 11 Stunden. Laufende Instanzen arbeiteten weiter, neue starteten nicht; auch Monitoring und Statusseite waren beeinträchtigt. Das konkretisiert Fall 2: Wer erst im Ernstfall Kapazität hochfahren wollte, stand still, und gerade im Störfall fehlten Messwerte.
+
+**OVHcloud, Straßburg (10. März 2021):** Das Rechenzentrum SBG2 brannte aus, SBG1 wurde beschädigt. Kunden, deren Backup im selben Gebäude lag wie die Produktion, verloren beides – das RPO war faktisch unbegrenzt. 2023 sprach ein französisches Handelsgericht zwei Kunden Schadensersatz zu, weil die Sicherungen nicht wie vereinbart getrennt lagen.
+
+**GitLab.com (31. Januar 2017):** Ein Administrator löschte versehentlich rund 300 GB auf der Produktionsdatenbank. Drei von vier Sicherungswegen hatten unbemerkt versagt; gerettet hat ein zufällig sechs Stunden alter Snapshot. Ergebnis: etwa 6 Stunden Datenverlust und rund 18 Stunden Ausfall. Laut Postmortem war niemand für die Backups verantwortlich und niemand testete sie – das tatsächliche RPO zeigt erst der Restore.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
 
 **Didaktische Quintessenz:**
 Resilienz bewertet nicht, _ob_ ein Ereignis eintritt — sondern _wie ein System danach aussieht_. Zwei Organisationen mit identischem Ereignis können vollständig unterschiedlich resilient wirken, je nach Architektur, Reifegrad und Recovery-Praxis.
