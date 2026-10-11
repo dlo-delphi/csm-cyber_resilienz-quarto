@@ -2,12 +2,12 @@
 
 Alle 11 Termine unterstützen HTML und PowerPoint mit der HSM-Vorlage. Die Termine 1–10 sind vollständig aus den Foliensätzen des WS 2025/26 übertragen; sehr knappe Folien (vor allem Termin 7) wurden mit Kernaussagen aus dem jeweiligen Skript ergänzt. Wiederkehrende Standardfolien (Vorlesungsübersicht als Bild, Campusfotos, Abschlussfolie) sind durch eine Semesterübersicht in Termin 1 und eine Materialfolie am Ende ersetzt. Termin 11 enthält den Prüfungsrahmen, keine neue Klausur.
 
-**Bilder:** 53 Bilder aus den Original-Foliensätzen stehen wieder an ihren Stellen (`Präsentationen/Termin-NN/assets/`). Dazu kommen 13 neu gezeichnete Diagramme für Folien ohne Grafik (`assets/diagramme_folien.py`, neu erzeugen mit `python assets/diagramme_folien.py`). Nicht wieder eingesetzt: Campusfotos, Vorlesungsübersicht als Bild, QR-Code (Termin 8), Buchcover (Termin 10).
+**Bilder:** 53 Bilder aus den Original-Foliensätzen stehen wieder an ihren Stellen (`Präsentationen/Termin-NN/assets/`). Dazu kommen 13 neu gezeichnete Diagramme für Folien ohne Grafik (`assets/diagramme_folien.py`, neu erzeugen mit `python assets/diagramme_folien.py`). Termin 2 ist wie Termin 1 überarbeitet (Lernziele, reale Fälle OVHcloud 2021, GitLab 2017 und AWS 2021, Sprechernotizen auf jeder Folie, Kernpunkte); seine acht neuen Diagramme erzeugt `python assets/diagramme_termin02.py`, der vorherige Stand liegt in `Präsentationen/Termin-02/mainold.qmd`. Nicht wieder eingesetzt: Campusfotos, Vorlesungsübersicht als Bild, QR-Code (Termin 8), Buchcover (Termin 10).
 
 | Termin | Titel | Folien (`##`) | Quelle im Archiv |
 |---|---|---|---|
 | 1 | Grundlagen der Resilienz | 16 | `01_Grundlagen der Resilienz.pptx` |
-| 2 | Modelle und Messbarkeit der Resilienz | 18 | `02_Modelle und Messbarkeit der Resilienz.pdf` |
+| 2 | Modelle und Messbarkeit der Resilienz | 22 | `02_Modelle und Messbarkeit der Resilienz.pdf` |
 | 3 | Resilienz-Architekturen | 15 | `03_Resilienz-Architekturen.pdf` |
 | 4 | Cyber-Bedrohungen und Resilienzstrategien | 14 | `04_Cyber Bedrohungen und Resilienz Strategien.pdf` |
 | 5 | Resilienz als Organisationsfähigkeit | 16 | `05_Resilienz als Organisationsfahigkeit.pdf` |

@@ -63,6 +63,10 @@ RTO und RPO sind normative bzw. vertragliche Anforderungen, MTTR und MTBF beobac
 
 Bezug zur Kurve: Das RTO entspricht dem Zeitpunkt, an dem die Kurve den akzeptablen Servicelevel wieder schneidet. Das RPO definiert den Datenverlustbereich vor dem Ereignis.
 
+**Verfügbarkeit** verbindet beide Messwerte: A = MTBF ÷ (MTBF + MTTR). Mit den Beispielwerten aus der Tabelle (MTBF 30 Tage, MTTR 45 min) ergibt sich rund 99,9 % – das sind etwa 8,8 Stunden Ausfall pro Jahr; 99,99 % erlauben nur noch etwa 53 Minuten. Es gibt zwei Hebel: seltener ausfallen (MTBF) oder schneller zurückkommen (MTTR). Die Verfügbarkeit sagt allerdings nichts über Datenverlust (RPO) und Ausfalltiefe (Δ).
+
+![Verfügbarkeit aus MTBF und MTTR](../Präsentationen/Termin-02/assets/verfuegbarkeit-mtbf-mttr.png){fig-alt="Zeitstrahl mit Betriebsphasen (MTBF) und kurzen Ausfällen (MTTR), darunter die Formel Verfügbarkeit gleich MTBF geteilt durch MTBF plus MTTR" width="70%"}
+
 ## Modelle aus Frameworks
 
 | Framework | Fokus | Kernelemente laut Unterlagen |
@@ -98,11 +102,17 @@ Reifegrad und Metrik gehören zusammen:
 
 > Ein hoher Reifegrad ohne gemessene Recovery ist Papiersicherheit; gemessene MTTR ohne organisatorischen Rahmen ist Zufallssicherheit. Resilienz verlangt beides.
 
+![Reifegrad und gemessene Recovery: vier Felder](../Präsentationen/Termin-02/assets/reifegrad-metrik-matrix.png){fig-alt="Vier-Felder-Matrix: Reifegrad gegen gemessene Recovery mit den Feldern Fragil, Papiersicherheit, Zufallssicherheit und Nachweislich resilient" width="65%"}
+
 ## Fallbeispiele
 
 - **Ransomware in einer Kommunalverwaltung:** Totalausfall von Fachverfahren und E-Mail, mehrtägiger Notbetrieb. Wiederanlauf nur aus Offline-Backups mit RTO von mehreren Tagen und hohem Datenverlust. Es fehlten Segmentierung, getestete Recovery-Pfade und ein getesteter BC-Plan – niedrige Resilienz trotz vorhandener Backups.
-- **AWS-Regionsausfall (2021):** Kunden mit Single-Region-Design waren offline; Multi-Region-Kunden blieben verfügbar oder schwenkten in Minuten. Architektur, nicht Plattform, entscheidet über Resilienz. (Folienbeispiel: RTO 3 h, RPO 30 min; Geo-Redundanz und Failover verkürzen beide.)
+- **AWS-Regionsausfall (7. Dezember 2021, us-east-1):** Eine automatisierte Skalierung überlastete das interne AWS-Netz; es war rund 7 Stunden gestört, einzelne Dienste bis zu 11 Stunden. Laufende Instanzen arbeiteten weiter, neue starteten nicht; auch Monitoring und Statusseite waren beeinträchtigt. Kunden mit Single-Region-Design waren offline, Multi-Region-Kunden blieben verfügbar oder schwenkten um. Architektur, nicht Plattform, entscheidet über Resilienz. (Folienbeispiel: RTO 3 h, RPO 30 min; Geo-Redundanz und Failover verkürzen beide.)
+- **Brand bei OVHcloud (10. März 2021, Straßburg):** Das Rechenzentrum SBG2 brannte aus, SBG1 wurde beschädigt. Kunden, deren Backup im selben Gebäude lag wie die Produktion, verloren beides; 2023 sprach ein französisches Handelsgericht zwei Kunden Schadensersatz zu, weil die Sicherungen nicht wie vereinbart getrennt lagen. Ein Backup schützt nur vor den Ereignissen, die es nicht mit trifft.
+- **GitLab.com (31. Januar 2017):** Ein Administrator löschte versehentlich rund 300 GB auf der Produktionsdatenbank. Drei von vier Sicherungswegen hatten unbemerkt versagt; gerettet hat ein zufällig sechs Stunden alter Snapshot. Ergebnis: etwa 6 Stunden Datenverlust und rund 18 Stunden Ausfall. Laut Postmortem war niemand für die Backups verantwortlich, niemand testete sie – das tatsächliche RPO zeigt erst der Restore.
 - **Cloud-Gaming-DDoS:** Service verlangsamt statt ausgefallen (Rate-Limiting, Warteschlangen); Lastverteilung und Auto-Scaling führen zurück zu stabilem Niveau – Graceful Degradation statt Hard-Fail.
+
+![Gleiche Störung, drei Architekturen](../Präsentationen/Termin-02/assets/gleiche-stoerung-drei-kurven.png){fig-alt="Drei Kurven nach derselben Störung: Hard-Fail mit langem Totalausfall, Failover mit kurzem Einbruch, Graceful Degradation mit flachem Einbruch" width="70%"}
 
 Resilienz bewertet nicht, ob ein Ereignis eintritt, sondern wie ein System danach aussieht.
 

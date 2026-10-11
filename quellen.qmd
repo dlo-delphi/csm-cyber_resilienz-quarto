@@ -12,6 +12,14 @@ Die Folien des Gastvortrags zu Product & Production Security (OT) im Termin 9 si
 
 Die Skripte verstehen sich als Vorlesungsbegleitung ohne akademischen Anspruch. Die Normverweise dienen der fachlichen Orientierung. Sie sind keine Auslegung des jeweiligen Normtexts und keine Konformitätsaussage. Die Normtexte selbst sind nicht Bestandteil dieses Projekts.
 
+## Reale Fallbeispiele in den Folien zu Termin 2
+
+Die Folien und die Lernseite zu Termin 2 ergänzen die didaktischen Szenarien um drei dokumentierte Vorfälle:
+
+- AWS, Ausfall in us-east-1 am 7. Dezember 2021: [Summary of the AWS Service Event in the Northern Virginia (US-EAST-1) Region](https://aws.amazon.com/message/12721/)
+- GitLab.com, Datenbankausfall am 31. Januar 2017: [Postmortem of database outage of January 31](https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/)
+- OVHcloud, Brand in Straßburg am 10. März 2021: [The Register, 22.03.2022](https://www.theregister.com/2022/03/22/ovhcloud_fire_datacenter/) und [Blocks and Files, 23.03.2023](https://blocksandfiles.com/2023/03/23/ovh-cloud-must-pay-damages-for-lost-backup-data/)
+
 # Normen und Rahmenwerke
 
 | Referenz | Verwendung in der Lehrveranstaltung | Termine |
