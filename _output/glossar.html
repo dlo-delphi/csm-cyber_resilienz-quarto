@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -2387,7 +2387,7 @@ a {color:#175b84;} .subtitle {color:#555;}
 </section>
 <section id="begriffe-der-cyber-resilienz" class="level1">
 <h1>Begriffe der Cyber-Resilienz</h1>
-<p><strong>Availability Zone (AZ)</strong> – Physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region. Resilienz entsteht erst, wenn Workloads tatsächlich über mehrere AZs verteilt betrieben werden. (3)</p>
+<p><strong>Availability Zone (AZ) / Multi-AZ-Deployment</strong> – Eine AZ ist ein physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region mit eigener Strom-, Kühlungs- und Netzversorgung. Beim Multi-AZ-Deployment läuft ein Dienst gleichzeitig in mehreren AZs; fällt eine Zone aus, übernehmen die anderen, etwa über Load Balancer und synchron gespiegelte Datenbanken. Resilienz entsteht erst durch diese tatsächliche Verteilung. Multi-AZ schützt gegen den Ausfall eines Standorts, nicht gegen die Störung einer ganzen Region (→ Multi-Region-Design). (3)</p>
 <p><strong>Backup (vs. Recovery)</strong> – Die existierende Kopie von Daten oder Systemzuständen. Resilienz entsteht nicht durch das Vorhandensein, sondern durch die Fähigkeit, innerhalb der RTO/RPO-Ziele wiederherzustellen. „Backup ohne Restore-Test“ ist Scheinsicherheit. (3, 4, 7)</p>
 <p><strong>BCM</strong> – Managementrahmen zur Sicherstellung kritischer Geschäftsprozesse während und nach Störungen. IT-Resilienz ist ein technischer Teilaspekt davon. (2, 3, 6)</p>
 <p><strong>Break-Glass-Account</strong> – Notfallkonto mit lokalem oder isoliertem Zugriff, das den Betrieb ermöglicht, wenn zentrale Identity-Provider ausgefallen oder kompromittiert sind. (3, 4)</p>

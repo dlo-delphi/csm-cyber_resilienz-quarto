@@ -65,7 +65,7 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 # Begriffe der Cyber-Resilienz
 
-**Availability Zone (AZ)** – Physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region. Resilienz entsteht erst, wenn Workloads tatsächlich über mehrere AZs verteilt betrieben werden. (3)
+**Availability Zone (AZ) / Multi-AZ-Deployment** – Eine AZ ist ein physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region mit eigener Strom-, Kühlungs- und Netzversorgung. Beim Multi-AZ-Deployment läuft ein Dienst gleichzeitig in mehreren AZs; fällt eine Zone aus, übernehmen die anderen, etwa über Load Balancer und synchron gespiegelte Datenbanken. Resilienz entsteht erst durch diese tatsächliche Verteilung. Multi-AZ schützt gegen den Ausfall eines Standorts, nicht gegen die Störung einer ganzen Region (→ Multi-Region-Design). (3)
 
 **Backup (vs. Recovery)** – Die existierende Kopie von Daten oder Systemzuständen. Resilienz entsteht nicht durch das Vorhandensein, sondern durch die Fähigkeit, innerhalb der RTO/RPO-Ziele wiederherzustellen. „Backup ohne Restore-Test“ ist Scheinsicherheit. (3, 4, 7)
 
