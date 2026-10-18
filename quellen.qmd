@@ -20,6 +20,16 @@ Die Folien und die Lernseite zu Termin 2 ergänzen die didaktischen Szenarien um
 - GitLab.com, Datenbankausfall am 31. Januar 2017: [Postmortem of database outage of January 31](https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/)
 - OVHcloud, Brand in Straßburg am 10. März 2021: [The Register, 22.03.2022](https://www.theregister.com/2022/03/22/ovhcloud_fire_datacenter/) und [Blocks and Files, 23.03.2023](https://blocksandfiles.com/2023/03/23/ovh-cloud-must-pay-damages-for-lost-backup-data/)
 
+## Reale Fallbeispiele in den Folien zu Termin 3
+
+Die Folien zu Termin 3 belegen die vier Architekturprinzipien mit fünf dokumentierten Vorfällen:
+
+- British Airways, IT-Ausfall am 27. Mai 2017: [Data Center Knowledge, 06.06.2017](https://www.datacenterknowledge.com/archives/2017/06/06/british-airways-says-engineer-disconnected-data-center-power-supply)
+- CrowdStrike, fehlerhaftes Sensor-Update am 19. Juli 2024: [Channel File 291 Incident: Root Cause Analysis](https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/) und [Microsoft, Helping our customers through the CrowdStrike outage](https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/)
+- Facebook, Ausfall am 4. Oktober 2021: [More details about the October 4 outage](https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/)
+- Netflix, AWS-Ausfall am 21. April 2011: [Lessons Netflix Learned from the AWS Outage](https://netflixtechblog.com/lessons-netflix-learned-from-the-aws-outage-deefe5fd0c04)
+- Rackspace, Ransomware-Angriff auf Hosted Exchange am 2. Dezember 2022: [Dark Reading, 05.01.2023](https://www.darkreading.com/attacks-breaches/rackspace-discontinues-email-service-downed-in-ransomware-attack)
+
 # Normen und Rahmenwerke
 
 | Referenz | Verwendung in der Lehrveranstaltung | Termine |
