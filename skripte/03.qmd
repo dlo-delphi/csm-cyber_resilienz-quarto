@@ -20,6 +20,9 @@ Hybridlandschaften aus On-Premises-Systemen und Cloud-Diensten verschärfen die 
 
 Ziel dieser Sitzung ist es, technische Resilienz **systematisch aus den vier Architekturprinzipien heraus zu analysieren und auf hybride Szenarien anzuwenden**. Im Anschluss erfolgt eine Übung zur Identifikation und Einordnung von Single Points of Failure (SPOFs) in realen Systembeispielen.
 
+![Wirkung der Architekturprinzipien auf die Resilienzkurve aus Sitzung 2](../Präsentationen/Termin-03/assets/prinzipien-wirkung.png){fig-alt="Zwei Resilienzkurven: ohne Architekturprinzipien tiefer Einbruch und langsame Erholung, mit Prinzipien flacher Einbruch und schnelle Erholung. Redundanz, Diversität und Adaptivität machen den Einbruch flacher, Wiederherstellbarkeit die Erholung schneller." width="75%"}
+
+
 # 2. Prinzip 1: Redundanz — Eliminierung von Einzelbruchpunkten
 
 Redundanz bezeichnet die vorsätzliche Mehrfachvorhaltung kritischer Ressourcen mit dem Ziel, einzelne Komponenten ausfallen zu lassen, ohne dass das Gesamtsystem seine Funktion verliert. Sie ist damit das älteste und zugleich fundamentalste technische Resilienzprinzip.
@@ -64,6 +67,15 @@ Redundanz schützt ausschließlich gegen **komponentielle Ausfälle**, nicht geg
 
 NIST SP 800-160 Vol. 2 weist explizit darauf hin, dass Redundanz ohne getestete Transition **keine Resilience Capability**, sondern nur eine **strukturelle Reserve** darstellt.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: British Airways 2017"}
+Am 27. Mai 2017 trennte ein Techniker in einem Rechenzentrum bei Heathrow die Stromversorgung. Beim Wiederzuschalten beschädigte eine Überspannung die IT-Systeme, und die Ausweichsysteme übernahmen nicht. Check-in, Gepäckabfertigung und Flugplanung fielen aus; allein am ersten Tag strich British Airways 479 Flüge, mindestens 75.000 Passagiere waren betroffen, die Kosten wurden auf bis zu 100 Mio. € geschätzt. Warum die Ausweichsysteme nicht griffen, wurde öffentlich nie vollständig geklärt.
+
+Der Fall zeigt zwei Grenzen der Redundanz zugleich: eine gemeinsame Abhängigkeit (die Stromversorgung) und eine Umschaltung, die unter realen Bedingungen nicht funktionierte.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+
 # 3. Prinzip 2: Diversität — Vermeidung von Kettenfehlern
 
 Während Redundanz Mehrfachvorhaltung adressiert, zielt Diversität darauf ab, **gemeinsame Fehlerursachen** (Common Mode Failures) zu vermeiden. Systeme, die redundant, aber homogen sind, teilen dieselben Schwachstellen und können daher simultan scheitern.
@@ -81,6 +93,17 @@ Während Redundanz Mehrfachvorhaltung adressiert, zielt Diversität darauf ab, *
 - **Technologiendiversität** (unterschiedliche Betriebssysteme, Container vs. VM, heterogene Storage-Systeme)
 
 Diversität operiert damit auf einer Metaebene: Sie reduziert die Wahrscheinlichkeit synchroner Ausfälle durch **Nicht-Korrelation von Fehlerursachen**.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: CrowdStrike 2024"}
+Am 19. Juli 2024 verteilte CrowdStrike ein fehlerhaftes Konfigurations-Update für seinen Windows-Sensor. Nach Angaben von Microsoft stürzten rund 8,5 Mio. Windows-Rechner ab – weniger als 1 % aller Windows-Geräte, aber konzentriert in Unternehmen mit hohem Schutzbedarf. Flughäfen, Krankenhäuser, Banken und Sender standen still; viele Rechner mussten von Hand repariert werden. Hochverfügbare Cluster halfen nicht, weil alle Knoten denselben Agenten verwendeten: ein Common-Mode-Failure im Lehrbuchsinn.
+
+Der Fall ergänzt die drei Formen der Diversität um eine vierte, die **zeitliche Diversität**: Gestaffelte Rollouts (Canary) verteilen eine Änderung erst auf wenige Systeme und dann auf alle, sodass ein Fehler nicht überall gleichzeitig wirkt. CrowdStrike hat als Konsequenz eine solche gestaffelte Auslieferung angekündigt.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Redundant, aber gleich gegenüber redundant und divers](../Präsentationen/Termin-03/assets/crowdstrike-common-mode.png){fig-alt="Links drei Server mit gleichem Agenten, die ein fehlerhaftes Update alle zugleich ausfallen lässt. Rechts drei Server mit unterschiedlicher Software, von denen nur einer ausfällt." width="75%"}
+
 
 ## 3.2 Diversität als Resilienz gegen Supply-Chain-Risiken
 
@@ -141,6 +164,17 @@ Wesentlich ist nicht die Existenz dieser Mittel, sondern die **Validierung durch
 
 Die häufigsten Resilienzversagen resultieren nicht aus fehlenden Daten, sondern aus **fehlgeschlagenen Wiederanläufen** infolge ungeprüfter Abhängigkeiten, mangelhafter Automatisierung oder fehlender Rollenklärung.
 
+![Recovery als Kette: Nur das erste Glied ist ein Zustand, alle weiteren sind Fähigkeiten](../Präsentationen/Termin-03/assets/recovery-kette.png){fig-alt="Kette aus fünf Gliedern: Backup vorhanden, isoliert oder offline, Restore getestet, Runbook und Rollen, Dienst im RTO. Darunter typische Brüche: Backup im selben Brandbereich (OVHcloud 2021), Restore nie geübt (GitLab 2017), Dienst aufgegeben statt wiederhergestellt (Rackspace 2022)." width="80%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Rackspace 2022"}
+Im November 2022 veröffentlichte Microsoft einen Patch für die Exchange-Lücke „ProxyNotShell“. Der Hosting-Anbieter Rackspace spielte ihn aus Sorge vor Anmeldeproblemen nicht ein und verließ sich auf vorläufige Workarounds. Am 2. Dezember 2022 umging die Ransomware-Gruppe Play diese Workarounds und legte den Dienst Hosted Exchange lahm. Anfang Januar 2023 entschied Rackspace, die Umgebung nicht wieder aufzubauen, sondern den Dienst einzustellen und die Kunden zu Microsoft 365 zu migrieren.
+
+Für die Kunden war das RTO des alten Dienstes damit faktisch unendlich. Der Fall zeigt, dass Recovery nicht nur eine technische, sondern auch eine wirtschaftliche Entscheidung ist – und dass Kunden eines Dienstleisters eine eigene Exit- und Wiederherstellungsstrategie brauchen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+
 # 5. Prinzip 4: Adaptivität — Resilienz als dynamische Systemeigenschaft
 
 Adaptivität unterscheidet resiliente Systeme von stabilen Systemen. Stabilität beschreibt das Halten eines Zustands; Resilienz beschreibt die Fähigkeit, sich unter Störung **neu zu konfigurieren**, ohne Funktionsverlust als Ganzes. Adaptivität ist damit eine aktive Resilienzleistung — kein statisches Designmerkmal.
@@ -165,6 +199,15 @@ Cloud-native Resilience Engineering setzt zunehmend auf **kontrollierte Störinj
 _Resilienz entsteht nicht durch Erwartung, sondern durch Exposition._
 
 NIST SP 800-160 Vol.2 ordnet adaptives Verhalten den Fähigkeiten „respond“, „recover“ und „adapt“ zu und positioniert es als lernfähigen Prozess statt als statischen Architekturstatus.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Netflix und der AWS-Ausfall 2011"}
+Am 21. April 2011 war eine Zone der AWS-Region US-East gestört; viele bekannte Dienste waren offline. Netflix lief weiter, wenn auch mit höherer Fehlerrate und Latenz. Gründe laut Netflix: zustandslose Dienste, Verteilung auf drei aktive Zonen und vorgehaltene Reservekapazität. Chaos Monkey hatte Instanzausfälle zur Routine gemacht.
+
+Netflix benannte aber auch die Lücke: Einen Ausfall einer ganzen Zone hatte Chaos Monkey nicht simuliert, die Umleitung lief deshalb teilweise manuell. Daraus entstanden weitere Werkzeuge, die gezielt größere Ausfälle üben. Adaptivität ist also nur so gut wie die Störungen, mit denen sie trainiert wurde.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
 
 ## 5.3 Grenzen der Adaptivität
 
@@ -201,6 +244,17 @@ Viele hybride Systeme scheitern nicht an Rechen- oder Speicherressourcen, sonder
 - **Datenkopplung in Echtzeit** → Resilienzverlust durch enge Synchronisationszwänge
 
 Ein System kann funktional verteilt sein, aber steuerungstechnisch monolithisch — und damit fragil.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Facebook 2021"}
+Am 4. Oktober 2021 trennte ein Wartungsbefehl versehentlich alle Verbindungen im Backbone von Facebook; ein Fehler im Prüfwerkzeug verhinderte, dass er gestoppt wurde. Die DNS-Server zogen daraufhin – wie vorgesehen – ihre BGP-Routen zurück. Facebook, Instagram und WhatsApp waren rund sechs Stunden weltweit nicht erreichbar. Auch interne Werkzeuge und der Fernzugriff fielen aus, sodass Techniker vor Ort in die Rechenzentren mussten; die strengen Zutrittsregeln verzögerten die Wiederherstellung zusätzlich.
+
+Der Fall zeigt den Hybrid-SPOF im großen Maßstab: Tausende redundante Server, aber eine gemeinsame Steuerungsebene. Zugleich wird sichtbar, dass Sicherheitsmaßnahmen die Wiederherstellung verlangsamen können.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Facebook 2021: Die Datenebene war verteilt, die Steuerungsebene gemeinsam](../Präsentationen/Termin-03/assets/facebook-2021-kopplung.png){fig-alt="Kette: Ein Wartungsbefehl trennt das Backbone, die DNS-Server ziehen ihre Routen zurück; Folgen sind unerreichbare Dienste, ausgefallene interne Werkzeuge und Fernzugriffe sowie Techniker, die physisch ins Rechenzentrum müssen." width="75%"}
+
 
 ## 6.3 Hybrid verlangt doppelte Resilienzlogik
 

@@ -16,6 +16,8 @@ subtitle: "Redundanz · Diversität · Wiederherstellbarkeit · Adaptivität"
 Nach diesem Termin können Studierende
 
 - die vier technischen Resilienzprinzipien erklären und voneinander abgrenzen,
+- den Unterschied zwischen Redundanz und Diversität an einem Common-Mode-Failure begründen,
+- erläutern, warum Recovery eine Fähigkeit und kein Plan ist,
 - Redundanz in On-Prem- und Cloud-Umgebungen vergleichen,
 - Single Points of Failure (SPOFs) in hybriden Architekturen erkennen,
 - jedem SPOF ein Gegenprinzip und eine realistische Maßnahme zuordnen.
@@ -30,6 +32,10 @@ Termin 2 hat gezeigt: Resilienz ist messbar (RTO, RPO, MTTR), normativ verankert
 2. **Diversität** – keine gemeinsamen Fehlerquellen
 3. **Wiederherstellbarkeit** – geübte, getestete Rückkehrfähigkeit
 4. **Adaptivität** – Systeme reagieren dynamisch statt statisch
+
+Bezogen auf die Resilienzkurve aus Termin 2: Redundanz, Diversität und Adaptivität machen den Einbruch flacher (kleineres Δ), Wiederherstellbarkeit macht die Erholung schneller (kürzeres tR).
+
+![Wirkung der Prinzipien auf die Resilienzkurve](../Präsentationen/Termin-03/assets/prinzipien-wirkung.png){fig-alt="Zwei Resilienzkurven: ohne Architekturprinzipien tiefer Einbruch und langsame Erholung, mit Prinzipien flacher Einbruch und schnelle Erholung" width="65%"}
 
 ## Prinzip 1: Redundanz
 
@@ -46,6 +52,10 @@ Die Ausfallsicherheit steigt mit dem Grad der Entkopplung: **Zwei USVs im gleich
 
 **Grenzen:** Redundanz schützt nur gegen komponentielle Ausfälle, nicht gegen logische oder Konfigurationsfehler, konzertierte Angriffe (Ransomware, Wiper), gemeinsame Abhängigkeiten (etwa ein zentrales AD) und nicht getestete Umschaltprozesse. Redundanz ohne getestete Umschaltung ist nur eine strukturelle Reserve.
 
+**Fallbeispiel British Airways (27. Mai 2017):** Ein Techniker trennte in einem Rechenzentrum bei Heathrow die Stromversorgung; beim Wiederzuschalten beschädigte eine Überspannung die IT-Systeme, und die Ausweichsysteme übernahmen nicht. Check-in, Gepäck und Flugplanung fielen aus, allein am ersten Tag wurden 479 Flüge gestrichen, mindestens 75.000 Passagiere waren betroffen, die Kosten wurden auf bis zu 100 Mio. € geschätzt. Redundanz war vorhanden – die Umschaltung hat versagt.
+
+![British Airways 2017: Kaskade trotz Redundanz](../Präsentationen/Termin-03/assets/ba-2017-kaskade.png){fig-alt="Kette: Stromversorgung getrennt, Überspannung bei Wiederzuschaltung, Systeme beschädigt, Flugbetrieb steht. Daneben die Folgen: 479 Flüge, 75.000 Passagiere, bis 100 Mio. Euro." width="65%"}
+
 ## Prinzip 2: Diversität
 
 Diversität vermeidet gemeinsame Fehlerursachen (Common Mode Failures). Redundante, aber homogene Systeme teilen dieselben Schwachstellen und können gleichzeitig scheitern.
@@ -53,8 +63,13 @@ Diversität vermeidet gemeinsame Fehlerursachen (Common Mode Failures). Redundan
 - **Komponentendiversität:** unterschiedliche HSMs, CA-Stacks, Backup-Mechanismen
 - **Lieferantendiversität:** Multi-Vendor-Firewalls, Multi-Cloud, verschiedene Identity-Provider
 - **Technologiediversität:** unterschiedliche Betriebssysteme, Container und VM, heterogene Storage-Systeme
+- **Zeitliche Diversität** (Ergänzung zur Vorlesung): gestaffelte Rollouts (Canary), damit eine Änderung nicht überall gleichzeitig wirkt
 
 Diversität reduziert die Wahrscheinlichkeit synchroner Ausfälle, verringert Lieferkettenabhängigkeit und bricht Komplexitätskopplungen. Supply-Chain-Angriffe wie SolarWinds (2020) zeigen, dass Homogenität ein systemischer Verstärker ist; ein diverser Stack wirkt wie ein Brandschott. Diversität erhöht Betriebskosten (Know-how, Verträge, Integration), ist aber eine Versicherung gegen seltene Ereignisse mit großer Wirkung.
+
+**Fallbeispiel CrowdStrike (19. Juli 2024):** Ein fehlerhaftes Konfigurations-Update für den Windows-Sensor von CrowdStrike brachte laut Microsoft rund 8,5 Mio. Windows-Rechner zum Absturz – weniger als 1 % aller Windows-Geräte, aber konzentriert in Unternehmen mit hohem Schutzbedarf. Flughäfen, Krankenhäuser und Banken standen still. Hochverfügbare Cluster halfen nicht, weil alle Knoten denselben Agenten hatten: ein Common-Mode-Failure. CrowdStrike hat als Konsequenz gestaffelte Auslieferungen angekündigt.
+
+![Redundant, aber gleich gegenüber redundant und divers](../Präsentationen/Termin-03/assets/crowdstrike-common-mode.png){fig-alt="Links drei Server mit gleichem Agenten, alle durch ein Update ausgefallen. Rechts drei Server mit unterschiedlicher Software, nur einer ausgefallen." width="65%"}
 
 ## Prinzip 3: Wiederherstellbarkeit
 
@@ -67,6 +82,10 @@ Ein System ist nicht resilient, weil es redundante Daten besitzt, sondern weil e
 
 Die häufigsten Resilienzversagen entstehen nicht aus fehlenden Daten, sondern aus fehlgeschlagenen Wiederanläufen: ungeprüfte Abhängigkeiten, mangelhafte Automatisierung, fehlende Rollenklärung.
 
+![Recovery als Kette mit typischen Brüchen](../Präsentationen/Termin-03/assets/recovery-kette.png){fig-alt="Kette von Backup vorhanden über isoliert, Restore getestet, Runbook und Rollen bis Dienst im RTO; darunter typische Brüche mit OVHcloud 2021, GitLab 2017 und Rackspace 2022" width="70%"}
+
+**Fallbeispiel Rackspace (Dezember 2022):** Microsoft hatte im November 2022 einen Patch für die Exchange-Lücke „ProxyNotShell“ veröffentlicht; der Hosting-Anbieter Rackspace setzte stattdessen nur Workarounds ein. Am 2. Dezember 2022 umging die Ransomware-Gruppe Play diese Workarounds und legte den Dienst Hosted Exchange lahm. Anfang Januar 2023 stellte Rackspace den Dienst ein und migrierte die Kunden zu Microsoft 365, statt ihn wiederherzustellen. Recovery ist auch eine Kostenentscheidung; für die Kunden war das RTO des alten Dienstes faktisch unendlich.
+
 ## Prinzip 4: Adaptivität
 
 Stabilität hält einen Zustand; Resilienz rekonfiguriert sich unter Störung ohne Funktionsverlust als Ganzes.
@@ -77,7 +96,11 @@ Stabilität hält einen Zustand; Resilienz rekonfiguriert sich unter Störung oh
 - Traffic Shifting, Anycast, Failover-Logik
 - Chaos Engineering als Testmethode (z. B. Netflix „Chaos Monkey“): Resilienz entsteht nicht durch Erwartung, sondern durch Exposition.
 
-Adaptivität ist ein Multiplikator, kein Ersatz. Systeme, die nur adaptiv sind, aber auf einem gemeinsamen Identitäts- oder Datenknoten aufbauen, passen sich lediglich innerhalb der Fragilität an.
+**Fallbeispiel Netflix (21. April 2011):** Bei einer Störung in einer Zone der AWS-Region US-East lief Netflix weiter, wenn auch mit höherer Fehlerrate und Latenz – dank zustandsloser Dienste, drei aktiver Zonen und Reservekapazität. Netflix benannte aber auch die Lücke: Chaos Monkey hatte nur einzelne Instanzausfälle geübt, keinen Ausfall einer ganzen Zone; die Umleitung lief teilweise manuell.
+
+![Netflix 2011: drei aktive Zonen, eine fällt aus](../Präsentationen/Termin-03/assets/netflix-drei-zonen.png){fig-alt="Drei Zonen einer AWS-Region, Zone A ausgefallen, Zonen B und C übernehmen die Last" width="65%"}
+
+Adaptivität ist ein Multiplikator, kein Ersatz. Systeme, die nur adaptiv sind, aber auf einem gemeinsamen Identitäts- oder Datenknoten aufbauen, passen sich lediglich innerhalb der Fragilität an. Automatik kann einen Fehler auch verstärken: Der AWS-Ausfall von 2021 (Termin 2) begann mit einer automatischen Skalierung.
 
 ## Hybridarchitekturen
 
@@ -92,15 +115,24 @@ Adaptivität ist ein Multiplikator, kein Ersatz. Systeme, die nur adaptiv sind, 
 
 **Hybrid-SPOFs:** Identity-Systeme (AD/IdP) als globaler Fail-Knopf, Netzwerk-Transit (VPN/SD-WAN) als Engpass, zentrale Orchestrierung und CI/CD als Single Control Layer, Echtzeit-Datenkopplung mit engen Synchronisationszwängen. Ein System kann funktional verteilt, aber steuerungstechnisch monolithisch und damit fragil sein.
 
+**Fallbeispiel Facebook (4. Oktober 2021):** Ein Wartungsbefehl trennte versehentlich alle Backbone-Verbindungen; ein Fehler im Prüfwerkzeug stoppte ihn nicht. Die DNS-Server zogen daraufhin wie vorgesehen ihre BGP-Routen zurück, und Facebook, Instagram und WhatsApp waren rund sechs Stunden weltweit unerreichbar. Auch interne Werkzeuge und Fernzugriff fielen aus; Techniker mussten vor Ort in die Rechenzentren, strenge Zutrittsregeln verzögerten die Wiederherstellung. Der SPOF lag nicht in den Servern, sondern im Management-Pfad.
+
+![Facebook 2021: Steuerungsebene als gemeinsamer Fehlerpfad](../Präsentationen/Termin-03/assets/facebook-2021-kopplung.png){fig-alt="Kette: Wartungsbefehl trennt Backbone, DNS zieht Routen zurück; Folgen: Dienste unerreichbar, interne Tools weg, Techniker müssen ins Rechenzentrum" width="65%"}
+
 Hybrid verlangt doppelte Resilienzlogik: Cloud-Resilienz ersetzt nicht RZ-Resilienz, und die SPOF-Suche muss über Systemgrenzen hinweg erfolgen (Identity, Netzwerk, Control Plane). Hybrid erhöht den Suchraum der Fragilität und zugleich den Werkzeugkasten der Resilienz.
 
 ## Häufige Irrtümer
 
-- „Wir sind in der Cloud, also sicher.“
-- „Backup = Resilienz.“
-- „Cluster = Disaster Recovery.“
-- „Nie getestet, aber dokumentiert.“
-- „Single-Cloud“ mit „Multi-Region“ verwechselt.
+Jeder Irrtum verwechselt eine Komponente mit einer Fähigkeit.
+
+| Irrtum | Gegenbeispiel |
+|---|---|
+| „Wir sind in der Cloud, also sicher.“ | AWS 2021: Single-Region-Kunden offline |
+| „Backup = Resilienz.“ | OVHcloud 2021, GitLab 2017 |
+| „Cluster = Disaster Recovery.“ | CrowdStrike 2024: alle Knoten gleich |
+| „Nie getestet, aber dokumentiert.“ | British Airways 2017 |
+| „Wir haben ja ein Notfallteam.“ | Facebook 2021: kein Zugang ohne Netz |
+| „Single-Cloud“ mit „Multi-Region“ verwechselt | AWS 2021 |
 
 ## Fallbeispiel: Hybrid-Störung
 
@@ -116,7 +148,7 @@ NIST SP 800-160 Vol. 2 behandelt Diversität und Redundanz als Architekturprinzi
 
 # Übung: SPOFs identifizieren und zuordnen
 
-Gruppen, 15–30 Minuten. Wählen Sie ein reales System (Cloud-Drive, Banking-App, Campus-E-Mail, Smart-Home-Plattform, Krankenhaus-IT).
+Gruppen, 20–30 Minuten. Wählen Sie ein reales System (Cloud-Drive, Banking-App, Campus-E-Mail, Smart-Home-Plattform, Krankenhaus-IT).
 
 1. Identifizieren Sie mindestens drei Single Points of Failure (z. B. IdP, Netzwerk-Backbone, zentrales Storage, CI/CD-Pipeline).
 2. Ordnen Sie jedem SPOF ein Prinzip zu, das ihn adressiert: Redundanz, Diversität, Wiederherstellbarkeit oder Adaptivität.
@@ -134,6 +166,8 @@ Ergebnis: eine Folie oder ein 5-Punkte-Statement pro Gruppe. Resilienz beginnt n
 **Merksätze:** Resilienz entsteht im Design, nicht im Incident. Redundanz, Diversität, Recovery und Adaptivität bilden den technischen Kern. Hybrid erhöht Chancen und Risiken. Fähigkeit schlägt Dokumentation.
 
 # Vor- und Nachbereitung
+
+**Hausaufgabe:** Nehmen Sie Ihr System aus der Übung. Welcher Ihrer SPOFs wäre für einen Angreifer am attraktivsten – und warum?
 
 **Ausblick Termin 4:** Bedrohungen und Resilienzstrategien – Mapping von Angriffen auf Widerstands- und Recovery-Muster.
 
