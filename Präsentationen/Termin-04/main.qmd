@@ -299,7 +299,7 @@ Ergänzung zur Vorlesung. Verbindung zur Resilienzkurve aus Sitzung 2: Die Absch
 **Kernaussage:** Identity ist oft der versteckte Single Point of Failure
 :::
 ::: {.column width="40%"}
-![](assets/identity-saml.png){fig-alt="Anmeldefluss über einen zentralen Identity Provider mit SAML"}
+![](assets/identity-spof.png){fig-alt="Nutzer, zentraler Identity Provider ausgefallen, drei laufende Anwendungen nicht erreichbar; darunter Break-Glass-Konto als Notzugang ohne zentralen IdP"}
 :::
 :::
 

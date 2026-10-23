@@ -302,6 +302,30 @@ def bedrohung_venn():
     save(fig, "bedrohung-venn.png")
 
 
+# --------------------------------------------------------------------------------------
+def identity_spof():
+    """Identity als versteckter SPOF: zentraler IdP fällt aus, Break-Glass-Zugang als Rückfallebene."""
+    fig, ax = canvas(6.5, 4.8, 13, 9.6)
+    box(ax, 0.3, 4.3, 2.4, 1.5, "Nutzer", fc=ICE, ec=NAVY, fs=11.5)
+    arrow(ax, (2.75, 5.05), (4.05, 5.05), color=GREY)
+    box(ax, 4.1, 4.0, 3.2, 2.1, "zentraler\nIdentity\nProvider", fc=PINK, ec=RED, fs=11)
+    cross(ax, 4.1, 4.0, 3.2, 2.1)
+    text(ax, 5.7, 3.55, "Anmeldung, Tokens (z. B. SAML)", 9.5, GREY)
+    apps = ["E-Mail", "ERP", "Cloud-Dienst"]
+    for i, a in enumerate(apps):
+        y = 7.1 - i * 2.05
+        box(ax, 9.3, y, 3.4, 1.4, a, fc=MINT, ec=GREEN, fs=11, color=GREEN)
+        arrow(ax, (7.35, 5.05), (9.25, y + 0.7), color=RED, lw=1.8, ms=13, style="-")
+        text(ax, 8.3, 5.05 + (y + 0.7 - 5.05) * 0.5 + 0.25, "✘", 12, RED, bold=True)
+    text(ax, 11.0, 8.85, "Anwendungen laufen", 11, GREEN, bold=True)
+    ax.plot([0.3, 12.7], [2.55, 2.55], color="#cccccc", ls="--", lw=1.5)
+    box(ax, 0.3, 0.4, 4.4, 1.6, "Break-Glass-Konto\n(lokal, offline)", fc=MINT, ec=GREEN, fs=10.5, color=GREEN)
+    arrow(ax, (4.75, 1.2), (9.25, 2.75), color=GREEN, lw=2.2, rad=-0.15)
+    text(ax, 8.9, 0.95, "Notzugang ohne zentralen IdP", 10.5, GREEN, bold=True)
+    text(ax, 2.0, 7.6, "Systeme intakt –\nniemand kommt hinein", 11, RED, bold=True)
+    save(fig, "identity-spof.png")
+
+
 if __name__ == "__main__":
     hsm_2025_wiederaufbau()
     bedrohungsklassen()
@@ -313,4 +337,5 @@ if __name__ == "__main__":
     countcare_2022_kunden()
     notkommunikation()
     bedrohung_venn()
+    identity_spof()
     print("Diagramme erzeugt in", OUT)
