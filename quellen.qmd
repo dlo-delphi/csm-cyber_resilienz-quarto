@@ -30,6 +30,18 @@ Die Folien zu Termin 3 belegen die vier Architekturprinzipien mit fünf dokument
 - Netflix, AWS-Ausfall am 21. April 2011: [Lessons Netflix Learned from the AWS Outage](https://netflixtechblog.com/lessons-netflix-learned-from-the-aws-outage-deefe5fd0c04)
 - Rackspace, Ransomware-Angriff auf Hosted Exchange am 2. Dezember 2022: [Dark Reading, 05.01.2023](https://www.darkreading.com/attacks-breaches/rackspace-discontinues-email-service-downed-in-ransomware-attack)
 
+## Reale Fallbeispiele in den Folien zu Termin 4
+
+Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 4 belegen die sechs Bedrohungsklassen mit dokumentierten Vorfällen. Zur Hochschule Mainz werden ausschließlich die veröffentlichten Meldungen der Hochschule verwendet.
+
+- Hochschule Mainz, Cyberangriff ab 24. November 2025: [Cyberangriff auf Hochschule Mainz](https://www.hs-mainz.de/news/cyberangriff-auf-hochschule-mainz/) und [Fortschritte bei der IT-Infrastruktur, 17.02.2026](https://www.hs-mainz.de/news/aktuelle-infos-zum-it-sicherheitsvorfall/)
+- Dyn, DDoS-Angriff am 21. Oktober 2016: [NHBR, Dyn issues analysis, 27.10.2016](https://www.nhbr.com/dyn-issues-analysis-of-complex-and-sophisticated-cyberattacks/) und [Krebs on Security, 21.10.2016](https://krebsonsecurity.com/2016/10/ddos-on-dyn-impacts-twitter-spotify-reddit/)
+- KDZ Mainz und KGRZ Koblenz, vorsorgliche Abschaltung vom 27. bis 29. September 2026: [AK-Kurier, 28./29.09.2026](https://www.ak-kurier.de/akkurier/www/artikel/176375-kommunale-rechenzentren-schalten-fachverfahren-vorsorglich-ab), [Kommunaler Notbetrieb, 28.09.2026](https://kommunaler-notbetrieb.de/2026/09/28/zweckverband-fuer-informationstechnologie-und-datenverarbeitung-der-kommunen-in-rheinland-pfalz-zidkor/) und [ad-hoc-news, 28.09.2026](https://www.ad-hoc-news.de/wissenschaft/kommunale-it-ausfaelle-194-verwaltungen-in-rheinland-pfalz-offline/70195050)
+- Stadt Mainz, Abschaltung der Internetdienste am 21. Oktober 2026: [Mainz&, 21.10.2026](https://mainzund.de/internetseite-der-stadt-mainz-abgeschaltet-kritische-schwachstelle-bei-programmiersprache-php-bedroht-weltweit-webanwendungen/)
+- Microsoft Azure AD, Anmeldestörung am 15. März 2021: [Microsoft, Authentication errors across multiple Microsoft services](https://learn.microsoft.com/en-us/answers/questions/315440/notification-authentication-errors-across-multiple)
+- AWS S3, Störung in us-east-1 am 28. Februar 2017: [Summary of the Amazon S3 Service Disruption](https://aws.amazon.com/message/41926/)
+- Count+Care, Ransomware-Angriff im Juni 2022: [computer-automation.de, 20.06.2022](https://www.computer-automation.de/safety-und-security/cyberangriff-auf-it-dienstleister.htm), [it-daily, 17.06.2022](https://www.it-daily.net/?p=37655) und [Borns IT- und Windows-Blog, 21.07.2022](https://borncity.com/blog/2022/07/21/cyberangriff-auf-versorger-entega-kundendaten-durch-angreifer-verffentlicht/)
+
 # Normen und Rahmenwerke
 
 | Referenz | Verwendung in der Lehrveranstaltung | Termine |

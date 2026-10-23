@@ -1,5 +1,6 @@
 ---
 title: "Termin 4 – Cyber-Bedrohungen und Resilienzstrategien"
+subtitle: "Ransomware · DDoS · Dienstleister · Identity · Human Failure · Supply Chain"
 ---
 
 ::: {.content-visible when-format="html"}
@@ -16,7 +17,17 @@ Nach diesem Termin können Studierende
 
 - Bedrohungen als Treiber von Resilienzanforderungen identifizieren (Ransomware, DDoS, Cloud-Ausfall, Identity-Ausfall, Human Failure, Supply Chain),
 - Bedrohungen den vier Resilienzprinzipien zuordnen (Threat → Capability),
-- konkrete technische Maßnahmen ableiten, die Funktionsfähigkeit erhalten oder wiederherstellen – nicht im Sinne von Prävention.
+- konkrete technische Maßnahmen ableiten, die Funktionsfähigkeit erhalten oder wiederherstellen – nicht im Sinne von Prävention,
+- an realen Fällen begründen, warum Dienstleister und Identität versteckte Single Points of Failure sind,
+- vorsorgliches Abschalten und Notkommunikation als Resilienzentscheidungen bewerten.
+
+# Einstieg: Die eigene Hochschule offline
+
+Am 24. November 2025 fuhr die Hochschule Mainz nach einem Cyberangriff ihre IT-Systeme herunter. E-Mail war nur eingeschränkt nutzbar, die Ermittlungsbehörden wurden eingebunden, ein Krisenstab hielt Studierende und Beschäftigte arbeitsfähig. Die Präsenzlehre lief weiter; informiert wurde über die Campus2Go-App, Instagram und LinkedIn. Der Wiederaufbau erfolgte Schritt für Schritt: neue Zugangsdaten für alle, alle IT-verwalteten Geräte eingesammelt und mit neuen System-Images ausgerollt, systemrelevante Bereiche zuerst. Die Zahlungsfähigkeit war vor Weihnachten wiederhergestellt, eduroam im Februar 2026 wieder an allen Standorten.
+
+![Wiederaufbau an der Hochschule Mainz (veröffentlichte Angaben)](../Präsentationen/Termin-04/assets/hsm-2025-wiederaufbau.png){fig-alt="Zeitleiste: 24.11.2025 IT heruntergefahren, Krisenstab, neue Zugangsdaten, Geräte neu aufgesetzt, Zahlungsfähigkeit vor Weihnachten, eduroam im Februar 2026" width="65%"}
+
+Was hat in diesen Wochen funktioniert – und warum? Die Antwort führt zum Kern der Sitzung: Resilienz bewertet sich gegen eine konkrete Bedrohung, und sie misst sich zuerst an den Kernfunktionen.
 
 # Fachinhalte
 
@@ -35,6 +46,8 @@ Die Sitzung beantwortet nicht, wie man Angriffe verhindert, sondern wie Systeme 
 
 Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechanismus. Sie konvergieren in ihren Effekten: Verlust von Verfügbarkeit, Nutzbarkeit, Steuerbarkeit oder Integrität.
 
+![Sechs Bedrohungsklassen und was sie dem System nehmen](../Präsentationen/Termin-04/assets/bedrohungsklassen.png){fig-alt="Sechs Kacheln: Ransomware nimmt Daten und Systeme, DDoS Kapazität, RZ- oder Provider-Ausfall die Umgebung, Identity-Ausfall den Zugang, Human Failure die Kontrolle, Supply Chain das Vertrauen" width="60%"}
+
 ### 1. Ransomware und destruktive Malware
 
 **Wirkprinzip:** Verschlüsselung, Löschung oder Sabotage von Primärsystemen – bei lateraler Ausbreitung auch von Replikaten und Backups.
@@ -42,6 +55,8 @@ Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechani
 **Resilienzstrategien:** Immutable- oder Offline-Backups außerhalb des Blast Radius; Netzwerk- und Domain-Segmentierung; Gold-Images und Clean-Room-Recovery; Recovery-Tests statt Papierpläne.
 
 **Zielgröße:** RTO und RPO niedrig halten, auch bei kompromittierter Produktion. Wiederherstellbarkeit schlägt Prävention.
+
+**Fall Hochschule Mainz (2025):** Der Wiederaufbau zeigt Clean-Room-Recovery in der Praxis – neu aufbauen statt reparieren, Kernfunktionen zuerst. Das RTO für „alles wieder normal“ lag bei Monaten, das für Kernfunktionen wie die Zahlungsfähigkeit bei Wochen.
 
 ### 2. DDoS und Lastangriffe
 
@@ -51,13 +66,25 @@ Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechani
 
 **Ziel:** Der Dienst bleibt nutzbar – nicht perfekt, aber funktional. Adaptivität als Resilienzform.
 
-### 3. Cloud-Provider- oder Rechenzentrumsausfall
+**Fall Dyn (21. Oktober 2016):** Zwei Angriffswellen aus dem Mirai-Botnetz – nach Dyns Schätzung bis zu 100.000 gekaperte IoT-Geräte – überlasteten den DNS-Anbieter Dyn. Dienste wie Twitter, Spotify und Reddit waren für viele Nutzer nicht erreichbar, obwohl ihre Server intakt waren: Ihre Namen ließen sich nicht auflösen. Gegenmittel beim Kunden ist Diversität – ein zweiter, unabhängiger DNS-Anbieter.
+
+![Dyn 2016: ein DNS-Anbieter als gemeinsamer Fehlerpfad](../Präsentationen/Termin-04/assets/dyn-2016-abhaengigkeit.png){fig-alt="Links überlastet ein Botnetz den DNS-Anbieter, Websites sind nicht erreichbar. Rechts bleibt eine Website mit zweitem DNS-Anbieter erreichbar." width="65%"}
+
+### 3. Cloud-Provider-, Rechenzentrums- oder Dienstleister-Ausfall
 
 **Wirkprinzip:** Die Umgebung fällt exogen aus; Redundanz auf Anbieterebene bricht weg.
 
 **Resilienzstrategien:** Multi-AZ-Deployment; Cross-Region-Failover; Multi-Cloud für kritische Workloads; lokaler Fallback für Mindestfunktion; Trennung von Steuer- und Ausführungsdomäne.
 
 **Lehrsatz:** Provider ≠ Resilienz – Architektur entscheidet.
+
+**Fall KDZ Mainz und KGRZ Koblenz (27.–29. September 2026):** Wegen kritischer Sicherheitslücken in Citrix NetScaler schalteten die kommunalen Rechenzentren zentrale Fachverfahren vorsorglich ab. Betroffen waren alle 194 hauptamtlich geführten Verwaltungen in Rheinland-Pfalz – Einwohnermeldeamt, Pass und Ausweis, Kfz-Zulassung, Standesamt, Waffenbehörde, Schulverwaltung. Nach zwei Tagen liefen die Verfahren wieder; laut Betreibern gab es keinen erfolgreichen Angriff. Ein gemeinsamer Dienstleister bündelt Effizienz – und das Ausfallrisiko (Konzentrationsrisiko).
+
+![KDZ/KGRZ 2026: ein gemeinsamer Dienstleister, 194 Verwaltungen](../Präsentationen/Termin-04/assets/zidkor-2026-konzentration.png){fig-alt="Herstellerlücke führt zur vorsorglichen Abschaltung von KDZ Mainz und KGRZ Koblenz, darunter 194 Verwaltungen mit ausgefallenen Fachverfahren" width="65%"}
+
+**Abschalten als Resilienzentscheidung** (Ergänzung zur Vorlesung): Bei einer bekannten, kritischen Lücke ist ein geplanter Ausfall mit absehbarer Dauer oft besser als ein Weiterbetrieb mit offenem Risiko. Bezogen auf die Resilienzkurve wird ein kleiner, kurzer Einbruch in Kauf genommen, um einen tiefen, langen zu vermeiden. Voraussetzung sind ein vorbereiteter Notbetrieb und klare Entscheidungsrechte. Die Stadt Mainz nahm am 21. Oktober 2026 wegen einer PHP-Lücke ihre Website vom Netz – Ämter, Telefon und E-Mail liefen weiter.
+
+![Weiterlaufen oder vorsorglich abschalten](../Präsentationen/Termin-04/assets/abschalten-abwaegung.png){fig-alt="Gegenüberstellung: Weiterlaufen mit offenem Risiko und vorsorglich abschalten mit absehbarer Dauer; darunter die Voraussetzung Notbetrieb" width="55%"}
 
 ### 4. Identity-Ausfall (IdP als SPOF)
 
@@ -67,6 +94,8 @@ Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechani
 
 **Kernaussage:** Identity ist oft der versteckte Single Point of Failure.
 
+**Fall Azure AD (15. März 2021):** Ein automatischer Prozess entfernte einen Signierschlüssel, der als „behalten“ markiert war. Anwendungen verwarfen daraufhin die damit signierten Tokens; Teams, Exchange, das Azure-Portal, Xbox und viele Drittanwendungen mit Azure-AD-Login waren nicht nutzbar. Nach rund zwei Stunden erfolgte der Rollback, Restwirkungen hielten bis zum nächsten Morgen an. Die vorhandene Backup-Authentisierung half nicht – sie deckte die Ausgabe von Tokens ab, nicht ihre Prüfung.
+
 ### 5. Human Failure und Fehlkonfiguration
 
 **Wirkprinzip:** Fehler propagieren systemisch über Automatisierung (IaC, CI/CD, Admin-Fehler); aus einem lokalen Fehler wird ein systemischer.
@@ -74,6 +103,10 @@ Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechani
 **Resilienzstrategien:** Vier-Augen-Prinzip und Separation of Duties; Staging, Canary Deployment, Feature Flags; Rollback- und Snapshot-Fähigkeit; Auditierbarkeit und Post-Mortem-Kultur statt Schuldsuche.
 
 **Prinzipbezug:** Wiederherstellbarkeit und Governance.
+
+**Fall AWS S3 (28. Februar 2017):** Ein autorisierter Techniker wollte wenige Server eines S3-Teilsystems entfernen; eine Eingabe war falsch, es fielen deutlich mehr weg. S3 in us-east-1 war gut vier Stunden gestört, und auch das Status-Dashboard hing an S3. AWS änderte das Werkzeug: Kapazität wird nun langsamer und nie unter eine Mindestgrenze entfernt. Leitplanken im System statt Schuldzuweisung an Menschen.
+
+![AWS S3 2017: Zeitleiste der Störung (Pacific Time)](../Präsentationen/Termin-04/assets/s3-2017-zeitleiste.png){fig-alt="Zeitleiste: 9:37 Befehl, 11:37 Dashboard, 12:26 teilweise verfügbar, 13:18 Index-Subsystem, 13:54 S3 normal" width="65%"}
 
 ### 6. Supply-Chain-Angriff
 
@@ -83,16 +116,26 @@ Die Klassen unterscheiden sich weniger in ihrer Ursache als in ihrem Wirkmechani
 
 **Lehrsatz:** Resilienz ist hier das Sicherheitsnetz nach dem Vertrauensbruch.
 
+**Fall Count+Care (Juni 2022):** Ein Ransomware-Angriff auf den IT-Dienstleister der Darmstädter Entega traf zugleich weitere Kunden, darunter die Mainzer Stadtwerke samt Nahverkehr, die FES Frankfurt, die HEAG und Kommunen in Südhessen. Websites und E-Mail fielen aus, im Nahverkehr gab es Ausfälle und eingeschränkten Ticketverkauf; Strom, Gas und Wasser liefen weiter. Im Juli 2022 bestätigte Entega die Veröffentlichung von Kundendaten durch die Täter. Der Angriff traf einen – ausgefallen sind viele.
+
+![Count+Care 2022: ein Dienstleister, viele Betroffene](../Präsentationen/Termin-04/assets/countcare-2022-kunden.png){fig-alt="Count+Care in der Mitte, Pfeile zu Entega, Mainzer Stadtwerken, FES, HEAG und Kommunen; darunter E-Mail und Websites ausgefallen, Versorgung lief weiter" width="65%"}
+
+## Notkommunikation
+
+Wer die eigene IT verliert, verliert meist auch E-Mail, Website und Intranet (Ergänzung zur Vorlesung). Die Mainzer Stadtwerke richteten 2022 eine neue Website unter einer Ersatzdomain ein, die Hochschule Mainz informierte 2025 über App und soziale Medien, AWS meldete 2017 den Status über Twitter. Notkommunikation muss vorbereitet sein – außerhalb der eigenen IT und mit Absendern, die die Empfänger kennen, denn Ausfälle sind ein beliebter Anlass für Phishing.
+
+![Primär- und Ersatzkanäle der Kommunikation](../Präsentationen/Termin-04/assets/notkommunikation.png){fig-alt="Ausgefallene Primärkanäle E-Mail, Website und Intranet; daneben Ersatzkanäle Ersatzdomain, App und soziale Medien, Presse und Telefon" width="55%"}
+
 ## Mapping: Von der Bedrohung zum Prinzip
 
-| Bedrohung | Wirkung auf das System | Resilienzprinzip | Normativer Bezug |
-|---|---|---|---|
-| Ransomware | vollständiger Funktionsverlust | Wiederherstellbarkeit, Diversität (immutable/offline) | ISO/IEC 27031, BSI 200-4 |
-| DDoS / Last | Degradation statt Zerstörung | Adaptivität (Autoscale, Graceful Degradation) | ENISA DDoS Guidance |
-| Cloud-/RZ-Ausfall | infrastrukturelle Nichtverfügbarkeit | Redundanz (Multi-AZ/Region) | NIST SP 800-160 Vol. 2 |
-| Identity-Ausfall | Nutzungsunfähigkeit trotz intakter Systeme | Diversität und Recovery, Break-Glass | NIST CSF, Zero Trust |
-| Human Failure | ungewollte Fehlpropagation | Rollback, Wiederherstellbarkeit, SoD | BSI 200-4, IT-Grundschutz |
-| Supply Chain | importierter externer Fehler | Diversität und Isolation, Zero Trust | ENISA Supply Chain Guidance |
+| Bedrohung | Wirkung auf das System | Resilienzprinzip | Fall | Normativer Bezug |
+|---|---|---|---|---|
+| Ransomware | vollständiger Funktionsverlust | Wiederherstellbarkeit, Diversität (immutable/offline) | HS Mainz 2025 | ISO/IEC 27031, BSI 200-4 |
+| DDoS / Last | Degradation statt Zerstörung | Adaptivität (Autoscale, Graceful Degradation) | Dyn 2016 | ENISA DDoS Guidance |
+| Cloud-/RZ-/Dienstleister-Ausfall | infrastrukturelle Nichtverfügbarkeit | Redundanz (Multi-AZ/Region), Entkopplung | KDZ/KGRZ 2026 | NIST SP 800-160 Vol. 2 |
+| Identity-Ausfall | Nutzungsunfähigkeit trotz intakter Systeme | Diversität und Recovery, Break-Glass | Azure AD 2021 | NIST CSF, Zero Trust |
+| Human Failure | ungewollte Fehlpropagation | Rollback, Wiederherstellbarkeit, SoD, Leitplanken | AWS S3 2017 | BSI 200-4, IT-Grundschutz |
+| Supply Chain | importierter externer Fehler | Diversität und Isolation, Zero Trust | Count+Care 2022 | ENISA Supply Chain Guidance |
 
 Drei Lehren aus dem Mapping:
 
@@ -101,6 +144,17 @@ Drei Lehren aus dem Mapping:
 - Dasselbe Prinzip wirkt gegen sehr verschiedene Bedrohungen (Diversität gegen Identity-Ausfall und Supply Chain).
 
 Nicht die Bedrohung wird kontrolliert, sondern die Fähigkeit, ihren Effekt zu absorbieren („capability-based resilience“).
+
+## Häufige Irrtümer
+
+| Irrtum | Gegenbeispiel |
+|---|---|
+| „Unser Dienstleister kümmert sich um die Resilienz.“ | Count+Care 2022, KDZ/KGRZ 2026: ein Ausfall, viele Betroffene |
+| „Unsere Server sind redundant, also sind wir erreichbar.“ | Dyn 2016: Server intakt, DNS weg |
+| „Wir haben eine Backup-Anmeldung.“ | Azure AD 2021: deckte den eingetretenen Fehler nicht ab |
+| „Der Mitarbeiter muss besser aufpassen.“ | AWS S3 2017: Leitplanke im Werkzeug statt Schuldzuweisung |
+| „Ein Ausfall ist immer ein Versagen.“ | KDZ/KGRZ 2026: geplantes Abschalten als Schutzentscheidung |
+| „Wir informieren dann per Mail.“ | Hochschule Mainz 2025, Mainzer Stadtwerke 2022: E-Mail war betroffen |
 
 # Normativer Bezug
 
@@ -113,7 +167,7 @@ Normen bewerten Resilienz als funktionale Antwortfähigkeit auf definierte Stör
 
 # Übung: Threat-to-Resilience-Mapping
 
-Gruppenarbeit, 15–20 Minuten. Wählen Sie eine Bedrohung: Ransomware, DDoS, Cloud-/Region-Ausfall, Identity-Ausfall, Human Failure oder Supply-Chain-Angriff.
+Gruppenarbeit, 15–20 Minuten. Wählen Sie eine Bedrohung: Ransomware, DDoS, Cloud-/Region-Ausfall, Identity-Ausfall, Human Failure oder Supply-Chain-Angriff – gern anhand eines der Fälle dieser Sitzung.
 
 1. **Wirkmechanismus:** Wie genau führt die Bedrohung zur Funktionsbeeinträchtigung? (1–2 Sätze)
 2. **Zuordnung:** Welche mindestens zwei Prinzipien sind vorrangig relevant – und warum?
@@ -130,11 +184,13 @@ Ergebnis: eine Folie oder ein Blatt mit höchstens sechs Stichpunkten; 2–3 Min
 - Wie begründet der BSI-Standard 200-4, warum Tests wichtiger sind als Dokumente?
 - Erklären Sie an einem Beispiel, warum Identity ein versteckter SPOF ist.
 
-**Kernpunkte:** Resilienz bewertet sich immer gegen eine Bedrohung. Das Threat-Capability-Mapping schafft Architekturdisziplin. Dieselben vier Prinzipien greifen über Bedrohungsklassen hinweg. Hybrid erhöht Angriffsfläche und Gegenstrategieraum.
+**Kernpunkte:** Resilienz bewertet sich immer gegen eine Bedrohung. Das Threat-Capability-Mapping schafft Architekturdisziplin. Dieselben vier Prinzipien greifen über Bedrohungsklassen hinweg. Hybrid erhöht Angriffsfläche und Gegenstrategieraum. Dienstleister, DNS und Identität sind gemeinsame Fehlerpfade vieler Organisationen; vorsorgliches Abschalten und Notkommunikation sind Resilienzentscheidungen, die vorbereitet sein müssen.
 
 # Vor- und Nachbereitung
 
 Das [Glossar](../glossar.html) enthält die Begriffe der Sitzungen 1–4 mit Rückverweisen und dient als Prüfungsorientierung.
+
+**Hausaufgabe:** Stellen Sie sich vor, Ihre Organisation (Hochschule, Arbeitgeber, Verein) verliert morgen E-Mail und Website. Über welche Kanäle erfahren die Betroffenen davon – und wer entscheidet, was kommuniziert wird?
 
 **Ausblick Termin 5:** Resilienz als Organisationsfähigkeit – Rollen, Prozesse, Übungen, Governance.
 

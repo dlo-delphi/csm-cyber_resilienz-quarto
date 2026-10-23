@@ -66,6 +66,8 @@ Relevanz für Resilienz: Diversität und vertrauensunabhängige Recovery-Pfade s
 
 **Zwischenfazit:** Diese Bedrohungsklassen unterscheiden sich in ihrer Ursache, aber sie **konvergieren in ihren Effekten**: Verlust von Verfügbarkeit, Nutzbarkeit, Steuerbarkeit oder Integrität. Genau diese Effekte bestimmen, **welches Resilienzprinzip** angewendet werden muss.
 
+![Sechs Bedrohungsklassen und was sie dem System nehmen](../Präsentationen/Termin-04/assets/bedrohungsklassen.png){fig-alt="Sechs Kacheln: Ransomware nimmt Daten und Systeme, DDoS Kapazität, RZ- oder Provider-Ausfall die Umgebung, Identity-Ausfall den Zugang, Human Failure die Kontrolle, Supply Chain das Vertrauen" width="65%"}
+
 # 3. Mapping: Von Bedrohung zu Resilienzprinzip (Threat → Capability)
 
 Resilienzmaßnahmen entfalten nur dann Wirkung, wenn sie an den **Wirkmechanismus** einer Bedrohung anschließen. Die Bedrohung definiert also nicht nur _dass_ Resilienz benötigt wird, sondern _welche Art_ von Resilienzfähigkeit erforderlich ist.
@@ -112,6 +114,18 @@ Funktionsverlust durch Verschlüsselung oder Löschung produktiver Systeme (inkl
 
 **Prinzipbezug:** Wiederherstellbarkeit > Prävention (vgl. ISO/IEC 27031; BSI-200-4: testing over documentation)
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: Hochschule Mainz 2025"}
+Am 24. November 2025 fuhr die Hochschule Mainz nach einem Cyberangriff ihre IT-Systeme herunter. E-Mail war nur eingeschränkt nutzbar, die Ermittlungsbehörden wurden eingebunden, und ein Krisenstab sollte Studierende und Beschäftigte arbeitsfähig halten. Die Präsenzlehre lief weiter; informiert wurde über die Campus2Go-App, Instagram und LinkedIn.
+
+Der Wiederaufbau folgte dem Muster der Clean-Room-Recovery: Alle Betroffenen erhielten neue Zugangsdaten, alle IT-verwalteten Geräte wurden eingesammelt und mit neuen System-Images ausgerollt – systemrelevante Bereiche zuerst. Die Zahlungsfähigkeit war vor Weihnachten wiederhergestellt, eduroam im Februar 2026 wieder an allen Standorten verfügbar. Viele Abläufe liefen über Monate mit höherem organisatorischem Aufwand.
+
+Der Fall zeigt zweierlei: Nach einem destruktiven Angriff heißt Recovery Neuaufbau statt Reparatur, und Resilienz misst sich zuerst an den Kernfunktionen, nicht an der vollständigen Normalität. Dargestellt sind ausschließlich die veröffentlichten Angaben der Hochschule.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Wiederaufbau an der Hochschule Mainz (veröffentlichte Angaben)](../Präsentationen/Termin-04/assets/hsm-2025-wiederaufbau.png){fig-alt="Zeitleiste: 24.11.2025 IT heruntergefahren, Krisenstab, neue Zugangsdaten, Geräte neu aufgesetzt, Zahlungsfähigkeit vor Weihnachten, eduroam im Februar 2026" width="70%"}
+
 ## 4.2 DDoS / Lastangriffe
 
 **Wirkmechanismus:**
@@ -126,6 +140,16 @@ Nicht Zerstörung, sondern **kapazitive Erstickung** — Dienst technisch intakt
 - Graceful Degradation (z. B. reduzierte API-Funktionalität)
 
 **Prinzipbezug:** Adaptivität als Resilienzform (vgl. ENISA DDoS Best Practices)
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Dyn und das Mirai-Botnetz 2016"}
+Am 21. Oktober 2016 trafen zwei Angriffswellen den DNS-Anbieter Dyn, vor allem dessen Standorte an der US-Ostküste. Hauptquelle des Angriffsverkehrs war nach Dyns Analyse das Mirai-Botnetz aus gekaperten IoT-Geräten wie Kameras und Routern; Dyn schätzte bis zu 100.000 beteiligte Endpunkte. Ein Sturm legitimer Wiederholungsanfragen ließ den Angriff zusätzlich größer erscheinen. Dienste wie Twitter, Spotify und Reddit waren für viele Nutzer zeitweise nicht erreichbar.
+
+Die Webserver dieser Dienste waren intakt – nur ihre Namen ließen sich nicht mehr auflösen. Der Fall verbindet zwei Prinzipien: Adaptivität beim Anbieter (Scrubbing, Lastverteilung) und Diversität beim Kunden (ein zweiter, unabhängiger DNS-Anbieter).
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Dyn 2016: ein DNS-Anbieter als gemeinsamer Fehlerpfad](../Präsentationen/Termin-04/assets/dyn-2016-abhaengigkeit.png){fig-alt="Links überlastet ein Botnetz den DNS-Anbieter, drei Websites sind nicht erreichbar. Rechts bleibt eine Website mit zweitem DNS-Anbieter erreichbar." width="70%"}
 
 ## 4.3 Cloud-/RZ-Ausfall
 
@@ -142,6 +166,26 @@ Umgebung fällt exogen aus, Funktion bricht nicht wegen des Systems, sondern weg
 
 **Prinzipbezug:** Redundanz + Entkopplung (vgl. NIST SP 800-160 Vol.2 „Diversity of Location“)
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: KDZ Mainz und KGRZ Koblenz 2026"}
+Am 27. September 2026 schalteten die kommunalen Rechenzentren KDZ Mainz und KGRZ Koblenz, die Betriebszentren des Zweckverbands ZIDKOR, zentrale Fachverfahren vorsorglich ab. Anlass waren kritische Sicherheitslücken in Citrix NetScaler. Betroffen waren alle 194 hauptamtlich geführten Städte, Gemeinden und Kreise in Rheinland-Pfalz: Einwohnermeldeämter, Pass- und Ausweisstellen, Kfz-Zulassung, Standesämter, Waffenbehörden und Schulverwaltungsprogramme. Das Land schaltete zusätzlich über Citrix erreichbare Dienste des Landesnetzes ab. Am 29. September waren die Verfahren nach Updates und Prüfung wieder verfügbar; nach Angaben der Betreiber gab es keinen erfolgreichen Angriff.
+
+Der Fall zeigt das **Konzentrationsrisiko** gemeinsamer Dienstleister: Zentralisierung macht einen professionellen Betrieb für kleine Verwaltungen erst möglich – und bündelt zugleich das Ausfallrisiko.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![KDZ/KGRZ 2026: ein gemeinsamer Dienstleister, 194 Verwaltungen](../Präsentationen/Termin-04/assets/zidkor-2026-konzentration.png){fig-alt="Herstellerlücke führt zur vorsorglichen Abschaltung von KDZ Mainz und KGRZ Koblenz, darunter 194 Verwaltungen mit ausgefallenen Fachverfahren" width="70%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Vorsorgliches Abschalten als Resilienzentscheidung"}
+Eine bekannte, kritische Lücke stellt Betreiber vor eine Abwägung. Läuft der Dienst weiter, bleibt er verfügbar, trägt aber ein offenes Risiko – im schlimmsten Fall Einbruch, Datenabfluss und ein Wiederaufbau über Wochen. Wird er vorsorglich abgeschaltet, entsteht ein geplanter Ausfall mit absehbarer Dauer. Bezogen auf die Resilienzkurve aus Sitzung 2 wird bewusst ein kleiner, kurzer Einbruch in Kauf genommen, um einen tiefen und langen zu vermeiden.
+
+Voraussetzung sind ein vorbereiteter Notbetrieb und klare Entscheidungsrechte. Ein Beispiel für abgestufte Wirkung: Am 21. Oktober 2026 nahm die Stadt Mainz wegen einer kritischen PHP-Lücke ihre Website und weitere Internetdienste vom Netz, während Ämter, Telefon und E-Mail weiterliefen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Weiterlaufen oder vorsorglich abschalten](../Präsentationen/Termin-04/assets/abschalten-abwaegung.png){fig-alt="Gegenüberstellung: Weiterlaufen mit offenem Risiko und Vorsorglich abschalten mit absehbarer Dauer; darunter die Voraussetzung eines vorbereiteten Notbetriebs" width="60%"}
+
 ## 4.4 Identity-Ausfall
 
 **Wirkmechanismus:**
@@ -156,6 +200,16 @@ Systeme intakt, aber **nicht benutzbar**, da Authentisierung/Token-Ausgabe zentr
 - Minimal-Access-Mechanismen ohne Cloud-Abhängigkeit
 
 **Prinzipbezug:** Diversität + Recovery (vgl. Zero Trust Architecture — Reduktion globaler Kopplungspunkte)
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Azure AD 2021"}
+Am 15. März 2021 entfernte ein automatischer Prozess bei Microsoft einen Signierschlüssel, der wegen einer Migration als „behalten“ markiert war; ein Fehler in der Automatik ignorierte diese Markierung. Ab etwa 19:00 UTC verwarfen Anwendungen die mit diesem Schlüssel signierten Tokens, Anmeldungen scheiterten. Betroffen waren unter anderem Teams, Exchange, SharePoint, das Azure-Portal, Xbox Live sowie Anwendungen Dritter, die Azure AD zur Anmeldung nutzen. Der Rollback erfolgte um 21:05 UTC, Restwirkungen hielten bis zum nächsten Morgen an.
+
+Bemerkenswert: Die vorhandene Backup-Authentisierung half nicht, weil sie die Ausgabe von Tokens abdeckte, nicht ihre Prüfung. Eine Rückfallebene muss genau den Fehlerfall abdecken, der eintritt. Der Fall zeigt Identity als globalen Fail-Knopf – die Systeme liefen, nur der Zugang nicht.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Azure AD 2021: Systeme intakt, Anmeldung unmöglich](../Präsentationen/Termin-04/assets/azure-ad-2021-kette.png){fig-alt="Kette: Automatik entfernt Signierschlüssel, Anwendungen verwerfen Tokens, Folgen für Microsoft-Dienste und Drittanwendungen" width="70%"}
 
 ## 4.5 Human Failure / Fehlkonfiguration
 
@@ -172,6 +226,16 @@ Fehler multipliziert sich über Automatisierung (CI/CD/IaC), aus lokalem Fehler 
 
 **Prinzipbezug:** Wiederherstellbarkeit + Governance (vgl. BSI-200-4 Reifegradstufen „gelernt vs. dokumentiert“)
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: AWS S3 2017"}
+Am 28. Februar 2017 wollte ein autorisierter Techniker bei AWS per Befehl wenige Server eines S3-Teilsystems entfernen. Eine Eingabe war falsch, und es fielen deutlich mehr Server weg. Zwei Kernsubsysteme mussten vollständig neu gestartet werden; S3 in der Region us-east-1 war von 9:37 bis 13:54 Uhr (Pacific Time) gestört, abhängige Dienste mit. Auch das Status-Dashboard hing an S3 und konnte lange nicht aktualisiert werden.
+
+AWS reagierte nicht mit Schuldzuweisung, sondern mit **Leitplanken im Werkzeug**: Kapazität wird nun langsamer und nie unter eine Mindestgrenze entfernt, weitere Werkzeuge wurden geprüft, das Index-Subsystem wird in kleinere Zellen aufgeteilt, und die Status-Konsole läuft in mehreren Regionen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![AWS S3 2017: Zeitleiste der Störung (Pacific Time)](../Präsentationen/Termin-04/assets/s3-2017-zeitleiste.png){fig-alt="Zeitleiste: 9:37 Befehl, 11:37 Dashboard wieder aktualisierbar, 12:26 teilweise verfügbar, 13:18 Index-Subsystem, 13:54 S3 normal" width="70%"}
+
 ## 4.6 Supply-Chain-Angriffe
 
 **Wirkmechanismus:**
@@ -187,6 +251,26 @@ Externe Kompromittierung wird „mitimportiert“ in die eigene Kontrollkette (S
 - Recovery ohne Abhängigkeit vom kompromittierten Supplier-State
 
 **Prinzipbezug:** Diversität + Isolation (vgl. ENISA Supply-Chain Risk Guidance)
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Count+Care und die Mainzer Stadtwerke 2022"}
+Im Juni 2022 traf ein Ransomware-Angriff den IT-Dienstleister Count+Care, eine Tochter des Darmstädter Versorgers Entega. Mitbetroffen waren weitere Kunden, darunter die Mainzer Stadtwerke einschließlich Nahverkehr, die Frankfurter FES, die Darmstädter HEAG und Kommunen in Südhessen. Websites waren nicht erreichbar, tausende Beschäftigte kamen nicht an ihre E-Mail-Konten, im Nahverkehr kam es zu Ausfällen und eingeschränktem Ticketverkauf. Strom, Gas und Wasser liefen nach Angaben der Unternehmen weiter. Im Juli 2022 bestätigte Entega, dass die Täter personenbezogene Daten von Kunden, Beschäftigten und Geschäftspartnern veröffentlicht hatten.
+
+Der Angriff traf einen Dienstleister – ausgefallen sind viele Organisationen. Zugleich zeigt der Fall Graceful Degradation: Die Versorgung als Kernfunktion war von der Büro-IT getrennt und blieb in Betrieb.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Count+Care 2022: ein Dienstleister, viele Betroffene](../Präsentationen/Termin-04/assets/countcare-2022-kunden.png){fig-alt="Count+Care in der Mitte, Pfeile zu Entega, Mainzer Stadtwerken, FES, HEAG und Kommunen; darunter: E-Mail und Websites ausgefallen, Versorgung lief weiter" width="70%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Notkommunikation"}
+Wer die eigene IT verliert, verliert meist auch die eigenen Kommunikationskanäle: E-Mail, Website, Intranet. Die Fälle dieser Sitzung zeigen Ersatzwege: Die Mainzer Stadtwerke richteten 2022 innerhalb weniger Tage eine neue Website unter einer Ersatzdomain und neue Kontaktadressen ein; die Hochschule Mainz informierte 2025 über ihre App und soziale Medien; AWS meldete 2017 den Status über Twitter, weil das Dashboard selbst betroffen war.
+
+Notkommunikation ist damit eine Resilienzfähigkeit im Sinne von Redundanz und Diversität. Sie muss vorbereitet sein – außerhalb der eigenen IT und mit Absendern, die die Empfänger kennen, denn Angreifer nutzen Ausfälle gern für gefälschte Nachrichten.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Primär- und Ersatzkanäle der Kommunikation](../Präsentationen/Termin-04/assets/notkommunikation.png){fig-alt="Ausgefallene Primärkanäle E-Mail, Website und Intranet; daneben Ersatzkanäle Ersatzdomain, App und soziale Medien, Presse und Telefon" width="60%"}
 
 # 5. Normative Verankerung: Wie Frameworks Bedrohung → Resilienz koppeln
 
