@@ -100,7 +100,7 @@ Nur die veröffentlichten Angaben der Hochschule (Meldungen vom 24.11.2025 und 1
 Nicht die Bedrohung wird kontrolliert, sondern die Fähigkeit, ihren Effekt zu absorbieren.
 :::
 ::: {.column width="40%"}
-![](assets/threat-venn.png){fig-alt="Venn-Diagramm aus Anfälligkeit, Zugänglichkeit und Fähigkeit des Angreifers"}
+![](assets/bedrohung-venn.png){fig-alt="Drei überlappende Kreise: Anfälligkeit des Systems, Erreichbarkeit und Fähigkeit des Angreifers; in der gemeinsamen Schnittmenge ist ein Angriff möglich"}
 :::
 :::
 

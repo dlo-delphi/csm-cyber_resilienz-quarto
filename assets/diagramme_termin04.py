@@ -271,6 +271,37 @@ def notkommunikation():
     save(fig, "notkommunikation.png")
 
 
+# --------------------------------------------------------------------------------------
+def bedrohung_venn():
+    """Klassisches Bedrohungsmodell: Angriff gelingt, wo Anfälligkeit, Erreichbarkeit und Fähigkeit zusammenkommen."""
+    from matplotlib.patches import Circle
+    import numpy as np
+    fig, ax = canvas(6.5, 4.8, 13, 9.6)
+    r = 2.75
+    centers = [(4.8, 5.85), (8.2, 5.85), (6.5, 3.05)]
+    fills = [ICE, CREAM, LILAC]
+    edges = [NAVY, ORANGE, NAVY]
+    for (cx, cy), fc in zip(centers, fills):
+        ax.add_patch(Circle((cx, cy), r, fc=fc, ec="none", alpha=0.7))
+    # Schnittmenge aller drei Kreise rot füllen
+    xs, ys = np.meshgrid(np.linspace(3, 10, 700), np.linspace(1, 9, 700))
+    inside = np.ones_like(xs, dtype=bool)
+    for cx, cy in centers:
+        inside &= (xs - cx) ** 2 + (ys - cy) ** 2 <= r ** 2
+    ax.contourf(xs, ys, inside.astype(float), levels=[0.5, 1.5], colors=[RED], alpha=0.85)
+    for (cx, cy), ec in zip(centers, edges):
+        ax.add_patch(Circle((cx, cy), r, fc="none", ec=ec, lw=2.2))
+    text(ax, 6.5, 4.95, "Angriff\nmöglich", 9.5, "white", bold=True)
+    text(ax, 3.95, 7.0, "1. Anfälligkeit\ndes Systems", 11, NAVY, bold=True)
+    text(ax, 3.4, 5.55, "Schwach-\nstellen, Wert\nfür Angreifer", 9, "#222222")
+    text(ax, 9.3, 7.0, "2. Erreich-\nbarkeit", 11, ORANGE, bold=True)
+    text(ax, 9.6, 5.55, "Angriffs-\nfläche, logisch\nund physisch", 9, "#222222")
+    text(ax, 6.5, 2.15, "3. Fähigkeit des\nAngreifers", 11, NAVY, bold=True)
+    text(ax, 6.5, 1.05, "Werkzeuge, Techniken,\nRessourcen", 9, "#222222")
+    text(ax, 6.5, 9.2, "Resilienz fragt weiter: Was passiert, wenn der Angriff gelingt?", 11, NAVY, bold=True)
+    save(fig, "bedrohung-venn.png")
+
+
 if __name__ == "__main__":
     hsm_2025_wiederaufbau()
     bedrohungsklassen()
@@ -281,4 +312,5 @@ if __name__ == "__main__":
     s3_2017_zeitleiste()
     countcare_2022_kunden()
     notkommunikation()
+    bedrohung_venn()
     print("Diagramme erzeugt in", OUT)
