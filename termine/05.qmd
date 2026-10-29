@@ -1,5 +1,6 @@
 ---
 title: "Termin 5 – Resilienz als Organisationsfähigkeit"
+subtitle: "Rollen · Krisenstab · Kommunikation · Incident Response · Übung · Lernkultur"
 ---
 
 ::: {.content-visible when-format="html"}
@@ -18,7 +19,16 @@ Nach diesem Termin können Studierende
 
 - erklären, was organisationale Resilienz nach ISO 22316 ist,
 - erkennen, welche Rollen, Prozesse und Kommunikationsmuster Resilienz fördern oder behindern,
-- beschreiben, wie Training, Governance und Lernkultur Widerstandsfähigkeit institutionalisieren.
+- beschreiben, wie Training, Governance und Lernkultur Widerstandsfähigkeit institutionalisieren,
+- an realen Fällen begründen, warum Krisen Rollen statt Personen, Entscheidungskompetenz auf Zeit und Kommunikationswege außerhalb der betroffenen Systeme brauchen.
+
+# Einstieg: Norsk Hydro 2019
+
+Am 19. März 2019 traf die Ransomware LockerGoga den norwegischen Aluminiumkonzern Norsk Hydro – rund 35.000 Beschäftigte in 40 Ländern. Hydro isolierte alle Anlagen und arbeitete, wo möglich, manuell weiter. Noch am selben Tag gab das Unternehmen eine Pressekonferenz mit Webübertragung und informierte danach laufend. Lösegeld zahlte Hydro nicht; die Systeme wurden bereinigt oder aus Backups neu aufgebaut. Die Gesamtkosten lagen nach Angaben von Hydro bei rund 800 Millionen Kronen.
+
+![Norsk Hydro 2019: Was ausfiel und was trug](../Präsentationen/Termin-05/assets/norsk-hydro-2019.png){fig-alt="Gegenüberstellung: Ausgefallen waren Rechner, Server, Verbindungen zu Produktionssystemen und Teile der Fertigung; getragen haben Isolation und Handarbeit, die Pressekonferenz am ersten Tag und der Verzicht auf Lösegeld" width="65%"}
+
+Warum gilt ein Unternehmen mit lahmgelegter IT als Vorbild? Weil die Technik gefallen ist, die Organisation aber nicht: Entscheidungen, Rollen und Kommunikation haben getragen. Genau darum geht es in dieser Sitzung.
 
 # Fachinhalte
 
@@ -37,7 +47,9 @@ Leitfäden zum Incident Handling (NIST SP 800-61, ENISA) betonen, dass die Wirks
 
 ## Definition nach ISO 22316
 
-> „Die Fähigkeit einer Organisation, Störungen vorherzusehen, sich vorzubereiten, zu reagieren und sich anzupassen, um in einem sich verändernden Umfeld zu überleben und zu gedeihen.“ [@iso22316]
+ISO 22316:2017 versteht unter organisationaler Resilienz die Fähigkeit einer Organisation, in einem sich wandelnden Umfeld Störungen aufzufangen und sich anzupassen („absorb and adapt“), um ihre Ziele zu erreichen, zu überleben und zu gedeihen [@iso22316]. Die Archivunterlagen nennen die Formulierung „Störungen vorhersehen, sich vorbereiten, reagieren und sich anpassen“; sie stammt aus der britischen Norm BS 65000:2014 (siehe [Hinweise zur Aktualität](../quellen.html#hinweise-zur-aktualität)). Inhaltlich passen beide zusammen: Vorhersehen und Vorbereiten sind die Voraussetzung, um Störungen auffangen zu können.
+
+![Vier Kernkomponenten organisationaler Resilienz](../Präsentationen/Termin-05/assets/vier-komponenten.png){fig-alt="Vier Kacheln Strukturen, Prozesse, Menschen und Kultur über einer Basis Technik schafft Potenzial mit Redundanz, Diversität, Wiederherstellbarkeit und Adaptivität" width="55%"}
 
 Kernkomponenten:
 
@@ -77,6 +89,10 @@ Kernprinzip: **Wer entscheidet was, wann und warum?** Der normale Linienweg ist 
 
 Unter Stress greifen Menschen auf erlernte Muster zurück. Playbooks, Priorisierungslisten und Entscheidungsbäume bereiten Entscheidungen vor.
 
+**Fall Anhalt-Bitterfeld (2021):** In der Nacht auf den 6. Juli 2021 verschlüsselte Ransomware die IT der Kreisverwaltung, nur die Telefonanlage lief noch. Am 9. Juli rief der Landkreis den Katastrophenfall aus – der erste nach einem Cyberangriff in Deutschland. Ein Krisenstab mit Bundeswehr, BSI, LKA, CERT Nord und Landesverwaltung übernahm die Führung. Lösegeld wurde nicht gezahlt. Sozialhilfe, Eltern- und Kindergeld konnten zeitweise nicht ausgezahlt werden; im März 2022 liefen erst 40 von 159 Fachanwendungen wieder, der Katastrophenfall dauerte über ein halbes Jahr. Der Krisenstab ist die Entscheidungskompetenz auf Zeit, die dieses Kapitel beschreibt.
+
+![Anhalt-Bitterfeld 2021: Katastrophenfall und Krisenstab](../Präsentationen/Termin-05/assets/anhalt-bitterfeld-2021.png){fig-alt="Ablauf: 6.7.2021 Verschlüsselung, 9.7.2021 Katastrophenfall, Krisenstab mit Bundeswehr, BSI, LKA, CERT Nord und Land, Folgen für Sozialleistungen, März 2022 40 von 159 Fachanwendungen; Muster: Entscheidungskompetenz auf Zeit" width="65%"}
+
 ## Kommunikation unter Stress
 
 Krisenkommunikation ist Teil der Resilienzarchitektur. Viele Vorfallsbehandlungen scheitern an Informationsfehlern, nicht an Technik. Leitprinzipien (CCCC):
@@ -86,7 +102,11 @@ Krisenkommunikation ist Teil der Resilienzarchitektur. Viele Vorfallsbehandlunge
 3. **Confirmed** – der Empfänger bestätigt („Readback“)
 4. **Coordinated** – alle sprechen auf Basis derselben Lage
 
-„Eine Info ist nur so gut wie ihre Bestätigung.“ Kommunikationskanäle müssen vorher definiert und getestet sein.
+„Eine Info ist nur so gut wie ihre Bestätigung.“ Kommunikationskanäle müssen vorher definiert und getestet sein – und Kontaktlisten müssen außerhalb der Systeme liegen, die ausfallen können.
+
+**Fall Atlassian (2022):** Am 5. April 2022 löschte ein Wartungsskript 883 Cloud-Sites von 775 Kunden, weil es Site-IDs statt App-IDs erhalten hatte. Mit den Sites verschwanden die Kontaktdaten der Kunden-Administratoren; viele Betroffene konnten nicht einmal ein Ticket eröffnen. Die Statusseite meldete den Vorfall nach knapp anderthalb Stunden, eine breite öffentliche Stellungnahme kam erst am dritten Tag. Bis zum 18. April waren alle Kunden wiederhergestellt. Atlassian räumte selbst ein, viel früher breiter kommunizieren zu müssen.
+
+![Atlassian 2022: Zeitleiste der Löschung und Wiederherstellung](../Präsentationen/Termin-05/assets/atlassian-2022-zeitleiste.png){fig-alt="Zeitleiste: 5.4. 07:38 Skript löscht Sites, 5.4. 09:03 erste Meldung auf der Statusseite, 7.4. erste breite Stellungnahme, 8.4. erste Kunden wiederhergestellt, 18.4. alle Kunden wiederhergestellt" width="65%"}
 
 ### Exkurs: Vier Seiten einer Nachricht
 
@@ -103,16 +123,21 @@ In Stresssituationen hören Menschen häufig auf der falschen Ebene. „Resilien
 
 ## Incident-Response-Prozess
 
-Standardphasen laut Unterlagen (nach ISO/IEC 27035):
+ISO/IEC 27035-1:2023 gliedert den Incident-Management-Prozess in fünf Phasen [@iso27035]:
 
-1. Detection & Reporting – Ereignis erkennen und melden
-2. Triage & Classification – Kritikalität bestimmen
-3. Containment – Ausbreitung stoppen
-4. Eradication – Ursache beseitigen
-5. Recovery – Systeme wiederherstellen
-6. Lessons Learned – Erkenntnisse in Prozesse zurückführen
+1. Planen und vorbereiten
+2. Erkennen und melden
+3. Bewerten und entscheiden – Triage, Kritikalität bestimmen
+4. Reagieren – eindämmen, beseitigen, wiederherstellen
+5. Lehren ziehen – Erkenntnisse in die Vorbereitung zurückführen
 
-Jede Phase braucht definierte Owner, Playbooks und Kommunikationskanäle. Zur Phasengliederung der Norm siehe [Hinweise zur Aktualität](../quellen.html#hinweise-zur-aktualität).
+Die Archivunterlagen nennen sechs Phasen (Detection & Reporting, Triage & Classification, Containment, Eradication, Recovery, Lessons Learned). Diese feinere Gliederung entspricht eher NIST SP 800-61 Rev. 2; Revision 3 (2025) richtet Incident Response am NIST CSF 2.0 aus [@nist80061r3]. Jede Phase braucht definierte Owner, Playbooks und Kommunikationskanäle.
+
+![Incident-Management-Prozess nach ISO/IEC 27035-1:2023](../Präsentationen/Termin-05/assets/ir-phasen.png){fig-alt="Fünf Phasen nach ISO/IEC 27035-1:2023 mit Rückfluss der Lessons Learned; darunter die operative Feingliederung der Reaktion in Eindämmen, Beseitigen und Wiederherstellen" width="60%"}
+
+**Fall Rhein-Pfalz-Kreis (2022):** Ende Oktober 2022 traf Ransomware die Kreisverwaltung in Ludwigshafen. Ein Beschäftigter zog nachts den Stecker und begrenzte so den Schaden. Die Verwaltung war weder per E-Mail noch über die Durchwahlen erreichbar und arbeitete im Notbetrieb mit Laptop, Drucker und Excel-Listen; eine zentrale Rufnummer, ein Kontaktformular und Personal vor Ort in den Gemeinden ersetzten die üblichen Kanäle. Der Kreis zahlte kein Lösegeld, ab dem 11. November tauchten rund 20.000 Dateien im Darknet auf; rund 2.550 Betroffene erhielten Warnschreiben. Das Land bot Unterstützung in drei Stufen an. Jede Phase – erkennen, entscheiden, reagieren, informieren – brauchte eine Rolle.
+
+![Rhein-Pfalz-Kreis 2022: Ablauf und Notbetrieb](../Präsentationen/Termin-05/assets/rpk-2022-verlauf.png){fig-alt="Ablauf beim Rhein-Pfalz-Kreis: Ransomware Ende Oktober 2022 und gezogener Stecker, Rechner offline, Lösegeld nicht gezahlt und Daten im Darknet, Warnung an Betroffene, Notbetrieb mit Ersatzkanälen" width="65%"}
 
 ## Übungs- und Trainingskultur
 
@@ -121,6 +146,8 @@ Resilienz ist keine Theorie – sie entsteht durch Übung.
 - **Tabletop-Übungen:** szenariobasierte Planspiele zu Kommunikation und Entscheidungswegen, ohne technischen Aufwand.
 - **Live-Simulationen:** technische Reaktionsfähigkeit unter Realbedingungen (Red Team, „Ransomware-Day“, Provider-Ausfall).
 - **After-Action Reviews:** strukturiertes Feedback, keine Schuldzuweisung.
+
+![Übungsformen nach Aufwand und Realitätsnähe](../Präsentationen/Termin-05/assets/uebungsformen.png){fig-alt="Drei Übungsformen mit steigendem Aufwand und Realitätsnähe: Tabletop, Funktionstest, Live-Simulation; darunter das After-Action Review nach jeder Übung" width="55%"}
 
 | Metrik | Aussage |
 |---|---|
@@ -131,6 +158,10 @@ Resilienz ist keine Theorie – sie entsteht durch Übung.
 | Exercise Frequency | Anzahl der Übungen pro Jahr |
 
 Verankerung: mindestens zwei Tabletop-Übungen pro Jahr, strukturierte Lessons-Learned-Protokolle, Teilnahme des Managements, standardisierte Bewertung. Ein Team, das regelmäßig übt, erlebt weniger Panik im Ernstfall.
+
+**Fall LÜKEX 23:** Am 27. und 28. September 2023 übten Bund und Länder unter Federführung des BBK einen massiven Cyberangriff auf das Regierungshandeln – mit mehr als 50 Behörden und über 1.000 Mitwirkenden, acht Länder im vollen Übungsablauf. Geübt wurden Melde- und Kommunikationswege, das Zusammenspiel von Krisen- und IT-Notfallmanagement und die Krisenkommunikation. Kein Server wurde abgeschaltet: LÜKEX ist eine Tabletop-Übung im Großformat.
+
+![LÜKEX 23: Krisenmanagementübung zu einem Cyberangriff](../Präsentationen/Termin-05/assets/luekex-23.png){fig-alt="LÜKEX 23 am 27. und 28. September 2023 mit dem Szenario Cyberangriff auf das Regierungshandeln: mehr als 50 Behörden, mehr als 1.000 Mitwirkende, acht Länder voll beteiligt" width="60%"}
 
 ## Resilienz-Governance
 
@@ -153,7 +184,43 @@ Governance-Prinzipien: Verantwortung, Transparenz, Partizipation, Kontinuität, 
 - **Transparente Kommunikation:** Fehler werden geteilt, nicht versteckt.
 - **Institutionelles Lernen:** Lessons Learned fließen in Prozesse; Organisationen entwickeln sich zur lernenden Organisation [@senge1990].
 
+![Zwei Fragen nach einem Vorfall](../Präsentationen/Termin-05/assets/schuld-oder-lernen.png){fig-alt="Gegenüberstellung: Die Frage Wer war schuld führt zu versteckten Fehlern, späten Meldungen und Wiederholung; die Frage Was verbessern wir führt zu gemeldeten Fehlern, systemischen Ursachen und Leitplanken" width="55%"}
+
+**Fall Cloudflare (2019):** Am 2. Juli 2019 ging eine neue Firewall-Regel mit fehlerhaftem regulärem Ausdruck weltweit auf einmal live. Die Prozessoren liefen voll, der Verkehr brach um bis zu 82 Prozent ein; weil auch interne Werkzeuge am eigenen Netz hingen, brauchte das Team einen selten genutzten Notzugang. Nach 27 Minuten war der Verkehr wieder normal. Das zehn Tage später veröffentlichte Post-Mortem benennt keine Person, sondern Prozesslücken – Tests ohne Laufzeitprüfung, Umgehung des gestuften Rollouts – und setzt dort mit Leitplanken an.
+
+![Cloudflare 2019: 27 Minuten Ausfall durch eine Firewall-Regel](../Präsentationen/Termin-05/assets/cloudflare-2019-zeitleiste.png){fig-alt="Zeitleiste in UTC: 13:42 Regel weltweit ausgerollt, 13:45 erster Alarm, 14:00 WAF als Ursache erkannt, 14:07 WAF global abgeschaltet, 14:09 Verkehr wieder normal" width="65%"}
+
 „Technik stabilisiert Systeme – Organisation stabilisiert Verhalten – Kultur stabilisiert Vertrauen.“
+
+## Was die Fälle zeigen
+
+| Fall | Komponente | Lehre |
+|---|---|---|
+| Norsk Hydro 2019 | Kultur, Kommunikation | Offenheit und Handarbeit tragen, wenn die IT fällt |
+| Anhalt-Bitterfeld 2021 | Strukturen | Krisenstab: Entscheidungskompetenz auf Zeit |
+| Atlassian 2022 | Kommunikation | Kontaktdaten gehören außerhalb des Systems |
+| Rhein-Pfalz-Kreis 2022 | Prozesse | Jede Phase braucht eine Rolle, auch der Notbetrieb |
+| LÜKEX 23 | Menschen | Krisenstrukturen werden geübt, bevor sie gebraucht werden |
+| Cloudflare 2019 | Kultur | Post-Mortem ohne Schuldige, Leitplanken statt Appelle |
+
+## Häufige Irrtümer
+
+| Irrtum | Gegenbeispiel |
+|---|---|
+| „Resilienz ist Sache der IT.“ | Norsk Hydro 2019: Die IT fiel, die Organisation trug |
+| „Im Ernstfall entscheidet die Linie wie immer.“ | Anhalt-Bitterfeld 2021: Krisenstab mit Entscheidungskompetenz auf Zeit |
+| „Unsere Kontaktliste liegt im System.“ | Atlassian 2022: Kontaktdaten wurden mit gelöscht |
+| „Abschalten darf nur die Geschäftsführung.“ | Rhein-Pfalz-Kreis 2022: Ein Beschäftigter zog nachts den Stecker |
+| „Üben kostet zu viel.“ | LÜKEX 23: Tabletop ohne einen abgeschalteten Server |
+| „Nach dem Vorfall suchen wir den Schuldigen.“ | Cloudflare 2019: Prozesslücken statt Personen |
+
+# Normativer Bezug
+
+- **ISO 22316:** organisationale Resilienz als Fähigkeit, Störungen aufzufangen und sich anzupassen; Prinzipien und Attribute [@iso22316].
+- **ISO/IEC 27035-1:2023:** fünfphasiger Incident-Management-Prozess [@iso27035].
+- **NIST SP 800-61 Rev. 3:** Incident Response als Teil des Cybersecurity-Risikomanagements nach CSF 2.0 [@nist80061r3].
+- **ISO 22301, ISO 22320:** BCMS sowie Entscheidungs- und Kommunikationsstrukturen im Krisenmanagement [@iso22301; @iso22320].
+- **BSI-Standard 200-4:** Übungen und Tests als Nachweis der Wirksamkeit im BCM [@bsi2004].
 
 # Übungen
 
@@ -179,6 +246,8 @@ Gruppen, 15–20 Minuten:
 5. Welche Priorität hat Recovery gegenüber Forensik?
 6. Wann erfolgt die Meldung an Aufsichtsbehörden (DSGVO Art. 33 / NIS-2)?
 
+Nutzen Sie die Fälle der Sitzung als Orientierung: Wer zieht den Stecker? Wer spricht mit der Presse? Wo liegen die Kontaktlisten? Ab wann braucht es einen Krisenstab?
+
 Typischer Verlauf und häufige Fehler zur Reflexion im Plenum:
 
 | Phase | Beschreibung | Häufige Fehler |
@@ -200,10 +269,14 @@ Typische Lessons Learned: Playbooks sind Gold wert, wenn sie aktuell und trainie
 - Wenden Sie das Modell von Schulz von Thun auf eine Aussage aus einem Incident an.
 - Welche Formen von Resilienztraining gibt es, und welche Kennzahlen machen ihren Erfolg sichtbar?
 - Wie wird Resilienz in bestehende Managementsysteme integriert?
+- Nennen Sie die fünf Phasen des Incident-Management-Prozesses nach ISO/IEC 27035-1:2023 und ordnen Sie den Fall Rhein-Pfalz-Kreis 2022 zu.
+- Erläutern Sie an einem der Fälle der Sitzung, warum Kommunikationswege und Kontaktlisten außerhalb der betroffenen Systeme liegen müssen.
 
 **Merksätze:** Organisationale Resilienz ist die Fähigkeit zur koordinierten Reaktion. Rollen, Kommunikation und Übung sind entscheidend. Recovery muss technisch und organisatorisch funktionieren. Lernen ist Teil des Zyklus, nicht dessen Nachbereitung.
 
 # Vor- und Nachbereitung
+
+**Hausaufgabe:** Erstellen Sie für Ihre Organisation (Hochschule, Arbeitgeber, Verein) eine Rollenkarte für die ersten 60 Minuten eines Ransomware-Vorfalls: Wer leitet? Wer darf Systeme abschalten? Wer informiert wen über welchen Kanal – und wo liegt die Kontaktliste, wenn E-Mail und Fileserver ausfallen?
 
 **Ausblick Termin 6:** Rollen und Verantwortlichkeiten in der Cyber-Organisation – CISO, SOC, CERT und weitere Schlüsselrollen.
 
