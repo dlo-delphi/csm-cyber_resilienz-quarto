@@ -3,7 +3,11 @@ title: "Dozentenregie"
 subtitle: "Sprechernotizen und didaktische Hinweise aus den Unterlagen WS 2025/26"
 ---
 
-Nur für Lehrende. Die Hinweise stammen aus den Sprechernotizen des Foliensatzes zu Termin 1 und aus den didaktischen Abschnitten der Skripte. Sie wurden nicht ergänzt.
+Nur für Lehrende. Die Hinweise zu Termin 1 und 6–10 stammen aus den Sprechernotizen des Foliensatzes zu Termin 1 und aus den didaktischen Abschnitten der Skripte; sie wurden nicht ergänzt.
+
+Die Termine 2–5 sind auf die neue Folienstruktur umgestellt (reale Fälle, Sprechernotizen auf jeder Folie). Ihre Regie ergänzt die Sprechernotizen, statt sie zu wiederholen: Ablauf mit Zeitrichtwerten, Fragen ans Plenum mit erwarteten Antworten, Fallstricke bei den Fällen, Durchführung und Auswertung der Übung sowie die Brücke zum nächsten Termin. Die ausführlichen Notizen stehen in den Foliensätzen (`Präsentationen/Termin-NN/main.qmd`, Präsentatoransicht mit Taste S).
+
+**Zur Zeitplanung:** Die Dauer einer Sitzung ist in den Unterlagen nicht festgelegt. Die Zeitrichtwerte ergeben je Termin rund zwei Stunden; für eine 90-Minuten-Sitzung ist jeweils eine Kürzungsvariante angegeben.
 
 # Termin 1 – Grundlagen
 
@@ -29,15 +33,226 @@ Der Foliensatz enthielt das OLAT-Zugangskennwort des Vorsemesters. Es wurde entf
 
 # Termin 2 – Modelle und Messbarkeit
 
-Die Übung zielt laut Skript nicht auf perfekte Fakten, sondern darauf, das Denken in Resilienzmetriken zu trainieren und den Unterschied zwischen „gefühlt sicher“ und „nachweislich resilient“ erfahrbar zu machen.
+**Roter Faden:** Aus der Resilienzkurve von Termin 1 wird eine Messgröße. RTO und RPO sind Ziele, MTTR und MTBF Messwerte – und das RPO-Ist kennt nur, wer Restores testet.
+
+**Fälle:** OVHcloud 2021 (Einstieg, RPO und Standort der Backups), GitLab 2017 (ungetestete Backups, Reifegrad), AWS us-east-1 2021 (Architektur entscheidet). Diagramme: `python assets/diagramme_termin02.py`; vorheriger Stand: `Präsentationen/Termin-02/mainold.qmd`.
+
+## Ablauf
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Ariane 5, Kupferberg, Maersk kurz abfragen |
+| Fall OVHcloud | Einstieg: Brand im Rechenzentrum | 8 | Frage stellen, Begriff RPO noch **nicht** nennen |
+| Resilienz als Systemfunktion | Warum messen?, Systemfunktion | 7 | fünf Phasen der Kurve an die Tafel |
+| RTO und RPO | Grafik RTO/RPO, Metriken | 10 | Einstiegsfrage hier auflösen |
+| Ziel und Messwert | Ziel vs. Messwert, MTBF/MTTR | 8 | zwei Hebel: seltener ausfallen, schneller zurück |
+| Fall GitLab | Ein RPO, das niemand prüfte | 8 | Rückbezug Kupferberg („Schrödingers Backup“) |
+| Frameworks | Modelle, Messgrößen, KPIs | 11 | Frage nach der Monats-KPI für die Geschäftsführung |
+| Reifegrad | Maturity, Reifegrad und Metrik | 10 | Matrix gemeinsam füllen |
+| Fall AWS | Cloud-Ausfall AWS 2021 | 8 | Kosten-RTO-Kurve erklären |
+| Drei Kurven | Gleiche Störung, andere Kurve | 5 | Fläche „fehlender Leistung“ vergleichen |
+| Übung | Resilienz bewerten, Raster | 35 | 25 Min. Gruppen, 10 Min. Vorstellung |
+| Abschluss | Kernpunkte, Ausblick | 5 | Hausaufgabe erklären: Kurve zeichnen |
+
+Summe rund 120 Minuten. **Kürzung auf 90 Minuten:** Warum messen und Frameworks nur im Überblick (−6), KPI-Diskussion streichen (−3), AWS ohne Kosten-RTO-Kurve (−4), Ziel vs. Messwert knapp (−3), Übung 20 + 5 Minuten (−10).
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg OVHcloud | Wie alt dürfen Ihre Daten nach einer Wiederherstellung sein? | Antworten sammeln; Auflösung später: Das ist das RPO. Bei OVHcloud war es für manche Kunden faktisch unbegrenzt. |
+| Ziel vs. Messwert | Sagt eine Verfügbarkeit von 99,9 % etwas über Datenverlust? | Nein. Sie sagt weder etwas über RPO noch über Ausfalltiefe; ein langer und viele kurze Ausfälle können gleich aussehen. |
+| Messgrößen und Frameworks | Auf welcher Ebene wird das RTO des Mailservers festgelegt, auf welcher die Übungsplanung? | RTO: Business Impact Analysis, Fachseite und Management; Übungsplanung: BCM bzw. ISMS. |
+| Reifegrad und Metrik | Wo lag GitLab 2017, wo eine Behörde mit ungeübtem Notfallhandbuch? | GitLab: Zufallssicherheit (gute Technik, keine Tests, keine Verantwortung). Behörde: Papiersicherheit. |
+| Gleiche Störung | Welche Kurve hat die kleinste Fläche fehlender Leistung? | Oft die Graceful Degradation – trotz längerer Dauer; Δ und tR gehören zusammen. |
+
+## Fallstricke
+
+- **OVHcloud:** Das Urteil von 2023 betrifft die vertraglich zugesicherte Trennung der Backups. Nicht verallgemeinern zu „OVHcloud hatte keine Backups“.
+- **GitLab:** Den Administrator nicht als Schuldigen darstellen. Das Postmortem nennt fehlende Verantwortung und fehlende Tests als Ursache – Brücke zur Lernkultur in Termin 5.
+- **AWS 2021:** Laufende Instanzen arbeiteten weiter, nur neue starteten nicht. Wer erst im Ernstfall Kapazität hochfahren wollte, stand still – das ist die Pointe, nicht „die Cloud ist ausgefallen“.
+
+## Übung „Resilienz bewerten“
+
+**Durchführung:** Gruppen zu vier bis fünf Personen, ein System pro Gruppe, Raster auf der Folie als Vorlage. Die Spalte „Ihre Einschätzung“ bleibt bewusst leer.
+
+**Auswertung:** Zwei bis drei Gruppen stellen vor; jede Gruppe ordnet ihr System in die Reifegrad-Matrix ein (fragil, Papier-, Zufallssicherheit, resilient). Auf Begründungen bestehen, nicht auf exakte Zahlen.
+
+**Typische Ergebnisse:** Uni-E-Mail und Verwaltungs-IT landen meist bei Papiersicherheit, Banking-Apps und große Cloud-Dienste eher bei resilient, Smart Home bei fragil. Häufiger Fehler: RTO und RPO werden verwechselt – dann die Merkhilfe wiederholen („Wie lange offline?“ gegen „Wie alt dürfen die Daten sein?“).
+
+**Hinweis aus dem Skript:** Die Übung zielt nicht auf perfekte Fakten, sondern darauf, das Denken in Resilienzmetriken zu trainieren und den Unterschied zwischen „gefühlt sicher“ und „nachweislich resilient“ erfahrbar zu machen.
+
+## Brücke
+
+Die Hausaufgabe (reales Ereignis, Kurve mit tR und RPO-Ist zeichnen) wird im Rückblick von Termin 3 aufgegriffen: ein bis zwei Kurven zeigen lassen.
+
+# Termin 3 – Resilienz-Architekturen
+
+**Roter Faden:** Die vier Prinzipien Redundanz, Diversität, Wiederherstellbarkeit und Adaptivität verändern die Form der Kurve aus Termin 2. Jedes Prinzip hat eine Grenze, und in Hybridarchitekturen sitzt der SPOF oft in der Steuerungsebene.
+
+**Fälle:** CrowdStrike 2024 (Einstieg, Common-Mode-Failure), British Airways 2017 (Redundanz ohne getestete Umschaltung), Rackspace 2022 (Recovery als Kostenentscheidung), Netflix 2011 (Adaptivität durch Exposition), Facebook 2021 (SPOF im Management-Pfad). Diagramme: `python assets/diagramme_termin03.py`; vorheriger Stand: `Präsentationen/Termin-03/mainold.qmd`.
+
+## Ablauf
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Kurven aus der Hausaufgabe zeigen lassen |
+| Fall CrowdStrike | Ein Update legt die Welt lahm | 8 | Frage stellen, erst danach „Common Mode“ nennen |
+| Überblick | Vier Prinzipien, Messung zum Design | 5 | Prinzipien als Gegenpol zu den Messgrößen |
+| Redundanz | On-Prem vs. Cloud, Grenzen, British Airways | 12 | Prüfungsfrage zu BA stellen |
+| Diversität | Kaskadenfehler, Diversität kostet | 8 | Diskussion: zwei EDR-Produkte? |
+| Wiederherstellbarkeit | Recovery ≠ Backup, Fähigkeit, Rackspace | 10 | Frage nach geübten Restores aus Praktikum und Job |
+| Adaptivität | Dynamische Resilienz, Netflix, Grenzen | 10 | Circuit Breaker kurz erklären |
+| Hybrid | Hybridarchitekturen, Steuerungsebene, Facebook | 12 | Spannung Resilienz und Security herausarbeiten |
+| Irrtümer | Häufige Resilienz-Irrtümer | 5 | rechte Spalte abdecken, Fälle zuordnen lassen |
+| Hybrid-Störung | Fallbeispiel Hybrid-Störung | 8 | drei Fragen im Plenum |
+| Übung | SPOFs identifizieren, Raster | 35 | 25 Min. Gruppen, 10 Min. Vorstellung |
+| Abschluss | Kernpunkte, Ausblick | 5 | Hausaufgabe: attraktivster SPOF für Angreifer |
+
+Summe rund 125 Minuten. **Kürzung auf 90 Minuten:** Diversitätsdiskussion knapp (−4), Netflix knapp (−4), Hybrid-Störung in die Übung verlegen (−8), Irrtümer-Tabelle vorgeben statt erarbeiten (−3), Übung 20 + 5 Minuten (−10), Grenzen der Adaptivität nur als Satz (−3), Rückblick knapp (−2).
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg CrowdStrike | Warum schützt Redundanz hier nicht? | Alle Knoten hatten denselben Agenten – Redundanz vervielfacht auch gemeinsame Fehler (Common Mode). Gegenprinzip: Diversität. |
+| British Airways | Welche zwei Grenzen der Redundanz zeigt der Fall? | Gemeinsame Abhängigkeit (Strom) und ungetestete Umschaltung. |
+| Diversität kostet | Zwei verschiedene EDR-Produkte nach CrowdStrike? | Pro: kein gemeinsamer Ausfall. Contra: doppelter Betrieb, doppelte Angriffsfläche. Mittelweg: Diversität dort, wo ein Ausfall existenziell wäre (Notfallarbeitsplatz, Backup). |
+| Rackspace | Was hätten die Kunden selbst tun können? | Eigene Exportkopien, Exit-Strategie, vertraglich zugesicherte Wiederherstellung. |
+| Hybrid-Störung | Wo sitzt der eigentliche SPOF? | In der Identität (AD), nicht im Rechenzentrum. Maßnahmen je Prinzip: zweiter isolierter DC oder Cloud-IdP, Notfallkonten außerhalb des AD, geübte AD-Forest-Recovery mit Offline-Backup, Break-Glass-Zugang. |
+
+## Fallstricke
+
+- **CrowdStrike:** Weniger als 1 % aller Windows-Geräte – aber konzentriert in Organisationen mit hohem Sicherheitsanspruch. Nicht als „Hackerangriff“ bezeichnen; es war ein fehlerhaftes Update.
+- **British Airways:** Warum die Ausweichsysteme nicht griffen, blieb öffentlich offen; BA und der RZ-Dienstleister einigten sich per Vergleich. Keine Schuldzuweisung an den Techniker.
+- **Facebook:** Das DNS-Verhalten (Routen zurückziehen) war gewolltes Sicherheitsdesign. Die Pointe ist die Spannung zwischen Security und Wiederherstellbarkeit, nicht ein „Fehler im DNS“.
+
+## Übung „SPOFs identifizieren & zuordnen“
+
+**Durchführung:** Gruppen zu vier bis fünf Personen, ein reales System pro Gruppe, mindestens drei SPOFs, je ein Gegenprinzip und eine realistische Maßnahme. Die Fälle des Tages dienen als Muster.
+
+**Auswertung:** Zwei bis drei Gruppen stellen vor. Auf Doppelungen achten – fast jede Gruppe findet die Identität als SPOF; das ist kein Mangel, sondern die Erkenntnis des Tages und die Brücke zu Termin 4.
+
+**Typische Fehler:** Die Maßnahme ist eine Wunschlösung („alles doppelt in zwei Clouds“) oder reine Prävention („Firewall“). Nachfragen: Was hilft, wenn der SPOF trotzdem ausfällt? Braucht ein SPOF mehrere Prinzipien, soll die Gruppe das wirksamste wählen und begründen.
+
+## Brücke
+
+Die Hausaufgabe (welcher SPOF wäre für einen Angreifer am attraktivsten?) eröffnet Termin 4. Meist kommen Identität oder ein zentraler Dienstleister – zwei der sechs Bedrohungsklassen.
 
 # Termin 4 – Bedrohungen
 
-Die Mapping-Übung ist ausdrücklich keine kreative Brainstorming-Aufgabe, sondern eine präzise Zuordnungsaufgabe. Bewertungskriterium: Schärfe der Zuordnung, nicht Menge der Maßnahmen.
+**Roter Faden:** Resilienz ist relational – resilient gegen etwas. Sechs Bedrohungsklassen unterscheiden sich im Effekt, nicht in der Ursache; jeder Klasse lässt sich ein Resilienzprinzip zuordnen (Threat → Capability).
+
+**Fälle:** Hochschule Mainz 2025 (Einstieg und Ransomware), Dyn 2016 (DDoS), KDZ Mainz/KGRZ Koblenz 2026 mit Stadt Mainz 21.10.2026 (Dienstleister, vorsorgliches Abschalten), Azure AD 2021 (Identity), AWS S3 2017 (Human Failure), Count+Care/Mainzer Stadtwerke 2022 (Supply Chain). Diagramme: `python assets/diagramme_termin04.py`; vorheriger Stand: `Präsentationen/Termin-04/mainold.qmd`.
+
+## Ablauf
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Hausaufgabe aufgreifen: attraktivster SPOF |
+| Fall Hochschule Mainz | Die eigene Hochschule offline | 10 | Erfahrungen der Studierenden sammeln |
+| Grundlagen | Resilienz ist relational, sechs Bedrohungsklassen | 8 | Venn-Diagramm: „Was passiert, wenn der Angriff gelingt?“ |
+| Ransomware | Bedrohung 1, Wiederaufbau HS Mainz | 7 | Clean-Room-Recovery, Kernfunktionen zuerst |
+| DDoS | Bedrohung 2, Dyn | 7 | Retry Storm erwähnen |
+| Dienstleister | Bedrohung 3, KDZ/KGRZ, Abschalten | 12 | Diskussion: Versagen oder Leistung? |
+| Identity | Bedrohung 4, Azure AD | 7 | Rückfallebene muss den eingetretenen Fehler abdecken |
+| Human Failure | Bedrohung 5, AWS S3 | 7 | Leitplanken statt Schuldzuweisung |
+| Supply Chain | Bedrohung 6, Count+Care | 7 | Graceful Degradation: Versorgung lief weiter |
+| Notkommunikation | Kommunikation, wenn die IT schweigt | 5 | Brücke zu Termin 5 |
+| Mapping | Framework-Abgleich, Was das Mapping zeigt | 8 | Spalte „Fall“ abdecken |
+| Übung | Threat-to-Resilience-Mapping, Raster | 30 | 20 Min. Gruppen, 10 Min. Vorstellung |
+| Abschluss | Kernpunkte, Ausblick | 5 | Hausaufgabe: E-Mail und Website weg |
+
+Summe rund 120 Minuten. **Kürzung auf 90 Minuten:** Einstieg Hochschule Mainz 5 Minuten (−5), Fälle zu Bedrohung 4–6 je knapp (−6), Abschalten-Diskussion kürzer (−4), Mapping-Tabelle vorgeben (−4), Übung 15 + 8 Minuten (−7), Grundlagen knapp (−3).
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg HS Mainz | Was hat in diesen Wochen funktioniert – und warum? | Präsenzlehre lief weiter, Information über App und soziale Medien, schrittweiser Neuaufbau. Die Hochschule hat Kernfunktionen gehalten. |
+| KDZ/KGRZ | Ist ein zweitägiger, geplanter Ausfall ein Resilienzversagen oder eine Resilienzleistung? | Eher eine Leistung: bewusst kleiner, kurzer Einbruch statt tiefem, langem. Voraussetzung: Notbetrieb und klare Entscheidungsrechte. |
+| Abschalten | Wer darf das entscheiden – sonntags um drei Uhr nachts? | Offen lassen; Antwort folgt in Termin 5 (Rollen, Krisenstab) und Termin 6. |
+| Azure AD | Warum half die vorhandene Backup-Authentisierung nicht? | Sie deckte die Ausgabe von Tokens ab, nicht deren Prüfung. |
+| Framework-Abgleich | Welcher Fall gehört zu welcher Bedrohung? | HS Mainz – Ransomware, Dyn – DDoS, KDZ/KGRZ – Dienstleister, Azure AD – Identity, AWS S3 – Human Failure, Count+Care – Supply Chain. |
+
+## Fallstricke
+
+- **Hochschule Mainz:** Auf den Folien stehen nur die veröffentlichten Meldungen der Hochschule (24.11.2025, 17.02.2026). Ursache, Täter und Details nicht spekulieren; Weiteres nur mündlich und nur, soweit öffentlich. Studierende waren selbst betroffen – Erfahrungen einladen, nicht bewerten.
+- **KDZ/KGRZ 2026:** Nach Angaben der Betreiber gab es keinen erfolgreichen Angriff. Nicht als Cyberangriff darstellen.
+- **Count+Care 2022:** Die in der Presse genannte Lösegeldsumme ist offiziell nicht bestätigt – nicht als Fakt verwenden. Die anfängliche Aussage, Kundendaten seien nicht betroffen, wurde später korrigiert.
+
+## Übung „Threat-to-Resilience-Mapping“
+
+**Durchführung:** Gruppen wählen eine Bedrohung und einen der Fälle oder einen eigenen Fall. Varianten: Hochschule Mainz aus Sicht der Studierenden, eine Kommune im KDZ-Verbund, ein Kunde von Count+Care, ein SaaS-Anbieter mit Azure-AD-Login. Ergebnis: eine Folie, höchstens sechs Punkte.
+
+**Auswertung:** Zwei bis drei Gruppen, je 2–3 Minuten. Bewertet wird die Schärfe der Zuordnung, nicht die Menge der Maßnahmen.
+
+**Typischer Fehler:** Maßnahmen, die den Angriff verhindern (Prävention). Nachfragen: Was hilft, wenn er gelingt?
+
+**Hinweis aus dem Skript:** Die Mapping-Übung ist ausdrücklich keine kreative Brainstorming-Aufgabe, sondern eine präzise Zuordnungsaufgabe.
+
+## Brücke
+
+Die Hausaufgabe (Organisation verliert E-Mail und Website – welche Kanäle, wer entscheidet?) eröffnet Termin 5. Meist ist die Kanalfrage leicht und die Entscheidungsfrage schwer.
 
 # Termin 5 – Organisationsfähigkeit
 
-Die Phasenmatrix des Ransomware-Verlaufs (Detection, Response, Communication, Recovery, Adapt mit typischen Fehlern) eignet sich laut Skript für die Reflexion im Plenum. Abschließende Meta-Frage: „Was hat in unserer Reaktion funktioniert – und was nicht?“ Damit wird die Übung selbst Teil des Resilienzzyklus.
+**Roter Faden:** Technik schafft Potenzial, Organisation aktiviert es. Die vier Komponenten (Strukturen, Prozesse, Menschen, Kultur) werden je an einem Fall gezeigt und am Ende in der Synthesefolie zusammengeführt.
+
+**Fälle:** Norsk Hydro 2019 (Einstieg, Organisation trägt), Anhalt-Bitterfeld 2021 (Krisenstab), Atlassian 2022 (Kommunikation), Rhein-Pfalz-Kreis 2022 (Incident-Prozess und Notbetrieb), LÜKEX 23 (Übung), Cloudflare 2019 (Post-Mortem ohne Schuldige). Diagramme: `python assets/diagramme_termin05.py`; vorheriger Stand: `Präsentationen/Termin-05/mainold.qmd`.
+
+## Ablauf
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Hausaufgabe: Kanäle und Entscheidungsrolle |
+| Fall Norsk Hydro | Einstieg: Norsk Hydro 2019 | 8 | Frage stellen, Antworten sammeln |
+| Grundlagen | Technik schafft Potenzial, ISO 22316, Resilienzzyklus | 10 | Norsk Hydro auf den Zyklus legen |
+| Rollen | Rollen statt Personen, Entscheidungslogik, Anhalt-Bitterfeld | 12 | Warum ein Katastrophenfall? |
+| Kommunikation | Kommunikation unter Stress, Atlassian, Schulz von Thun | 10 | CCCC am Fall Atlassian durchgehen |
+| Kommunikationsübung | Vier Seiten einer Nachricht | 15 | 10 Min. 3er-Gruppen, 5 Min. Auswertung |
+| Prozess | Incident-Response-Prozess, Rhein-Pfalz-Kreis | 10 | Phasen am Fall zuordnen |
+| Übung und Governance | Übungskultur, LÜKEX 23, Governance | 10 | Vergleich mit Anhalt-Bitterfeld |
+| Gruppenübung | Ransomware am Montagmorgen, Typischer Verlauf | 30 | 20 Min. Gruppen, 10 Min. Plenum mit Fehlermatrix |
+| Kultur | Kultur & Lernen, Cloudflare, Was die Fälle zeigen | 10 | Spalte „Komponente“ abdecken |
+| Abschluss | Kernpunkte, Ausblick | 5 | Hausaufgabe: Rollenkarte erklären |
+
+Summe rund 125 Minuten. **Kürzung auf 90 Minuten:** Kommunikationsübung im Plenum statt in Gruppen (−10), Gruppenübung auf die Fragen 1–4 und 15 + 5 Minuten (−10), Governance-Tabelle nur mit Zitat (−3), Synthesefolie vorgeben statt erarbeiten (−3), Rhein-Pfalz-Kreis ohne Diskussion (−4), Grundlagenfolien knapp (−3).
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg Norsk Hydro | Warum gilt ein Unternehmen mit lahmgelegter IT als Vorbild? | Die Technik fiel, die Organisation nicht: Entscheidungen (isolieren, manuell weiter, nicht zahlen), besetzte Rollen, offene Kommunikation. Alles davon lässt sich vorher üben. |
+| Anhalt-Bitterfeld | Warum ruft ein Landkreis wegen eines Cyberangriffs den Katastrophenfall aus? | Er schafft eine Führungsstruktur mit klaren Befugnissen und erlaubt, Hilfe von Bund und Land formal anzufordern – Entscheidungskompetenz auf Zeit. |
+| Atlassian | Welche CCCC-Prinzipien wurden verletzt? | Am Anfang nicht clear und nicht confirmed (falsche ID-Art übergeben), am Ende nicht coordinated und zu spät (Kontaktdaten im gelöschten System, Stellungnahme am dritten Tag). |
+| Rhein-Pfalz-Kreis | Welche Phase des Prozesses zeigt der gezogene Stecker? | Erkennen und melden sowie Reagieren (Eindämmen) – mit der Frage, wer das darf. |
+| LÜKEX 23 | Was unterscheidet LÜKEX von Anhalt-Bitterfeld? | Dort musste der Krisenstab im Ernstfall entstehen; bei LÜKEX wird er vorher geübt. |
+| Cloudflare | Würde Ihr Arbeitgeber so einen Bericht veröffentlichen – und intern? | Offen diskutieren; Brücke zu psychologischer Sicherheit. |
+
+## Fallstricke
+
+- **ISO 22316:** Die Archivdefinition („vorhersehen, vorbereiten, reagieren, anpassen“) stammt aus BS 65000:2014. Auf den Folien steht die Fassung der ISO 22316 („absorb and adapt“); für die Klausur zählt der Kern. Siehe Quellen, Hinweis 11.
+- **Incident-Prozess:** ISO/IEC 27035-1:2023 hat fünf Phasen. Die sechs Phasen der Archivfolie (mit Containment und Eradication) sind die Feingliederung nach NIST SP 800-61 Rev. 2 – beide Sichten gelten lassen.
+- **Norsk Hydro:** Die Kosten von rund 800 Mio. NOK sind die Angabe von Hydro; Presseberichte nennen teils andere Zahlen.
+- **Rhein-Pfalz-Kreis:** Unter den veröffentlichten Daten waren personenbezogene Daten, auch von Geflüchteten. Keine Details zu einzelnen Betroffenen nennen.
+- **Cloudflare:** Die Primärquelle (Cloudflare-Blog) war bei der Überarbeitung nicht abrufbar; die Zahlen sind über zwei Sekundärquellen geprüft.
+
+## Übungen
+
+**Kommunikationsübung „Vier Seiten einer Nachricht“:** 3er-Gruppen, 10 Minuten. Musterauflösung und alternative Formulierung stehen in der [Musterlösung](loesungen.html).
+
+**Gruppenübung „Ransomware am Montagmorgen“:** Gruppen zu vier bis fünf Personen, 15–20 Minuten, sechs Fragen. Die Fälle des Tages als Spickzettel nutzen: Wer zieht den Stecker (Rhein-Pfalz-Kreis)? Wer spricht mit der Presse (Norsk Hydro)? Wo liegen die Kontaktlisten, wenn Mail und Fileserver weg sind (Atlassian)? Ab wann braucht es einen Krisenstab (Anhalt-Bitterfeld)?
+
+**Erwartete Kernpunkte:** Incident Commander benennen, nicht den lautesten Admin; betroffene Systeme isolieren, bevor gelöscht oder neu aufgesetzt wird; Geschäftsleitung, Datenschutz und Kommunikation früh einbinden; Meldung nach Art. 33 DSGVO binnen 72 Stunden prüfen, NIS-2-Meldepflichten je nach Einrichtung; Recovery und Forensik abstimmen statt gegeneinander auszuspielen; Kommunikation über einen Kanal außerhalb der betroffenen Systeme.
+
+**Auswertung:** Zwei bis drei Gruppen vorstellen lassen und die Spalte „Häufige Fehler“ der Matrix gegen ihre Antworten legen.
+
+**Hinweis aus dem Skript:** Die Phasenmatrix des Ransomware-Verlaufs eignet sich für die Reflexion im Plenum. Abschließende Meta-Frage: „Was hat in unserer Reaktion funktioniert – und was nicht?“ Damit wird die Übung selbst Teil des Resilienzzyklus.
+
+## Brücke
+
+Die Hausaufgabe (Rollenkarte für die ersten 60 Minuten eines Ransomware-Vorfalls) eröffnet Termin 6. Die Rollenkarten zeigen, welche Funktionen fehlen oder doppelt besetzt sind – Einstieg in CISO, SOC und CERT.
 
 # Termin 6 – Rollen
 
