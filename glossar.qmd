@@ -32,6 +32,7 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 | BSI 200-4 | BSI-Standard 200-4 „Business Continuity Management“ mit Reifegradmodell |
 | CDN | Content Delivery Network – geografisch verteiltes Netz zur resilienten Auslieferung von Web-Inhalten |
 | CERT | Computer Emergency Response Team – operative Reaktionseinheit im Incident |
+| CSIRT | Computer Security Incident Response Team – in der Praxis meist gleichbedeutend mit CERT (6) |
 | CI/CD | Continuous Integration / Continuous Deployment – automatisierte Build-, Test- und Release-Pipelines |
 | CISO | Chief Information Security Officer – strategische Verantwortung für Informationssicherheit und Cyber-Resilienz |
 | DDoS | Distributed Denial of Service – Lastangriff, der Dienste durch Überlast unbenutzbar macht |
@@ -44,6 +45,7 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 | IaC | Infrastructure as Code – Infrastruktur wird per Code definiert und automatisiert bereitgestellt |
 | ICS | Industrial Control System – Überbegriff für SCADA, PLC und DCS |
 | IdP | Identity Provider – authentifiziert Nutzer und stellt Tokens aus (z. B. Entra ID/Azure AD, Keycloak) |
+| ISB | Informationssicherheitsbeauftragte Person – koordiniert das Sicherheitsmanagement, im öffentlichen Sektor und an Hochschulen häufig statt eines CISO (6) |
 | KRITIS | Kritische Infrastrukturen (Energie, Wasser, Gesundheit, Finanzen u. a.) |
 | MES | Manufacturing Execution System – Produktionsleitsystem zwischen OT und ERP |
 | MTBF | Mean Time Between Failures – mittlere Zeit zwischen zwei Ausfällen |
@@ -53,6 +55,7 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 | RPO | Recovery Point Objective – maximal tolerierter Datenverlust in Zeit |
 | RTO | Recovery Time Objective – maximal tolerierte Wiederherstellungsdauer |
 | SCADA | Supervisory Control and Data Acquisition – Überwachung und Steuerung industrieller Prozesse |
+| SEC | U.S. Securities and Exchange Commission – US-Börsenaufsicht; verlangt Pflichtmitteilungen (Form 8-K) auch zu wesentlichen Cybervorfällen (6) |
 | SIEM | Security Information and Event Management – Aggregation und Korrelation von Sicherheitsereignissen |
 | SIL | Safety Integrity Level – Maß für die Zuverlässigkeit von Safety-Systemen |
 | SLA | Service Level Agreement – vertraglich zugesicherter Leistungsgrad |
@@ -85,6 +88,8 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 **Diversität** – Bewusster Einsatz unterschiedlicher Komponenten, Technologien oder Anbieter gegen gemeinsame Fehlerursachen (Common Mode Failures) und importierte Supply-Chain-Risiken. (1, 3, 4)
 
+**Eskalationsschwelle** – Vorab schriftlich festgelegtes Kriterium, ab dem ein Ereignis an die nächste Rolle übergeben werden muss, etwa vom SOC an das CERT oder vom CISO an die Geschäftsleitung, jeweils mit Frist. Ohne Schwelle bleibt ein erkannter Alarm ohne Eigentümer (Fall Target 2013). (6)
+
 **Failover** – Kontrollierter Wechsel auf eine alternative Ressource oder Umgebung. Resilienz entsteht erst durch getestete Umschaltpfade. (3, 4, 7)
 
 **Graceful Degradation** – Kontrolliertes Herunterfahren der Leistung statt Totalausfall, etwa Warteschlange statt Fehlerseite. (3, 4)
@@ -92,6 +97,8 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 **Hybrid-Architektur** – Kombination aus On-Premises und Cloud. Erhöht sowohl den Gefährdungsraum als auch den Resilienzspielraum. (3)
 
 **Immutable Backup** – Backup, das nach Erstellung nicht verändert oder gelöscht werden kann (WORM). Wirksam erst mit Offsite-Lagerung und getesteter Recovery. (4, 7)
+
+**Mandat (des CISO)** – Formale Ausstattung einer Rolle mit Verantwortung, Befugnis und Ressourcen sowie einem Berichtsweg zur Geschäftsleitung. Fehlt eine dieser Seiten, entsteht „Accountability without Authority“: Verantwortung ohne die Mittel, sie wahrzunehmen. (6)
 
 **Microsegmentation** – Feingranulare, softwarebasierte Unterteilung in isolierte Sicherheitszonen bis auf Workload-Ebene; begrenzt laterale Bewegung. (8)
 

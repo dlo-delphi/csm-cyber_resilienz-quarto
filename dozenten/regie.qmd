@@ -256,7 +256,70 @@ Die Hausaufgabe (Rollenkarte für die ersten 60 Minuten eines Ransomware-Vorfall
 
 # Termin 6 – Rollen
 
-Die Rollenübung eignet sich als Brückenelement zwischen Technik und Organisation. Studierende erleben, dass Resilienz ein menschlich-organisationales Zusammenspiel ist. Varianten lassen sich später wieder aufnehmen, etwa mit KPIs. Die Leitfragen 1–30 des Skripts sind Klausurbasis, 31–40 vertiefende Transferfragen für mündliche Prüfungen, Hausarbeiten oder Präsentationen.
+**Roter Faden:** Wem gehört der Alarm? Jeder Fall steht für eine Rolle – SOC und Eskalation (Target), CISO-Mandat und Haftung (Uber, SolarWinds), CERT und externe Partner (Uniklinik Düsseldorf), Rollenaufbau (Hochschule Kaiserslautern), Management Board (MGM und Caesars). Am Ende fügt die Synthesefolie die Fälle zusammen.
+
+**Fälle:** Target 2013 (Einstieg), Uber 2016 mit SolarWinds/SEC als Gegenstück, Uniklinik Düsseldorf 2020, Hochschule Kaiserslautern 2023 (regional), MGM und Caesars 2023. Diagramme: `python assets/diagramme_termin06.py`; vorheriger Stand: `Präsentationen/Termin-06/mainold.qmd`.
+
+## Ablauf
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Rollenkarten aus der Hausaufgabe zeigen lassen |
+| Fall Target | Einstieg: Target 2013 | 8 | Frage stellen, Antworten sammeln, auf das Ende verweisen |
+| Rollen und CISO | Vom Individuum zur Organisation, Rolle des CISO | 8 | Mandatsdreieck: Welche Seite fehlte bei Target? |
+| Haftung | Uber 2016, SolarWinds und die SEC | 10 | Diskussion: Wer trifft bei euch die Meldeentscheidung? |
+| SOC und CERT | SOC, Tier 1–3, CERT | 10 | Target auf das Tier-Modell legen |
+| Externe Rollen | Uniklinik Düsseldorf, Zusammenspiel | 10 | Richtigstellung zum Todesfall nicht vergessen |
+| Schlüsselrollen | Weitere Schlüsselrollen, HS Kaiserslautern | 10 | Regionaler Bezug, ISB-Rolle |
+| Eskalation und Meldung | Eskalationsmodell, Meldepflichten | 10 | Wer zählt die 24 Stunden? |
+| Management | MGM und Caesars | 8 | Ohne Wertung „richtig oder falsch“ diskutieren |
+| Governance | Konflikte, Governance-Matrix, Standards | 8 | Fälle den Konfliktlinien zuordnen |
+| Übung | Wer macht was im Incident? | 30 | 20 Min. Gruppen, 10 Min. Plenum |
+| Abschluss | Was die Fälle zeigen, Kernpunkte, Ausblick | 8 | Spalte „Rolle“ abdecken; Hausaufgabe erklären |
+
+Summe rund 125 Minuten. **Kürzung auf 90 Minuten:** SolarWinds nur in einem Satz (−4), SOC-Tier-Folie nur zeigen (−3), Zusammenspiel-Folie überspringen (−3), Hochschule Kaiserslautern ohne Diskussion (−5), Eskalationsmodell nur zeigen (−4), Konflikte und Governance-Matrix zusammen in 4 Minuten (−4), Standards-Folie überspringen (−2), Übung auf die Fragen 1, 2 und 4 mit 12 + 8 Minuten (−10).
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg Target | Die Erkennung hat funktioniert. Woran ist Target gescheitert? | An Eskalation und Entscheidung: Der Alarm hatte keinen Eigentümer, es gab keinen CISO und keine Schwelle, ab der jemand isolieren musste. |
+| Rolle des CISO | Welche Seite des Mandatsdreiecks fehlte bei Target? | Die Rolle selbst: Verantwortung war verteilt, Befugnis und Berichtsweg fehlten. |
+| Uber 2016 | Wer hätte in eurer Rollenkarte die Meldeentscheidung getroffen? | Nicht der CISO allein: Datenschutz, Rechtsabteilung und Geschäftsleitung gehören dazu; bei laufenden Aufsichtsverfahren besonders. |
+| SolarWinds | Was unterscheidet SolarWinds von Uber? | Kein Vertuschen; strittig war, ob interne Kenntnis nach oben und nach außen richtig weitergegeben wurde. Das Verfahren wurde eingestellt. |
+| SOC – Tier 1–3 | Wer hätte bei Target eskalieren müssen – und an wen? | Die Meldung aus Bangalore hätte als Tier-2/3-Fall an eine Rolle mit Befugnis zur Isolierung gehen müssen. |
+| Uniklinik Düsseldorf | Welche Rollen kommen von außen? | BSI (Meldung, Einsatzteam), Polizei/ZAC, Rettungsdienst und Leitstelle, Land. Ansprechpartner müssen vorher bekannt sein. |
+| Zusammenspiel | An welcher Kante der Pyramide riss die Kette jeweils? | Target: SOC → Entscheidung. Uber: CISO → Leitung und Aufsicht. Düsseldorf: CERT → externe Partner (hat funktioniert). |
+| HS Kaiserslautern | Warum schafft eine Hochschule eine Rolle, zu der sie nicht verpflichtet ist? | Aus Erfahrung: Ohne benannte Rolle mit Anbindung an das Präsidium fehlen im nächsten Vorfall Mandat und Ansprechpartner. |
+| Meldepflichten | Wer zählt die 24 Stunden – und ab wann? | Ab Kenntnis eines erheblichen Vorfalls; die Rolle, die feststellt, und die Rolle, die meldet, müssen vorher festgelegt sein. |
+| MGM und Caesars | Wer hat bei euch das Mandat für die Lösegeldfrage? | Die Geschäftsleitung, vorbereitet durch CISO, Recht, BCM und Versicherung. Ohne Vorbereitung entscheidet die Lage. |
+
+## Fallstricke
+
+- **Uniklinik Düsseldorf:** Nicht als „erster Todesfall durch Ransomware“ erzählen. Die Staatsanwaltschaft hat im November 2020 festgestellt, dass die Verzögerung für den Tod nicht ursächlich war.
+- **Caesars:** Die Summe von rund 15 Mio. USD stammt aus WSJ und Bloomberg. Die Pflichtmitteilung (8-K) spricht nur von Schritten, damit die Daten gelöscht werden.
+- **MGM:** „Einstieg über einen Anruf beim Helpdesk“ beruht auf Medienberichten und Angaben der Angreifer; MGM selbst hat den Weg nicht beschrieben. Auf der Folie steht deshalb allgemein „Social Engineering beim IT-Support“.
+- **Uber:** Die Verurteilung ist seit Juni 2026 rechtskräftig (Supreme Court hat die Revision nicht angenommen). Der Richter sah den damaligen CEO als mitverantwortlich; angeklagt war nur der CSO.
+- **SolarWinds:** Das Verfahren wurde eingestellt, nicht gewonnen oder verloren – kein Schuldeingeständnis, keine Kostenerstattung.
+- **BSIG:** Die Archivfolie nannte § 8b BSIG (alt). Folien und Lernseite nennen jetzt § 32 (Meldepflichten) und § 38 (Geschäftsleitung); Skript 6 behält den Originaltext mit Hinweis. Siehe Quellen, Hinweis 5.
+- **Hochschule Kaiserslautern:** Nur veröffentlichte Angaben verwenden. Zur Hochschule Mainz gilt weiter die Regel aus Termin 4.
+- **DPO:** Der Datenschutzbeauftragte berät und prüft; meldepflichtig nach Art. 33 DSGVO ist der Verantwortliche, also die Organisation.
+
+## Übung „Wer macht was im Incident?“
+
+**Durchführung:** Gruppen zu vier bis fünf Personen, 20 Minuten, danach 10 Minuten Plenum. Szenario aus dem Skript (Montag, 08:47 Uhr, E-Mail „Überweisungserlaubnis“, verdächtige Admin-Logins, Management will Bericht, DPO fragt nach Meldepflicht, Presse hat Gerüchte). Ergebnis: Kommunikationsmodell mit Pfeilen und ein Eskalationszeitplan.
+
+**Spickzettel aus den Fällen:** Wem gehört der Alarm (Target)? Wer darf den Vorfall nicht allein bewerten (Uber)? Welche externen Partner ruft ihr an (Düsseldorf)? Wer entscheidet über Abschalten und Lösegeld (MGM, Caesars)?
+
+**Erwartete Kernpunkte:** Das SOC eskaliert an das CERT und informiert den CISO innerhalb festgelegter Fristen; das CERT entscheidet über die Isolierung, IT Ops setzt um; der DPO prüft die Meldung nach Art. 33 DSGVO, der CISO die Meldung nach § 32 BSIG, beide informieren die Geschäftsleitung; externe Kommunikation gibt die Geschäftsleitung frei, die Pressestelle formuliert; ein Lagebild, eine Dokumentation, ein Kanal außerhalb der betroffenen Systeme.
+
+**Auswertung:** Zwei Gruppen stellen vor; die übrigen ergänzen nur Abweichungen. Die Governance-Matrix der Folie gegen die Ergebnisse legen. Reflexionsfragen aus dem Skript: Wo entstanden Unklarheiten? Welche Wege waren zu lang? Welche Rolle hätte stärker eingebunden werden müssen?
+
+**Hinweis aus dem Skript:** Die Rollenübung eignet sich als Brückenelement zwischen Technik und Organisation. Studierende erleben, dass Resilienz ein menschlich-organisationales Zusammenspiel ist. Varianten lassen sich später wieder aufnehmen, etwa mit KPIs. Die Leitfragen 1–30 des Skripts sind Klausurbasis, 31–40 vertiefende Transferfragen für mündliche Prüfungen, Hausarbeiten oder Präsentationen.
+
+## Brücke
+
+Die Hausaufgabe (zwei Zeilen in der Rollenkarte: Wer gibt einen Restore frei, wann wurde zuletzt getestet?) eröffnet Termin 7. Die Antworten zeigen meist, dass die technische Frage (gibt es ein Backup?) leichter beantwortet wird als die organisatorische (wer gibt es frei, und funktioniert es?).
 
 # Termin 7 – Technische Resilienz I
 
