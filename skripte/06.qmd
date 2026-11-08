@@ -56,6 +56,16 @@ Rollenorientierte Organisationen verschieben den Fokus von individueller Schuld 
 
 Klar definierte Rollen und Eskalationspfade schaffen Geschwindigkeit, weil sie Entscheidungen **vorstrukturieren**. Ein Incident-Response-Team mit trainierter Rollenlogik kann in Minuten handeln, wo andere erst diskutieren, wer die Freigabe erteilt oder den Kommunikationsweg festlegt.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: Target 2013"}
+Ab dem 27. November 2013 lief in den US-Filialen der Handelskette Target Schadsoftware auf den Kassensystemen; die Angreifer waren mit Zugangsdaten eines Dienstleisters eingedrungen. Am 30. November meldete ein Überwachungsteam in Bangalore einen Alarm des neu eingeführten Erkennungswerkzeugs an das Sicherheitsteam in Minneapolis, am 2. Dezember folgten weitere. Eine Reaktion blieb aus; erst am 12. Dezember wies das US-Justizministerium Target auf den Vorfall hin. Betroffen waren rund 40 Millionen Kartendaten und bis zu 70 Millionen weitere Kundendatensätze. Ein Bericht des Handelsausschusses des US-Senats vom März 2014 zählt mehrere verpasste Gelegenheiten auf.
+
+Die Erkennung hatte funktioniert, die Eskalation nicht: Einen CISO gab es nicht, Sicherheitsaufgaben waren auf mehrere Führungskräfte verteilt. 2014 verließen der CIO und der CEO das Unternehmen; im Juni 2014 wurde die Rolle des CISO neu geschaffen. Der Fall zeigt, warum ein Alarm einen Eigentümer und eine Eskalationsschwelle braucht.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Target 2013: Alarme ohne Entscheidung](../Präsentationen/Termin-06/assets/target-2013-zeitleiste.png){fig-alt="Zeitleiste Target 2013: 27.11. Malware aktiv, 30.11. Alarm aus Bangalore an Minneapolis, 2.12. weitere Alarme ohne Reaktion, 12.12. Justizministerium informiert Target, 19.12. Veröffentlichung" width="70%"}
+
 # Kapitel 3 – Die Rolle des CISO: Verantwortung, Mandat und strategische Steuerung
 
 Der **Chief Information Security Officer (CISO)** ist die Leitfigur für Informationssicherheit und Cyber-Resilienz. Er oder sie trägt die strategische Verantwortung dafür, dass Schutzmaßnahmen, Richtlinien und Prozesse nicht nur existieren, sondern wirksam ineinandergreifen.
@@ -99,6 +109,22 @@ Dieses Spannungsfeld wird häufig als _„Accountability without Authority“_ b
 3. und Eskalationsrechte in Richtlinien dokumentieren.
 
 Dadurch wird Informationssicherheit zur **Führungsaufgabe**, nicht zum rein technischen Teilgebiet der IT.
+
+![Das Mandat des CISO](../Präsentationen/Termin-06/assets/mandat-dreieck.png){fig-alt="Dreieck mit den Ecken Verantwortung, Befugnis und Ressourcen, getragen vom Berichtsweg zur Geschäftsleitung" width="55%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Uber 2016 und SolarWinds"}
+Im November 2016 meldeten sich Angreifer beim Sicherheitschef (CSO) von Uber: Sie hatten Datensätze von rund 57 Millionen Nutzern und 600.000 Führerscheinnummern kopiert. Uber zahlte 100.000 US-Dollar, verbucht als Prämie aus dem Bug-Bounty-Programm, gegen Schweigeerklärungen. Zur selben Zeit untersuchte die US-Handelsaufsicht FTC einen früheren Vorfall bei Uber; der neue Vorfall wurde ihr nicht gemeldet. Erst die neue Unternehmensleitung deckte ihn im November 2017 auf. Der CSO wurde im Oktober 2022 wegen Behinderung eines Verfahrens und Verschleierung einer Straftat verurteilt, im Mai 2023 zu drei Jahren Bewährung und einer Geldstrafe. Das Berufungsgericht bestätigte das Urteil 2025, im Juni 2026 nahm der Supreme Court die Revision nicht an.
+
+Ein Gegenstück ist das Verfahren der US-Börsenaufsicht SEC gegen SolarWinds und dessen CISO. Die SEC warf ihm 2023 erstmals persönlich vor, öffentliche Sicherheitsaussagen hätten nicht zum internen Kenntnisstand gepasst. Das Gericht wies 2024 die meisten Vorwürfe ab, im November 2025 wurde das Verfahren ohne Schuldeingeständnis eingestellt.
+
+Beide Fälle zeigen die Kehrseite des Mandats: Wer Verantwortung trägt, muss Eskalation und Meldeentscheidungen dokumentieren und darf sie nicht allein treffen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Uber 2016: Vertuschung und Folgen](../Präsentationen/Termin-06/assets/uber-2016-zeitleiste.png){fig-alt="Zeitleiste Uber: November 2016 Angreifer melden sich, Dezember 2016 Zahlung als Bug Bounty, November 2017 Aufdeckung, Oktober 2022 Verurteilung, Juni 2026 Revision nicht angenommen" width="70%"}
+
+![Uber und SolarWinds im Vergleich](../Präsentationen/Termin-06/assets/ciso-haftung.png){fig-alt="Vergleich: Uber, Strafverfahren, verurteilt und rechtskräftig; SolarWinds, Zivilverfahren der SEC, größtenteils abgewiesen und 2025 eingestellt" width="70%"}
 
 ## 3.3 Der CISO als Enabler von Resilienz
 
@@ -258,6 +284,18 @@ Wichtig ist die **klare funktionale Trennung**: SOC erkennt, CERT reagiert – b
 Diese Vielfalt ermöglicht die **Vernetzung** zwischen Organisationen, Branchen und Behörden.
 
 ENISA und FIRST (Forum of Incident Response and Security Teams) fördern den internationalen Austausch und Standardisierung.
+
+![CERT-Ebenen](../Präsentationen/Termin-06/assets/cert-landschaft.png){fig-alt="Eigenes CERT in der Mitte, verbunden mit nationaler Ebene, Land und Kommune, Wissenschaft und Branchen-CERTs" width="60%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Uniklinik Düsseldorf 2020"}
+In der Nacht zum 10. September 2020 verschlüsselte Ransomware 30 Server des Universitätsklinikums Düsseldorf. Einfallstor war eine seit Januar 2020 bekannte Schwachstelle in Citrix-VPN-Produkten; nach Angaben der Ermittler war das Update eingespielt, die Angreifer aber offenbar schon vorher eingedrungen. Das Klinikum meldete sich 13 Tage von der Notfallversorgung ab. Es meldete den Vorfall nach dem BSI-Gesetz an das BSI, das mit einem mobilen Einsatzteam unterstützte; die Zentral- und Ansprechstelle Cybercrime bei der Staatsanwaltschaft Köln ermittelte. Das Erpresserschreiben war an die Heinrich-Heine-Universität gerichtet. Nachdem die Polizei die Täter darauf hingewiesen hatte, dass ein Krankenhaus betroffen war, gaben sie einen Schlüssel heraus.
+
+Eine Patientin, die in ein anderes Krankenhaus umgeleitet werden musste, starb. Die Staatsanwaltschaft stellte im November 2020 fest, dass die Verzögerung für den Tod nicht ursächlich war. Für die Rollenlehre zeigt der Fall, wie viele Akteure von außen hinzukommen – BSI, Polizei, Rettungsdienst, Land – und dass ihre Ansprechpartner vorher bekannt sein müssen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Uniklinik Düsseldorf 2020: externe Rollen](../Präsentationen/Termin-06/assets/ukd-2020-akteure.png){fig-alt="Uniklinik Düsseldorf in der Mitte, umgeben von BSI, Polizei und ZAC Köln, Rettungsdienst und Land NRW" width="70%"}
 
 ## 5.3 Schnittstellen und Zusammenarbeit
 
@@ -521,6 +559,16 @@ Ein Management, das Verantwortung sichtbar lebt, prägt die Sicherheitskultur un
 
 „Resilienz ohne Leadership bleibt ein Konzept – mit Leadership wird sie Kultur.“
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: MGM und Caesars 2023"}
+Im September 2023 traf dieselbe Angreifergruppe zwei Casino-Konzerne in Las Vegas; der Einstieg erfolgte jeweils über Social Engineering beim IT-Support, bei Caesars nach eigener Pflichtmitteilung über einen ausgelagerten Dienstleister. Caesars meldete, die Kundendatenbank sei kopiert worden, der Betrieb aber ungestört; man habe Schritte unternommen, damit die Daten gelöscht werden. Nach Medienberichten zahlte Caesars rund 15 Millionen US-Dollar. MGM Resorts zahlte nicht, schaltete Systeme ab und bezifferte die Auswirkung auf rund 100 Millionen US-Dollar Ergebnis, die eine Versicherung decken soll.
+
+Ob gezahlt wird, ist keine Technikfrage, sondern eine Entscheidung der Leitung. Sie braucht vorbereitete Grundlagen: Zustand der Backups, Versicherung, Rechtslage, Folgen für den Betrieb. In Deutschland verpflichtet § 38 BSIG in der Fassung des NIS-2-Umsetzungsgesetzes die Geschäftsleitung wichtiger und besonders wichtiger Einrichtungen, Risikomanagementmaßnahmen zu billigen, ihre Umsetzung zu überwachen und an Schulungen teilzunehmen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![MGM und Caesars 2023: zwei Leitungsentscheidungen](../Präsentationen/Termin-06/assets/mgm-caesars-2023.png){fig-alt="Gegenüberstellung: Caesars zahlt laut Medien rund 15 Millionen US-Dollar, Betrieb ungestört; MGM zahlt nicht, rund zehn Tage Systeme abgeschaltet, rund 100 Millionen US-Dollar weniger Ergebnis" width="70%"}
+
 ## 7.5 Zusammenspiel der Schlüsselrollen
 
 |Rolle|Primäre Aufgabe|Schnittstellen|
@@ -531,6 +579,16 @@ Ein Management, das Verantwortung sichtbar lebt, prägt die Sicherheitskultur un
 |**Management**|Strategische Steuerung & Ressourcen|CISO, DPO, BCM|
 
 Dieses Zusammenspiel sorgt dafür, dass Cyber-Resilienz **nicht in der IT steckenbleibt**, sondern zur gesamtunternehmerischen Fähigkeit wird.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Hochschule Kaiserslautern 2023"}
+Am 8. Juni 2023 wurde die IT-Infrastruktur der Hochschule Kaiserslautern angegriffen. Die Hochschule schaltete früh ab, bildete einen Krisenstab und informierte das Landeskriminalamt; sie stand im Austausch mit BSI, DFN-CERT, VCRP, ZIT und den Hochschulrechenzentren in Mainz und Kaiserslautern. Im Juli wurden erbeutete Daten im Darknet veröffentlicht. Bis zum Normalbetrieb vergingen einige Wochen.
+
+Im Januar 2025 unterzeichneten die zwölf Hochschulen des Landes mit dem Wissenschaftsministerium eine Landesstrategie zur Informationssicherheit. Sie sieht an jeder Hochschule Informationssicherheitsbeauftragte mit unmittelbarer Anbindung an das Präsidium und ein Servicezentrum Informationssicherheit (RARP-SIS) an der RPTU vor; das Land stellt im Doppelhaushalt 2025/26 rund fünf Millionen Euro bereit. Hochschulen fallen nicht unter NIS-2 – die Rollen entstehen hier aus Einsicht, nicht aus Pflicht. Die Verantwortung für die Informationssicherheit bleibt bei den Hochschulen.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Hochschule Kaiserslautern 2023: vom Vorfall zur Rolle](../Präsentationen/Termin-06/assets/hskl-2023.png){fig-alt="Ablauf: Angriff am 8.6.2023, Austausch mit BSI und DFN-CERT, Daten im Darknet, Landesstrategie Januar 2025, Informationssicherheitsbeauftragte und Servicezentrum" width="70%"}
 
 ## 7.6 Fazit
 
@@ -613,7 +671,7 @@ Kommunikation im Incident-Fall unterliegt auch rechtlichen Anforderungen:
 - **BSI-Gesetz (§ 8b):** Meldepflichten für Betreiber kritischer Infrastrukturen
 
 ::: {.callout-note title="Hinweis zur Aktualität"}
-Das BSI-Gesetz wurde durch das NIS-2-Umsetzungsgesetz (in Kraft seit 6. Dezember 2025) neu gefasst. Der Verweis auf § 8b BSIG bezieht sich auf die alte Fassung; die Meldepflichten stehen jetzt in der Neufassung. Siehe [Quellen, Hinweis 5](../quellen.html#hinweise-zur-aktualität).
+Das BSI-Gesetz wurde durch das NIS-2-Umsetzungsgesetz (in Kraft seit 6. Dezember 2025) neu gefasst. Der Verweis auf § 8b BSIG bezieht sich auf die alte Fassung; die Meldepflichten stehen jetzt in § 32 BSIG. Siehe [Quellen, Hinweis 5](../quellen.html#hinweise-zur-aktualität).
 :::
 
 Daraus ergibt sich die Notwendigkeit, Incident-Typen **vorab zu klassifizieren** und **Verantwortlichkeiten festzulegen**:
@@ -626,6 +684,14 @@ Daraus ergibt sich die Notwendigkeit, Incident-Typen **vorab zu klassifizieren**
 |Betriebsunterbrechung > x h|BCM relevant|BCM-Manager|
 
 „Nicht jeder Incident ist meldepflichtig – aber jeder muss dokumentiert werden.“
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Meldefristen nach dem neuen BSI-Gesetz"}
+Seit dem 6. Dezember 2025 regelt § 32 BSIG die Meldepflichten wichtiger und besonders wichtiger Einrichtungen bei erheblichen Sicherheitsvorfällen: eine Frühwarnung an das BSI binnen 24 Stunden nach Kenntnis, eine Meldung binnen 72 Stunden und einen Abschlussbericht nach einem Monat. Unabhängig davon muss der Verantwortliche eine Verletzung des Schutzes personenbezogener Daten nach Art. 33 DSGVO binnen 72 Stunden an die Aufsichtsbehörde melden. Beide Fristen laufen ab Kenntnis – deshalb muss vorab feststehen, wer einen Vorfall feststellt, wer über die Meldung entscheidet und wer sie abgibt.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Meldefristen ab Kenntnis](../Präsentationen/Termin-06/assets/meldefristen.png){fig-alt="Zeitstrahl ab Kenntnis: 24 Stunden Frühwarnung, 72 Stunden Meldung an das BSI und DSGVO-Meldung, ein Monat Abschlussbericht" width="60%"}
 
 ## 8.5 Der menschliche Faktor
 

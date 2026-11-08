@@ -1,5 +1,6 @@
 ---
 title: "Termin 6 – Organisatorische Resilienz II: Rollen und Verantwortlichkeiten"
+subtitle: "CISO · SOC · CERT · Schlüsselrollen · Eskalation · Meldepflichten · Governance"
 ---
 
 ::: {.content-visible when-format="html"}
@@ -19,13 +20,22 @@ Nach diesem Termin können Studierende
 - die zentralen Rollen der Cyber-Resilienz (CISO, SOC, CERT, DPO, BCM, IT Operations, Management) und ihr Zusammenspiel erklären,
 - Aufgaben, Befugnisse und Grenzen dieser Rollen analysieren,
 - typische Konflikte und Governance-Lösungen erkennen,
-- Rollenverantwortung und Eskalationslogik in einer Übung anwenden.
+- Rollenverantwortung und Eskalationslogik in einer Übung anwenden,
+- an realen Fällen begründen, warum ein Alarm einen Eigentümer, ein CISO ein Mandat und eine Organisation vorab bekannte externe Partner braucht.
+
+# Einstieg: Target 2013
+
+Ab dem 27. November 2013 lief in den US-Filialen von Target Schadsoftware auf den Kassensystemen; die Angreifer waren mit Zugangsdaten eines Dienstleisters eingedrungen. Am 30. November meldete das Überwachungsteam in Bangalore einen Alarm an das Sicherheitsteam in Minneapolis, am 2. Dezember folgten weitere – ohne Reaktion. Erst am 12. Dezember wies das US-Justizministerium Target auf den Vorfall hin. Rund 40 Millionen Kartendaten und bis zu 70 Millionen weitere Kundendatensätze waren betroffen.
+
+![Target 2013: Alarme ohne Entscheidung](../Präsentationen/Termin-06/assets/target-2013-zeitleiste.png){fig-alt="Zeitleiste Target 2013: 27.11. Malware aktiv, 30.11. Alarm aus Bangalore an Minneapolis, 2.12. weitere Alarme ohne Reaktion, 12.12. Justizministerium informiert Target, 19.12. Veröffentlichung" width="65%"}
+
+Die Erkennung hat funktioniert, Eskalation und Entscheidung nicht. Einen CISO gab es nicht; die Rolle wurde erst im Juni 2014 geschaffen. Genau darum geht es in dieser Sitzung: Wem gehört der Alarm?
 
 # Fachinhalte
 
 ## Rückblick
 
-Kommunikation ist ein Schlüsselfaktor der Resilienz; Struktur und Verhalten sind zu unterscheiden; Rollenverständnis und Eskalationslogik tragen die Reaktion. „Resilienz ist Teamarbeit – aber nur, wenn das Team dieselbe Sprache spricht.“
+Sitzung 5 hat organisationale Resilienz als Fähigkeit zur koordinierten Reaktion beschrieben: Rollen statt Personen, Entscheidungskompetenz auf Zeit, ein Incident-Management-Prozess mit Ownern in jeder Phase. Diese Sitzung macht die Rollen konkret. „Resilienz ist Teamarbeit – aber nur, wenn das Team dieselbe Sprache spricht.“
 
 ## Rollen als Strukturprinzip
 
@@ -47,6 +57,14 @@ Das Mandat ergibt sich in der Regel aus dem ISMS nach ISO/IEC 27001 [@iso27001].
 **Mandatsdilemma:** Verantwortung ohne formale Entscheidungsgewalt oder Ressourcen („Accountability without Authority“). Lösung: strategische Verankerung, festes Budget und Reporting-Mandat, dokumentierte Eskalationsrechte. Eine zu tiefe Einbettung in die IT-Linie birgt Zielkonflikte zwischen Verfügbarkeit und Sicherheit.
 
 Der CISO ist kein „Security-Polizist“, sondern Business-Partner: Er übersetzt technische Risiken in betriebswirtschaftliche Entscheidungsgrundlagen. „Ein CISO ohne Mandat ist wie ein Pilot ohne Steuerknüppel.“
+
+![Das Mandat des CISO](../Präsentationen/Termin-06/assets/mandat-dreieck.png){fig-alt="Dreieck mit den Ecken Verantwortung, Befugnis und Ressourcen, getragen vom Berichtsweg zur Geschäftsleitung" width="50%"}
+
+**Fall Uber (2016):** Im November 2016 meldeten sich Angreifer beim Sicherheitschef von Uber: Sie hatten Daten von rund 57 Millionen Nutzern und 600.000 Führerscheinnummern kopiert. Uber zahlte 100.000 US-Dollar, verbucht als Bug-Bounty-Prämie, gegen Schweigeerklärungen – während die US-Handelsaufsicht FTC einen früheren Vorfall untersuchte. Die neue Unternehmensleitung deckte den Vorfall im November 2017 auf. Der Sicherheitschef wurde 2022 wegen Behinderung eines Verfahrens und Verschleierung einer Straftat verurteilt; seit Juni 2026 ist das Urteil rechtskräftig.
+
+![Uber 2016: Vertuschung und Folgen](../Präsentationen/Termin-06/assets/uber-2016-zeitleiste.png){fig-alt="Zeitleiste Uber: November 2016 Angreifer melden sich, Dezember 2016 Zahlung als Bug Bounty, November 2017 Aufdeckung, Oktober 2022 Verurteilung, Juni 2026 Revision nicht angenommen" width="65%"}
+
+**Gegenstück SolarWinds (2023–2025):** Die US-Börsenaufsicht SEC verklagte 2023 erstmals einen CISO persönlich: Öffentliche Sicherheitsaussagen hätten nicht zum internen Kenntnisstand gepasst. Das Gericht wies 2024 die meisten Vorwürfe ab, 2025 wurde das Verfahren ohne Schuldeingeständnis eingestellt. Gemeinsame Lehre beider Fälle: Eskalation dokumentieren, Meldeentscheidungen nicht allein treffen, nach außen sagen, was innen gilt.
 
 ## SOC – das sensorische Nervensystem
 
@@ -75,6 +93,13 @@ Das Security Operations Center überwacht Systeme, Netze und Anwendungen rund um
 
 Erfolgskriterien: klare Governance, trainierte Teams, standardisierte Playbooks, forensische Kompetenz, transparente Kommunikation, Nachbereitungskultur. „Das CERT ist das Immunsystem der Organisation – es reagiert, bekämpft, heilt und erinnert.“
 
+![CERT-Ebenen](../Präsentationen/Termin-06/assets/cert-landschaft.png){fig-alt="Eigenes CERT in der Mitte, verbunden mit nationaler Ebene, Land und Kommune, Wissenschaft und Branchen-CERTs" width="55%"}
+
+**Fall Uniklinik Düsseldorf (2020):** In der Nacht zum 10. September 2020 verschlüsselte Ransomware 30 Server des Universitätsklinikums; Einfallstor war eine seit Januar bekannte Citrix-Schwachstelle. Das Klinikum meldete sich 13 Tage von der Notfallversorgung ab, meldete den Vorfall dem BSI und erhielt Unterstützung durch ein mobiles Einsatzteam. Das Erpresserschreiben war an die Universität gerichtet; nach einem Hinweis der Polizei gaben die Täter einen Schlüssel heraus. Den Tod einer umgeleiteten Patientin sah die Staatsanwaltschaft nicht als Folge des Angriffs. Der Fall zeigt, wie viele Rollen von außen hinzukommen – und dass ihre Ansprechpartner vorher bekannt sein müssen.
+
+![Uniklinik Düsseldorf 2020: externe Rollen](../Präsentationen/Termin-06/assets/ukd-2020-akteure.png){fig-alt="Uniklinik Düsseldorf in der Mitte, umgeben von BSI, Polizei und ZAC Köln, Rettungsdienst und Land NRW" width="65%"}
+
+
 ## Zusammenspiel von CISO, SOC und CERT
 
 | Funktion | Ebene | Hauptaufgabe | Zeithorizont |
@@ -95,7 +120,16 @@ Prinzip: **Trennung der Funktionen – Integration der Wirkung.** Erfolgsfaktore
 | Risk Manager | Risikoanalyse, Bewertung, Register | Früherkennung und Priorisierung |
 | Management Board | Strategie genehmigen, Ressourcen, Risikoakzeptanz, externe Kommunikation | Gesamtverantwortung: Resilienz ist Chefsache |
 
-Nach NIS-2-Richtlinie [@nis2] und ISO/IEC 27001 muss die Leitung nachweislich Verantwortung für Sicherheits- und Resilienzmaßnahmen übernehmen.
+Nach NIS-2-Richtlinie [@nis2] und ISO/IEC 27001 muss die Leitung nachweislich Verantwortung für Sicherheits- und Resilienzmaßnahmen übernehmen. In Deutschland verpflichtet § 38 BSIG (seit 6. Dezember 2025) die Geschäftsleitung wichtiger und besonders wichtiger Einrichtungen, Risikomanagementmaßnahmen zu billigen, ihre Umsetzung zu überwachen und an Schulungen teilzunehmen.
+
+**Fall Hochschule Kaiserslautern (2023):** Am 8. Juni 2023 wurde die IT der Hochschule angegriffen. Sie schaltete früh ab, bildete einen Krisenstab, informierte das LKA und tauschte sich mit BSI, DFN-CERT und den Hochschulrechenzentren in Mainz und Kaiserslautern aus; im Juli tauchten erbeutete Daten im Darknet auf. Im Januar 2025 vereinbarten die zwölf Hochschulen des Landes mit dem Wissenschaftsministerium eine Landesstrategie: Informationssicherheitsbeauftragte an jeder Hochschule mit direkter Anbindung an das Präsidium und ein gemeinsames Servicezentrum an der RPTU. Hochschulen fallen nicht unter NIS-2 – aus dem Vorfall wurde eine Rolle.
+
+![Hochschule Kaiserslautern 2023: vom Vorfall zur Rolle](../Präsentationen/Termin-06/assets/hskl-2023.png){fig-alt="Ablauf: Angriff am 8.6.2023, Austausch mit BSI und DFN-CERT, Daten im Darknet, Landesstrategie Januar 2025, Informationssicherheitsbeauftragte und Servicezentrum" width="65%"}
+
+**Fall MGM und Caesars (2023):** Dieselbe Angreifergruppe traf im September 2023 zwei Casino-Konzerne in Las Vegas, jeweils über Social Engineering beim IT-Support. Caesars zahlte nach Medienberichten rund 15 Millionen US-Dollar, damit kopierte Kundendaten gelöscht werden; der Betrieb lief weiter. MGM zahlte nicht, schaltete Systeme ab und bezifferte die Auswirkung auf rund 100 Millionen US-Dollar Ergebnis. Ob gezahlt wird, ist eine Entscheidung der Leitung – sie braucht vorbereitete Grundlagen.
+
+![MGM und Caesars 2023: zwei Leitungsentscheidungen](../Präsentationen/Termin-06/assets/mgm-caesars-2023.png){fig-alt="Gegenüberstellung: Caesars zahlt laut Medien rund 15 Millionen US-Dollar, Betrieb ungestört; MGM zahlt nicht, rund zehn Tage Systeme abgeschaltet, rund 100 Millionen US-Dollar weniger Ergebnis" width="65%"}
+
 
 ## Kommunikations- und Eskalationsmodell
 
@@ -113,13 +147,15 @@ Ebenen: operativ (SOC, IT Ops – technische Meldungen), taktisch (CERT, DPO, BC
 |---|---|---|
 | technischer Sicherheitsvorfall | nein | CERT, CISO |
 | datenschutzrelevanter Vorfall | ja – binnen 72 Stunden (Art. 33 DSGVO) | DPO |
-| kritische Infrastruktur / NIS-2-Einrichtung betroffen | ja – Frühwarnung, Meldung und Abschlussbericht (NIS-2, BSIG) | CISO, Management |
+| wichtige oder besonders wichtige Einrichtung (NIS-2) | ja – 24 h Frühwarnung, 72 h Meldung, Abschlussbericht nach einem Monat (§ 32 BSIG) | CISO, Management |
 | Betriebsunterbrechung über definierte Dauer | BCM-relevant | BCM-Manager |
 
 „Nicht jeder Incident ist meldepflichtig – aber jeder muss dokumentiert werden.“
 
+![Meldefristen ab Kenntnis](../Präsentationen/Termin-06/assets/meldefristen.png){fig-alt="Zeitstrahl ab Kenntnis: 24 Stunden Frühwarnung, 72 Stunden Meldung an das BSI und DSGVO-Meldung, ein Monat Abschlussbericht" width="55%"}
+
 ::: {.callout-note title="Hinweis zur Aktualität"}
-Das Skript verweist auf § 8b BSIG. Mit dem NIS-2-Umsetzungsgesetz ist das BSIG seit Dezember 2025 neu gefasst; die Paragraphenangaben sind vor Verwendung zu prüfen. Die NIS-2-Richtlinie ist die Richtlinie (EU) 2022/2555. Siehe [Hinweise zur Aktualität](../quellen.html#hinweise-zur-aktualität).
+Das Skript verweist auf § 8b BSIG. Mit dem NIS-2-Umsetzungsgesetz ist das BSIG seit 6. Dezember 2025 neu gefasst; die Meldepflichten stehen jetzt in § 32 BSIG, die Pflichten der Geschäftsleitung in § 38 BSIG. Die NIS-2-Richtlinie ist die Richtlinie (EU) 2022/2555. Siehe [Hinweise zur Aktualität](../quellen.html#hinweise-zur-aktualität).
 :::
 
 ## Konfliktlinien und Lösungsprinzipien
@@ -140,11 +176,34 @@ Lösungsprinzipien: Governance durch Klarheit, Kommunikation durch Standardisier
 |---|---|---|---|
 | Isolierung eines Systems | CERT | IT Ops | CISO |
 | Externe Kommunikation | Management | PR | CISO, DPO |
-| Behördenmeldung | DPO | CISO | Management |
+| Behördenmeldung | DPO (Datenschutz) / CISO (BSI) | CISO / DPO | Management |
+| Lösegeldfrage | Management | – | CISO, Legal |
 | Wiederanlaufentscheidung | BCM | CERT | Management |
 | Lessons Learned | CISO | CERT | alle betroffenen Bereiche |
 
 „Reibungslosigkeit ist kein Zeichen von Stabilität, sondern von Stillstand.“ Cross-Role-Trainings machen Reibung vorhersehbar.
+
+## Was die Fälle zeigen
+
+| Fall | Rolle | Lehre |
+|---|---|---|
+| Target 2013 | SOC → Entscheidung | Ein Alarm braucht einen Eigentümer und eine Eskalationsschwelle |
+| Uber 2016 | CISO | Meldeentscheidungen gehören nicht in eine Hand |
+| SolarWinds 2023–2025 | CISO | Eskalation dokumentieren, außen sagen, was innen gilt |
+| Uniklinik Düsseldorf 2020 | CERT, externe Partner | BSI, Polizei, Leitstelle – vorher bekannt |
+| HS Kaiserslautern 2023 | Rollenaufbau | Aus dem Vorfall wird eine Rolle |
+| MGM / Caesars 2023 | Management Board | Lösegeld ist Leitungsentscheidung – vorbereitet |
+
+## Häufige Irrtümer
+
+| Irrtum | Gegenbeispiel |
+|---|---|
+| „Wenn das SOC alarmiert, reagiert schon jemand.“ | Target 2013: Alarme kamen an, niemand entschied |
+| „Der CISO regelt das intern.“ | Uber 2016: Vertuschung endete mit einer Verurteilung |
+| „Den CISO trifft persönlich nichts.“ | SolarWinds: erstes Verfahren gegen einen CISO persönlich (2025 eingestellt) |
+| „Ein Vorfall ist Sache der eigenen IT.“ | Uniklinik Düsseldorf 2020: BSI, Polizei und Rettungsdienst wurden Teil der Lage |
+| „Ohne gesetzliche Pflicht brauchen wir keine Sicherheitsrolle.“ | Hochschule Kaiserslautern: Landesstrategie ohne NIS-2-Pflicht |
+| „Über Lösegeld entscheidet die IT.“ | MGM und Caesars 2023: zwei Leitungsentscheidungen |
 
 # Normativer Bezug
 
@@ -155,8 +214,9 @@ Lösungsprinzipien: Governance durch Klarheit, Kommunikation durch Standardisier
 | ISO 22320 | Krisenmanagement und Führungsstrukturen |
 | ISO 22316 | Grundprinzipien organisationaler Resilienz |
 | BSI-Standard 200-4 | Business Continuity Management |
-| ENISA Good Practice | SOC/CERT-Zusammenarbeit |
+| ENISA Good Practice | SOC/CERT-Zusammenarbeit (Titel und Jahr ungeprüft, siehe Quellen, Hinweis 10) |
 | NIS-2-Richtlinie (EU) 2022/2555 | Verantwortung der Leitung, Meldepflichten |
+| BSIG in der Fassung des NIS2UmsuCG | § 32 Meldepflichten, § 38 Pflichten der Geschäftsleitung |
 
 # Übung: Wer macht was im Incident?
 
@@ -192,10 +252,15 @@ Die Leitfragen 1–30 des Skripts bilden die Klausurbasis, 31–40 dienen der Ve
 12. Welche Meldepflichten ergeben sich aus DSGVO und NIS-2?
 13. Nennen Sie drei typische Konfliktlinien und wie eine Governance-Matrix hilft.
 14. Transfer: Was unterscheidet eine resiliente von einer robusten Organisation aus Sicht der Verantwortlichkeitsstruktur?
+15. Erläutern Sie am Fall Target 2013, warum funktionierende Erkennung allein keine Resilienz schafft.
+16. Welche Rollen und Meldewege hätten im Fall Uber 2016 die Vertuschung verhindert?
+17. Ordnen Sie die externen Akteure im Fall Uniklinik Düsseldorf 2020 den CERT-Ebenen zu.
 
 **Zusammenfassung:** Rollen sind das organisatorische Immunsystem der Cyber-Resilienz. CISO, SOC und CERT bilden das Kern-Trio, unterstützt von DPO, BCM, IT Ops und Management. Klare Zuständigkeiten, getestete Eskalationswege und abgestimmte Kommunikation sind Resilienz in Aktion. „Struktur ist das Skelett der Resilienz – Kommunikation ist ihr Nervensystem.“
 
 # Vor- und Nachbereitung
+
+**Hausaufgabe:** Ergänzen Sie Ihre Rollenkarte aus Termin 5 um zwei Zeilen: Wer darf einen Restore aus dem Backup freigeben – und wann wurde zuletzt ein Restore getestet? Finden Sie für Ihre Organisation heraus, ob es darauf eine Antwort gibt.
 
 **Ausblick Termin 7:** Technische Resilienzmaßnahmen I – Backup, Disaster Recovery und Notfalltests.
 
