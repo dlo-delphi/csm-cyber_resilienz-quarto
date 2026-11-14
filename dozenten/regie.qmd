@@ -5,7 +5,7 @@ subtitle: "Sprechernotizen und didaktische Hinweise aus den Unterlagen WS 2025/2
 
 Nur für Lehrende. Die Hinweise zu Termin 1 und 6–10 stammen aus den Sprechernotizen des Foliensatzes zu Termin 1 und aus den didaktischen Abschnitten der Skripte; sie wurden nicht ergänzt.
 
-Die Termine 2–5 sind auf die neue Folienstruktur umgestellt (reale Fälle, Sprechernotizen auf jeder Folie). Ihre Regie ergänzt die Sprechernotizen, statt sie zu wiederholen: Ablauf mit Zeitrichtwerten, Fragen ans Plenum mit erwarteten Antworten, Fallstricke bei den Fällen, Durchführung und Auswertung der Übung sowie die Brücke zum nächsten Termin. Die ausführlichen Notizen stehen in den Foliensätzen (`Präsentationen/Termin-NN/main.qmd`, Präsentatoransicht mit Taste S).
+Die Termine 2–7 sind auf die neue Folienstruktur umgestellt (reale Fälle, Sprechernotizen auf jeder Folie). Ihre Regie ergänzt die Sprechernotizen, statt sie zu wiederholen: Ablauf mit Zeitrichtwerten, Fragen ans Plenum mit erwarteten Antworten, Fallstricke bei den Fällen, Durchführung und Auswertung der Übung sowie die Brücke zum nächsten Termin. Die ausführlichen Notizen stehen in den Foliensätzen (`Präsentationen/Termin-NN/main.qmd`, Präsentatoransicht mit Taste S).
 
 **Zur Zeitplanung:** Die Dauer einer Sitzung ist in den Unterlagen nicht festgelegt. Die Zeitrichtwerte ergeben je Termin rund zwei Stunden; für eine 90-Minuten-Sitzung ist jeweils eine Kürzungsvariante angegeben.
 
@@ -323,7 +323,77 @@ Die Hausaufgabe (zwei Zeilen in der Rollenkarte: Wer gibt einen Restore frei, wa
 
 # Termin 7 – Technische Resilienz I
 
-„Plan the Worst Day“ ist für 90 Minuten in drei Teilen à 30 Minuten angelegt und verbindet Analyse, Design, Abstimmung und Präsentation.
+**Roter Faden:** Gibt es eine saubere Kopie – und funktioniert der Weg zurück? Drei Säulen, je zwei Fälle: Backup (CloudNordic, Universität Kyoto, dazu UniSuper als positives Gegenstück), Disaster Recovery (British Library, Universität Gießen), Tests (Delta Air Lines). Am Ende fügt die Synthesefolie die Fälle zusammen.
+
+**Fälle:** CloudNordic 2023 (Einstieg), Universität Kyoto 2021, UniSuper 2024, British Library 2023, Universität Gießen 2019 (regional, Hessen), Delta Air Lines 2016. Diagramme: `python assets/diagramme_termin07.py`; vorheriger Stand: `Präsentationen/Termin-07/mainold.qmd`.
+
+## Ablauf
+
+Die Sitzung hat zwei Varianten, weil die Übung laut Skript allein 90 Minuten braucht.
+
+**Variante A – Vorlesung mit Kurzübung (rund 120 Minuten):**
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Hausaufgabe: Wer gibt den Restore frei, wann zuletzt getestet? |
+| Fall CloudNordic | Einstieg: CloudNordic 2023 | 8 | Frage stellen, Antworten sammeln, auf Zero-Trust-Backup verweisen |
+| Grundlagen | Warum Backups, Backup vs. Archiv vs. Redundanz | 8 | Kontrollfrage: versehentlich gelöschte Tabelle |
+| Fall Kyoto | Universität Kyoto 2021 | 6 | Kein Angreifer – welche Ursache aus der Liste? |
+| Regel und Typen | 3-2-1-1-0, Backup-Typen, Architekturen | 12 | CloudNordic und Kyoto den Ziffern zuordnen |
+| Fall UniSuper | UniSuper 2024 | 7 | „Offsite“ als andere Schadensdomäne |
+| Isolation | Air-Gap & Immutable, Zero-Trust-Backup | 8 | Prüffrage an die Tafel schreiben |
+| DR-Grundlagen | Was ist DR?, RPO & RTO, RTO-Kette | 12 | Hausaufgabe in die Kette einordnen (Freigabe) |
+| Fall British Library | British Library 2023 | 7 | Auf den Bericht der Bibliothek hinweisen |
+| Strategien und Reihenfolge | DR-Strategien, Abhängigkeiten | 8 | Henne-Ei-Problem des Backup-Systems |
+| Fall Gießen | Universität Gießen 2019, Typische DR-Fehler | 9 | Fehler den Fällen zuordnen |
+| Tests | Notfalltests, Delta 2016, Chaos Engineering | 12 | Welche Testform hätte die Lücke gefunden? |
+| Kurzübung | Plan the Worst Day, nur Teil 2 | 12 | Reihenfolge für die sechs Systeme, zu zweit |
+| Abschluss | Was die Fälle zeigen, Kernpunkte, Ausblick | 8 | Spalte „Lehre“ abdecken; Hausaufgabe erklären |
+
+Summe rund 122 Minuten. **Kürzung auf 90 Minuten:** Backup-Typen und Architekturen nur zeigen (−6), Kyoto in zwei Sätzen (−3), Air-Gap-Folie überspringen und bei Zero-Trust-Backup mit erklären (−3), „Was ist DR?“ in einem Satz (−2), DR-Strategien nur zeigen (−3), Typische DR-Fehler überspringen (−3), Chaos Engineering mit Verweis auf Sitzung 3 überspringen (−3), Kurzübung als Plenumsfrage (−7), Abschluss ohne Abdecken der Spalte (−2).
+
+**Variante B – volle Übung:** Vorlesungsteil in rund 45 Minuten (Fälle CloudNordic, UniSuper, British Library und Gießen ausführlich; Kyoto und Delta nur in der Synthesetabelle; Grundlagenfolien zur Selbstlektüre im Skript), danach „Plan the Worst Day“ in voller Länge. Sinnvoll, wenn eine Doppelsitzung oder ein Übungstermin zur Verfügung steht.
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg CloudNordic | Es gab zwei Backup-Ebenen. Warum hat keine geholfen? | Alle Ebenen waren aus demselben Netz und über dieselbe Verwaltung erreichbar; keine Kopie war isoliert oder unveränderbar. |
+| Backup vs. Archiv vs. Redundanz | Jemand löscht versehentlich eine Tabelle. Was hilft? | Nur das Backup. Die Redundanz hat die Löschung gespiegelt, das Archiv enthält keinen aktuellen Systemstand. |
+| Universität Kyoto | Welche Ziffer der Regel fehlte? | Die „3“: Für vier Gruppen gab es nur eine Sicherungsebene. Dazu fehlte Change-Management für das Backup-System. |
+| UniSuper | Warum half die Georedundanz nicht? | Beide Standorte hingen an derselben Steuerungsebene und demselben Vertrag; die Löschung wirkte auf beide. |
+| Zero-Trust-Backup | Kann ein kompromittierter Domänen-Admin die Backups löschen? | Sollte „nein“ sein: eigene Konten, MFA, eigenes Netzsegment, unveränderbare Kopie, Vier-Augen-Prinzip beim Löschen. |
+| RPO & RTO | RTO eine Stunde bei täglichem Backup und Cold Standby – passt das? | Nein. RPO wäre bis zu 24 Stunden, und ein Cold Standby läuft nicht in einer Stunde an. |
+| RTO-Kette | Welcher Block fehlt in jeder Backup-Statistik? | Entscheidung und Freigabe, Bereinigung, Aufbau der Infrastruktur, Abnahme. Gemessen wird meist nur das Zurückspielen. |
+| British Library | Was hätte die Wiederherstellung verkürzt? | Aktuelle, unterstützte Systeme und eine vorbereitete Zielumgebung; geübte Notfallpläne für den Totalausfall. |
+| Universität Gießen | Warum kamen die Passwörter zuerst? | Ohne vertrauenswürdige Identitäten darf kein Dienst wieder geöffnet werden; alle Zugangsdaten galten als kompromittiert. |
+| Delta | Welche Testform hätte die Lücke gefunden? | Full Failover oder ein kontrollierter Ausfall. Tabletop und Dry Run prüfen die Verkabelung nicht. |
+
+## Fallstricke
+
+- **CloudNordic:** „Alle Kunden haben alles verloren“ ist zu stark. Der Anbieter schrieb, die Mehrheit der Kunden habe alle bei ihm liegenden Daten verloren; wer eine eigene Kopie hatte, konnte wiederherstellen. Die Zahl „mehrere hundert Unternehmen“ stammt aus dänischen Medien. Die Originalmitteilung ist nicht mehr online.
+- **UniSuper:** Nicht „Google hat die Backups gelöscht“. Google gibt an, Sicherungen in Google Cloud Storage seien nicht betroffen gewesen; UniSuper hebt die Backups bei einem zusätzlichen Anbieter hervor. Beide Aussagen stehen nebeneinander. Die Dauer (2. bis 15. Mai) stammt aus Medienberichten, die Mitgliederzahl schwankt je nach Quelle zwischen 620.000 und 647.000 – auf der Folie steht deshalb „mehr als 600.000“ nur in den Notizen.
+- **Kyoto:** Die Universität spricht von einem Fehler im Backup-Programm des Herstellers. Gelöscht wurden Nutzerdateien im Speichersystem /LARGE0, nicht „das Backup“.
+- **British Library:** Der Bericht nennt keinen Gesamtschaden. Summen aus Medienberichten stehen deshalb nicht in den Unterlagen. Die fehlende Mehrfaktor-Authentifizierung hat laut Bericht „beigetragen“; der genaue Einstiegsweg ist nicht bestätigt.
+- **Gießen:** Kein Datenverlust-Fall. Nach Angaben der Universität blieben die Daten durch das Herunterfahren geschützt. Der Fall steht für Wiederanlauf und Reihenfolge. „Emotet“ als Einfallstor beruht auf Berichten; die Universität nannte Ryuk.
+- **Delta:** Kein Cyberangriff. Der Satz „ein realer Umschalttest hätte sie gezeigt“ ist unsere Schlussfolgerung; ob und wie Delta getestet hatte, ist nicht veröffentlicht.
+- **RTO-Kette:** Schematische Ergänzung, keine Normdefinition. In der Klausur gilt die Definition aus dem Skript.
+- **Mindesterwartung an Tests** (monatlich, vierteljährlich, jährlich): Angabe des Skripts, keine Normvorgabe.
+- **Übungsszenario:** Im Skript ist es das Rechenzentrum der Hochschule Mainz, ausdrücklich simuliert. Zum realen Vorfall von 2025 gilt weiter die Regel aus Termin 4: nur veröffentlichte Angaben.
+
+## Übung „Plan the Worst Day“
+
+**Durchführung:** „Plan the Worst Day“ ist für 90 Minuten in drei Teilen à 30 Minuten angelegt und verbindet Analyse, Design, Abstimmung und Präsentation. Gruppen zu vier bis fünf Personen. Ergebnisse: Tabelle je System (Teil 1), DR-Plan als Diagramm mit Priorisierung (Teil 2), Jahres-Testplan mit Erfolgsindikatoren (Teil 3). In Variante A nur Teil 2 als Kurzübung; Teil 1 und 3 als freiwillige Nachbereitung.
+
+**Spickzettel aus den Fällen:** Kann euer Domänen-Admin die Backups löschen (CloudNordic)? Liegt eine Kopie außerhalb der Steuerungsebene (UniSuper)? Wohin spielt ihr zurück (British Library)? Was kommt zuerst (Gießen)? Welcher Test findet die unbekannte Lücke (Delta)?
+
+**Erwartete Kernpunkte:** Reihenfolge Infrastruktur → Identity/AD und DNS → Prüfungsdatenbank und Fileservices → E-Mail und Lernplattform → Webseite; die Webseite kann als statische Notseite früher zurückkommen (Kommunikation). Niedrigstes RPO für die Prüfungsdatenbank, kürzeste RTO für Identity. Für AD eine eigene, getrennte Sicherung und ein dokumentiertes Wiederherstellungsverfahren. Eine unveränderbare Offsite-Kopie für alle sechs Systeme. Testplan: monatliche Restore-Tests je System im Wechsel, vierteljährlich Tabletop, einmal im Jahr eine reale Umschaltung für mindestens ein Kernsystem.
+
+**Auswertung:** Zwei Gruppen stellen ihre Reihenfolge vor; die übrigen nennen nur Abweichungen. Rückfragen: Woher kommt die RTO – aus der IT oder aus dem Prüfungsamt? Was passiert, wenn das Backup-System selbst am AD hängt? Wer gibt den Restore frei (Rollenkarte aus Sitzung 6)?
+
+## Brücke
+
+Die Hausaufgabe (Prüffrage: Kann ein kompromittierter Administrator die Backups löschen? Skizze der Konten und Netzgrenzen zwischen Produktion und Backup) eröffnet Termin 8. Die Skizzen zeigen meist flache Netze und ein gemeinsames Verzeichnis – der Einstieg in Zero Trust und Microsegmentation.
 
 # Termin 9 – Sonderthemen
 

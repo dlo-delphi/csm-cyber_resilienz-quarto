@@ -78,6 +78,16 @@ Dies hat das Backup-Paradigma verändert: Backups müssen heute **manipulationss
 
 Damit wird deutlich: Resilienz entsteht nicht allein durch die Existenz von Backups, sondern durch deren Fähigkeit, **im Ernstfall zu überleben**.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: CloudNordic 2023"}
+Am 18. August 2023 gegen 4 Uhr legte Ransomware die dänischen Hosting-Anbieter CloudNordic und AzeroCloud vollständig lahm. Nach Darstellung des Unternehmens verschlüsselten die Angreifer die Platten aller Server sowie das primäre und das sekundäre Backup-System. Der Angriff fiel in einen Umzug in ein anderes Rechenzentrum: Bereits infizierte Server wurden dabei an das interne Netz angeschlossen, über das auch die zentrale Verwaltung und die Backup-Systeme erreichbar waren. Der Anbieter zahlte kein Lösegeld; Hinweise auf einen Datenabfluss gab es nach seinen Angaben nicht. Wiederherstellen ließ sich kaum etwas – die meisten Kunden verloren alle Daten, die dort lagen.
+
+Der Fall zeigt, was „isoliert“ bedeutet: Zwei Backup-Ebenen helfen nicht, wenn sie aus demselben Netz und über dieselbe Verwaltung erreichbar sind wie die Produktion. Für die Kunden zeigt er die Kehrseite der geteilten Verantwortung: Wer seine einzige Sicherung beim Hoster hatte, besaß keine eigene Kopie.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![CloudNordic 2023: Produktion und beide Backup-Ebenen in einem Netz](../Präsentationen/Termin-07/assets/cloudnordic-2023.png){fig-alt="Kundenserver, primäres und sekundäres Backup in einem internen Netz, über die zentrale Verwaltung alle verschlüsselt" width="70%"}
+
 ## 2.3 Organisatorische Auswirkungen unzureichender Backups
 
 Unternehmen, die nach einem Vorfall keine funktionierenden Backups haben, stehen oft vor existenziellen Problemen:
@@ -185,6 +195,16 @@ Beispiele:
 
 **Wichtig:**
 Redundanz löst keine logischen Probleme (z. B. versehentlich gelöschte Dateien, korrupte Datenbanken oder Ransomware). Redundante Systeme spiegeln Fehler oft nur schneller.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Universität Kyoto 2021"}
+Zwischen dem 14. und 16. Dezember 2021 löschte das Backup-Programm des Supercomputers der Universität Kyoto Dateien im Speichersystem /LARGE0. Der Hersteller hatte ein Skript geändert, das Logdateien löschen sollte, die älter als zehn Tage waren; weil es während der Ausführung überschrieben wurde, traf der Löschbefehl Nutzdaten. Betroffen waren rund 77 Terabyte, rund 34 Millionen Dateien von 14 Forschungsgruppen. Zehn Gruppen erhielten ihre Daten aus einer Sicherung zurück; für vier Gruppen gab es keine weitere Kopie, ihre Daten waren endgültig verloren. Der Hersteller übernahm in einem von der Universität veröffentlichten Schreiben die volle Verantwortung.
+
+Ein Angreifer war nicht beteiligt. Der Fall gehört zu den im Skript genannten Ursachen „falsche Skriptausführungen“ und „Softwarefehler“ – mit der Besonderheit, dass das Backup-System selbst die Ursache war. Es hat weitreichende Rechte auf Produktivdaten; Änderungen daran brauchen dasselbe Change-Management wie jede andere Änderung. Und eine einzige Sicherungsebene ist keine „3“.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Universität Kyoto 2021: Das Backup-Programm löscht](../Präsentationen/Termin-07/assets/kyoto-2021.png){fig-alt="Update des Backup-Skripts, fehlerhafter Löschbefehl, 34 Millionen Dateien von 14 Gruppen gelöscht; zehn Gruppen wiederhergestellt, vier Gruppen ohne Backup" width="70%"}
 
 ## 3.4 Typische Missverständnisse in der Praxis
 
@@ -556,6 +576,16 @@ In der Realität gilt:
 
 Dies wurde bereits in zahlreichen Fällen deutlich, etwa durch falsch konfigurierte AWS-S3-Buckets, gelöschte Cloud-Datenbanken oder kompromittierte Zugänge zu Cloud-Nutzerkonten.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: UniSuper und Google Cloud 2024"}
+Am 2. Mai 2024 verlor der australische Pensionsfonds UniSuper den Zugriff auf seine Private Cloud bei Google Cloud. Ursache war nach Angaben von Google ein Parameter, der bei der Einrichtung Anfang 2023 leer geblieben war: Das System setzte dadurch eine feste Laufzeit von einem Jahr und löschte die Umgebung an deren Ende automatisch – ohne Warnung an den Kunden, weil die Löschung nicht von ihm ausging. UniSuper hatte die Umgebung über zwei Standorte gespiegelt; die Löschung traf beide. Mehr als 600.000 Mitglieder konnten über eine Woche nicht auf ihre Konten zugreifen, die volle Wiederherstellung dauerte rund zwei Wochen. In einer gemeinsamen Erklärung der beiden Unternehmenschefs heißt es, die Backups bei einem zusätzlichen Anbieter hätten den Datenverlust minimiert und die Wiederherstellung deutlich erleichtert.
+
+Der Fall ist das positive Gegenstück zu CloudNordic. Georedundanz ist Redundanz: Sie schützt vor dem Ausfall eines Standorts, nicht vor einer Löschung über die gemeinsame Steuerungsebene. Die „1“ der 3-2-1-1-0-Regel bedeutet heute: eine Kopie außerhalb der Schadensdomäne – technisch und vertraglich.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![UniSuper 2024: Kopie außerhalb der Steuerungsebene](../Präsentationen/Termin-07/assets/unisuper-2024.png){fig-alt="Zwei Standorte unter einem Vertrag gelöscht, Backup bei einem anderen Anbieter nicht betroffen" width="70%"}
+
 ## 6.6 Architekturentscheidungen und Risikoprofile
 
 Backup-Architekturen sollten immer risikobasiert entwickelt werden:
@@ -672,6 +702,18 @@ RPO = Datenverlust
 
 Beide Metriken bestimmen gemeinsam die DR-Anforderungen.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: Die RTO ist mehr als die Restore-Zeit – British Library 2023"}
+Die RTO umfasst mehr als die Zeit, in der Daten zurückgespielt werden. Dazu gehören das Erkennen, die Entscheidung und Freigabe des Restores, das Bereinigen und der Aufbau der Infrastruktur, das Zurückspielen selbst sowie die Prüfung und Freigabe des Betriebs. Der übliche Restore-Test misst nur den vierten Schritt. Nach einem Ransomware-Angriff kommt die Frage hinzu, welcher Sicherungsstand sauber ist; sind die Angreifer seit Wochen im Netz, steigt faktisch auch das RPO.
+
+Die British Library ist ein Beispiel für den dritten Schritt. Am 28. Oktober 2023 wurde ein Ransomware-Angriff sichtbar, bei dem große Teile der Serverlandschaft verschlüsselt oder zerstört und rund 600 Gigabyte kopiert wurden; die Bibliothek zahlte kein Lösegeld. Nach ihrem eigenen Bericht vom 8. März 2024 existieren Sicherungskopien der digitalen Sammlungen. Es fehlte die Infrastruktur, um sie zurückzuspielen: Viele Altsysteme ließen sich nicht wiederherstellen, weil sie technisch veraltet waren, keinen Herstellersupport mehr hatten oder in einer sicheren Umgebung nicht lauffähig sind. Der Online-Katalog war erst am 15. Januar 2024 wieder durchsuchbar; der Neuaufbau ist in Phasen von sechs und 18 Monaten angelegt. Der Bericht zieht 16 Lehren, darunter: Systemlebenszyklen aktiv steuern und Notfallpläne für den Totalausfall üben.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Bestandteile der RTO (schematisch)](../Präsentationen/Termin-07/assets/rto-bestandteile.png){fig-alt="Erkennen, Entscheiden und Freigeben, Bereinigen und Infrastruktur, Daten zurückspielen, Prüfen und Freigeben; der Restore-Test misst nur das Zurückspielen" width="70%"}
+
+![British Library 2023: Daten vorhanden, Infrastruktur fehlt](../Präsentationen/Termin-07/assets/british-library-2023.png){fig-alt="Sicherungskopien vorhanden, Server zerstört und Altsysteme nicht wiederherstellbar; Katalog am 15. Januar 2024 zurück, Neuaufbau 18 Monate" width="70%"}
+
 ## 7.5 DR-Strategien
 
 Organisationen wählen DR-Strategien entsprechend ihrer RTO/RPO-Ziele und ihres Budgets.
@@ -741,6 +783,18 @@ In der Praxis scheitern viele DR-Pläne an unbekannten Abhängigkeiten:
 - Applikationen sind auf Middleware angewiesen
 
 **Eine fehlerhafte Reihenfolge macht DR oft wirkungslos.**
+
+![Wiederanlauf folgt den Abhängigkeiten](../Präsentationen/Termin-07/assets/wiederanlauf-reihenfolge.png){fig-alt="Fünf Schichten von unten nach oben: Strom, Netz, Storage und Virtualisierung; Identität und Namensdienste; Datenbanken und Fileservices; Anwendungen; Öffnung für Nutzer" width="65%"}
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Universität Gießen 2019"}
+Am 8. Dezember 2019 erkannte die Justus-Liebig-Universität Gießen einen Cyberangriff und fuhr alle Server herunter; gegen 18 Uhr war sie vollständig offline (#JLUoffline). Nach Angaben der Universität blieben die wissenschaftlichen Daten und die Datenbestände der Verwaltung durch das frühe Herunterfahren geschützt. Die Zeit kostete der Wiederaufbau: Rund 38.000 Passwörter wurden zurückgesetzt und gegen Ausweis persönlich ausgegeben, mehrere tausend Windows-Rechner einzeln geprüft. Die E-Mail lief am 20. Dezember wieder, Website und Lernplattform am 6. Januar 2020, das Verwaltungsnetz am 17. Februar, alle großen Teilnetze am 6. März. Die Universität beziffert die Kosten bis Mai 2020 auf rund 1,7 Millionen Euro.
+
+Die Reihenfolge folgt den Abhängigkeiten: erst Identitäten, dann Kommunikation, dann Lehre, dann Verwaltung. Sie zeigt auch, dass der erste Schritt – neue Zugangsdaten für alle – ohne funktionierende IT organisiert werden muss.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Universität Gießen 2019/20: Wiederanlauf in Etappen](../Präsentationen/Termin-07/assets/giessen-2019-zeitleiste.png){fig-alt="Zeitleiste vom 8. Dezember 2019 bis 6. März 2020: Server heruntergefahren, Passwörter zurückgesetzt, E-Mail, Website und Lernplattform, Verwaltungsnetz, alle großen Teilnetze" width="70%"}
 
 ## 7.7 Dokumentation als Erfolgsfaktor
 
@@ -843,6 +897,16 @@ Reale Umschaltung der Systeme in die DR-Umgebung:
 - potenzielle Risiken für Produktivbetrieb
 
 - benötigt gute Planung
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Delta Air Lines 2016"}
+Am 8. August 2016 fiel im Rechenzentrum von Delta Air Lines in Atlanta ein Stromschaltmodul aus und geriet in Brand. Die Umschaltung auf den Reservestrom griff, doch rund 300 der etwa 7.000 Server waren nicht daran angeschlossen. Sie antworteten nicht mehr, und wegen der Abhängigkeiten fiel das Gesamtsystem aus. Delta strich rund 2.300 Flüge und bezifferte den Umsatzausfall auf rund 100 Millionen US-Dollar. Der Vorstandschef nannte die Lücke öffentlich unentdeckt und übernahm die Verantwortung.
+
+Ob und wie die Umschaltung zuvor getestet wurde, ist nicht veröffentlicht. Der Fall zeigt aber, welche Testform solche Lücken findet: Ein Tabletop nicht, ein Dry Run kaum – eine reale Umschaltung unter Last oder ein kontrollierter Ausfall schon. Gut vier Prozent der Server genügten für den Gesamtausfall.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Delta Air Lines 2016: unentdeckte Lücke im Reservestrom](../Präsentationen/Termin-07/assets/delta-2016.png){fig-alt="Rund 6.700 Server an beiden Stromwegen laufen wieder an, rund 300 Server ohne Reservestrom; Gesamtsystem fällt aus" width="70%"}
 
 ### 4. Blackhole-Tests / Controlled Outage
 
@@ -1045,6 +1109,8 @@ Viele Organisationen testen nicht aus Sorge vor Betriebsunterbrechungen. Das fü
 - Netzwerksegmentierung
 
 - Immutable Medien
+
+![Trennung von Produktion und Backup-Umgebung](../Präsentationen/Termin-07/assets/backup-isolation.png){fig-alt="Produktion links, Backup-Umgebung mit eigenen Konten, eigenem Netzsegment und unveränderbarer Kopie rechts; kein gemeinsames Konto" width="60%"}
 
 ### 2. Regelmäßige Restore-Tests
 
