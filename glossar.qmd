@@ -68,6 +68,10 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 # Begriffe der Cyber-Resilienz
 
+**3-2-1-1-0-Regel** – Drei Kopien der Daten auf zwei Medientypen, eine davon außerhalb des Standorts, eine unveränderbar oder physisch getrennt, null Fehler im Restore-Test. „Außerhalb“ meint eine andere Schadensdomäne: anderes Netz, andere Konten, bei Cloud-Diensten eine andere Steuerungsebene (Fälle CloudNordic 2023, UniSuper 2024). (7)
+
+**Air-Gap** – Trennung einer Sicherungskopie von der Produktion: physisch (ausgelagertes Band) oder logisch (zeitlich und technisch kontrollierter Zugang). Schützt gegen Löschung und Verschlüsselung über das Netz. (7)
+
 **Availability Zone (AZ) / Multi-AZ-Deployment** – Eine AZ ist ein physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region mit eigener Strom-, Kühlungs- und Netzversorgung. Beim Multi-AZ-Deployment läuft ein Dienst gleichzeitig in mehreren AZs; fällt eine Zone aus, übernehmen die anderen, etwa über Load Balancer und synchron gespiegelte Datenbanken. Resilienz entsteht erst durch diese tatsächliche Verteilung. Multi-AZ schützt gegen den Ausfall eines Standorts, nicht gegen die Störung einer ganzen Region (→ Multi-Region-Design). (3)
 
 **Backup (vs. Recovery)** – Die existierende Kopie von Daten oder Systemzuständen. Resilienz entsteht nicht durch das Vorhandensein, sondern durch die Fähigkeit, innerhalb der RTO/RPO-Ziele wiederherzustellen. „Backup ohne Restore-Test“ ist Scheinsicherheit. (3, 4, 7)
@@ -110,9 +114,15 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 **Resilienzzyklus** – Detection → Response → Recovery → Adapt; wiederkehrender Prozess, mit dem eine Organisation Störungen erkennt, bewältigt und daraus lernt. (5)
 
+**Restore-Test** – Nachweis, dass sich Daten aus einer Sicherung tatsächlich zurückspielen lassen. Misst nur einen Teil der RTO; Entscheidung, Bereinigung, Infrastruktur und Abnahme kommen hinzu. (7)
+
 **Shared Responsibility Model** – Der Cloud-Anbieter sichert die Infrastruktur; Daten, IAM-Konfiguration, Backups und Zugänge verantwortet der Kunde. (7, 8)
 
+**Steuerungsebene (Control Plane)** – Verwaltungsschicht, über die Ressourcen angelegt, geändert und gelöscht werden, etwa die Konsole eines Cloud-Anbieters oder die zentrale Serververwaltung. Eine Kopie, die über dieselbe Steuerungsebene gelöscht werden kann wie das Original, ist Redundanz, kein Backup (Fall UniSuper 2024). (7)
+
 **Threat-to-Resilience-Mapping** – Bedrohungen werden nicht mit Präventionsmaßnahmen, sondern mit Resilienzfähigkeiten beantwortet. Ziel ist die Minimierung des Effekts. (4)
+
+**Wiederanlaufreihenfolge** – Reihenfolge, in der Systeme nach einem Ausfall wiederhergestellt werden; sie folgt den technischen Abhängigkeiten (Infrastruktur, Identität und Namensdienste, Datenbanken, Anwendungen, Öffnung für Nutzer), nicht der Sichtbarkeit der Dienste (Fall Universität Gießen 2019). (7)
 
 **Zero Trust** – Sicherheits- und Resilienzkonzept ohne implizites Vertrauen: Jeder Zugriff wird explizit, kontextabhängig und fortlaufend autorisiert. (4, 8)
 

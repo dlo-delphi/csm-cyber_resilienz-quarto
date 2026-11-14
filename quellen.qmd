@@ -67,18 +67,30 @@ Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 6 belegen die
 - Caesars Entertainment und MGM Resorts, Cyberangriffe im September 2023: [Caesars, Form 8-K vom 14.09.2023](https://www.sec.gov/Archives/edgar/data/1590895/000119312523235015/d537840d8k.htm), [MGM Resorts, Form 8-K vom 05.10.2023](https://capedge.com/filing/789570/0001193125-23-251667/MGM-8K) und [AP, 06.10.2023](https://www.wsls.com/business/2023/10/06/cyberattack-at-mgm-resorts-expected-to-cost-casino-giant-100-million/); die Lösegeldsumme von Caesars beruht auf Berichten von Wall Street Journal und Bloomberg
 - BSI-Gesetz in der Fassung des NIS2UmsuCG (in Kraft seit 6. Dezember 2025), § 32 Meldepflichten und § 38 Pflichten der Geschäftsleitung: [BSIG 2025](https://www.gesetze-im-internet.de/bsig_2025/)
 
+## Reale Fallbeispiele in den Folien zu Termin 7
+
+Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 7 belegen Backup, Disaster Recovery und Notfalltests mit dokumentierten Vorfällen.
+
+- CloudNordic und AzeroCloud, Ransomware am 18. August 2023: [TechCrunch, 23.08.2023 (mit Übersetzung der Mitteilung des Anbieters)](https://techcrunch.com/2023/08/23/cloudnordic-azero-cloud-host-ransomware/), [Data Center Dynamics](https://www.datacenterdynamics.com/en/news/danish-hosting-firms-lose-all-customer-data-in-ransomware-attack/) und [SC Media](https://scmagazine.com/brief/cloudnordic-azerocloud-hit-by-severe-ransomware-attacks); die ursprüngliche Mitteilung des Anbieters ist nicht mehr online
+- Universität Kyoto, Datenverlust im Supercomputer-Speicher vom 14. bis 16. Dezember 2021: [Universität Kyoto, Mitteilung des Rechenzentrums](https://www.iimc.kyoto-u.ac.jp/en/news/trouble/211216056978), [The Stack](https://thestack.technology/supercomputer-files-deleted-kyoto-university-hpe/) und [SDxCentral](https://www.sdxcentral.com/articles/news/flawed-hpe-software-update-erases-34m-kyoto-university-research-files/2022/01/)
+- UniSuper und Google Cloud, Löschung der Private Cloud im Mai 2024: [Gemeinsame Erklärung von UniSuper und Google Cloud, 08.05.2024](https://unisuper.com.au/about-us/media-centre/2024/a-joint-statement-from-unisuper-and-google-cloud), [Google Cloud, Sharing details on a recent incident impacting one of our customers, 24.05.2024](https://cloud.google.com/blog/products/infrastructure/details-of-google-cloud-gcve-incident/) und [iTnews](https://www.itnews.com.au/news/unisupers-google-cloud-deletion-traced-to-blank-parameter-in-setup-608286); Dauer bis zur vollen Wiederherstellung (2. bis 15. Mai) nach Medienberichten
+- British Library, Ransomware-Angriff vom 28. Oktober 2023: [British Library, Learning Lessons from the Cyber-Attack, 08.03.2024 (PDF)](https://www.bl.uk/home/british-library-cyber-incident-review-8-march-2024.pdf)
+- Justus-Liebig-Universität Gießen, Cyberangriff vom 8. Dezember 2019: [Forschung & Lehre, Interview mit der Kanzlerin und Chronologie, 03.08.2023](https://www.forschung-und-lehre.de/management/wie-schuetzen-sich-universitaeten-vor-cyberangriffen-5813), [JLU, Pressemitteilung zum Meilensteinplan](https://www.uni-giessen.de/de/ueber-uns/pressestelle/pm/pm02-02schrittfuerschrittaufdemwegzu%23jluoffline), [JLU, Seite #JLUoffline](https://www.uni-giessen.de/de/jluoffline/oflineinhalt) und [zm-online](https://www.zm-online.de/news/gesellschaft/justus-liebig-universitaet-ist-wieder-online)
+- Delta Air Lines, Ausfall des Rechenzentrums am 8. August 2016: [Atlanta Journal-Constitution, 10.08.2016](https://www.ajc.com/business/delta-computer-risk-went-undetected-ceo-says/V2H5CYl4Nsbn57x8T5ISvM) und [Star Tribune, 03.09.2016](https://www.startribune.com/system-outage-at-delta-cost-the-airline-100-million-in-revenue/392143951/)
+- Die Darstellung „Die RTO ist mehr als die Restore-Zeit“ ist eine schematische Ergänzung der Lehrveranstaltung, keine Normvorgabe
+
 # Normen und Rahmenwerke
 
 | Referenz | Verwendung in der Lehrveranstaltung | Termine |
 |---|---|---|
 | NIST SP 800-160 Vol. 2 [@nist800160v2r1] | Cyber Resilience Engineering; Resilienz als Fähigkeit unter Störung | 1–4 |
-| ISO/IEC 27031 [@iso27031] | IKT-Bereitschaft für Business Continuity; Tests statt Dokumentation | 1–4 |
+| ISO/IEC 27031 [@iso27031] | IKT-Bereitschaft für Business Continuity; Tests statt Dokumentation | 1–4, 7 |
 | BSI-Standard 200-4 [@bsi2004] | Business Continuity Management; Stufen- und Reifegradlogik, Übungen | 1–7, 9 |
 | ENISA-Leitfäden | Sektorale Resilienz, DDoS, Supply Chain, Incident Management, ICS | 1–6, 9 |
 | ISO 22316 [@iso22316] | Organisationale Resilienz | 5–6 |
 | ISO/IEC 27035 [@iso27035] | Incident-Management-Prozess | 5–6 |
 | NIST SP 800-61 [@nist80061r2; @nist80061r3] | Incident Handling, Rollen und Kommunikation | 5–6 |
-| ISO 22301 [@iso22301], ISO 22320 [@iso22320] | BCMS und Krisenmanagement | 5–6 |
+| ISO 22301 [@iso22301], ISO 22320 [@iso22320] | BCMS und Krisenmanagement | 5–7 |
 | ISO/IEC 27001 [@iso27001] | ISMS, Rollen und Verantwortlichkeiten | 5–6, 9 |
 | NIS-2-Richtlinie [@nis2], DSGVO [@dsgvo] | Verantwortung der Leitung, Meldepflichten | 5–6 |
 | NIST SP 800-34 [@nist80034r1] | Notfallplanung und Tests | 7 |
