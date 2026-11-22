@@ -21,9 +21,22 @@ Nach diesem Termin können Studierende
 - erklären, wie laterale Bewegung verhindert wird,
 - Cloud-Strukturen resilient gestalten,
 - Netzarchitektur als Resilienzinstrument nutzen,
-- das Zusammenspiel der vier Ansätze begründen und priorisieren.
+- das Zusammenspiel der vier Ansätze begründen und priorisieren,
+- an realen Fällen begründen, warum ein Passwort kein Zugang zum Netz sein darf, warum phishingresistente MFA zählt und warum Redundanz Unabhängigkeit braucht.
+
+# Einstieg: Colonial Pipeline 2021
+
+Am 7. Mai 2021 legte Ransomware das IT-Netz von Colonial Pipeline lahm, dem Betreiber der größten Treibstoffleitung der USA. Das Unternehmen schaltete die Pipeline vorsorglich ab, weil es eine Ausbreitung auf die Betriebstechnik nicht ausschließen konnte; der Neustart begann am 12. Mai. Die Leitung liefert rund 45 Prozent des Treibstoffs der US-Ostküste. Vor dem US-Senat erklärte der Vorstandschef im Juni 2021, die Angreifer hätten ein altes VPN-Profil genutzt, das nicht mehr in Gebrauch sein sollte – geschützt nur durch ein Passwort, ohne zweiten Faktor.
+
+![Colonial Pipeline 2021: ein Passwort, ein altes VPN-Profil](../Präsentationen/Termin-08/assets/colonial-2021.png){fig-alt="Gültiges Passwort, altes VPN-Profil ohne MFA, Ransomware im IT-Netz; Pipeline vorsorglich abgeschaltet" width="65%"}
+
+Das VPN fragte nur, ob jemand das Passwort kennt – nicht, wer es ist, mit welchem Gerät und ob das Konto noch gebraucht wird. Darum geht es in dieser Sitzung: Wie begrenzt Architektur den Schaden, wenn ein Zugang in falsche Hände gerät?
 
 # Fachinhalte
+
+## Rückblick
+
+Sitzung 7 hat das Backup von der Produktion getrennt: eine isolierte, unveränderbare Kopie, eigene Konten, ein eigenes Netzsegment. Die Prüffrage lautete: Kann ein kompromittierter Administrator die Backups löschen? Jetzt wird dasselbe Prinzip auf Zugänge, das interne Netz, die Cloud und das Netzdesign übertragen.
 
 ## Kontext: kontrollierte Verwundbarkeit
 
@@ -51,6 +64,12 @@ Cloud, mobile Arbeit, vernetzte Lieferketten, IoT-Produktion und Software-define
 
 Bausteine: IAM, PAM, Network Access Control, Endpoint Security und Device Posture, Policy Decision und Enforcement Points, Microsegmentation, Telemetrie/SIEM.
 
+![Jeder Zugriff wird einzeln entschieden (logische Bausteine nach NIST SP 800-207)](../Präsentationen/Termin-08/assets/zero-trust-entscheidung.png){fig-alt="Identität, Gerät und Kontext fließen in den Policy Decision Point; der Policy Enforcement Point gibt nur diese Sitzung frei" width="60%"}
+
+**Fall Twilio und Cloudflare (2022):** Im Juli und August 2022 erhielten Beschäftigte mehrerer Unternehmen SMS mit Links auf täuschend echte Login-Seiten. Bei Twilio gaben Beschäftigte dort ihre Zugangsdaten ein; die Angreifer erreichten interne Werkzeuge, betroffen waren 209 Kundenkonten und 93 Nutzer der App Authy. Bei Cloudflare gaben drei von mindestens 76 angeschriebenen Beschäftigten ihr Passwort ein – ein Zugriff gelang trotzdem nicht. Cloudflare verlangt für alle Anwendungen einen FIDO2-Hardwareschlüssel, der an die echte Domain gebunden ist. Die Seite der Angreifer leitete Passwort und Einmalcode in Echtzeit weiter; gegen den Schlüssel half das nicht. Twilio verteilte danach FIDO2-Token an alle Beschäftigten. **Starke Identität heißt phishingresistente Authentisierung.**
+
+![Twilio und Cloudflare 2022](../Präsentationen/Termin-08/assets/twilio-cloudflare-2022.png){fig-alt="Dieselbe Kampagne: Twilio mit 209 betroffenen Kunden, bei Cloudflare verhindert der FIDO2-Schlüssel den Zugriff" width="65%"}
+
 **Warum Zero Trust resilient macht:** begrenzt die Angriffsfläche, verhindert Eskalation, reduziert Kompromittierungsfolgen, unterstützt schnelle Recovery. **Zero Trust reduziert nicht die Wahrscheinlichkeit eines Angriffs, sondern die maximale Schadenswirkung.**
 
 **Typische Fehler:** „Zero Trust ist ein Produkt“; organisatorische Widerstände (Admins verlieren Vollzugriffe, Fachbereiche müssen Zugriffe begründen); Legacy- und OT-Systeme ohne moderne Authentisierung; Über-Optimismus („verhindert Angriffe“); zu großer Projektscope; fehlende Erfolgsmessung (etwa Reduktion überprivilegierter Konten, kürzere Incident-Response-Dauer). Zero Trust ist ein Weg, kein Zielzustand.
@@ -61,11 +80,17 @@ Bausteine: IAM, PAM, Network Access Control, Endpoint Security und Device Postur
 
 **Warum Microsegmentation?** Sie stoppt laterale Bewegung, schafft klare Kommunikationspfade, hält Angriffe lokal, vereinfacht Forensik und operationalisiert Need-to-Know für ISO 27001, DSGVO, KRITIS und PCI-DSS.
 
+**Fall Südwestfalen-IT (2023):** Der kommunale IT-Dienstleister betreibt die IT von 72 Verbandskommunen. Nach dem veröffentlichten Forensikbericht meldeten sich Angreifer ab dem 18. Oktober 2023 über das VPN an, das keine Multi-Faktor-Authentifizierung verlangte. Elf Tage später hatten sie Rechte des Domänenadministrators und verschlüsselten Systeme in der Domäne intra.lan (770 Server, 4.176 Clients), in der zentrale Systeme und Fachverfahren aller Kunden lagen. Bürgerdienste waren über Wochen eingeschränkt. Auf andere Domänen und die DMZ griff der Angriff nicht über; die Backups blieben intakt, ein Datenabfluss wurde nicht nachgewiesen. Der Bericht empfiehlt kurzfristig Segmentierung und MFA, mittelfristig Mikrosegmentierung, langfristig ein Tiering-Modell für Administratorkonten. **Die Grenze zwischen den Domänen hat gehalten – innerhalb von intra.lan gab es keine.**
+
+![Südwestfalen-IT 2023: eine Domäne für alle Kunden](../Präsentationen/Termin-08/assets/suedwestfalen-2023.png){fig-alt="VPN ohne MFA, Domäne intra.lan übernommen, andere Domänen und DMZ nicht betroffen" width="65%"}
+
 | Ansatz | Umsetzung | Stärken | Schwächen |
 |---|---|---|---|
 | netzwerkbasiert | L3/L4-Firewalls, SDN, virtuelle Switches, ACLs | etablierte Technik, klare Zuständigkeit | IP/Port-Regeln unflexibel, hoher Pflegeaufwand |
 | host-/workloadbasiert | Host-Firewalls, Agenten, eBPF, Cloud-native Controls | unabhängig von der Topologie, sehr feingranular | Agent-Management, Performance-Risiken |
 | identitäts-/applikationsbasiert | Service Accounts, Workload-Zertifikate, OIDC, SPIFFE/SPIRE | dynamisch, cloud- und containerfreundlich | braucht ausgereiftes IAM |
+
+![Microsegmentation schrittweise einführen](../Präsentationen/Termin-08/assets/microseg-einfuehrung.png){fig-alt="Datenflüsse erheben, Audit-Modus, Enforcement mit Allow-List, Pflegen mit Ausnahmen mit Ablaufdatum" width="60%"}
 
 **Policy-Design:** Die wichtigste Frage ist nicht „Wer darf rein?“, sondern „Wer muss wirklich miteinander kommunizieren?“ – Allow-List statt Block-List („deny all“), Application Dependency Mapping, kontextbasierte Regeln, zuerst Audit-Modus, dann Enforcement.
 
@@ -76,6 +101,10 @@ Bausteine: IAM, PAM, Network Access Control, Endpoint Security und Device Postur
 Cloud Resilience ist die Fähigkeit cloudbasierter Systeme, trotz Störungen, Angriffen und Fehlkonfigurationen funktionsfähig zu bleiben oder sich schnell zu erholen. **Die Cloud ist nicht automatisch resilient – sie ermöglicht Resilienz, wenn man sie bewusst gestaltet.**
 
 **Shared Responsibility Model:** Der Anbieter sichert physische Infrastruktur, Hardware, Rechenzentren und Netz. Beim Kunden bleiben Datenintegrität, IAM-Konfiguration, Backup-Strategie, Zugriffskontrollen, Logging, Segmentierung, Compliance und Datenklassifizierung. Cloud-Anbieter ≠ Datensicherung.
+
+**Fall Capital One (2019):** Im März 2019 verschaffte sich eine frühere AWS-Beschäftigte Zugriff auf Daten der US-Bank Capital One in deren AWS-Umgebung. Eine falsch konfigurierte Web Application Firewall leitete Anfragen an interne Ziele weiter (Server-Side Request Forgery). So erhielt die Angreiferin temporäre Zugangsdaten der IAM-Rolle der Firewall – und diese Rolle durfte weit mehr als nötig, unter anderem Speicherbereiche auflisten und lesen. Betroffen waren Daten zu rund 106 Millionen Personen; Capital One erfuhr davon erst im Juli über einen externen Hinweis. Die Bankenaufsicht verhängte 2020 eine Strafe von 80 Millionen US-Dollar wegen unzureichender Risikobewertung vor dem Cloud-Umzug. Die Infrastruktur des Anbieters funktionierte wie vorgesehen; Konfiguration und Rechte lagen beim Kunden. **Least Privilege gilt auch für Maschinenidentitäten.**
+
+![Capital One 2019: Fehlkonfiguration und zu weite Rechte](../Präsentationen/Termin-08/assets/capital-one-2019.png){fig-alt="Falsch konfigurierte WAF, Zugangsdaten der IAM-Rolle, zu weit gefasste Rechte, Daten kopiert" width="65%"}
 
 **Architekturprinzipien:**
 
@@ -90,6 +119,10 @@ Cloud Resilience ist die Fähigkeit cloudbasierter Systeme, trotz Störungen, An
 
 „Cloud-Resilienz kommt aus Design – nicht aus einem Anbieterlogo.“
 
+**Fall Google Cloud Paris (2023):** Am 25. April 2023 lief in einem Rechenzentrum der Region europe-west9 Kühlwasser aus und erreichte einen Batterieraum, der in Brand geriet; eines von drei Gebäuden wurde abgeschaltet. Gestört war danach die ganze Region: Nach dem Incident Report von Google waren die Replikate der regionalen Datenbank, auf der die Steuerungsebene der meisten Dienste beruht, nicht korrekt über die drei Gebäude verteilt. Mit dem Gebäude verlor sie das Quorum; damit fiel auch das regionale Rechtemanagement aus, zeitweise war die Cloud-Konsole weltweit gestört. Die direkt betroffene Zone blieb mehrere Tage ausgefallen; Datenverlust gab es laut Google nicht. **Mehrere Zonen sind nur so unabhängig wie ihre Steuerungsebene.**
+
+![Google Cloud Paris 2023: ein Gebäude, eine ganze Region](../Präsentationen/Termin-08/assets/google-paris-2023.png){fig-alt="Zone a geflutet, Zonen b und c gestört wegen der gemeinsamen Datenbank der Steuerungsebene" width="65%"}
+
 **Fehlannahmen:** „Der Anbieter kümmert sich um alles“; blindes Vertrauen in eingebaute Redundanz (oft nur innerhalb einer Zone); fehlende Exit-Strategie und Vendor Lock-in; Automatisierung verbreitet Fehler schneller; fehlende eigene Telemetrie; überdimensionierte Multi-Cloud-Strategien; mangelnde IAM-Hygiene. **Cloud-Resilienz ohne Test ist hypothetische Resilienz.**
 
 ## Network Resilience
@@ -99,6 +132,14 @@ Netzwerke sind die Grundlage aller anderen Resilienzmaßnahmen: Ohne Netz sind B
 **Architekturprinzipien:** Redundanz statt Zentralisierung – und zwar diversifiziert (zwei Carrier, zwei Stromphasen); Eliminierung von SPOFs; resiliente Topologien; getrennte Management-, Produktions- und Benutzerzonen; DNS-, Routing- und Identity-Resilienz; Telemetrie; Automatisierung gegen Konfigurationsdrift.
 
 **Resiliente Design Patterns:** Leaf-Spine statt klassischer Stern (symmetrische Pfade, vorhersehbare Latenz); SD-WAN zur Dezentralisierung mit dynamischem Failover; redundante Pfade und Carrier-Unabhängigkeit. DNS, Routing und IAM sind kritisch – in der Praxis scheitern Systeme häufiger an DNS oder IAM als an Hardware.
+
+**Fall Rogers (2022):** Am 8. Juli 2022 fielen beim kanadischen Netzbetreiber Rogers Mobilfunk, Festnetz, Internet und Notruf für mehr als 12 Millionen Kunden aus, rund 26 Stunden lang. Nach dem Bericht für die Regulierungsbehörde CRTC löschte eine Konfigurationsänderung während eines Netz-Upgrades einen Routingfilter; die Kernrouter wurden mit Routinginformationen überflutet und stürzten ab, weil sie keinen Überlastschutz hatten. Mobilfunk und Festnetz liefen über denselben IP-Kern – und auch das Management-Netz. Die Techniker erreichten die Router nicht mehr aus der Ferne und mussten vor Ort fahren. Rogers trennt seitdem die Kerne, betreibt ein eigenes Management-Netz mit Leitungen Dritter (Out-of-Band) und hat das Change-Management verschärft. **Wer sein Netz nur über das Netz erreicht, verliert im Ausfall den Zugang.**
+
+![Rogers 2022: ein IP-Kern für Dienste und Management](../Präsentationen/Termin-08/assets/rogers-2022.png){fig-alt="Konfigurationsänderung löscht Routingfilter, ein IP-Kernnetz fällt aus; Mobilfunk, Festnetz, Management-Netz und Kommunikation der Teams hängen daran" width="65%"}
+
+**Redundanz braucht Unabhängigkeit.** Redundanz zählt nur über Schadensdomänen hinweg. Die gemeinsamen Punkte stecken oft nicht in der sichtbaren Hardware, sondern in Steuerung, Identität und Management. Prüffrage: Was teilen die beiden Hälften noch – Netz, Identität, Steuerung, Management, Gebäude, Strom?
+
+![Redundanz braucht Unabhängigkeit](../Präsentationen/Termin-08/assets/schadensdomaenen.png){fig-alt="Google Paris, Rogers, UniSuper und Südwestfalen-IT: scheinbar redundant und gemeinsamer Punkt" width="60%"}
 
 **Fehlannahmen:** „Es läuft seit Jahren, also ist es stabil“ – Stabilität ohne Störung beweist nur Glück. Redundanz ohne Unabhängigkeit (zwei Leitungen vom selben Provider, zwei Firewalls im selben Rack). Veraltete Netzdokumentation. Keine DDoS-Strategie. Zu starke Abhängigkeit von MPLS oder VPN. „Ein Netzwerk ist nicht resilient, weil es funktioniert – sondern weil es auch dann funktioniert, wenn etwas ausfällt.“
 
@@ -115,7 +156,40 @@ Die Ansätze kompensieren gegenseitig blinde Flecken: Zero Trust begrenzt das Ri
 
 Empfohlene Reihenfolge: (1) Netzwerkstabilität schaffen, (2) Identitätssysteme stärken, (3) Microsegmentation vorbereiten, (4) Cloud-Resilienz gestalten, (5) Zero Trust operationalisieren. So wird Resilienz aufgebaut, nicht eingekauft.
 
+## Was die Fälle zeigen
+
+| Fall | Säule | Lehre |
+|---|---|---|
+| Colonial Pipeline 2021 | Zero Trust | Ein Passwort darf kein Zugang zum Netz sein |
+| Twilio / Cloudflare 2022 | Zero Trust | Phishingresistente MFA entwertet gestohlene Passwörter |
+| Südwestfalen-IT 2023 | Microsegmentation | Grenzen halten – wo es sie gibt |
+| Capital One 2019 | Cloud Resilience | Konfiguration und Rechte sind Kundenpflicht |
+| Google Cloud Paris 2023 | Cloud Resilience | Zonen teilen eine Steuerungsebene |
+| Rogers 2022 | Network Design | Management braucht einen eigenen Weg |
+
+## Häufige Irrtümer
+
+| Irrtum | Gegenbeispiel |
+|---|---|
+| „Wer im VPN ist, ist einer von uns.“ | Colonial Pipeline 2021: ein altes Profil, ein Passwort |
+| „Wir haben MFA, Phishing ist erledigt.“ | Twilio 2022: Zugangsdaten in Echtzeit abgegriffen; Cloudflare hielt nur dank FIDO2 |
+| „Die Firewall am Rand reicht.“ | Südwestfalen-IT 2023: innerhalb der Domäne keine Grenze |
+| „Die Cloud ist sicher, der Anbieter kümmert sich.“ | Capital One 2019: Konfiguration und Rollenrechte des Kunden |
+| „Drei Zonen sind drei unabhängige Standorte.“ | Google Paris 2023: gemeinsame Steuerungsdatenbank |
+| „Zwei Dienste, also redundant.“ | Rogers 2022: ein Kern, auch für das Management |
+
+# Normativer Bezug
+
+| Standard / Leitlinie | Relevanz |
+|---|---|
+| NIST SP 800-207 [@nist800207] | Zero Trust Architecture: Grundsätze, logische Bausteine (PDP, PEP) |
+| NIST SP 1800-35 [@nist180035] | Umsetzung: 19 Beispielarchitekturen mit marktüblichen Produkten |
+| CISA Zero Trust Maturity Model 2.0 [@cisaztmm2] | Reifegrad in fünf Säulen: Identität, Geräte, Netze, Anwendungen, Daten |
+| BSI IT-Grundschutz, NET.1.1 und NET.1.2 [@bsinet] | Netzarchitektur, Segmentierung, Netzmanagement |
+
 # Übungsblatt: GameNova GmbH
+
+![GameNova GmbH – Ausgangslage](../Präsentationen/Termin-08/assets/gamenova.png){fig-alt="Public Cloud mit Login, Managed SQL und offenem Storage-Bucket; eigenes Rechenzentrum mit Matchmaking, Entwicklernetz mit Ransomware und Router-Ausfall; CDN und Admin-VPN mit gestohlenen Zugangsdaten" width="60%"}
 
 Die GameNova GmbH betreibt eine Multiplayer-Gaming-Plattform hybrid: Authentifizierung und Nutzerprofile in der Public Cloud (AWS), Matchmaking-Server im eigenen Rechenzentrum, Spieldatenbank als Managed-SQL-Cloud-Service, Web-Frontend über ein globales CDN, Adminzugriff über klassisches VPN.
 
@@ -143,9 +217,13 @@ Bearbeitungszeit 60–90 Minuten; Folien, Skript und Online-Recherche erlaubt; S
 
 **Integration und Transfer:** Wie ergänzen sich Zero Trust und Microsegmentation im Angriffsszenario? Warum kann eine Organisation mit guter Cloud-Resilienz operativ ausfallen? Welche Implementierungsreihenfolge ist sinnvoll? „Multi-Cloud erhöht automatisch Resilienz“ – stimmen Sie zu?
 
+**Fälle:** Warum genügte bei Colonial Pipeline ein Passwort? Warum hielt Cloudflare dem Phishing stand und Twilio nicht? Was zeigt die Südwestfalen-IT über Segmentierung – im Guten wie im Schlechten? Warum fiel bei Google Paris eine ganze Region aus, obwohl nur ein Gebäude betroffen war?
+
 **Zusammenfassung:** Resilienz ist Architektur, nicht Backup. Vertrauen wird nicht vorausgesetzt. Angriffswege werden begrenzt. Architektur entscheidet über Krisenfähigkeit.
 
 # Vor- und Nachbereitung
+
+**Hausaufgabe:** Suchen Sie in Ihrem Umfeld ein Gerät oder System, das sich nicht mit MFA oder einem Agenten schützen lässt (Drucker, Kamera, Gebäudesteuerung, Maschine). Mit wem muss es wirklich kommunizieren – und wie würden Sie es abschotten?
 
 **Ausblick Termin 9:** Sonderthemen – OT-Resilienz mit Gastvortrag aus der Praxis und KI-Resilienz.
 

@@ -72,6 +72,8 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 **Air-Gap** – Trennung einer Sicherungskopie von der Produktion: physisch (ausgelagertes Band) oder logisch (zeitlich und technisch kontrollierter Zugang). Schützt gegen Löschung und Verschlüsselung über das Netz. (7)
 
+**Assume Breach** – Grundannahme von Zero Trust: Angreifer sind bereits im System oder bald darin. Architektur und Betrieb werden auf Schadensbegrenzung ausgelegt, nicht allein auf Abwehr am Rand. (8)
+
 **Availability Zone (AZ) / Multi-AZ-Deployment** – Eine AZ ist ein physisch getrenntes, logisch verbundenes Rechenzentrumssegment einer Cloud-Region mit eigener Strom-, Kühlungs- und Netzversorgung. Beim Multi-AZ-Deployment läuft ein Dienst gleichzeitig in mehreren AZs; fällt eine Zone aus, übernehmen die anderen, etwa über Load Balancer und synchron gespiegelte Datenbanken. Resilienz entsteht erst durch diese tatsächliche Verteilung. Multi-AZ schützt gegen den Ausfall eines Standorts, nicht gegen die Störung einer ganzen Region (→ Multi-Region-Design). (3)
 
 **Backup (vs. Recovery)** – Die existierende Kopie von Daten oder Systemzuständen. Resilienz entsteht nicht durch das Vorhandensein, sondern durch die Fähigkeit, innerhalb der RTO/RPO-Ziele wiederherzustellen. „Backup ohne Restore-Test“ ist Scheinsicherheit. (3, 4, 7)
@@ -96,17 +98,27 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 **Failover** – Kontrollierter Wechsel auf eine alternative Ressource oder Umgebung. Resilienz entsteht erst durch getestete Umschaltpfade. (3, 4, 7)
 
+**FIDO2 / phishingresistente MFA** – Anmeldeverfahren mit kryptografischem Schlüssel (etwa Hardwareschlüssel oder Passkey), der an die echte Domain gebunden ist. Anders als Einmalcodes lässt er sich auf einer gefälschten Seite nicht abgreifen und weiterleiten (Fall Twilio und Cloudflare 2022). (8)
+
 **Graceful Degradation** – Kontrolliertes Herunterfahren der Leistung statt Totalausfall, etwa Warteschlange statt Fehlerseite. (3, 4)
 
 **Hybrid-Architektur** – Kombination aus On-Premises und Cloud. Erhöht sowohl den Gefährdungsraum als auch den Resilienzspielraum. (3)
 
 **Immutable Backup** – Backup, das nach Erstellung nicht verändert oder gelöscht werden kann (WORM). Wirksam erst mit Offsite-Lagerung und getesteter Recovery. (4, 7)
 
+**Laterale Bewegung** – Ausbreitung eines Angreifers vom ersten kompromittierten System zu weiteren Systemen im internen Netz, oft bis zum Verzeichnisdienst oder zum Backup. Microsegmentation und Tiering von Administratorkonten begrenzen sie (Fall Südwestfalen-IT 2023). (8)
+
+**Least Privilege** – Jede Identität, auch eine Maschinen- oder Dienstidentität, erhält nur die Rechte, die sie für ihre Aufgabe braucht – granular und möglichst zeitlich begrenzt (Fall Capital One 2019). (8)
+
 **Mandat (des CISO)** – Formale Ausstattung einer Rolle mit Verantwortung, Befugnis und Ressourcen sowie einem Berichtsweg zur Geschäftsleitung. Fehlt eine dieser Seiten, entsteht „Accountability without Authority“: Verantwortung ohne die Mittel, sie wahrzunehmen. (6)
 
 **Microsegmentation** – Feingranulare, softwarebasierte Unterteilung in isolierte Sicherheitszonen bis auf Workload-Ebene; begrenzt laterale Bewegung. (8)
 
-**Redundanz** – Mehrfachvorhaltung kritischer Komponenten gegen den Ausfall einzelner Elemente. Wirkt gegen infrastrukturelle Ausfälle, nicht gegen logische Fehler oder Kompromittierung. (1, 3, 7)
+**Out-of-Band-Management** – Verwaltungszugang zu Netzkomponenten über einen eigenen, vom Datennetz unabhängigen Weg, damit Techniker die Geräte auch im Ausfall erreichen (Fall Rogers 2022). (8)
+
+**Policy Decision Point (PDP) / Policy Enforcement Point (PEP)** – Logische Bausteine einer Zero-Trust-Architektur nach NIST SP 800-207: Der PDP entscheidet anhand von Identität, Gerät und Kontext über eine einzelne Anfrage, der PEP setzt die Entscheidung durch. (8)
+
+**Redundanz** – Mehrfachvorhaltung kritischer Komponenten gegen den Ausfall einzelner Elemente. Wirkt gegen infrastrukturelle Ausfälle, nicht gegen logische Fehler oder Kompromittierung – und nur, wenn die redundanten Teile keine gemeinsame Abhängigkeit teilen, etwa Steuerungsebene, Identität oder Management (Fälle Google Paris 2023, Rogers 2022). (1, 3, 7, 8)
 
 **Reifegradmodell** – Bewertet die geübte Wirksamkeit von Resilienzmaßnahmen vor dem Ereignis, nicht die Existenz von Plänen. (2, 5)
 
@@ -118,7 +130,9 @@ Das Glossar führt die Glossare der Sitzungen 3 und 4 sowie das OT- und KI-Gloss
 
 **Shared Responsibility Model** – Der Cloud-Anbieter sichert die Infrastruktur; Daten, IAM-Konfiguration, Backups und Zugänge verantwortet der Kunde. (7, 8)
 
-**Steuerungsebene (Control Plane)** – Verwaltungsschicht, über die Ressourcen angelegt, geändert und gelöscht werden, etwa die Konsole eines Cloud-Anbieters oder die zentrale Serververwaltung. Eine Kopie, die über dieselbe Steuerungsebene gelöscht werden kann wie das Original, ist Redundanz, kein Backup (Fall UniSuper 2024). (7)
+**Single Point of Failure (SPOF)** – Einzelne Komponente, deren Ausfall den gesamten Dienst unterbricht: ein Gerät, eine Leitung, ein Rechenzentrum, aber auch eine Konfiguration, eine Datenbank der Steuerungsebene oder ein Administratorkonto. (8)
+
+**Steuerungsebene (Control Plane)** – Verwaltungsschicht, über die Ressourcen angelegt, geändert und gelöscht werden, etwa die Konsole eines Cloud-Anbieters oder die zentrale Serververwaltung. Eine Kopie, die über dieselbe Steuerungsebene gelöscht werden kann wie das Original, ist Redundanz, kein Backup (Fall UniSuper 2024). Auch mehrere Zonen einer Cloud-Region fallen gemeinsam aus, wenn ihre Steuerungsebene nicht unabhängig verteilt ist (Fall Google Paris 2023). (7, 8)
 
 **Threat-to-Resilience-Mapping** – Bedrohungen werden nicht mit Präventionsmaßnahmen, sondern mit Resilienzfähigkeiten beantwortet. Ziel ist die Minimierung des Effekts. (4)
 

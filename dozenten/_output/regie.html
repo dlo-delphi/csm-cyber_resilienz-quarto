@@ -2232,6 +2232,14 @@ a {color:#175b84;} .subtitle {color:#555;}
   <li><a href="#übung-plan-the-worst-day" id="toc-übung-plan-the-worst-day" class="nav-link" data-scroll-target="#übung-plan-the-worst-day">Übung „Plan the Worst Day“</a></li>
   <li><a href="#brücke-5" id="toc-brücke-5" class="nav-link" data-scroll-target="#brücke-5">Brücke</a></li>
   </ul></li>
+  <li><a href="#termin-8-technische-resilienz-ii" id="toc-termin-8-technische-resilienz-ii" class="nav-link" data-scroll-target="#termin-8-technische-resilienz-ii">Termin 8 – Technische Resilienz II</a>
+  <ul class="collapse">
+  <li><a href="#ablauf-6" id="toc-ablauf-6" class="nav-link" data-scroll-target="#ablauf-6">Ablauf</a></li>
+  <li><a href="#fragen-ans-plenum-6" id="toc-fragen-ans-plenum-6" class="nav-link" data-scroll-target="#fragen-ans-plenum-6">Fragen ans Plenum</a></li>
+  <li><a href="#fallstricke-6" id="toc-fallstricke-6" class="nav-link" data-scroll-target="#fallstricke-6">Fallstricke</a></li>
+  <li><a href="#übung-gamenova-gmbh" id="toc-übung-gamenova-gmbh" class="nav-link" data-scroll-target="#übung-gamenova-gmbh">Übung GameNova GmbH</a></li>
+  <li><a href="#brücke-6" id="toc-brücke-6" class="nav-link" data-scroll-target="#brücke-6">Brücke</a></li>
+  </ul></li>
   <li><a href="#termin-9-sonderthemen" id="toc-termin-9-sonderthemen" class="nav-link" data-scroll-target="#termin-9-sonderthemen">Termin 9 – Sonderthemen</a></li>
   <li><a href="#termin-10-resilienz-der-zukunft" id="toc-termin-10-resilienz-der-zukunft" class="nav-link" data-scroll-target="#termin-10-resilienz-der-zukunft">Termin 10 – Resilienz der Zukunft</a></li>
   </ul>
@@ -3380,6 +3388,238 @@ a {color:#175b84;} .subtitle {color:#555;}
 <section id="brücke-5" class="level2">
 <h2 class="anchored" data-anchor-id="brücke-5">Brücke</h2>
 <p>Die Hausaufgabe (Prüffrage: Kann ein kompromittierter Administrator die Backups löschen? Skizze der Konten und Netzgrenzen zwischen Produktion und Backup) eröffnet Termin 8. Die Skizzen zeigen meist flache Netze und ein gemeinsames Verzeichnis – der Einstieg in Zero Trust und Microsegmentation.</p>
+</section>
+</section>
+<section id="termin-8-technische-resilienz-ii" class="level1">
+<h1>Termin 8 – Technische Resilienz II</h1>
+<p><strong>Roter Faden:</strong> Wie begrenzt Architektur den Schaden, wenn ein Zugang in falsche Hände gerät? Vier Säulen: Zero Trust (Colonial Pipeline, Twilio und Cloudflare), Microsegmentation (Südwestfalen-IT), Cloud Resilience (Capital One, Google Paris), Network Design (Rogers). Die Folie „Redundanz braucht Unabhängigkeit“ verbindet die Fälle mit UniSuper aus Termin 7; die Synthesefolie fügt alles zusammen.</p>
+<p><strong>Fälle:</strong> Colonial Pipeline 2021 (Einstieg), Twilio und Cloudflare 2022, Südwestfalen-IT 2023 (deutsch, kommunal), Capital One 2019, Google Cloud Paris 2023, Rogers 2022. Colonial Pipeline und Südwestfalen-IT stehen in Termin 1 nur als Stichpunkt, dort mit anderem Blickwinkel (Safety/Security, Konzentrationsrisiko). Diagramme: <code>python assets/diagramme_termin08.py</code>; vorheriger Stand: <code>Präsentationen/Termin-08/mainold.qmd</code>.</p>
+<section id="ablauf-6" class="level2">
+<h2 class="anchored" data-anchor-id="ablauf-6">Ablauf</h2>
+<p>Wie in Termin 7 gibt es zwei Varianten, weil das Übungsblatt GameNova allein 60–90 Minuten braucht.</p>
+<p><strong>Variante A – Vorlesung mit Kurzübung (rund 125 Minuten):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Block</th>
+<th>Folien</th>
+<th>Min.</th>
+<th>Methode und Hinweis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Einstieg</td>
+<td>Rückblick, Lernziele</td>
+<td>5</td>
+<td>Hausaufgabe: zwei Skizzen zeigen lassen (flaches Netz, ein Admin für alles)</td>
+</tr>
+<tr class="even">
+<td>Fall Colonial</td>
+<td>Einstieg: Colonial Pipeline 2021</td>
+<td>8</td>
+<td>Was hat das VPN geprüft – und was nicht?</td>
+</tr>
+<tr class="odd">
+<td>Zero Trust</td>
+<td>Was ist Zero Trust?, Säulen</td>
+<td>12</td>
+<td>Säulen auf Colonial anwenden</td>
+</tr>
+<tr class="even">
+<td>Fall Twilio/Cloudflare</td>
+<td>Twilio und Cloudflare 2022</td>
+<td>8</td>
+<td>Warum half Cloudflares MFA und Twilios nicht?</td>
+</tr>
+<tr class="odd">
+<td>Zero Trust Wirkung</td>
+<td>Warum Zero Trust resilient macht</td>
+<td>3</td>
+<td>„kein Produkt“ betonen</td>
+</tr>
+<tr class="even">
+<td>Microsegmentation</td>
+<td>Definition</td>
+<td>4</td>
+<td>laterale Bewegung erklären</td>
+</tr>
+<tr class="odd">
+<td>Fall Südwestfalen-IT</td>
+<td>Südwestfalen-IT 2023</td>
+<td>9</td>
+<td>Grenze, die gehalten hat – und keine dahinter</td>
+</tr>
+<tr class="even">
+<td>Umsetzung</td>
+<td>Warum Microsegmentation?, Einführen</td>
+<td>8</td>
+<td>Wer muss mit wem sprechen?</td>
+</tr>
+<tr class="odd">
+<td>Cloud</td>
+<td>Shared Responsibility</td>
+<td>5</td>
+<td>Rückbezug CloudNordic, UniSuper</td>
+</tr>
+<tr class="even">
+<td>Fall Capital One</td>
+<td>Capital One 2019</td>
+<td>8</td>
+<td>Wer war verantwortlich – AWS oder die Bank?</td>
+</tr>
+<tr class="odd">
+<td>Cloud-Maßnahmen</td>
+<td>Cloud-Resilienzmaßnahmen</td>
+<td>5</td>
+<td>AZ und Region aus Termin 3 abfragen</td>
+</tr>
+<tr class="even">
+<td>Fall Google Paris</td>
+<td>Google Cloud Paris 2023</td>
+<td>8</td>
+<td>Was hätte Multi-AZ, was Multi-Region gebracht?</td>
+</tr>
+<tr class="odd">
+<td>Netz</td>
+<td>Network Design &amp; Resilience</td>
+<td>5</td>
+<td>SPOF sammeln</td>
+</tr>
+<tr class="even">
+<td>Fall Rogers</td>
+<td>Rogers 2022</td>
+<td>8</td>
+<td>Wie erreicht man ein Netz, das ausgefallen ist?</td>
+</tr>
+<tr class="odd">
+<td>Synthese Netz</td>
+<td>Redundanz braucht Unabhängigkeit</td>
+<td>6</td>
+<td>Prüffrage auf das eigene Umfeld anwenden</td>
+</tr>
+<tr class="even">
+<td>Integration</td>
+<td>Integration</td>
+<td>4</td>
+<td>Reihenfolge begründen lassen</td>
+</tr>
+<tr class="odd">
+<td>Kurzübung</td>
+<td>GameNova, Aufgaben 1 und 5</td>
+<td>12</td>
+<td>zu zweit, Ergebnis an die Tafel</td>
+</tr>
+<tr class="even">
+<td>Abschluss</td>
+<td>Was die Fälle zeigen, Kernpunkte, Ausblick</td>
+<td>7</td>
+<td>Spalte „Lehre“ abdecken; Hausaufgabe erklären</td>
+</tr>
+</tbody>
+</table>
+<p>Summe rund 125 Minuten. <strong>Kürzung auf 90 Minuten:</strong> „Warum Zero Trust resilient macht“ überspringen (−3), Microsegmentation-Definition in einem Satz zum Fall (−3), „Microsegmentation einführen“ nur zeigen (−4), Cloud-Resilienzmaßnahmen nur zeigen (−4), Network Design in zwei Sätzen vor Rogers (−3), Redundanz-Folie als Plenumsfrage ohne Kurzübung (−3), Integration überspringen und in der Synthesetabelle erklären (−4), Kurzübung als Plenumsfrage zu Aufgabe 5 (−8), Capital One ohne SSRF-Erklärung (−3).</p>
+<p><strong>Variante B – volle Übung:</strong> Vorlesungsteil in rund 45 Minuten (Colonial, Twilio/Cloudflare, Südwestfalen-IT und Rogers ausführlich; Capital One und Google Paris nur in der Synthesetabelle; Grundlagenfolien zur Selbstlektüre im Skript), danach GameNova in voller Länge.</p>
+</section>
+<section id="fragen-ans-plenum-6" class="level2">
+<h2 class="anchored" data-anchor-id="fragen-ans-plenum-6">Fragen ans Plenum</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Folie</th>
+<th>Frage</th>
+<th>Erwartete Antwort</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Einstieg Colonial</td>
+<td>Was hat das VPN geprüft – und was nicht?</td>
+<td>Nur das Passwort. Nicht geprüft: zweiter Faktor, Gerät, Kontext, ob das Konto noch gebraucht wird. Hinter dem VPN galt man als vertrauenswürdig.</td>
+</tr>
+<tr class="even">
+<td>Säulen</td>
+<td>Welche Säule hätte bei Colonial gegriffen?</td>
+<td>Least Privilege (ungenutztes Profil löschen), starke Identität (zweiter Faktor), Gerätevertrauen (unbekanntes Gerät), Telemetrie (ungewöhnliche Anmeldung).</td>
+</tr>
+<tr class="odd">
+<td>Twilio/Cloudflare</td>
+<td>Beide hatten MFA – warum hielt nur Cloudflare stand?</td>
+<td>Codes lassen sich auf einer falschen Seite abfangen und in Echtzeit weiterreichen; ein FIDO2-Schlüssel ist an die echte Domain gebunden.</td>
+</tr>
+<tr class="even">
+<td>Südwestfalen-IT</td>
+<td>Was hat funktioniert, was nicht?</td>
+<td>Die Grenze zwischen den Domänen hielt, Backups waren intakt. Innerhalb von intra.lan gab es keine Segmentierung, ein Admin-Konto reichte für alle Kunden. Dazu VPN ohne MFA.</td>
+</tr>
+<tr class="odd">
+<td>Microsegmentation einführen</td>
+<td>Womit fangen Sie an?</td>
+<td>Datenflüsse erheben, dann Kronjuwelen und Administrationszugänge (auch das Backup-Netz) – nicht das ganze Netz auf einmal.</td>
+</tr>
+<tr class="even">
+<td>Capital One</td>
+<td>Wer war verantwortlich – AWS oder die Bank?</td>
+<td>Die Bank: Konfiguration der Firewall und Rechte der IAM-Rolle liegen im Shared Responsibility Model beim Kunden. So sah es auch die Aufsicht.</td>
+</tr>
+<tr class="odd">
+<td>Google Paris</td>
+<td>Was hätte Multi-AZ, was Multi-Region gebracht?</td>
+<td>Multi-AZ wenig, weil alle Zonen an derselben Steuerungsdatenbank hingen. Multi-Region einen Ausweg.</td>
+</tr>
+<tr class="even">
+<td>Rogers</td>
+<td>Wie erreicht man ein Netz, das ausgefallen ist?</td>
+<td>Gar nicht, wenn das Management am selben Kern hängt. Lösung: Out-of-Band-Management mit Leitungen Dritter, Notkommunikation außerhalb des eigenen Netzes.</td>
+</tr>
+<tr class="odd">
+<td>Redundanz braucht Unabhängigkeit</td>
+<td>Was teilen die beiden Hälften bei uns noch?</td>
+<td>Häufig: ein Verzeichnisdienst, ein DNS-Anbieter, ein Internetzugang, ein Rechenzentrum, ein Admin-Team.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fallstricke-6" class="level2">
+<h2 class="anchored" data-anchor-id="fallstricke-6">Fallstricke</h2>
+<ul>
+<li><strong>Colonial:</strong> Nicht „die Pipeline wurde gehackt“. Betroffen war das IT-Netz; die Pipeline (OT) wurde vorsorglich abgeschaltet. Wie das Passwort bekannt wurde, war bei der Anhörung ungeklärt; Berichte über ein Datenleck stammen aus Medien, nicht aus der Anhörung. Neustart am 12. Mai und die sichergestellten 2,3 Mio. US-Dollar nach Medienberichten und dem Justizministerium.</li>
+<li><strong>Twilio:</strong> Twilio nennt nicht, welchen zweiten Faktor die Beschäftigten hatten. Die Aussage „Codes lassen sich weiterreichen“ stützt sich auf die Beschreibung der Angriffsseite durch Cloudflare. Die Zahlen 209 und 93 sind der Endstand; ältere Berichte nennen 125 oder 163 Kunden. Cloudflare verkauft selbst Zero-Trust-Produkte – den Fall als Lehrbeispiel für FIDO2 nehmen, nicht als Produktempfehlung.</li>
+<li><strong>Südwestfalen-IT:</strong> Der Einstiegsweg ist nicht abschließend geklärt; der Bericht hält eine Schwachstelle der Cisco ASA für am wahrscheinlichsten. „72 Kommunen“ sind die Verbandskommunen; Medien nannten teils über 100 betroffene Verwaltungen. Kein Lösegeld, kein nachgewiesener Datenabfluss – kein Fall für Datendiebstahl.</li>
+<li><strong>Capital One:</strong> Kein Fehler von AWS. Die Täterin war frühere AWS-Beschäftigte; ausgenutzt wurde aber die Fehlkonfiguration in der Umgebung des Kunden. Die Anordnung der OCC war in der Sitzung nicht direkt abrufbar; Betrag und Begründung über mehrere Berichte geprüft.</li>
+<li><strong>Google Paris:</strong> Physisch betroffen war ein Gebäude (Zone a); der Ausfall der übrigen Zonen kam über die Steuerungsdatenbank. Die Angabe, Zone c sei teilweise abgeschaltet worden, stammt nur aus Sekundärquellen und steht deshalb nicht in den Unterlagen. Kein Datenverlust laut Google.</li>
+<li><strong>Rogers:</strong> Der Bericht nennt das gemeinsame Kernnetz ausdrücklich keinen Designfehler an sich, sondern den Grund für das Ausmaß. Ursache war die Konfigurationsänderung plus fehlender Überlastschutz und Change-Management.</li>
+<li><strong>Folie „Redundanz braucht Unabhängigkeit“:</strong> Synthese der Lehrveranstaltung, keine Norm.</li>
+</ul>
+</section>
+<section id="übung-gamenova-gmbh" class="level2">
+<h2 class="anchored" data-anchor-id="übung-gamenova-gmbh">Übung GameNova GmbH</h2>
+<p><strong>Durchführung:</strong> Übungsblatt aus dem Archiv, unverändert, 60–90 Minuten, Gruppen zu vier bis fünf Personen, Hilfsmittel erlaubt. In Variante A nur Aufgaben 1 und 5 als Kurzübung; der Rest als freiwillige Nachbereitung.</p>
+<p><strong>Spickzettel aus den Fällen:</strong> Welcher zweite Faktor für das Admin-VPN (Twilio vs. Cloudflare)? Wer muss mit wem sprechen – Entwicklernetz mit Produktion (Südwestfalen-IT)? Was ist Kundenpflicht beim Storage-Bucket (Capital One)? Was teilen die redundanten Teile (Google Paris, Rogers)?</p>
+<p><strong>Erwartete Kernpunkte:</strong></p>
+<ul>
+<li><strong>Zero Trust:</strong> phishingresistente MFA für alle Admin-Zugänge, VPN durch identitätsbasierten Zugang je Anwendung ablösen, Just-in-Time-Rechte; erster Schritt: MFA und Inventar der Admin-Konten.</li>
+<li><strong>Microsegmentation:</strong> Entwicklernetz von Produktion und Matchmaking trennen; Admin-Zugänge in eigenes Segment; vorher Datenflüsse erheben.</li>
+<li><strong>Cloud Resilience:</strong> Bucket-Richtlinien und Least Privilege für Rollen, Multi-AZ für Login und Datenbank, Backup der Managed-SQL-Datenbank außerhalb des Kontos (Rückbezug UniSuper), Restore-Tests.</li>
+<li><strong>Network Resilience:</strong> wahrscheinlichster SPOF ist der einzelne Router bzw. die Anbindung des eigenen RZ; zweiter Pfad über einen zweiten Carrier, Out-of-Band-Management; Wirksamkeit durch Umschalttest prüfen (Rückbezug Delta, Termin 7).</li>
+<li><strong>Priorisierung:</strong> zuerst Identität (gestohlene Admin-Zugangsdaten sind das größte Risiko bei geringem Aufwand), dann Segmentierung des Entwicklernetzes, dann Netzredundanz, dann Cloud-Feinschliff – Abweichungen von der Skript-Reihenfolge sind zulässig, wenn sie begründet werden.</li>
+</ul>
+<p><strong>Auswertung:</strong> Zwei Gruppen stellen ihre Priorisierung vor; die übrigen nennen nur Abweichungen. Rückfrage: Welche Maßnahme hätte welchen der vier Vorfälle verhindert oder begrenzt?</p>
+</section>
+<section id="brücke-6" class="level2">
+<h2 class="anchored" data-anchor-id="brücke-6">Brücke</h2>
+<p>Die Hausaufgabe (ein Gerät, das sich nicht mit MFA oder Agent schützen lässt – mit wem muss es sprechen, wie abschotten?) eröffnet Termin 9. In der Produktion (OT) bleibt oft nur die Segmentierung: Zonen und Conduits nach IEC 62443.</p>
 </section>
 </section>
 <section id="termin-9-sonderthemen" class="level1">

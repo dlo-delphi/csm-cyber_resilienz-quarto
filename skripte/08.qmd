@@ -82,6 +82,18 @@ Zero Trust adressiert genau dieses Problem, indem es eine neue Grundannahme einf
 
 Damit verschiebt sich der Fokus von Prävention hin zu **kontinuierlicher Verifikation**, Schadensbegrenzung und struktureller Resilienz. Zero Trust entsteht somit nicht aus Misstrauen gegenüber Menschen, sondern aus realistischer Einschätzung komplexer digitaler Systeme.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: Colonial Pipeline 2021"}
+Am 7. Mai 2021 legte Ransomware das IT-Netz von Colonial Pipeline lahm, dem Betreiber der größten Treibstoffleitung der USA. Das Unternehmen schaltete die Pipeline selbst vorsorglich ab, weil es eine Ausbreitung auf die Betriebstechnik nicht ausschließen konnte; der Neustart begann am 12. Mai. Die Leitung liefert rund 45 Prozent des Treibstoffs der US-Ostküste, es kam zu Engpässen und Panikkäufen. Colonial zahlte ein Lösegeld von rund 4,4 Millionen US-Dollar, das Justizministerium stellte später rund 2,3 Millionen sicher.
+
+Vor dem Senatsausschuss für Heimatschutz erklärte der Vorstandschef Joseph Blount am 8. Juni 2021, die Angreifer hätten ein altes VPN-Profil genutzt, das nicht mehr in Gebrauch sein sollte. Es war nur mit einem Passwort geschützt, ohne zweiten Faktor; das Passwort sei komplex gewesen. Wie die Angreifer es erlangten, war zu diesem Zeitpunkt nicht geklärt.
+
+Der Fall zeigt die Schwäche des Perimetermodells genau: Das VPN fragte nur, ob jemand das Passwort kennt – nicht, wer es ist, mit welchem Gerät und ob das Konto überhaupt noch gebraucht wird. Wer einmal drin war, galt als vertrauenswürdig.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Colonial Pipeline 2021: ein Passwort, ein altes VPN-Profil](../Präsentationen/Termin-08/assets/colonial-2021.png){fig-alt="Gültiges Passwort, altes VPN-Profil ohne MFA, Ransomware im IT-Netz; Pipeline vorsorglich abgeschaltet" width="70%"}
+
 ## 2.2 Definition, Leitprinzipien und Architekturbausteine
 
 Zero Trust ist kein Produkt, keine Technologie und keine Software, sondern ein **Sicherheits- und Resilienzkonzept**, das beschreibt, wie sich moderne IT-Systeme gestalten lassen. Unterschiedliche Institutionen (z. B. NIST, Google BeyondCorp, Microsoft, Cisco) verwenden unterschiedliche Terminologien, stimmen jedoch in der Kerndefinition überein:
@@ -105,6 +117,18 @@ Beispiel: Admin-Zugriff nur für die Dauer einer Wartung, nicht dauerhaft.
 ### 3. Strong Identity & Authentication
 
 Identitäten ersetzen Netzwerkstandorte als Vertrauensgrundlage. Technische Mittel: MFA, Hardware-Token, biometrische Verfahren, Passwortlosigkeit.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Twilio und Cloudflare 2022"}
+Im Juli und August 2022 erhielten Beschäftigte mehrerer Technologieunternehmen SMS mit Links auf täuschend echte Login-Seiten. Bei Twilio gaben Beschäftigte dort ihre Zugangsdaten ein; die Angreifer erreichten interne Werkzeuge. Nach dem abschließenden Bericht von Twilio waren 209 Kundenkonten und 93 Nutzer der Authentifizierungs-App Authy betroffen. Twilio verteilte danach FIDO2-Token an alle Beschäftigten.
+
+Cloudflare wurde zur selben Zeit mit sehr ähnlichen Merkmalen angegriffen. Mindestens 76 Beschäftigte erhielten die SMS innerhalb einer Minute, drei gaben ihr Passwort auf der falschen Seite ein. Ein Zugriff gelang trotzdem nicht: Cloudflare verlangt für alle Anwendungen einen FIDO2-Hardwareschlüssel. Die Seite der Angreifer leitete Passwort und Einmalcode in Echtzeit weiter – ein Verfahren, das SMS- und App-Codes umgeht. Der Schlüssel dagegen ist an die echte Domain gebunden und liefert auf einer fremden Seite keine gültige Anmeldung. Die drei Beschäftigten wurden ausdrücklich nicht gemaßregelt.
+
+Für Zero Trust heißt das: „starke Identität“ bedeutet phishingresistente Authentisierung. Ein zweiter Faktor, den ein Mensch abtippen und damit weitergeben kann, schützt gegen gestohlene Passwörter, aber nicht gegen Echtzeit-Phishing.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Twilio und Cloudflare 2022: dieselbe Kampagne, unterschiedlicher zweiter Faktor](../Präsentationen/Termin-08/assets/twilio-cloudflare-2022.png){fig-alt="Twilio mit 209 betroffenen Kunden; bei Cloudflare verhindert der FIDO2-Schlüssel den Zugriff" width="70%"}
 
 ### 4. Continuous Authorization
 
@@ -442,6 +466,16 @@ Relevanz:
 - Supply-Chain-Compromises
 
 Damit steigt die Wahrscheinlichkeit, dass der Vorfall **detektiert wird, bevor er systemisch wird**.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Südwestfalen-IT 2023"}
+Die Südwestfalen-IT ist ein kommunaler Zweckverband, der die IT von 72 Verbandskommunen betreibt. Nach dem veröffentlichten Forensikbericht meldeten sich Angreifer ab dem 18. Oktober 2023 über das VPN an; eine Multi-Faktor-Authentifizierung gab es dort nicht, als wahrscheinlichster Einstieg gilt eine Schwachstelle der eingesetzten Cisco ASA. Elf Tage später, am 29. Oktober, verfügten sie über Rechte des Domänenadministrators – wahrscheinlich über ein Administratorkennwort, das seit 2014 in einer Gruppenrichtlinie hinterlegt war – und starteten die Verschlüsselung. Betroffen war die Domäne intra.lan mit 770 Servern und 4.176 Clients, in der zentrale Systeme und Fachverfahren aller Kunden lagen; 961 Systeme trugen die Erpressernachricht. Bürgerdienste waren über Wochen eingeschränkt, die ersten wesentlichen Fachverfahren sollten bis Ende März 2024 wieder im Normalbetrieb laufen.
+
+Zugleich zeigt der Fall die Wirkung von Grenzen: Auf andere Domänen und die DMZ griff der Angriff nicht über. Die Backups blieben intakt, ein Lösegeld wurde nicht gezahlt, ein Datenabfluss nicht nachgewiesen. Der Bericht empfiehlt kurzfristig Segmentierung und MFA, mittelfristig Mikrosegmentierung und langfristig ein Tiering-Modell für Administratorkonten. Die Grenze zwischen den Domänen hat gehalten – innerhalb von intra.lan gab es keine.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Südwestfalen-IT 2023: eine Domäne für alle Kunden](../Präsentationen/Termin-08/assets/suedwestfalen-2023.png){fig-alt="VPN ohne MFA, Domäne intra.lan übernommen, andere Domänen und DMZ nicht betroffen" width="70%"}
 
 ### 2. Reduzierung operativer Wiederherstellungskosten
 
@@ -787,6 +821,18 @@ Konsequenz:
 
 fehlende Resilienz ist oft kein technisches, sondern ein Governance-Problem.
 
+::: {.callout-tip title="Ergänzung zur Vorlesung: Capital One 2019"}
+Im März 2019 verschaffte sich eine frühere Beschäftigte von AWS Zugriff auf Daten der US-Bank Capital One in deren AWS-Umgebung. Der Weg war eine Kette von Kundenkonfigurationen: Eine falsch konfigurierte Web Application Firewall ließ sich dazu bringen, Anfragen an interne Ziele weiterzuleiten (Server-Side Request Forgery). So erhielt die Angreiferin vom Metadatendienst temporäre Zugangsdaten der IAM-Rolle, unter der die Firewall lief – und diese Rolle durfte weit mehr als nötig, unter anderem Speicherbereiche (S3-Buckets) auflisten und lesen. Betroffen waren Daten zu rund 100 Millionen Personen in den USA und 6 Millionen in Kanada. Capital One erfuhr davon erst am 17. Juli über einen Hinweis an sein Responsible-Disclosure-Programm.
+
+Die Bankenaufsicht OCC verhängte 2020 eine Strafe von 80 Millionen US-Dollar, weil die Bank vor dem Umzug in die Public Cloud keine wirksame Risikobewertung vorgenommen habe; hinzu kam ein Vergleich mit Kunden über 190 Millionen US-Dollar. Die Täterin wurde im Juni 2022 verurteilt.
+
+Der Fall ist ein Lehrstück für das Shared Responsibility Model: Die Infrastruktur des Anbieters funktionierte wie vorgesehen. Konfiguration der Firewall und Rechte der Rolle lagen beim Kunden. Least Privilege gilt auch für Maschinenidentitäten.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Capital One 2019: Fehlkonfiguration und zu weite Rechte](../Präsentationen/Termin-08/assets/capital-one-2019.png){fig-alt="Falsch konfigurierte WAF, Zugangsdaten der IAM-Rolle, zu weit gefasste Rechte, Daten kopiert" width="70%"}
+
 ### 2. Blindes Vertrauen in „eingebaute Redundanz“
 
 Cloud-Dienste replizieren oft Daten innerhalb einer Verfügbarkeitszone — **nicht zwingend zwischen Regionen**.
@@ -802,6 +848,16 @@ Viele Ausfälle entstehen deshalb durch:
 - fehlerhafte Updates in Control-Planes
 
 Wer nur „Standardbereitstellung“ nutzt, erhält keine geografische Resilienz.
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Google Cloud Paris 2023"}
+Am 25. April 2023 lief in einem Rechenzentrum der Google-Cloud-Region europe-west9 (Paris) Kühlwasser aus; das Wasser erreichte einen Batterieraum, der in Brand geriet. Auf Anordnung der Feuerwehr wurde eines von drei Gebäuden abgeschaltet. Gestört war danach nicht nur die betroffene Zone, sondern die ganze Region: Nach dem Incident Report von Google waren die Replikate der regionalen Datenbank, auf der die Steuerungsebene der meisten Dienste beruht, nicht korrekt über die drei Gebäude verteilt. Mit dem Gebäude verlor sie das Quorum; damit fiel auch das Identitäts- und Rechtemanagement der Region aus. Weil Abfragen über alle Regionen fehlschlugen, statt Teilergebnisse zu liefern, war zeitweise auch die Cloud-Konsole weltweit gestört. Die meisten Dienste liefen am Folgetag wieder; die direkt betroffene Zone blieb mehrere Tage ausgefallen. Datenverlust gab es nach Angaben von Google nicht.
+
+Google schreibt selbst, es hätte in jedem der drei Gebäude ein Replikat geben müssen, und prüft diese Verteilung nun in allen Regionen. Für Kunden zeigt der Fall: Mehrere Zonen sind nur so unabhängig wie die Steuerungsebene, die sie gemeinsam nutzen. Wer eine Region als Ganzes ausfallen lassen kann, braucht ein Multi-Region-Design.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Google Cloud Paris 2023: ein Gebäude, eine ganze Region](../Präsentationen/Termin-08/assets/google-paris-2023.png){fig-alt="Zone a geflutet, Zonen b und c gestört, weil die regionale Datenbank der Steuerungsebene nicht über die Gebäude verteilt war" width="70%"}
 
 ### 3. Fehlende Exit-Strategie & Vendor Lock-in
 
@@ -1063,6 +1119,18 @@ Häufiger Praxisfehler:
 Ergebnis:
 
 - gemeinsamer Ausfallpunkt bleibt bestehen
+
+::: {.callout-tip title="Ergänzung zur Vorlesung: Rogers 2022"}
+Am 8. Juli 2022 fielen beim kanadischen Netzbetreiber Rogers Mobilfunk, Festnetz und Internet landesweit aus, für mehr als 12 Millionen Kunden und rund 26 Stunden; auch Notrufe und elektronische Zahlungsdienste waren betroffen. Nach dem Bericht von Xona Partners für die Regulierungsbehörde CRTC löschte eine Konfigurationsänderung im Rahmen eines mehrstufigen Netz-Upgrades einen Filter auf den Verteilroutern. Daraufhin überfluteten Routinginformationen die Kernrouter, die ohne Überlastschutz konfiguriert waren und abstürzten. Die Änderung war nach erfolgreichen früheren Phasen als geringes Risiko eingestuft und deshalb nicht zusätzlich im Labor geprüft worden.
+
+Mobilfunk und Festnetz liefen über denselben IP-Kern. Der Bericht sieht darin keinen Designfehler an sich, aber den Grund für das Ausmaß. Schwerer wog eine zweite Abhängigkeit: Auch das Management-Netz hing am Kern. Die Techniker erreichten die Router nicht mehr aus der Ferne und mussten vor Ort fahren; für die eigene Kommunikation brauchte Rogers SIM-Karten anderer Anbieter. Rogers trennt seitdem die Kerne, hat ein eigenes Management-Netz mit Leitungen Dritter (Out-of-Band) aufgebaut, Überlastschutz eingeführt und das Change-Management verschärft.
+
+Redundanz ohne Unabhängigkeit betrifft also nicht nur Leitungen und Geräte, sondern auch den Weg, auf dem man das Netz im Ausfall erreicht.
+
+Quellenangaben unter [Quellen](../quellen.html).
+:::
+
+![Rogers 2022: ein IP-Kern für Dienste und Management](../Präsentationen/Termin-08/assets/rogers-2022.png){fig-alt="Konfigurationsänderung löscht Routingfilter, ein IP-Kernnetz fällt aus; Mobilfunk, Festnetz, Management-Netz und Kommunikation der Teams hängen daran" width="70%"}
 
 ### 3. Netzwerkdokumentation fehlt oder ist veraltet
 
