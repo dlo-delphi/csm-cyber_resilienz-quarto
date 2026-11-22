@@ -395,6 +395,87 @@ Summe rund 122 Minuten. **Kürzung auf 90 Minuten:** Backup-Typen und Architektu
 
 Die Hausaufgabe (Prüffrage: Kann ein kompromittierter Administrator die Backups löschen? Skizze der Konten und Netzgrenzen zwischen Produktion und Backup) eröffnet Termin 8. Die Skizzen zeigen meist flache Netze und ein gemeinsames Verzeichnis – der Einstieg in Zero Trust und Microsegmentation.
 
+# Termin 8 – Technische Resilienz II
+
+**Roter Faden:** Wie begrenzt Architektur den Schaden, wenn ein Zugang in falsche Hände gerät? Vier Säulen: Zero Trust (Colonial Pipeline, Twilio und Cloudflare), Microsegmentation (Südwestfalen-IT), Cloud Resilience (Capital One, Google Paris), Network Design (Rogers). Die Folie „Redundanz braucht Unabhängigkeit“ verbindet die Fälle mit UniSuper aus Termin 7; die Synthesefolie fügt alles zusammen.
+
+**Fälle:** Colonial Pipeline 2021 (Einstieg), Twilio und Cloudflare 2022, Südwestfalen-IT 2023 (deutsch, kommunal), Capital One 2019, Google Cloud Paris 2023, Rogers 2022. Colonial Pipeline und Südwestfalen-IT stehen in Termin 1 nur als Stichpunkt, dort mit anderem Blickwinkel (Safety/Security, Konzentrationsrisiko). Diagramme: `python assets/diagramme_termin08.py`; vorheriger Stand: `Präsentationen/Termin-08/mainold.qmd`.
+
+## Ablauf
+
+Wie in Termin 7 gibt es zwei Varianten, weil das Übungsblatt GameNova allein 60–90 Minuten braucht.
+
+**Variante A – Vorlesung mit Kurzübung (rund 125 Minuten):**
+
+| Block | Folien | Min. | Methode und Hinweis |
+|---|---|---|---|
+| Einstieg | Rückblick, Lernziele | 5 | Hausaufgabe: zwei Skizzen zeigen lassen (flaches Netz, ein Admin für alles) |
+| Fall Colonial | Einstieg: Colonial Pipeline 2021 | 8 | Was hat das VPN geprüft – und was nicht? |
+| Zero Trust | Was ist Zero Trust?, Säulen | 12 | Säulen auf Colonial anwenden |
+| Fall Twilio/Cloudflare | Twilio und Cloudflare 2022 | 8 | Warum half Cloudflares MFA und Twilios nicht? |
+| Zero Trust Wirkung | Warum Zero Trust resilient macht | 3 | „kein Produkt“ betonen |
+| Microsegmentation | Definition | 4 | laterale Bewegung erklären |
+| Fall Südwestfalen-IT | Südwestfalen-IT 2023 | 9 | Grenze, die gehalten hat – und keine dahinter |
+| Umsetzung | Warum Microsegmentation?, Einführen | 8 | Wer muss mit wem sprechen? |
+| Cloud | Shared Responsibility | 5 | Rückbezug CloudNordic, UniSuper |
+| Fall Capital One | Capital One 2019 | 8 | Wer war verantwortlich – AWS oder die Bank? |
+| Cloud-Maßnahmen | Cloud-Resilienzmaßnahmen | 5 | AZ und Region aus Termin 3 abfragen |
+| Fall Google Paris | Google Cloud Paris 2023 | 8 | Was hätte Multi-AZ, was Multi-Region gebracht? |
+| Netz | Network Design & Resilience | 5 | SPOF sammeln |
+| Fall Rogers | Rogers 2022 | 8 | Wie erreicht man ein Netz, das ausgefallen ist? |
+| Synthese Netz | Redundanz braucht Unabhängigkeit | 6 | Prüffrage auf das eigene Umfeld anwenden |
+| Integration | Integration | 4 | Reihenfolge begründen lassen |
+| Kurzübung | GameNova, Aufgaben 1 und 5 | 12 | zu zweit, Ergebnis an die Tafel |
+| Abschluss | Was die Fälle zeigen, Kernpunkte, Ausblick | 7 | Spalte „Lehre“ abdecken; Hausaufgabe erklären |
+
+Summe rund 125 Minuten. **Kürzung auf 90 Minuten:** „Warum Zero Trust resilient macht“ überspringen (−3), Microsegmentation-Definition in einem Satz zum Fall (−3), „Microsegmentation einführen“ nur zeigen (−4), Cloud-Resilienzmaßnahmen nur zeigen (−4), Network Design in zwei Sätzen vor Rogers (−3), Redundanz-Folie als Plenumsfrage ohne Kurzübung (−3), Integration überspringen und in der Synthesetabelle erklären (−4), Kurzübung als Plenumsfrage zu Aufgabe 5 (−8), Capital One ohne SSRF-Erklärung (−3).
+
+**Variante B – volle Übung:** Vorlesungsteil in rund 45 Minuten (Colonial, Twilio/Cloudflare, Südwestfalen-IT und Rogers ausführlich; Capital One und Google Paris nur in der Synthesetabelle; Grundlagenfolien zur Selbstlektüre im Skript), danach GameNova in voller Länge.
+
+## Fragen ans Plenum
+
+| Folie | Frage | Erwartete Antwort |
+|---|---|---|
+| Einstieg Colonial | Was hat das VPN geprüft – und was nicht? | Nur das Passwort. Nicht geprüft: zweiter Faktor, Gerät, Kontext, ob das Konto noch gebraucht wird. Hinter dem VPN galt man als vertrauenswürdig. |
+| Säulen | Welche Säule hätte bei Colonial gegriffen? | Least Privilege (ungenutztes Profil löschen), starke Identität (zweiter Faktor), Gerätevertrauen (unbekanntes Gerät), Telemetrie (ungewöhnliche Anmeldung). |
+| Twilio/Cloudflare | Beide hatten MFA – warum hielt nur Cloudflare stand? | Codes lassen sich auf einer falschen Seite abfangen und in Echtzeit weiterreichen; ein FIDO2-Schlüssel ist an die echte Domain gebunden. |
+| Südwestfalen-IT | Was hat funktioniert, was nicht? | Die Grenze zwischen den Domänen hielt, Backups waren intakt. Innerhalb von intra.lan gab es keine Segmentierung, ein Admin-Konto reichte für alle Kunden. Dazu VPN ohne MFA. |
+| Microsegmentation einführen | Womit fangen Sie an? | Datenflüsse erheben, dann Kronjuwelen und Administrationszugänge (auch das Backup-Netz) – nicht das ganze Netz auf einmal. |
+| Capital One | Wer war verantwortlich – AWS oder die Bank? | Die Bank: Konfiguration der Firewall und Rechte der IAM-Rolle liegen im Shared Responsibility Model beim Kunden. So sah es auch die Aufsicht. |
+| Google Paris | Was hätte Multi-AZ, was Multi-Region gebracht? | Multi-AZ wenig, weil alle Zonen an derselben Steuerungsdatenbank hingen. Multi-Region einen Ausweg. |
+| Rogers | Wie erreicht man ein Netz, das ausgefallen ist? | Gar nicht, wenn das Management am selben Kern hängt. Lösung: Out-of-Band-Management mit Leitungen Dritter, Notkommunikation außerhalb des eigenen Netzes. |
+| Redundanz braucht Unabhängigkeit | Was teilen die beiden Hälften bei uns noch? | Häufig: ein Verzeichnisdienst, ein DNS-Anbieter, ein Internetzugang, ein Rechenzentrum, ein Admin-Team. |
+
+## Fallstricke
+
+- **Colonial:** Nicht „die Pipeline wurde gehackt“. Betroffen war das IT-Netz; die Pipeline (OT) wurde vorsorglich abgeschaltet. Wie das Passwort bekannt wurde, war bei der Anhörung ungeklärt; Berichte über ein Datenleck stammen aus Medien, nicht aus der Anhörung. Neustart am 12. Mai und die sichergestellten 2,3 Mio. US-Dollar nach Medienberichten und dem Justizministerium.
+- **Twilio:** Twilio nennt nicht, welchen zweiten Faktor die Beschäftigten hatten. Die Aussage „Codes lassen sich weiterreichen“ stützt sich auf die Beschreibung der Angriffsseite durch Cloudflare. Die Zahlen 209 und 93 sind der Endstand; ältere Berichte nennen 125 oder 163 Kunden. Cloudflare verkauft selbst Zero-Trust-Produkte – den Fall als Lehrbeispiel für FIDO2 nehmen, nicht als Produktempfehlung.
+- **Südwestfalen-IT:** Der Einstiegsweg ist nicht abschließend geklärt; der Bericht hält eine Schwachstelle der Cisco ASA für am wahrscheinlichsten. „72 Kommunen“ sind die Verbandskommunen; Medien nannten teils über 100 betroffene Verwaltungen. Kein Lösegeld, kein nachgewiesener Datenabfluss – kein Fall für Datendiebstahl.
+- **Capital One:** Kein Fehler von AWS. Die Täterin war frühere AWS-Beschäftigte; ausgenutzt wurde aber die Fehlkonfiguration in der Umgebung des Kunden. Die Anordnung der OCC war in der Sitzung nicht direkt abrufbar; Betrag und Begründung über mehrere Berichte geprüft.
+- **Google Paris:** Physisch betroffen war ein Gebäude (Zone a); der Ausfall der übrigen Zonen kam über die Steuerungsdatenbank. Die Angabe, Zone c sei teilweise abgeschaltet worden, stammt nur aus Sekundärquellen und steht deshalb nicht in den Unterlagen. Kein Datenverlust laut Google.
+- **Rogers:** Der Bericht nennt das gemeinsame Kernnetz ausdrücklich keinen Designfehler an sich, sondern den Grund für das Ausmaß. Ursache war die Konfigurationsänderung plus fehlender Überlastschutz und Change-Management.
+- **Folie „Redundanz braucht Unabhängigkeit“:** Synthese der Lehrveranstaltung, keine Norm.
+
+## Übung GameNova GmbH
+
+**Durchführung:** Übungsblatt aus dem Archiv, unverändert, 60–90 Minuten, Gruppen zu vier bis fünf Personen, Hilfsmittel erlaubt. In Variante A nur Aufgaben 1 und 5 als Kurzübung; der Rest als freiwillige Nachbereitung.
+
+**Spickzettel aus den Fällen:** Welcher zweite Faktor für das Admin-VPN (Twilio vs. Cloudflare)? Wer muss mit wem sprechen – Entwicklernetz mit Produktion (Südwestfalen-IT)? Was ist Kundenpflicht beim Storage-Bucket (Capital One)? Was teilen die redundanten Teile (Google Paris, Rogers)?
+
+**Erwartete Kernpunkte:**
+
+- **Zero Trust:** phishingresistente MFA für alle Admin-Zugänge, VPN durch identitätsbasierten Zugang je Anwendung ablösen, Just-in-Time-Rechte; erster Schritt: MFA und Inventar der Admin-Konten.
+- **Microsegmentation:** Entwicklernetz von Produktion und Matchmaking trennen; Admin-Zugänge in eigenes Segment; vorher Datenflüsse erheben.
+- **Cloud Resilience:** Bucket-Richtlinien und Least Privilege für Rollen, Multi-AZ für Login und Datenbank, Backup der Managed-SQL-Datenbank außerhalb des Kontos (Rückbezug UniSuper), Restore-Tests.
+- **Network Resilience:** wahrscheinlichster SPOF ist der einzelne Router bzw. die Anbindung des eigenen RZ; zweiter Pfad über einen zweiten Carrier, Out-of-Band-Management; Wirksamkeit durch Umschalttest prüfen (Rückbezug Delta, Termin 7).
+- **Priorisierung:** zuerst Identität (gestohlene Admin-Zugangsdaten sind das größte Risiko bei geringem Aufwand), dann Segmentierung des Entwicklernetzes, dann Netzredundanz, dann Cloud-Feinschliff – Abweichungen von der Skript-Reihenfolge sind zulässig, wenn sie begründet werden.
+
+**Auswertung:** Zwei Gruppen stellen ihre Priorisierung vor; die übrigen nennen nur Abweichungen. Rückfrage: Welche Maßnahme hätte welchen der vier Vorfälle verhindert oder begrenzt?
+
+## Brücke
+
+Die Hausaufgabe (ein Gerät, das sich nicht mit MFA oder Agent schützen lässt – mit wem muss es sprechen, wie abschotten?) eröffnet Termin 9. In der Produktion (OT) bleibt oft nur die Segmentierung: Zonen und Conduits nach IEC 62443.
+
 # Termin 9 – Sonderthemen
 
 Gastvortrag: Thomas Gronenwald, Partner, Head of Product & Production Security, KPMG. Im WS 2025/26 am 05.12.2025. Auf den Vorlesungsfolien steht die Schreibweise „Groenenwald“; der Foliensatz des Referenten verwendet „Gronenwald“. Die Vortragsfolien sind nicht Teil dieses Projekts.

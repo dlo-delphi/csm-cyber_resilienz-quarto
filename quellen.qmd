@@ -79,6 +79,18 @@ Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 7 belegen Bac
 - Delta Air Lines, Ausfall des Rechenzentrums am 8. August 2016: [Atlanta Journal-Constitution, 10.08.2016](https://www.ajc.com/business/delta-computer-risk-went-undetected-ceo-says/V2H5CYl4Nsbn57x8T5ISvM) und [Star Tribune, 03.09.2016](https://www.startribune.com/system-outage-at-delta-cost-the-airline-100-million-in-revenue/392143951/)
 - Die Darstellung „Die RTO ist mehr als die Restore-Zeit“ ist eine schematische Ergänzung der Lehrveranstaltung, keine Normvorgabe
 
+## Reale Fallbeispiele in den Folien zu Termin 8
+
+Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 8 belegen Zero Trust, Microsegmentation, Cloud Resilience und Network Design mit dokumentierten Vorfällen.
+
+- Colonial Pipeline, Ransomware am 7. Mai 2021: [US-Senat, Ausschuss für Heimatschutz, Anhörung am 08.06.2021 (Pressemitteilung)](https://www.hsgac.senate.gov/media/reps/portman-presses-president-and-ceo-of-colonial-pipeline-on-gaps-in-cybersecurity-practices/), [Dark Reading, 09.06.2021](https://www.darkreading.com/attacks-breaches/colonial-pipeline-ceo-ransomware-attack-started-via-pilfered-legacy-vpn-account/d/d-id/1341237) und [AP/PBS, 19.05.2021](https://www.pbs.org/newshour/economy/colonial-pipeline-confirms-it-paid-4-4-million-to-hackers); Neustart am 12. Mai und sichergestellter Betrag nach Medienberichten
+- Twilio und Cloudflare, SMS-Phishing im Juli/August 2022: [Twilio, Incident Report: Employee and Customer Account Compromise](https://www.twilio.com/en-us/blog/archive/2022/august-2022-social-engineering-attack) und [Cloudflare, The mechanics of a sophisticated phishing scam and how we stopped it, 09.08.2022](https://blog.cloudflare.com/2022-07-sms-phishing-attacks); welchen zweiten Faktor Twilio-Beschäftigte nutzten, nennt Twilio nicht
+- Südwestfalen-IT, Ransomware ab 18. Oktober 2023: [Forensikbericht r-tec, Version 1.1 (PDF)](https://www.sit.nrw/fileadmin/user_upload/SIT_Incident_Response_v1.1.pdf), [Pressemitteilung der Südwestfalen-IT vom 25.01.2024 (PDF, über die Gemeinde Kürten)](https://kuerten.de/wp-content/uploads/2024/07/2024-01-25-Pressemitteilung_Cyberangriff.pdf) und [ComputerBase zur Zahl der Kommunen](https://www.computerbase.de/2023-11/suedwestfalen-it-deutsche-verwaltungen-durch-ransomware-angriff-gestoert/)
+- Capital One, Datenabfluss aus AWS ab März 2019: [Capital One, Mitteilung vom 29.07.2019](https://www.capitalone.com/about/newsroom/capital-one-announces-data-security-incident/), [US-Justizministerium, Urteil im Juni 2022](https://www.justice.gov/usao-wdwa/pr/former-seattle-tech-worker-convicted-wire-fraud-and-computer-intrusions) und [CIO Dive zur Anordnung der OCC, 08/2020](https://www.ciodive.com/news/capital-one-breach-penalty/583063/); die Anordnung der OCC selbst war in der Sitzung nicht abrufbar, Angaben über mehrere Berichte geprüft
+- Google Cloud, Ausfall der Region europe-west9 (Paris) am 25./26. April 2023: [Google Cloud, Incident Report](https://status.cloud.google.com/incidents/dS9ps52MUnxQfyDGPfkY) und [The Register, 10.05.2023](https://www.theregister.com/2023/05/10/google_cloud_paris_outage_persists/)
+- Rogers Communications, Netzausfall am 8. Juli 2022: [Xona Partners für die CRTC, Executive Summary, 07/2024](https://crtc.gc.ca/eng/publications/reports/xona2024.htm) und [Volltext, 11/2024](https://crtc.gc.ca/eng/publications/reports/xonarp2023.htm)
+- Die Darstellung „Redundanz braucht Unabhängigkeit“ ist eine Synthese der Lehrveranstaltung aus den genannten Fällen und UniSuper (Termin 7), keine Normvorgabe
+
 # Normen und Rahmenwerke
 
 | Referenz | Verwendung in der Lehrveranstaltung | Termine |
@@ -95,6 +107,8 @@ Die Folien, die Lernseite und die Ergänzungen im Skript zu Termin 7 belegen Bac
 | NIS-2-Richtlinie [@nis2], DSGVO [@dsgvo] | Verantwortung der Leitung, Meldepflichten | 5–6 |
 | NIST SP 800-34 [@nist80034r1] | Notfallplanung und Tests | 7 |
 | NIST SP 800-207 [@nist800207] | Zero Trust Architecture | 8 |
+| NIST SP 1800-35 [@nist180035], CISA ZTMM 2.0 [@cisaztmm2] | Umsetzung und Reifegrad von Zero Trust | 8 |
+| BSI IT-Grundschutz NET.1.1/NET.1.2 [@bsinet] | Netzarchitektur, Segmentierung, Netzmanagement | 8 |
 | IEC 62443 [@iec62443] | OT-Security, Zonen und Conduits, Security Levels | 9 |
 | NIST CSF [@nistcsf2], NIST SP 800-82 [@nist80082r3] | Strukturierung von OT-Resilienz | 9 |
 | ISO/IEC 27019 [@iso27019] | Energiespezifische OT-Sicherheit | 9 |
